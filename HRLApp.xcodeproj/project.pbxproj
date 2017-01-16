@@ -27,7 +27,6 @@
 		D4A804E9DE4CA6F70B3EE600 /* ListWorkoutsViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB0C6B88D415359700E8BC8 /* ListWorkoutsViewInput.swift */; };
 		E0A71D7AFEC37CDBDF9CA856 /* ListWorkoutsPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F474F96C56408F7016B4B9C7 /* ListWorkoutsPresenterTests.swift */; };
 		FF9ADDC41E2BD535007F1187 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9ADDC31E2BD535007F1187 /* AppDelegate.swift */; };
-		FF9ADDC61E2BD535007F1187 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9ADDC51E2BD535007F1187 /* ViewController.swift */; };
 		FF9ADDC91E2BD535007F1187 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF9ADDC71E2BD535007F1187 /* Main.storyboard */; };
 		FF9ADDCB1E2BD535007F1187 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF9ADDCA1E2BD535007F1187 /* Assets.xcassets */; };
 		FF9ADDCE1E2BD535007F1187 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF9ADDCC1E2BD535007F1187 /* LaunchScreen.storyboard */; };
@@ -69,7 +68,6 @@
 		F474F96C56408F7016B4B9C7 /* ListWorkoutsPresenterTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ListWorkoutsPresenterTests.swift; sourceTree = "<group>"; };
 		FF9ADDC01E2BD535007F1187 /* HRLApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HRLApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF9ADDC31E2BD535007F1187 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FF9ADDC51E2BD535007F1187 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		FF9ADDC81E2BD535007F1187 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FF9ADDCA1E2BD535007F1187 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FF9ADDCD1E2BD535007F1187 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -270,7 +268,6 @@
 			children = (
 				62C39B4F86C1DEC1E488D153 /* Modules */,
 				FF9ADDC31E2BD535007F1187 /* AppDelegate.swift */,
-				FF9ADDC51E2BD535007F1187 /* ViewController.swift */,
 				FF9ADDCC1E2BD535007F1187 /* LaunchScreen.storyboard */,
 				FF9ADDC71E2BD535007F1187 /* Main.storyboard */,
 				FF9ADDCA1E2BD535007F1187 /* Assets.xcassets */,
@@ -490,7 +487,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FF9ADDC61E2BD535007F1187 /* ViewController.swift in Sources */,
 				FF9ADDC41E2BD535007F1187 /* AppDelegate.swift in Sources */,
 				D4A804E9DE4CA6F70B3EE600 /* ListWorkoutsViewInput.swift in Sources */,
 				57F1B955F0E4F235D8689C88 /* ListWorkoutsViewOutput.swift in Sources */,

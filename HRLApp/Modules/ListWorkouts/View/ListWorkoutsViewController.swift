@@ -8,18 +8,33 @@
 
 import UIKit
 
-class ListWorkoutsViewController: UIViewController, ListWorkoutsViewInput {
+// MARK: - Properties & public methods
+
+class ListWorkoutsViewController: UITableViewController {
+
+    // MARK: - Public properties
 
     var output: ListWorkoutsViewOutput!
 
-    // MARK: Life cycle
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        output.viewIsReady()
+    // MARK: - Memory management
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
 
+    // MARK: - Life cycle
 
-    // MARK: ListWorkoutsViewInput
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        output.viewIsReady()
+    }
+}
+
+// MARK: - ListWorkoutsViewInput methods
+
+extension ListWorkoutsViewController: ListWorkoutsViewInput {
     func setupInitialState() {
     }
 }
