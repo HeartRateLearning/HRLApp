@@ -26,6 +26,8 @@
 		CBAC8CB79D25866019E35FB7 /* Pods_HRLApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8AB0591D95BBCCB727D0E1B /* Pods_HRLApp.framework */; };
 		D4A804E9DE4CA6F70B3EE600 /* ListWorkoutsViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB0C6B88D415359700E8BC8 /* ListWorkoutsViewInput.swift */; };
 		E0A71D7AFEC37CDBDF9CA856 /* ListWorkoutsPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F474F96C56408F7016B4B9C7 /* ListWorkoutsPresenterTests.swift */; };
+		FF82D2C11E2EB1C300119044 /* ViewControllerInstantiaterHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF82D2C01E2EB1C300119044 /* ViewControllerInstantiaterHelper.swift */; };
+		FF82D2C31E2EB1CF00119044 /* ListWorkoutsViewOutputTestDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF82D2C21E2EB1CF00119044 /* ListWorkoutsViewOutputTestDouble.swift */; };
 		FF9ADDC41E2BD535007F1187 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9ADDC31E2BD535007F1187 /* AppDelegate.swift */; };
 		FF9ADDC91E2BD535007F1187 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF9ADDC71E2BD535007F1187 /* Main.storyboard */; };
 		FF9ADDCB1E2BD535007F1187 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF9ADDCA1E2BD535007F1187 /* Assets.xcassets */; };
@@ -66,6 +68,8 @@
 		D8AB0591D95BBCCB727D0E1B /* Pods_HRLApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HRLApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBB035AD3807CFA509ADE459 /* Pods-HRLApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HRLApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HRLApp/Pods-HRLApp.debug.xcconfig"; sourceTree = "<group>"; };
 		F474F96C56408F7016B4B9C7 /* ListWorkoutsPresenterTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ListWorkoutsPresenterTests.swift; sourceTree = "<group>"; };
+		FF82D2C01E2EB1C300119044 /* ViewControllerInstantiaterHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerInstantiaterHelper.swift; sourceTree = "<group>"; };
+		FF82D2C21E2EB1CF00119044 /* ListWorkoutsViewOutputTestDouble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListWorkoutsViewOutputTestDouble.swift; sourceTree = "<group>"; };
 		FF9ADDC01E2BD535007F1187 /* HRLApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HRLApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF9ADDC31E2BD535007F1187 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FF9ADDC81E2BD535007F1187 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -145,6 +149,7 @@
 		6186EEAA88E25720F0924A2A /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				FF0EED261E2E9C8F0069B4D5 /* Helpers */,
 				849BDDC3BF07471A08C4C059 /* ListWorkouts */,
 			);
 			path = Modules;
@@ -193,6 +198,7 @@
 				749554386121EAD6ECA2887B /* Interactor */,
 				79745C6CEED7150FD0DD70DF /* Presenter */,
 				12697A830D371CE0A22D8047 /* Router */,
+				FF0EED231E2E961A0069B4D5 /* TestDoubles */,
 				FA37E830A7B4E646ACFADA7B /* View */,
 			);
 			path = ListWorkouts;
@@ -241,6 +247,22 @@
 				A94E3B91F246A52E28145721 /* ListWorkoutsViewTests.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		FF0EED231E2E961A0069B4D5 /* TestDoubles */ = {
+			isa = PBXGroup;
+			children = (
+				FF82D2C21E2EB1CF00119044 /* ListWorkoutsViewOutputTestDouble.swift */,
+			);
+			path = TestDoubles;
+			sourceTree = "<group>";
+		};
+		FF0EED261E2E9C8F0069B4D5 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				FF82D2C01E2EB1C300119044 /* ViewControllerInstantiaterHelper.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		FF9ADDB71E2BD534007F1187 = {
@@ -509,8 +531,10 @@
 			files = (
 				9B4A4A7AA14C75C146A39E24 /* ListWorkoutsConfiguratorTests.swift in Sources */,
 				4F9D0775D01F45AB46C7E698 /* ListWorkoutsViewTests.swift in Sources */,
+				FF82D2C31E2EB1CF00119044 /* ListWorkoutsViewOutputTestDouble.swift in Sources */,
 				4A3AE65F820FEEDE328DA4D9 /* ListWorkoutsInteractorTests.swift in Sources */,
 				E0A71D7AFEC37CDBDF9CA856 /* ListWorkoutsPresenterTests.swift in Sources */,
+				FF82D2C11E2EB1C300119044 /* ViewControllerInstantiaterHelper.swift in Sources */,
 				41289722AE30C4F4D0E2C98B /* ListWorkoutsRouterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

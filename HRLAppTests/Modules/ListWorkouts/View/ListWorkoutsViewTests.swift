@@ -8,16 +8,60 @@
 
 import XCTest
 
+@testable import HRLApp
+
+// MARK: - Main body
+
 class ListWorkoutsViewTests: XCTestCase {
+    // MARK: - Properties
+
+    let output = ListWorkoutsViewOutputTestDouble()
+
+    var sut: ListWorkoutsViewController!
+
+    // MARK: - Setup / Teardown
 
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+
+        let instantiater = ViewControllerInstantiaterHelper()
+        let viewController = instantiater.viewController(with: Constants.viewControllerId)
+
+        sut = viewController as! ListWorkoutsViewController
+        sut.output = output
     }
 
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
+    // MARK: - Tests
+
+    func test_tableViewNumberOfRowsInSection_forwardToOutput() {
+        // when
+        _ = sut.tableView(sut.tableView, numberOfRowsInSection: 0)
+
+        // then
+        XCTAssertEqual(output.numberOfWorkoutsCount, 1)
     }
 
+    func testSutWithTwoRows_tableViewCellForSecondRow_forwardToOutput() {
+        // given
+        output.numberOfWorkoutsResult = 2
+
+        // when
+        let row = 1
+        let section = 0
+        let indexPath = IndexPath(row: row, section: section)
+
+        _ = sut.tableView(sut.tableView, cellForRowAt: indexPath)
+
+        // then
+        XCTAssertEqual(output.workoutAtIndexCount, 1)
+        XCTAssertEqual(output.lastWorkoutIndex, row)
+    }
+}
+
+// MARK: - Private body
+
+private extension ListWorkoutsViewTests {
+    enum Constants {
+        static let viewControllerId = "ListWorkoutsViewController"
+    }
 }

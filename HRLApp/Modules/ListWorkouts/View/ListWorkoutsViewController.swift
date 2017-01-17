@@ -8,7 +8,7 @@
 
 import UIKit
 
-// MARK: - Properties & public methods
+// MARK: - Main body
 
 class ListWorkoutsViewController: UITableViewController {
 
@@ -30,11 +30,34 @@ class ListWorkoutsViewController: UITableViewController {
         
         output.viewIsReady()
     }
+
+    // MARK: - UITableViewDataSource methods
+
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return output.numberOfWorkouts()
+    }
+
+    override func tableView(_ tableView: UITableView,
+                            cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellIdentifier,
+                                                 for: indexPath)
+        cell.textLabel?.text = output.workout(at: indexPath.row)
+
+        return cell
+    }
 }
 
 // MARK: - ListWorkoutsViewInput methods
 
 extension ListWorkoutsViewController: ListWorkoutsViewInput {
     func setupInitialState() {
+    }
+}
+
+// MARK: - Private body
+
+private extension ListWorkoutsViewController {
+    enum Constants {
+        static let cellIdentifier = "WorkoutCell"
     }
 }

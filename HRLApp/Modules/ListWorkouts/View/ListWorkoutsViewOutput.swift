@@ -7,11 +7,8 @@
 //
 
 protocol ListWorkoutsViewOutput {
-
-    /**
-        @author Enrique de la Torre
-        Notify presenter that view is ready
-    */
-
     func viewIsReady()
+
+    func numberOfWorkouts() -> Int
+    func workout(at index: Int) -> String
 }
