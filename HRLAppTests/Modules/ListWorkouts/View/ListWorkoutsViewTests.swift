@@ -13,6 +13,7 @@ import XCTest
 // MARK: - Main body
 
 class ListWorkoutsViewTests: XCTestCase {
+    
     // MARK: - Properties
 
     let output = ListWorkoutsViewOutputTestDouble()
@@ -41,7 +42,7 @@ class ListWorkoutsViewTests: XCTestCase {
         XCTAssertEqual(output.numberOfWorkoutsCount, 1)
     }
 
-    func testSutWithTwoRows_tableViewCellForSecondRow_forwardToOutput() {
+    func testOutputWithTwoWorkouts_tableViewCellForSecondRow_forwardToOutput() {
         // given
         output.numberOfWorkoutsResult = 2
 
@@ -55,6 +56,17 @@ class ListWorkoutsViewTests: XCTestCase {
         // then
         XCTAssertEqual(output.workoutAtIndexCount, 1)
         XCTAssertEqual(output.lastWorkoutIndex, row)
+    }
+
+    func testOutputWithWorkouts_setupInitialState_atLeastRequestNumberOfWorkouts() {
+        // given
+        output.numberOfWorkoutsResult = 1
+
+        // when
+        sut.setupInitialState()
+
+        // then
+        XCTAssertEqual(output.numberOfWorkoutsCount, 1)
     }
 }
 

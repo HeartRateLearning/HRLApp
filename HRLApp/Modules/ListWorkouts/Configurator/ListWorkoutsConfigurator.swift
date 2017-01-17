@@ -19,6 +19,7 @@ class ListWorkoutsModuleConfigurator {
 
     private func configure(viewController: ListWorkoutsViewController) {
 
+        let store = WorkoutStore()
         let router = ListWorkoutsRouter()
 
         let presenter = ListWorkoutsPresenter()
@@ -26,6 +27,7 @@ class ListWorkoutsModuleConfigurator {
         presenter.router = router
 
         let interactor = ListWorkoutsInteractor()
+        interactor.store = store
         interactor.output = presenter
 
         presenter.interactor = interactor

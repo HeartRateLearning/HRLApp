@@ -9,5 +9,5 @@
 import Foundation
 
 protocol ListWorkoutsInteractorInput {
-
+    func execute()
 }

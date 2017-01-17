@@ -13,6 +13,7 @@ import Foundation
 // MARK: - Main body
 
 class ListWorkoutsViewOutputTestDouble {
+    
     // MARK: - Public properties
 
     fileprivate (set) var numberOfWorkoutsCount = 0

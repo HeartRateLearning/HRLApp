@@ -10,19 +10,34 @@ import XCTest
 
 @testable import HRLApp
 
+// MARK: - Main body
+
 class ListWorkoutsInteractorTests: XCTestCase {
+
+    // MARK: - Properties
+
+    let store = WorkoutStoreTestDouble()
+    let output = ListWorkoutsInteractorOutputTestDouble()
+
+    let sut = ListWorkoutsInteractor()
+
+    // MARK: - Setup / Teardown
 
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+
+        sut.store = store
+        sut.output = output
     }
 
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-    }
+    // MARK: - Tests
 
-    class MockPresenter: ListWorkoutsInteractorOutput {
+    func test_execute_requestWorkoutsAndForwardToOuptut() {
+        // when
+        sut.execute()
 
+        // then
+        XCTAssertEqual(store.workoutsCount, 1)
+        XCTAssertEqual(output.foundWorkoutsCount, 1)
     }
 }

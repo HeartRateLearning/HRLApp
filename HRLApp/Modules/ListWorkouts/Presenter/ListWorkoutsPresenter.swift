@@ -9,9 +9,17 @@
 // MARK: - Properties & public methods
 
 class ListWorkoutsPresenter {
+    
+    // MARK: - Dependencies
+
     weak var view: ListWorkoutsViewInput!
-    var interactor: ListWorkoutsInteractorInput!
+
     var router: ListWorkoutsRouterInput!
+    var interactor: ListWorkoutsInteractorInput!
+
+    // MARK: - Private properties
+
+    fileprivate var workouts = [] as [String]
 }
 
 // MARK: - ListWorkoutsModuleInput methods
@@ -22,17 +30,24 @@ extension ListWorkoutsPresenter: ListWorkoutsModuleInput {}
 
 extension ListWorkoutsPresenter: ListWorkoutsViewOutput {
     func viewIsReady() {
+        interactor.execute()
     }
 
     func numberOfWorkouts() -> Int {
-        return 0
+        return workouts.count
     }
 
     func workout(at index: Int) -> String {
-        return ""
+        return workouts[index]
     }
 }
 
 // MARK: - ListWorkoutsInteractorOutput methods
 
-extension ListWorkoutsPresenter: ListWorkoutsInteractorOutput {}
+extension ListWorkoutsPresenter: ListWorkoutsInteractorOutput {
+    func foundWorkouts(_ workouts: [String]) {
+        self.workouts = workouts
+
+        view.setupInitialState()
+    }
+}

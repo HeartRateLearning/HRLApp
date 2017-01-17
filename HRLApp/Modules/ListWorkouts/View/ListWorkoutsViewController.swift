@@ -12,7 +12,7 @@ import UIKit
 
 class ListWorkoutsViewController: UITableViewController {
 
-    // MARK: - Public properties
+    // MARK: - Dependencies
 
     var output: ListWorkoutsViewOutput!
 
@@ -51,6 +51,7 @@ class ListWorkoutsViewController: UITableViewController {
 
 extension ListWorkoutsViewController: ListWorkoutsViewInput {
     func setupInitialState() {
+        tableView.reloadData()
     }
 }
 

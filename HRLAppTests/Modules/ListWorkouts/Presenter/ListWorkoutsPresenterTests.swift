@@ -10,30 +10,66 @@ import XCTest
 
 @testable import HRLApp
 
+// MARK: - Main body
+
 class ListWorkoutsPresenterTest: XCTestCase {
+
+    // MARK: - Properties
+
+    let workouts = ["Workout 01", "Workout 02"]
+
+    let view = ListWorkoutsViewInputTestDouble()
+    let interactor = ListWorkoutsInteractorInputTestDouble()
+
+    let sut = ListWorkoutsPresenter()
+
+    // MARK: - Setup / Teardown
 
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+
+        sut.view = view
+        sut.interactor = interactor
     }
 
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
+    // MARK: - Tests
+
+    func test_viewIsReady_forwardToInteractor() {
+        // when
+        sut.viewIsReady()
+
+        // then
+        XCTAssertEqual(interactor.executeCount, 1)
     }
 
-    class MockInteractor: ListWorkoutsInteractorInput {
+    func test_foundWorkouts_setupInitialStateInView() {
+        // when
+        sut.foundWorkouts(workouts)
 
+        // then
+        XCTAssertEqual(view.setupInitialStateCount, 1)
     }
 
-    class MockRouter: ListWorkoutsRouterInput {
+    func testSutWithWorkouts_numberOfWorkouts_returnExpectedCount() {
+        // given
+        sut.foundWorkouts(workouts)
 
+        // when
+        let count = sut.numberOfWorkouts()
+
+        // then
+        XCTAssertEqual(count, workouts.count)
     }
 
-    class MockViewController: ListWorkoutsViewInput {
+    func testSutWithWorkouts_workoutAtLastIndex_returnExpectedWorkout() {
+        // given
+        sut.foundWorkouts(workouts)
 
-        func setupInitialState() {
+        // when
+        let index = workouts.count - 1
+        let lastWorkout = sut.workout(at: index)
 
-        }
+        // then
+        XCTAssertEqual(workouts[index], lastWorkout)
     }
 }
