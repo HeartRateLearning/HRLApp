@@ -6,7 +6,7 @@
 //  Copyright © 2017 Enrique de la Torre. All rights reserved.
 //
 
-// MARK: - Properties & public methods
+// MARK: - Main body
 
 class ListWorkoutsPresenter {
     

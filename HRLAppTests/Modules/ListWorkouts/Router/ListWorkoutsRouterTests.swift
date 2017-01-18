@@ -8,15 +8,51 @@
 
 import XCTest
 
+@testable import HRLApp
+
+// MARK: - Main body
+
 class ListWorkoutsRouterTests: XCTestCase {
+
+    // MARK: - ListWorkoutsViewControllerTestDouble definition
+
+    class ListWorkoutsViewControllerTestDouble: ListWorkoutsViewController {
+
+        // MARK: - Public properties
+
+        private (set) var lastSegue = ""
+        private (set) var performSegueCount = 0
+
+        // MARK: - Overrided methods
+
+        override func performSegue(withIdentifier identifier: String, sender: Any?) {
+            lastSegue = identifier
+            performSegueCount += 1
+        }
+    }
+
+    // MARK: - Properties
+
+    let viewController = ListWorkoutsViewControllerTestDouble()
+
+    let sut = ListWorkoutsRouter()
+
+    // MARK: - Setup / Teardown
 
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+
+        sut.viewController = viewController
     }
 
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
+    // MARK: - Tests
+
+    func test_presentAddWorkout_performExpectedSegue() {
+        // when
+        sut.presentAddWorkout()
+
+        // then
+        XCTAssertEqual(viewController.performSegueCount, 1)
+        XCTAssertEqual(viewController.lastSegue, ListWorkoutsRouter.Segues.addWorkout)
     }
 }

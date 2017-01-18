@@ -12,6 +12,7 @@ import UIKit
 // MARK: - Main body
 
 class ViewControllerInstantiaterHelper {
+    
     // MARK: - Private properties
 
     fileprivate let storyboard: UIStoryboard

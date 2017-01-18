@@ -6,7 +6,7 @@
 //  Copyright © 2017 Enrique de la Torre. All rights reserved.
 //
 
-// MARK: - Public body
+// MARK: - Main body
 
 class ListWorkoutsInteractor {
 

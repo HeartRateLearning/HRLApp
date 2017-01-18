@@ -47,6 +47,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="yFX-fh-J7A" kind="show" identifier="addWorkoutSegue" id="EMT-Hz-NQ0"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cNt-aV-eTE" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <customObject id="3BW-iQ-4jJ" customClass="ListWorkoutsModuleInitializer" customModule="HRLApp" customModuleProvider="target">
@@ -56,6 +59,29 @@
                 </customObject>
             </objects>
             <point key="canvasLocation" x="658" y="633"/>
+        </scene>
+        <!--Addworkout View Controller-->
+        <scene sceneID="UZP-LE-xdJ">
+            <objects>
+                <viewController storyboardIdentifier="AddWorkoutViewController" id="yFX-fh-J7A" customClass="AddWorkoutViewController" customModule="HRLApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hlW-PI-EZF"/>
+                        <viewControllerLayoutGuide type="bottom" id="2gD-56-xua"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7um-mi-eTr">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zV6-0b-wl9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="s1A-r8-4rn" customClass="AddWorkoutModuleInitializer" customModule="HRLApp" customModuleProvider="target">
+                    <connections>
+                        <outlet property="addworkoutViewController" destination="yFX-fh-J7A" id="e20-pp-am7"/>
+                    </connections>
+                </customObject>
+            </objects>
+            <point key="canvasLocation" x="1561" y="633"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="cqb-9X-3YW">

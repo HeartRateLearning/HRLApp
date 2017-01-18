@@ -10,7 +10,7 @@ import Foundation
 
 @testable import HRLApp
 
-// MARK: - Public body
+// MARK: - Main body
 
 class ListWorkoutsInteractorInputTestDouble {
 
