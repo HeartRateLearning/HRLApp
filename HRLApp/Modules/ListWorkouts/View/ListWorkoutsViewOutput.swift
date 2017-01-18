@@ -11,4 +11,6 @@ protocol ListWorkoutsViewOutput {
 
     func numberOfWorkouts() -> Int
     func workout(at index: Int) -> String
+
+    func add()
 }

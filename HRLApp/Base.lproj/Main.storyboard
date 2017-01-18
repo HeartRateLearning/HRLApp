@@ -40,7 +40,13 @@
                             <outlet property="delegate" destination="Pg6-dV-zkj" id="Xai-BE-Zq1"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="jyZ-u8-OD5"/>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="jyZ-u8-OD5">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="eud-0h-ilI">
+                            <connections>
+                                <action selector="add:" destination="Pg6-dV-zkj" id="ReE-KG-Lr3"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cNt-aV-eTE" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <customObject id="3BW-iQ-4jJ" customClass="ListWorkoutsModuleInitializer" customModule="HRLApp" customModuleProvider="target">

@@ -68,6 +68,14 @@ class ListWorkoutsViewTests: XCTestCase {
         // then
         XCTAssertEqual(output.numberOfWorkoutsCount, 1)
     }
+
+    func test_add_forwardToOuput() {
+        // when
+        sut.add("")
+
+        // then
+        XCTAssertEqual(output.addCount, 1)
+    }
 }
 
 // MARK: - Private body

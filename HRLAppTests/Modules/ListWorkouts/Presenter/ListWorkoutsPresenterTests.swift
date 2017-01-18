@@ -19,6 +19,7 @@ class ListWorkoutsPresenterTest: XCTestCase {
     let workouts = ["Workout 01", "Workout 02"]
 
     let view = ListWorkoutsViewInputTestDouble()
+    let router = ListWorkoutsRouterTestDouble()
     let interactor = ListWorkoutsInteractorInputTestDouble()
 
     let sut = ListWorkoutsPresenter()
@@ -29,6 +30,7 @@ class ListWorkoutsPresenterTest: XCTestCase {
         super.setUp()
 
         sut.view = view
+        sut.router = router
         sut.interactor = interactor
     }
 
@@ -71,5 +73,13 @@ class ListWorkoutsPresenterTest: XCTestCase {
 
         // then
         XCTAssertEqual(workouts[index], lastWorkout)
+    }
+
+    func test_add_forwardToRouter() {
+        // when
+        sut.add()
+
+        // then
+        XCTAssertEqual(router.presentAddWorkoutCount, 1)
     }
 }

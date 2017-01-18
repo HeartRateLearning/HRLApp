@@ -9,5 +9,5 @@
 import Foundation
 
 protocol ListWorkoutsRouterInput {
-
+    func presentAddWorkout()
 }

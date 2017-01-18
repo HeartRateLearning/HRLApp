@@ -40,6 +40,10 @@ extension ListWorkoutsPresenter: ListWorkoutsViewOutput {
     func workout(at index: Int) -> String {
         return workouts[index]
     }
+
+    func add() {
+        router.presentAddWorkout()
+    }
 }
 
 // MARK: - ListWorkoutsInteractorOutput methods

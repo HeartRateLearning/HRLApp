@@ -31,6 +31,12 @@ class ListWorkoutsViewController: UITableViewController {
         output.viewIsReady()
     }
 
+    // MARK: - Actions
+
+    @IBAction func add(_ sender: Any) {
+        output.add()
+    }
+
     // MARK: - UITableViewDataSource methods
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
