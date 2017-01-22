@@ -9,11 +9,11 @@
 import Foundation
 
 protocol WorkoutStoreProtocol {
-    var workouts: [String] { get }
+    var workouts: [Workout] { get }
 }
 
 class WorkoutStore {
-    private (set) var workouts = [] as [String]
+    private (set) var workouts = [] as [Workout]
 }
 
 extension WorkoutStore: WorkoutStoreProtocol {}

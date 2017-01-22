@@ -54,6 +54,7 @@
 		FF9B8CEA1E2FEA2100A7EB47 /* ListWorkoutsRouterTestDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9B8CE91E2FEA2100A7EB47 /* ListWorkoutsRouterTestDouble.swift */; };
 		FF9B8CED1E2FEA2B00A7EB47 /* ListWorkoutsViewInputTestDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9B8CEB1E2FEA2B00A7EB47 /* ListWorkoutsViewInputTestDouble.swift */; };
 		FF9B8CEE1E2FEA2B00A7EB47 /* ListWorkoutsViewOutputTestDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9B8CEC1E2FEA2B00A7EB47 /* ListWorkoutsViewOutputTestDouble.swift */; };
+		FFA3E5531E34DFC9002EEF11 /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA3E5521E34DFC9002EEF11 /* Workout.swift */; };
 		FFE41CAD1E2EE74C00BC7B72 /* WorkoutStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE41CAC1E2EE74C00BC7B72 /* WorkoutStore.swift */; };
 /* End PBXBuildFile section */
 
@@ -123,6 +124,7 @@
 		FF9B8CE91E2FEA2100A7EB47 /* ListWorkoutsRouterTestDouble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListWorkoutsRouterTestDouble.swift; sourceTree = "<group>"; };
 		FF9B8CEB1E2FEA2B00A7EB47 /* ListWorkoutsViewInputTestDouble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListWorkoutsViewInputTestDouble.swift; sourceTree = "<group>"; };
 		FF9B8CEC1E2FEA2B00A7EB47 /* ListWorkoutsViewOutputTestDouble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListWorkoutsViewOutputTestDouble.swift; sourceTree = "<group>"; };
+		FFA3E5521E34DFC9002EEF11 /* Workout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
 		FFE41CAC1E2EE74C00BC7B72 /* WorkoutStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -531,6 +533,7 @@
 		FFE41CA91E2ED7B500BC7B72 /* WorkoutStore */ = {
 			isa = PBXGroup;
 			children = (
+				FFA3E5521E34DFC9002EEF11 /* Workout.swift */,
 				FFE41CAC1E2EE74C00BC7B72 /* WorkoutStore.swift */,
 			);
 			path = WorkoutStore;
@@ -752,6 +755,7 @@
 				FFE41CAD1E2EE74C00BC7B72 /* WorkoutStore.swift in Sources */,
 				9D17B91ED38CC2BD41EE396C /* ListWorkoutsConfigurator.swift in Sources */,
 				ACFAC34686348218CC846B29 /* ListWorkoutsInitializer.swift in Sources */,
+				FFA3E5531E34DFC9002EEF11 /* Workout.swift in Sources */,
 				C85F15B2B7C379627CCC5EB0 /* AddWorkoutViewInput.swift in Sources */,
 				E339D7FF0A7537DF140A594F /* AddWorkoutViewOutput.swift in Sources */,
 				98C62D0961C44E24E4F8005D /* AddWorkoutViewController.swift in Sources */,

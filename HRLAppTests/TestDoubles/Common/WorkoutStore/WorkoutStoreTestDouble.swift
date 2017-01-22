@@ -22,7 +22,7 @@ class WorkoutStoreTestDouble {
 // MARK: - WorkoutStoreProtocol methods
 
 extension WorkoutStoreTestDouble: WorkoutStoreProtocol {
-    var workouts: [String] {
+    var workouts: [Workout] {
         workoutsCount += 1
 
         return []

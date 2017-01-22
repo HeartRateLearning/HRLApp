@@ -21,6 +21,6 @@ class ListWorkoutsInteractor {
 
 extension ListWorkoutsInteractor: ListWorkoutsInteractorInput {
     func execute() {
-        output.foundWorkouts(store.workouts)
+        output.foundWorkouts(store.workouts.map { $0.rawValue })
     }
 }
