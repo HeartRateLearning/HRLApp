@@ -36,7 +36,7 @@ private extension ListWorkoutsModuleConfigurator {
         presenter.view = viewController
         presenter.router = router
 
-        let interactor = ListWorkoutsInteractor()
+        let interactor = GetConfiguredWorkoutsInteractor()
         interactor.store = store
         interactor.output = presenter
 

@@ -32,7 +32,7 @@ class ListWorkoutsModuleConfiguratorTests: XCTestCase {
         XCTAssertNotNil(presenter.router)
         XCTAssertNotNil(presenter.interactor)
 
-        let interactor = presenter.interactor as! ListWorkoutsInteractor
+        let interactor = presenter.interactor as! GetConfiguredWorkoutsInteractor
         XCTAssertNotNil(interactor.store)
         XCTAssertNotNil(interactor.output)
 

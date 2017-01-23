@@ -8,6 +8,8 @@
 
 import Foundation
 
+// MARK: - Main body
+
 enum Workout: String {
     case americanFootball
     case archery
@@ -66,4 +68,12 @@ enum Workout: String {
     case wrestling
     case yoga
     case other
+}
+
+// MARK: - String extension
+
+extension String {
+    init(_ workout: Workout) {
+        self = workout.rawValue
+    }
 }

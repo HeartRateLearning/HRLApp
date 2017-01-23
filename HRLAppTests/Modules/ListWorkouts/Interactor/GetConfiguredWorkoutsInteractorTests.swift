@@ -1,8 +1,8 @@
 //
-//  ListWorkoutsListWorkoutsInteractorTests.swift
+//  GetConfiguredWorkoutsInteractorTests.swift
 //  HRLApp
 //
-//  Created by Enrique de la Torre on 16/01/2017.
+//  Created by Enrique de la Torre (dev) on 23/01/2017.
 //  Copyright © 2017 Enrique de la Torre. All rights reserved.
 //
 
@@ -12,14 +12,14 @@ import XCTest
 
 // MARK: - Main body
 
-class ListWorkoutsInteractorTests: XCTestCase {
+class GetConfiguredWorkoutsInteractorTests: XCTestCase {
 
     // MARK: - Properties
 
     let store = WorkoutStoreTestDouble()
-    let output = ListWorkoutsInteractorOutputTestDouble()
+    let output = GetConfiguredWorkoutsInteractorOutputTestDouble()
 
-    let sut = ListWorkoutsInteractor()
+    let sut = GetConfiguredWorkoutsInteractor()
 
     // MARK: - Setup / Teardown
 
