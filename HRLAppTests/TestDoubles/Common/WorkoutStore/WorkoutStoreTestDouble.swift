@@ -16,15 +16,38 @@ class WorkoutStoreTestDouble {
 
     // MARK: - Public properties
 
-    fileprivate (set) var workoutsCount = 0
+    fileprivate (set) var workoutCountCount = 0
+    fileprivate (set) var workoutAtIndexCount = 0
+    fileprivate (set) var appendWorkoutCount = 0
+
+    fileprivate (set) var lastWorkoutIndex = 0
+    fileprivate (set) var lastAppendedWorkout = Workout.other
+
+    var workoutCountResult = 0
+    var workoutAtIndexResult = Workout.other
 }
 
 // MARK: - WorkoutStoreProtocol methods
 
 extension WorkoutStoreTestDouble: WorkoutStoreProtocol {
-    var workouts: [Workout] {
-        workoutsCount += 1
+    func workoutCount() -> Int {
+        workoutCountCount += 1
 
-        return []
+        return workoutCountResult
+    }
+
+    func workout(at index: Int) -> Workout {
+        workoutAtIndexCount += 1
+
+        lastWorkoutIndex = index
+
+        return workoutAtIndexResult
+
+    }
+
+    func appendWorkout(_ workout: Workout) {
+        appendWorkoutCount += 1
+
+        lastAppendedWorkout = workout
     }
 }

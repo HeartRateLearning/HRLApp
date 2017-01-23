@@ -16,13 +16,17 @@ class ListWorkoutsInteractorOutputTestDouble {
 
     // MARK: - Public properties
 
-    var foundWorkoutsCount = 0
+    fileprivate (set) var didFindWorkoutsCount = 0
+
+    fileprivate (set) var lastFoundWorkouts = [] as [String]
 }
 
 // MARK: - ListWorkoutsInteractorOutput methods
 
 extension ListWorkoutsInteractorOutputTestDouble: ListWorkoutsInteractorOutput {
-    func foundWorkouts(_ workouts: [String]) {
-        foundWorkoutsCount += 1
+    func interactor(_ interactor: ListWorkoutsInteractorInput, didFind workouts: [String]) {
+        didFindWorkoutsCount += 1
+
+        lastFoundWorkouts = workouts
     }
 }

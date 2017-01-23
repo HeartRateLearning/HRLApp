@@ -21,6 +21,12 @@ class ListWorkoutsInteractor {
 
 extension ListWorkoutsInteractor: ListWorkoutsInteractorInput {
     func execute() {
-        output.foundWorkouts(store.workouts.map { $0.rawValue })
+        var workouts = [] as [String]
+
+        for index in 0..<store.workoutCount() {
+            workouts.append(store.workout(at: index).rawValue)
+        }
+
+        output.interactor(self, didFind: workouts)
     }
 }

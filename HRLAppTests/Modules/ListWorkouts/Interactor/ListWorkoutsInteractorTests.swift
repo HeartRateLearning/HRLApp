@@ -37,7 +37,7 @@ class ListWorkoutsInteractorTests: XCTestCase {
         sut.execute()
 
         // then
-        XCTAssertEqual(store.workoutsCount, 1)
-        XCTAssertEqual(output.foundWorkoutsCount, 1)
+        XCTAssertEqual(store.workoutCountCount, 1)
+        XCTAssertEqual(output.didFindWorkoutsCount, 1)
     }
 }

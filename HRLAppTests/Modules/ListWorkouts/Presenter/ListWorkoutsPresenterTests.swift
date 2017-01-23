@@ -44,9 +44,9 @@ class ListWorkoutsPresenterTest: XCTestCase {
         XCTAssertEqual(interactor.executeCount, 1)
     }
 
-    func test_foundWorkouts_setupInitialStateInView() {
+    func test_didFindWorkouts_setupInitialStateInView() {
         // when
-        sut.foundWorkouts(workouts)
+        sut.interactor(interactor, didFind: workouts)
 
         // then
         XCTAssertEqual(view.setupInitialStateCount, 1)
@@ -54,7 +54,7 @@ class ListWorkoutsPresenterTest: XCTestCase {
 
     func testSutWithWorkouts_numberOfWorkouts_returnExpectedCount() {
         // given
-        sut.foundWorkouts(workouts)
+        sut.interactor(interactor, didFind: workouts)
 
         // when
         let count = sut.numberOfWorkouts()
@@ -65,7 +65,7 @@ class ListWorkoutsPresenterTest: XCTestCase {
 
     func testSutWithWorkouts_workoutAtLastIndex_returnExpectedWorkout() {
         // given
-        sut.foundWorkouts(workouts)
+        sut.interactor(interactor, didFind: workouts)
 
         // when
         let index = workouts.count - 1

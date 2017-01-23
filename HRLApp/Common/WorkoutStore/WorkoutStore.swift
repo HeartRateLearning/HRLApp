@@ -9,11 +9,25 @@
 import Foundation
 
 protocol WorkoutStoreProtocol {
-    var workouts: [Workout] { get }
+    func workoutCount() -> Int
+    func workout(at index: Int) -> Workout
+    func appendWorkout(_ workout: Workout)
 }
 
 class WorkoutStore {
-    private (set) var workouts = [] as [Workout]
+    fileprivate var workouts = [] as [Workout]
 }
 
-extension WorkoutStore: WorkoutStoreProtocol {}
+extension WorkoutStore: WorkoutStoreProtocol {
+    func workoutCount() -> Int {
+        return workouts.count
+    }
+
+    func workout(at index: Int) -> Workout {
+        return workouts[index]
+    }
+
+    func appendWorkout(_ workout: Workout) {
+        workouts.append(workout)
+    }
+}

@@ -49,7 +49,7 @@ extension ListWorkoutsPresenter: ListWorkoutsViewOutput {
 // MARK: - ListWorkoutsInteractorOutput methods
 
 extension ListWorkoutsPresenter: ListWorkoutsInteractorOutput {
-    func foundWorkouts(_ workouts: [String]) {
+    func interactor(_ interactor: ListWorkoutsInteractorInput, didFind workouts: [String]) {
         self.workouts = workouts
 
         view.setupInitialState()

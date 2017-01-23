@@ -9,5 +9,5 @@
 import Foundation
 
 protocol ListWorkoutsInteractorOutput: class {
-    func foundWorkouts(_ workouts: [String])
+    func interactor(_ interactor: ListWorkoutsInteractorInput, didFind workouts: [String])
 }
