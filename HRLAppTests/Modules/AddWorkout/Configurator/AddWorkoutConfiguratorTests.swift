@@ -22,7 +22,7 @@ class AddWorkoutModuleConfiguratorTests: XCTestCase {
         let configurator = AddWorkoutModuleConfigurator()
 
         //when
-        configurator.configureModuleForViewInput(viewInput: viewController)
+        configurator.configureModule(for: viewController)
 
         //then
         XCTAssertNotNil(viewController.output)

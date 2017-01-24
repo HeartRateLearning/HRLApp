@@ -24,7 +24,8 @@ class GetAllWorkoutsInteractorOutputTestDouble {
 // MARK: - GetConfiguredWorkoutsInteractorOutput methods
 
 extension GetAllWorkoutsInteractorOutputTestDouble: GetAllWorkoutsInteractorOutput {
-    func interactor(_ interactor: GetAllWorkoutsInteractorInput, didFind workouts: [String]) {
+    func interactor(_ interactor: GetAllWorkoutsInteractorInput,
+                    didFindWorkouts workouts: [String]) {
         didFindWorkoutsCount += 1
 
         lastFoundWorkouts = workouts

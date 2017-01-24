@@ -1,5 +1,5 @@
 //
-//  GetConfiguredWorkoutsInteractor.swift
+//  GetStoredWorkoutsInteractor.swift
 //  HRLApp
 //
 //  Created by Enrique de la Torre (dev) on 23/01/2017.
@@ -10,18 +10,18 @@ import Foundation
 
 // MARK: - Main body
 
-class GetConfiguredWorkoutsInteractor {
+class GetStoredWorkoutsInteractor {
 
     // MARK: - Dependencies
 
-    weak var output: GetConfiguredWorkoutsInteractorOutput!
+    weak var output: GetStoredWorkoutsInteractorOutput!
 
     var store: WorkoutStoreProtocol!
 }
 
-// MARK: - GetConfiguredWorkoutsInteractorInput methods
+// MARK: - GetStoredWorkoutsInteractorInput methods
 
-extension GetConfiguredWorkoutsInteractor: GetConfiguredWorkoutsInteractorInput {
+extension GetStoredWorkoutsInteractor: GetStoredWorkoutsInteractorInput {
     func execute() {
         var workouts = [] as [String]
 
@@ -31,6 +31,6 @@ extension GetConfiguredWorkoutsInteractor: GetConfiguredWorkoutsInteractorInput 
             workouts.append(String(workout))
         }
 
-        output.interactor(self, didFind: workouts)
+        output.interactor(self, didFindWorkouts: workouts)
     }
 }

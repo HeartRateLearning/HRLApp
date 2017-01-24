@@ -15,7 +15,7 @@ class ListWorkoutsPresenter {
     weak var view: ListWorkoutsViewInput!
 
     var router: ListWorkoutsRouterInput!
-    var interactor: GetConfiguredWorkoutsInteractorInput!
+    var interactor: GetStoredWorkoutsInteractorInput!
 
     // MARK: - Private properties
 
@@ -46,11 +46,11 @@ extension ListWorkoutsPresenter: ListWorkoutsViewOutput {
     }
 }
 
-// MARK: - GetConfiguredWorkoutsInteractorOutput methods
+// MARK: - GetStoredWorkoutsInteractorOutput methods
 
-extension ListWorkoutsPresenter: GetConfiguredWorkoutsInteractorOutput {
-    func interactor(_ interactor: GetConfiguredWorkoutsInteractorInput,
-                    didFind workouts: [String]) {
+extension ListWorkoutsPresenter: GetStoredWorkoutsInteractorOutput {
+    func interactor(_ interactor: GetStoredWorkoutsInteractorInput,
+                    didFindWorkouts workouts: [String]) {
         self.workouts = workouts
 
         view.setupInitialState()

@@ -60,7 +60,7 @@
             </objects>
             <point key="canvasLocation" x="658" y="633"/>
         </scene>
-        <!--Addworkout View Controller-->
+        <!--Add Workout View Controller-->
         <scene sceneID="UZP-LE-xdJ">
             <objects>
                 <viewController storyboardIdentifier="AddWorkoutViewController" id="yFX-fh-J7A" customClass="AddWorkoutViewController" customModule="HRLApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -101,7 +101,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zV6-0b-wl9" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <customObject id="s1A-r8-4rn" customClass="AddWorkoutModuleInitializer" customModule="HRLApp" customModuleProvider="target">
                     <connections>
-                        <outlet property="addworkoutViewController" destination="yFX-fh-J7A" id="e20-pp-am7"/>
+                        <outlet property="addWorkoutViewController" destination="yFX-fh-J7A" id="E6D-F2-JlL"/>
                     </connections>
                 </customObject>
             </objects>

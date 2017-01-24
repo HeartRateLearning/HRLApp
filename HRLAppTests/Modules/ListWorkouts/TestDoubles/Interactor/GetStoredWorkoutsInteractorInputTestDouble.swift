@@ -1,5 +1,5 @@
 //
-//  GetConfiguredWorkoutsInteractorInputTestDouble.swift
+//  GetStoredWorkoutsInteractorInputTestDouble.swift
 //  HRLApp
 //
 //  Created by Enrique de la Torre (dev) on 23/01/2017.
@@ -12,16 +12,16 @@ import Foundation
 
 // MARK: - Main body
 
-class GetConfiguredWorkoutsInteractorInputTestDouble {
+class GetStoredWorkoutsInteractorInputTestDouble {
 
     // MARK: - Public properties
 
     fileprivate (set) var executeCount = 0
 }
 
-// MARK: - GetConfiguredWorkoutsInteractorInput methods
+// MARK: - GetStoredWorkoutsInteractorInput methods
 
-extension GetConfiguredWorkoutsInteractorInputTestDouble: GetConfiguredWorkoutsInteractorInput {
+extension GetStoredWorkoutsInteractorInputTestDouble: GetStoredWorkoutsInteractorInput {
     func execute() {
         executeCount += 1
     }

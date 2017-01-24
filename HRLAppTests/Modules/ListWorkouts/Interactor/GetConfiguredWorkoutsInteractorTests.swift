@@ -17,9 +17,9 @@ class GetConfiguredWorkoutsInteractorTests: XCTestCase {
     // MARK: - Properties
 
     let store = WorkoutStoreTestDouble()
-    let output = GetConfiguredWorkoutsInteractorOutputTestDouble()
+    let output = GetStoredWorkoutsInteractorOutputTestDouble()
 
-    let sut = GetConfiguredWorkoutsInteractor()
+    let sut = GetStoredWorkoutsInteractor()
 
     // MARK: - Setup / Teardown
 

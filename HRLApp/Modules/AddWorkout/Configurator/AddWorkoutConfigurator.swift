@@ -14,19 +14,19 @@ class AddWorkoutModuleConfigurator {
 
     // MARK: - Public methods
 
-    func configureModuleForViewInput<UIViewController>(viewInput: UIViewController) {
+    func configureModule(for viewInput: UIViewController) {
         guard let viewController = viewInput as? AddWorkoutViewController else {
             return
         }
 
-        configure(viewController: viewController)
+        configure(viewController)
     }
 }
 
 // MARK: - Private body
 
 private extension AddWorkoutModuleConfigurator {
-    func configure(viewController: AddWorkoutViewController) {
+    func configure(_ viewController: AddWorkoutViewController) {
         let router = AddWorkoutRouter()
 
         let presenter = AddWorkoutPresenter()

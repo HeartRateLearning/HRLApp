@@ -27,6 +27,6 @@ extension GetAllWorkoutsInteractor: GetAllWorkoutsInteractorInput {
             workouts.append(String(workout))
         }
 
-        output.interactor(self, didFind: workouts)
+        output.interactor(self, didFindWorkouts: workouts)
     }
 }

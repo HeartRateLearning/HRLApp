@@ -1,5 +1,5 @@
 //
-//  GetConfiguredWorkoutsInteractorInput.swift
+//  GetStoredWorkoutsInteractorInput.swift
 //  HRLApp
 //
 //  Created by Enrique de la Torre (dev) on 23/01/2017.
@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol GetConfiguredWorkoutsInteractorInput {
+protocol GetStoredWorkoutsInteractorInput {
     func execute()
 }

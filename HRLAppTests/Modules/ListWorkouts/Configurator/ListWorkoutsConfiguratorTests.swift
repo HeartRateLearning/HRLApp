@@ -22,7 +22,7 @@ class ListWorkoutsModuleConfiguratorTests: XCTestCase {
         let configurator = ListWorkoutsModuleConfigurator()
 
         // when
-        configurator.configureModuleForViewInput(viewInput: viewController)
+        configurator.configureModule(for: viewController)
 
         // then
         XCTAssertNotNil(viewController.output)
@@ -32,7 +32,7 @@ class ListWorkoutsModuleConfiguratorTests: XCTestCase {
         XCTAssertNotNil(presenter.router)
         XCTAssertNotNil(presenter.interactor)
 
-        let interactor = presenter.interactor as! GetConfiguredWorkoutsInteractor
+        let interactor = presenter.interactor as! GetStoredWorkoutsInteractor
         XCTAssertNotNil(interactor.store)
         XCTAssertNotNil(interactor.output)
 

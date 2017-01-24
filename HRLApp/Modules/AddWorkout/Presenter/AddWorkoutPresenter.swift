@@ -49,7 +49,8 @@ extension AddWorkoutPresenter: AddWorkoutViewOutput {
 // MARK: - GetAllWorkoutsInteractorOutput methods
 
 extension AddWorkoutPresenter: GetAllWorkoutsInteractorOutput {
-    func interactor(_ interactor: GetAllWorkoutsInteractorInput, didFind workouts: [String]) {
+    func interactor(_ interactor: GetAllWorkoutsInteractorInput,
+                    didFindWorkouts workouts: [String]) {
         self.workouts = workouts
 
         view.setupInitialState()

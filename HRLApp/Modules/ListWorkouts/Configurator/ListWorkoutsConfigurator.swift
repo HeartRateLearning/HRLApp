@@ -14,19 +14,19 @@ class ListWorkoutsModuleConfigurator {
 
     // MARK: - Public methods
 
-    func configureModuleForViewInput(viewInput: UIViewController) {
+    func configureModule(for viewInput: UIViewController) {
         guard let viewController = viewInput as? ListWorkoutsViewController else {
             return
         }
 
-        configure(viewController: viewController)
+        configure(viewController)
     }
 }
 
 // MARK: - Private body
 
 private extension ListWorkoutsModuleConfigurator {
-    func configure(viewController: ListWorkoutsViewController) {
+    func configure(_ viewController: ListWorkoutsViewController) {
         let store = WorkoutStore()
 
         let router = ListWorkoutsRouter()
@@ -36,7 +36,7 @@ private extension ListWorkoutsModuleConfigurator {
         presenter.view = viewController
         presenter.router = router
 
-        let interactor = GetConfiguredWorkoutsInteractor()
+        let interactor = GetStoredWorkoutsInteractor()
         interactor.store = store
         interactor.output = presenter
 

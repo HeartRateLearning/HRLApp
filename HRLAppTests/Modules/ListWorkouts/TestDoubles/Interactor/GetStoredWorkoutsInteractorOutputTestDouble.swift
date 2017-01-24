@@ -1,5 +1,5 @@
 //
-//  GetConfiguredWorkoutsInteractorOutputTestDouble.swift
+//  GetStoredWorkoutsInteractorOutputTestDouble.swift
 //  HRLApp
 //
 //  Created by Enrique de la Torre (dev) on 23/01/2017.
@@ -12,7 +12,7 @@ import Foundation
 
 // MARK: - Main body
 
-class GetConfiguredWorkoutsInteractorOutputTestDouble {
+class GetStoredWorkoutsInteractorOutputTestDouble {
 
     // MARK: - Public properties
 
@@ -21,11 +21,11 @@ class GetConfiguredWorkoutsInteractorOutputTestDouble {
     fileprivate (set) var lastFoundWorkouts = [] as [String]
 }
 
-// MARK: - GetConfiguredWorkoutsInteractorOutput methods
+// MARK: - GetStoredWorkoutsInteractorOutput methods
 
-extension GetConfiguredWorkoutsInteractorOutputTestDouble: GetConfiguredWorkoutsInteractorOutput {
-    func interactor(_ interactor: GetConfiguredWorkoutsInteractorInput,
-                    didFind workouts: [String]) {
+extension GetStoredWorkoutsInteractorOutputTestDouble: GetStoredWorkoutsInteractorOutput {
+    func interactor(_ interactor: GetStoredWorkoutsInteractorInput,
+                    didFindWorkouts workouts: [String]) {
         didFindWorkoutsCount += 1
 
         lastFoundWorkouts = workouts

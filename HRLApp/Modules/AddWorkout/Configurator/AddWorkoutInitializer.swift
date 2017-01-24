@@ -8,15 +8,19 @@
 
 import UIKit
 
+// MARK: - Main body
+
 class AddWorkoutModuleInitializer: NSObject {
 
-    //Connect with object on storyboard
-    @IBOutlet weak var addworkoutViewController: AddWorkoutViewController!
+    // MARK: - Outlets
+
+    @IBOutlet weak var addWorkoutViewController: AddWorkoutViewController!
+
+    // MARK: - NSObject methods
 
     override func awakeFromNib() {
-
         let configurator = AddWorkoutModuleConfigurator()
-        configurator.configureModuleForViewInput(viewInput: addworkoutViewController)
+        
+        configurator.configureModule(for: addWorkoutViewController)
     }
-
 }
