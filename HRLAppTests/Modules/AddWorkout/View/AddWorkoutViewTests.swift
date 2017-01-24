@@ -59,6 +59,14 @@ class AddWorkoutViewTests: XCTestCase {
         XCTAssertEqual(output.workoutAtIndexCount, 1)
         XCTAssertEqual(output.lastWorkoutIndex, row)
     }
+
+    func test_done_forwardToOutput() {
+        // when
+        sut.done("")
+
+        // then
+        XCTAssertEqual(output.addWorkoutCount, 1)
+    }
 }
 
 // MARK: - Private body

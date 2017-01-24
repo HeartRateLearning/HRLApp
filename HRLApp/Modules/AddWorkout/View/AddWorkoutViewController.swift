@@ -34,6 +34,14 @@ class AddWorkoutViewController: UIViewController {
 
         output.viewIsReady()
     }
+
+    // MARK: - Actions
+    
+    @IBAction func done(_ sender: Any) {
+        let index = pickerView.selectedRow(inComponent: Constants.numberOfComponents - 1)
+        
+        output.addWorkout(at: index)
+    }
 }
 
 // MARK: - UIPickerViewDataSource methods

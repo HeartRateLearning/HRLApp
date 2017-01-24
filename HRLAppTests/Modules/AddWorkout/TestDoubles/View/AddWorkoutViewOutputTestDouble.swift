@@ -18,8 +18,10 @@ class AddWorkoutViewOutputTestDouble {
 
     fileprivate (set) var numberOfWorkoutsCount = 0
     fileprivate (set) var workoutAtIndexCount = 0
+    fileprivate (set) var addWorkoutCount = 0
 
     fileprivate (set) var lastWorkoutIndex = 0
+    fileprivate (set) var lastAddWorkoutIndex = 0
 
     var numberOfWorkoutsResult = 0
 }
@@ -40,5 +42,11 @@ extension AddWorkoutViewOutputTestDouble: AddWorkoutViewOutput {
         lastWorkoutIndex = index
 
         return ""
+    }
+
+    func addWorkout(at index: Int) {
+        addWorkoutCount += 1
+
+        lastAddWorkoutIndex = index
     }
 }

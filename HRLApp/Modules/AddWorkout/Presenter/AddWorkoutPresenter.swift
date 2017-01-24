@@ -40,6 +40,10 @@ extension AddWorkoutPresenter: AddWorkoutViewOutput {
     func workout(at index: Int) -> String {
         return workouts[index]
     }
+
+    func addWorkout(at index: Int) {
+        print("Index: \(index)")
+    }
 }
 
 // MARK: - GetAllWorkoutsInteractorOutput methods

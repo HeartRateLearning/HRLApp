@@ -88,7 +88,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="qrJ-ky-je7">
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="3o4-wh-mGT"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="3o4-wh-mGT">
+                            <connections>
+                                <action selector="done:" destination="yFX-fh-J7A" id="gOZ-AK-iSx"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="pickerView" destination="bi8-z3-9lN" id="2JW-qn-A8n"/>
