@@ -1,5 +1,5 @@
 //
-//  AddWorkoutAddWorkoutViewTests.swift
+//  AddWorkoutViewTests.swift
 //  HRLApp
 //
 //  Created by Enrique de la Torre on 18/01/2017.
@@ -8,22 +8,63 @@
 
 import XCTest
 
+@testable import HRLApp
+
 // MARK: - Main body
 
 class AddWorkoutViewTests: XCTestCase {
+
+    // MARK: - Properties
+
+    let output = AddWorkoutViewOutputTestDouble()
+
+    var sut: AddWorkoutViewController!
 
     // MARK: - Setup / Teardown
 
     override func setUp() {
         super.setUp()
 
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        let instantiater = ViewControllerInstantiaterHelper()
+        let viewController = instantiater.viewController(with: Constants.viewControllerId)
+        viewController.view.reloadInputViews()
+
+        sut = viewController as! AddWorkoutViewController
+        sut.output = output
     }
 
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        
-        super.tearDown()
+    // MARK: - Tests
+
+    func test_pickerViewNumberOfRowsInComponent_forwardToOutput() {
+        // when
+        let component = 0
+
+        _ = sut.pickerView(sut.pickerView, numberOfRowsInComponent: component)
+
+        // then
+        XCTAssertEqual(output.numberOfWorkoutsCount, 1)
     }
 
+    func testOutputWithTwoWorkouts_pickerViewTitleForSecondRow_forwardToOutput() {
+        // given
+        output.numberOfWorkoutsResult = 2
+
+        // when
+        let row = 1
+        let component = 0
+
+        _ = sut.pickerView(sut.pickerView, titleForRow: row, forComponent: component)
+
+        // then
+        XCTAssertEqual(output.workoutAtIndexCount, 1)
+        XCTAssertEqual(output.lastWorkoutIndex, row)
+    }
+}
+
+// MARK: - Private body
+
+private extension AddWorkoutViewTests {
+    enum Constants {
+        static let viewControllerId = "AddWorkoutViewController"
+    }
 }

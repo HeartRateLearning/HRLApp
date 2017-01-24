@@ -11,10 +11,15 @@
 class AddWorkoutPresenter {
 
     // MARK: - Dependencies
+
     weak var view: AddWorkoutViewInput!
 
     var router: AddWorkoutRouterInput!
     var interactor: GetAllWorkoutsInteractorInput!
+
+    // MARK: - Private properties
+
+    fileprivate var workouts = [] as [String]
 }
 
 // MARK: - AddWorkoutModuleInput methods
@@ -24,11 +29,25 @@ extension AddWorkoutPresenter: AddWorkoutModuleInput {}
 // MARK: - AddWorkoutViewOutput methods
 
 extension AddWorkoutPresenter: AddWorkoutViewOutput {
-    func viewIsReady() {}
+    func viewIsReady() {
+        interactor.execute()
+    }
+
+    func numberOfWorkouts() -> Int {
+        return workouts.count
+    }
+
+    func workout(at index: Int) -> String {
+        return workouts[index]
+    }
 }
 
 // MARK: - GetAllWorkoutsInteractorOutput methods
 
 extension AddWorkoutPresenter: GetAllWorkoutsInteractorOutput {
-    func interactor(_ interactor: GetAllWorkoutsInteractorInput, didFind workouts: [String]) {}
+    func interactor(_ interactor: GetAllWorkoutsInteractorInput, didFind workouts: [String]) {
+        self.workouts = workouts
+
+        view.setupInitialState()
+    }
 }

@@ -36,6 +36,23 @@ class GetAllWorkoutsInteractorTests: XCTestCase {
 
         // then
         XCTAssertEqual(output.didFindWorkoutsCount, 1)
-        XCTAssertGreaterThan(output.lastFoundWorkouts.count, 0)
+        XCTAssertEqual(output.lastFoundWorkouts.count, numberOfWorkouts())
+    }
+}
+
+// MARK: - Private body
+
+private extension GetAllWorkoutsInteractorTests {
+    func numberOfWorkouts() -> Int {
+        var count = 0
+
+        var workout = Workout(rawValue: count)
+        while workout != nil {
+            count += 1
+
+            workout = Workout(rawValue: count)
+        }
+
+        return count
     }
 }

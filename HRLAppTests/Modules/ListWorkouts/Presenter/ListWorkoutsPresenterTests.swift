@@ -19,7 +19,7 @@ class ListWorkoutsPresenterTest: XCTestCase {
     let workouts = ["Workout 01", "Workout 02"]
 
     let view = ListWorkoutsViewInputTestDouble()
-    let router = ListWorkoutsRouterTestDouble()
+    let router = ListWorkoutsRouterInputTestDouble()
     let interactor = GetConfiguredWorkoutsInteractorInputTestDouble()
 
     let sut = ListWorkoutsPresenter()

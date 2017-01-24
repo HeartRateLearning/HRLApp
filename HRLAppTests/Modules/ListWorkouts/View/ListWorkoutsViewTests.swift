@@ -36,7 +36,9 @@ class ListWorkoutsViewTests: XCTestCase {
 
     func test_tableViewNumberOfRowsInSection_forwardToOutput() {
         // when
-        _ = sut.tableView(sut.tableView, numberOfRowsInSection: 0)
+        let section = 0
+
+        _ = sut.tableView(sut.tableView, numberOfRowsInSection: section)
 
         // then
         XCTAssertEqual(output.numberOfWorkoutsCount, 1)

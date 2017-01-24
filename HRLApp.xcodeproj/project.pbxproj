@@ -35,6 +35,10 @@
 		E0A71D7AFEC37CDBDF9CA856 /* ListWorkoutsPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F474F96C56408F7016B4B9C7 /* ListWorkoutsPresenterTests.swift */; };
 		E339D7FF0A7537DF140A594F /* AddWorkoutViewOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42803B5BF245ED232A9C6F9B /* AddWorkoutViewOutput.swift */; };
 		EE59355D06B6F17F27D32630 /* AddWorkoutConfiguratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00947A1124FE7371B83D948C /* AddWorkoutConfiguratorTests.swift */; };
+		FF3340AF1E37CB4100E84AC2 /* AddWorkoutViewInputTestDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3340AE1E37CB4100E84AC2 /* AddWorkoutViewInputTestDouble.swift */; };
+		FF3340B21E37CD2900E84AC2 /* ListWorkoutsRouterInputTestDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3340B11E37CD2900E84AC2 /* ListWorkoutsRouterInputTestDouble.swift */; };
+		FF3340B41E37CDC700E84AC2 /* GetAllWorkoutsInteractorInputTestDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3340B31E37CDC700E84AC2 /* GetAllWorkoutsInteractorInputTestDouble.swift */; };
+		FF3340B61E37D1B700E84AC2 /* AddWorkoutViewOutputTestDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3340B51E37D1B700E84AC2 /* AddWorkoutViewOutputTestDouble.swift */; };
 		FF46F0521E36842A004E1F8D /* GetConfiguredWorkoutsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF46F0511E36842A004E1F8D /* GetConfiguredWorkoutsInteractor.swift */; };
 		FF46F0541E368436004E1F8D /* GetConfiguredWorkoutsInteractorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF46F0531E368436004E1F8D /* GetConfiguredWorkoutsInteractorInput.swift */; };
 		FF46F0561E368442004E1F8D /* GetConfiguredWorkoutsInteractorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF46F0551E368442004E1F8D /* GetConfiguredWorkoutsInteractorOutput.swift */; };
@@ -53,7 +57,6 @@
 		FF9ADDCB1E2BD535007F1187 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF9ADDCA1E2BD535007F1187 /* Assets.xcassets */; };
 		FF9ADDCE1E2BD535007F1187 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF9ADDCC1E2BD535007F1187 /* LaunchScreen.storyboard */; };
 		FF9B8CE41E2FEA0C00A7EB47 /* WorkoutStoreTestDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9B8CE31E2FEA0C00A7EB47 /* WorkoutStoreTestDouble.swift */; };
-		FF9B8CEA1E2FEA2100A7EB47 /* ListWorkoutsRouterTestDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9B8CE91E2FEA2100A7EB47 /* ListWorkoutsRouterTestDouble.swift */; };
 		FF9B8CED1E2FEA2B00A7EB47 /* ListWorkoutsViewInputTestDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9B8CEB1E2FEA2B00A7EB47 /* ListWorkoutsViewInputTestDouble.swift */; };
 		FF9B8CEE1E2FEA2B00A7EB47 /* ListWorkoutsViewOutputTestDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9B8CEC1E2FEA2B00A7EB47 /* ListWorkoutsViewOutputTestDouble.swift */; };
 		FFA3E5531E34DFC9002EEF11 /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA3E5521E34DFC9002EEF11 /* Workout.swift */; };
@@ -103,6 +106,10 @@
 		D8AB0591D95BBCCB727D0E1B /* Pods_HRLApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HRLApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBB035AD3807CFA509ADE459 /* Pods-HRLApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HRLApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HRLApp/Pods-HRLApp.debug.xcconfig"; sourceTree = "<group>"; };
 		F474F96C56408F7016B4B9C7 /* ListWorkoutsPresenterTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ListWorkoutsPresenterTests.swift; sourceTree = "<group>"; };
+		FF3340AE1E37CB4100E84AC2 /* AddWorkoutViewInputTestDouble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddWorkoutViewInputTestDouble.swift; sourceTree = "<group>"; };
+		FF3340B11E37CD2900E84AC2 /* ListWorkoutsRouterInputTestDouble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListWorkoutsRouterInputTestDouble.swift; sourceTree = "<group>"; };
+		FF3340B31E37CDC700E84AC2 /* GetAllWorkoutsInteractorInputTestDouble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetAllWorkoutsInteractorInputTestDouble.swift; sourceTree = "<group>"; };
+		FF3340B51E37D1B700E84AC2 /* AddWorkoutViewOutputTestDouble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddWorkoutViewOutputTestDouble.swift; sourceTree = "<group>"; };
 		FF46F0511E36842A004E1F8D /* GetConfiguredWorkoutsInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetConfiguredWorkoutsInteractor.swift; sourceTree = "<group>"; };
 		FF46F0531E368436004E1F8D /* GetConfiguredWorkoutsInteractorInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetConfiguredWorkoutsInteractorInput.swift; sourceTree = "<group>"; };
 		FF46F0551E368442004E1F8D /* GetConfiguredWorkoutsInteractorOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetConfiguredWorkoutsInteractorOutput.swift; sourceTree = "<group>"; };
@@ -125,7 +132,6 @@
 		FF9ADDD41E2BD535007F1187 /* HRLAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HRLAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF9ADDDA1E2BD535007F1187 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FF9B8CE31E2FEA0C00A7EB47 /* WorkoutStoreTestDouble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutStoreTestDouble.swift; sourceTree = "<group>"; };
-		FF9B8CE91E2FEA2100A7EB47 /* ListWorkoutsRouterTestDouble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListWorkoutsRouterTestDouble.swift; sourceTree = "<group>"; };
 		FF9B8CEB1E2FEA2B00A7EB47 /* ListWorkoutsViewInputTestDouble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListWorkoutsViewInputTestDouble.swift; sourceTree = "<group>"; };
 		FF9B8CEC1E2FEA2B00A7EB47 /* ListWorkoutsViewOutputTestDouble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListWorkoutsViewOutputTestDouble.swift; sourceTree = "<group>"; };
 		FFA3E5521E34DFC9002EEF11 /* Workout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
@@ -433,10 +439,20 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		FF3340AD1E37CAF300E84AC2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FF3340AE1E37CB4100E84AC2 /* AddWorkoutViewInputTestDouble.swift */,
+				FF3340B51E37D1B700E84AC2 /* AddWorkoutViewOutputTestDouble.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		FF46F0671E36D8B3004E1F8D /* TestDoubles */ = {
 			isa = PBXGroup;
 			children = (
 				FF46F0681E36D8EC004E1F8D /* Interactor */,
+				FF3340AD1E37CAF300E84AC2 /* View */,
 			);
 			path = TestDoubles;
 			sourceTree = "<group>";
@@ -444,6 +460,7 @@
 		FF46F0681E36D8EC004E1F8D /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
+				FF3340B31E37CDC700E84AC2 /* GetAllWorkoutsInteractorInputTestDouble.swift */,
 				FF46F06B1E36DA2C004E1F8D /* GetAllWorkoutsInteractorOutputTestDouble.swift */,
 			);
 			path = Interactor;
@@ -529,7 +546,7 @@
 		FF9B8CE11E2FE93600A7EB47 /* Router */ = {
 			isa = PBXGroup;
 			children = (
-				FF9B8CE91E2FEA2100A7EB47 /* ListWorkoutsRouterTestDouble.swift */,
+				FF3340B11E37CD2900E84AC2 /* ListWorkoutsRouterInputTestDouble.swift */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -799,6 +816,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9B4A4A7AA14C75C146A39E24 /* ListWorkoutsConfiguratorTests.swift in Sources */,
+				FF3340B41E37CDC700E84AC2 /* GetAllWorkoutsInteractorInputTestDouble.swift in Sources */,
 				4F9D0775D01F45AB46C7E698 /* ListWorkoutsViewTests.swift in Sources */,
 				FF46F0581E36870F004E1F8D /* GetConfiguredWorkoutsInteractorInputTestDouble.swift in Sources */,
 				FF46F06C1E36DA2C004E1F8D /* GetAllWorkoutsInteractorOutputTestDouble.swift in Sources */,
@@ -807,12 +825,14 @@
 				FF82D2C11E2EB1C300119044 /* ViewControllerInstantiaterHelper.swift in Sources */,
 				FF9B8CEE1E2FEA2B00A7EB47 /* ListWorkoutsViewOutputTestDouble.swift in Sources */,
 				41289722AE30C4F4D0E2C98B /* ListWorkoutsRouterTests.swift in Sources */,
-				FF9B8CEA1E2FEA2100A7EB47 /* ListWorkoutsRouterTestDouble.swift in Sources */,
+				FF3340AF1E37CB4100E84AC2 /* AddWorkoutViewInputTestDouble.swift in Sources */,
+				FF3340B61E37D1B700E84AC2 /* AddWorkoutViewOutputTestDouble.swift in Sources */,
 				FF9B8CED1E2FEA2B00A7EB47 /* ListWorkoutsViewInputTestDouble.swift in Sources */,
 				FF46F05A1E368724004E1F8D /* GetConfiguredWorkoutsInteractorOutputTestDouble.swift in Sources */,
 				EE59355D06B6F17F27D32630 /* AddWorkoutConfiguratorTests.swift in Sources */,
 				6CBB16A29BF5E2E2F390262D /* AddWorkoutViewTests.swift in Sources */,
 				FF46F05C1E368848004E1F8D /* GetConfiguredWorkoutsInteractorTests.swift in Sources */,
+				FF3340B21E37CD2900E84AC2 /* ListWorkoutsRouterInputTestDouble.swift in Sources */,
 				4056F299BC163958B14A63C0 /* AddWorkoutPresenterTests.swift in Sources */,
 				62DF37D74EC0DBF88B0A4C15 /* AddWorkoutRouterTests.swift in Sources */,
 				FF46F0661E36D690004E1F8D /* GetAllWorkoutsInteractorTests.swift in Sources */,

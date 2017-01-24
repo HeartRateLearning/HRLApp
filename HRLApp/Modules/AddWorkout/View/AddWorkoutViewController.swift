@@ -16,6 +16,10 @@ class AddWorkoutViewController: UIViewController {
 
     var output: AddWorkoutViewOutput!
 
+    // MARK: - Outlets
+
+    @IBOutlet weak var pickerView: UIPickerView!
+
     // MARK: - Memory management
 
     override func didReceiveMemoryWarning() {
@@ -32,8 +36,40 @@ class AddWorkoutViewController: UIViewController {
     }
 }
 
+// MARK: - UIPickerViewDataSource methods
+
+extension AddWorkoutViewController: UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return Constants.numberOfComponents
+    }
+
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return output.numberOfWorkouts()
+    }
+}
+
+// MARK: - UIPickerViewDelegate methods
+
+extension AddWorkoutViewController: UIPickerViewDelegate {
+    func pickerView(_ pickerView: UIPickerView,
+                    titleForRow row: Int,
+                    forComponent component: Int) -> String? {
+        return output.workout(at: row)
+    }
+}
+
 // MARK: - AddWorkoutViewInput methods
 
 extension AddWorkoutViewController: AddWorkoutViewInput {
-    func setupInitialState() {}
+    func setupInitialState() {
+        pickerView.reloadAllComponents()
+    }
+}
+
+// MARK: - Private body
+
+private extension AddWorkoutViewController {
+    enum Constants {
+        static let numberOfComponents = 1
+    }
 }

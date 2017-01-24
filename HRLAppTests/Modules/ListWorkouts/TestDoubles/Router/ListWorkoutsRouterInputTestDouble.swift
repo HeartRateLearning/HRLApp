@@ -1,8 +1,8 @@
 //
-//  ListWorkoutsRouterTestDouble.swift
+//  ListWorkoutsRouterInputTestDouble.swift
 //  HRLApp
 //
-//  Created by Enrique de la Torre (dev) on 18/01/2017.
+//  Created by Enrique de la Torre (dev) on 24/01/2017.
 //  Copyright © 2017 Enrique de la Torre. All rights reserved.
 //
 
@@ -12,7 +12,7 @@ import Foundation
 
 // MARK: - Main body
 
-class ListWorkoutsRouterTestDouble {
+class ListWorkoutsRouterInputTestDouble {
 
     // MARK: - Public properties
 
@@ -21,7 +21,7 @@ class ListWorkoutsRouterTestDouble {
 
 // MARK: - ListWorkoutsRouterInput methods
 
-extension ListWorkoutsRouterTestDouble: ListWorkoutsRouterInput {
+extension ListWorkoutsRouterInputTestDouble: ListWorkoutsRouterInput {
     func presentAddWorkout() {
         presentAddWorkoutCount += 1
     }
