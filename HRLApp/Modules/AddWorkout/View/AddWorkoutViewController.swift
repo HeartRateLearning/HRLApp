@@ -8,18 +8,32 @@
 
 import UIKit
 
-class AddWorkoutViewController: UIViewController, AddWorkoutViewInput {
+// MARK: - Main body
+
+class AddWorkoutViewController: UIViewController {
+
+    // MARK: - Dependencies
 
     var output: AddWorkoutViewOutput!
 
-    // MARK: Life cycle
+    // MARK: - Memory management
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+
+    // MARK: - Life cycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
+
         output.viewIsReady()
     }
+}
 
+// MARK: - AddWorkoutViewInput methods
 
-    // MARK: AddWorkoutViewInput
-    func setupInitialState() {
-    }
+extension AddWorkoutViewController: AddWorkoutViewInput {
+    func setupInitialState() {}
 }

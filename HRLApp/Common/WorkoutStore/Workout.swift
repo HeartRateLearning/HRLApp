@@ -10,7 +10,7 @@ import Foundation
 
 // MARK: - Main body
 
-enum Workout: String {
+enum Workout: Int {
     case americanFootball
     case archery
     case australianFootball
@@ -70,10 +70,18 @@ enum Workout: String {
     case other
 }
 
+// MARK: - Sequence methods
+
+extension Workout: Sequence {
+    func makeIterator() -> WorkoutIterator {
+        return WorkoutIterator(first: self)
+    }
+}
+
 // MARK: - String extension
 
 extension String {
     init(_ workout: Workout) {
-        self = workout.rawValue
+        self = "\(workout)"
     }
 }

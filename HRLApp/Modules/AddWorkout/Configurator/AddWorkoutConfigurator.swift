@@ -8,28 +8,35 @@
 
 import UIKit
 
+// MARK: - Main body
+
 class AddWorkoutModuleConfigurator {
 
+    // MARK: - Public methods
+
     func configureModuleForViewInput<UIViewController>(viewInput: UIViewController) {
-
-        if let viewController = viewInput as? AddWorkoutViewController {
-            configure(viewController: viewController)
+        guard let viewController = viewInput as? AddWorkoutViewController else {
+            return
         }
+
+        configure(viewController: viewController)
     }
+}
 
-    private func configure(viewController: AddWorkoutViewController) {
+// MARK: - Private body
 
+private extension AddWorkoutModuleConfigurator {
+    func configure(viewController: AddWorkoutViewController) {
         let router = AddWorkoutRouter()
 
         let presenter = AddWorkoutPresenter()
         presenter.view = viewController
         presenter.router = router
 
-        let interactor = AddWorkoutInteractor()
+        let interactor = GetAllWorkoutsInteractor()
         interactor.output = presenter
 
         presenter.interactor = interactor
         viewController.output = presenter
     }
-
 }

@@ -46,7 +46,7 @@ extension ListWorkoutsPresenter: ListWorkoutsViewOutput {
     }
 }
 
-// MARK: - ListWorkoutsInteractorOutput methods
+// MARK: - GetConfiguredWorkoutsInteractorOutput methods
 
 extension ListWorkoutsPresenter: GetConfiguredWorkoutsInteractorOutput {
     func interactor(_ interactor: GetConfiguredWorkoutsInteractorInput,

@@ -6,13 +6,29 @@
 //  Copyright © 2017 Enrique de la Torre. All rights reserved.
 //
 
-class AddWorkoutPresenter: AddWorkoutModuleInput, AddWorkoutViewOutput, AddWorkoutInteractorOutput {
+// MARK: - Main body
 
+class AddWorkoutPresenter {
+
+    // MARK: - Dependencies
     weak var view: AddWorkoutViewInput!
-    var interactor: AddWorkoutInteractorInput!
+
     var router: AddWorkoutRouterInput!
+    var interactor: GetAllWorkoutsInteractorInput!
+}
 
-    func viewIsReady() {
+// MARK: - AddWorkoutModuleInput methods
 
-    }
+extension AddWorkoutPresenter: AddWorkoutModuleInput {}
+
+// MARK: - AddWorkoutViewOutput methods
+
+extension AddWorkoutPresenter: AddWorkoutViewOutput {
+    func viewIsReady() {}
+}
+
+// MARK: - GetAllWorkoutsInteractorOutput methods
+
+extension AddWorkoutPresenter: GetAllWorkoutsInteractorOutput {
+    func interactor(_ interactor: GetAllWorkoutsInteractorInput, didFind workouts: [String]) {}
 }
