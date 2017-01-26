@@ -16,11 +16,13 @@ class AddWorkoutPresenterTest: XCTestCase {
 
     // MARK: - Properties
 
+    let anyIndex = 11
     let workouts = ["Workout 01", "Workout 02"]
 
     let view = AddWorkoutViewInputTestDouble()
-    let router = AddWorkoutRouter()
-    let interactor = GetAllWorkoutsInteractorInputTestDouble()
+    let router = AddWorkoutRouterInputTestDouble()
+    let getAllWorkouts = GetAllWorkoutsInteractorInputTestDouble()
+    let storeWorkout = StoreWorkoutInteractorInputTestDouble()
 
     let sut = AddWorkoutPresenter()
 
@@ -31,7 +33,8 @@ class AddWorkoutPresenterTest: XCTestCase {
 
         sut.view = view
         sut.router = router
-        sut.interactor = interactor
+        sut.getAllWorkouts = getAllWorkouts
+        sut.storeWorkout = storeWorkout
     }
 
     // MARK: - Tests
@@ -41,12 +44,12 @@ class AddWorkoutPresenterTest: XCTestCase {
         sut.viewIsReady()
 
         // then
-        XCTAssertEqual(interactor.executeCount, 1)
+        XCTAssertEqual(getAllWorkouts.executeCount, 1)
     }
 
     func test_didFindWorkouts_setupInitialStateInView() {
         // when
-        sut.interactor(interactor, didFindWorkouts: workouts)
+        sut.interactor(getAllWorkouts, didFindWorkouts: workouts)
 
         // then
         XCTAssertEqual(view.setupInitialStateCount, 1)
@@ -54,7 +57,7 @@ class AddWorkoutPresenterTest: XCTestCase {
 
     func testSutWithWorkouts_numberOfWorkouts_returnExpectedCount() {
         // given
-        sut.interactor(interactor, didFindWorkouts: workouts)
+        sut.interactor(getAllWorkouts, didFindWorkouts: workouts)
 
         // when
         let count = sut.numberOfWorkouts()
@@ -65,7 +68,7 @@ class AddWorkoutPresenterTest: XCTestCase {
 
     func testSutWithWorkouts_workoutAtLastIndex_returnExpectedWorkout() {
         // given
-        sut.interactor(interactor, didFindWorkouts: workouts)
+        sut.interactor(getAllWorkouts, didFindWorkouts: workouts)
 
         // when
         let index = workouts.count - 1
@@ -73,5 +76,22 @@ class AddWorkoutPresenterTest: XCTestCase {
         
         // then
         XCTAssertEqual(workouts[index], lastWorkout)
+    }
+
+    func testAnyIndex_addWorkout_forwardToInteractor() {
+        // when
+        sut.addWorkout(at: anyIndex)
+
+        // then
+        XCTAssertEqual(storeWorkout.executeCount, 1)
+        XCTAssertEqual(storeWorkout.lastWorkoutIndex, anyIndex)
+    }
+
+    func test_didStoreWorkout_forwardToRouter() {
+        // when
+        sut.interactor(storeWorkout, didStoreWorkout: workouts[0])
+
+        // then
+        XCTAssertEqual(router.presentWorkoutListCount, 1)
     }
 }

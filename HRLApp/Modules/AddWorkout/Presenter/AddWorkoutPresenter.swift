@@ -15,7 +15,8 @@ class AddWorkoutPresenter {
     weak var view: AddWorkoutViewInput!
 
     var router: AddWorkoutRouterInput!
-    var interactor: GetAllWorkoutsInteractorInput!
+    var getAllWorkouts: GetAllWorkoutsInteractorInput!
+    var storeWorkout: StoreWorkoutInteractorInput!
 
     // MARK: - Private properties
 
@@ -30,7 +31,7 @@ extension AddWorkoutPresenter: AddWorkoutModuleInput {}
 
 extension AddWorkoutPresenter: AddWorkoutViewOutput {
     func viewIsReady() {
-        interactor.execute()
+        getAllWorkouts.execute()
     }
 
     func numberOfWorkouts() -> Int {
@@ -42,7 +43,7 @@ extension AddWorkoutPresenter: AddWorkoutViewOutput {
     }
 
     func addWorkout(at index: Int) {
-        print("Index: \(index)")
+        storeWorkout.execute(withWorkoutIndex: index)
     }
 }
 
@@ -54,5 +55,16 @@ extension AddWorkoutPresenter: GetAllWorkoutsInteractorOutput {
         self.workouts = workouts
 
         view.setupInitialState()
+    }
+}
+
+extension AddWorkoutPresenter: StoreWorkoutInteractorOutput {
+    func interactor(_ interactor: StoreWorkoutInteractorInput, didStoreWorkout workout: String) {
+        router.presentWorkoutList()
+    }
+
+    func interactor(_ interactor: StoreWorkoutInteractorInput,
+                    didFailToStoreWorkoutWithIndex index: Int) {
+        print("AddWorkoutPresenter: StoreWorkoutInteractor: didFailToStoreWorkoutWithIndex: \(index)")
     }
 }

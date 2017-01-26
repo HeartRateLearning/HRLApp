@@ -6,4 +6,12 @@
 //  Copyright © 2017 Enrique de la Torre. All rights reserved.
 //
 
-class AddWorkoutRouter: AddWorkoutRouterInput {}
+// MARK: - Main body
+
+class AddWorkoutRouter {}
+
+// MARK: - AddWorkoutRouterInput methods
+
+extension AddWorkoutRouter: AddWorkoutRouterInput {
+    func presentWorkoutList() {}
+}

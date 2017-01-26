@@ -8,4 +8,6 @@
 
 import Foundation
 
-protocol AddWorkoutRouterInput {}
+protocol AddWorkoutRouterInput {
+    func presentWorkoutList()
+}

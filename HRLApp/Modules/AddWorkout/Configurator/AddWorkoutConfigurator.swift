@@ -27,16 +27,22 @@ class AddWorkoutModuleConfigurator {
 
 private extension AddWorkoutModuleConfigurator {
     func configure(_ viewController: AddWorkoutViewController) {
+        let store = WorkoutStore()
         let router = AddWorkoutRouter()
 
         let presenter = AddWorkoutPresenter()
         presenter.view = viewController
         presenter.router = router
 
-        let interactor = GetAllWorkoutsInteractor()
-        interactor.output = presenter
+        let getAllWorkouts = GetAllWorkoutsInteractor()
+        getAllWorkouts.output = presenter
 
-        presenter.interactor = interactor
+        let storeWorkout = StoreWorkoutInteractor()
+        storeWorkout.store = store
+        storeWorkout.output = presenter
+
+        presenter.getAllWorkouts = getAllWorkouts
+        presenter.storeWorkout = storeWorkout
         viewController.output = presenter
     }
 }
