@@ -17,14 +17,14 @@ class AddWorkoutModuleConfiguratorTests: XCTestCase {
     // MARK: - Tests
 
     func testConfigureModuleForViewController() {
-        //given
+        // given
         let viewController = AddWorkoutViewController()
         let configurator = AddWorkoutModuleConfigurator()
 
-        //when
+        // when
         configurator.configureModule(for: viewController)
 
-        //then
+        // then
         XCTAssertNotNil(viewController.output)
 
         let presenter = viewController.output as! AddWorkoutPresenter
@@ -39,5 +39,8 @@ class AddWorkoutModuleConfiguratorTests: XCTestCase {
         let storeWorkout = presenter.storeWorkout as! StoreWorkoutInteractor
         XCTAssertNotNil(storeWorkout.store)
         XCTAssertNotNil(storeWorkout.output)
+
+        let router = presenter.router as! AddWorkoutRouter
+        XCTAssertNotNil(router.viewController)
     }
 }

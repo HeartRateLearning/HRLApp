@@ -8,10 +8,21 @@
 
 // MARK: - Main body
 
-class AddWorkoutRouter {}
+class AddWorkoutRouter {
+
+    // MARK: - Dependencies
+
+    weak var viewController: AddWorkoutViewController!
+}
 
 // MARK: - AddWorkoutRouterInput methods
 
 extension AddWorkoutRouter: AddWorkoutRouterInput {
-    func presentWorkoutList() {}
+    func presentWorkoutList() {
+        guard let navigationController = viewController.navigationController else {
+            return
+        }
+
+        navigationController.popViewController(animated: true)
+    }
 }

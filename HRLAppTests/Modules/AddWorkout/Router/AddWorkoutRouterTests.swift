@@ -8,21 +8,72 @@
 
 import XCTest
 
+@testable import HRLApp
+
 // MARK: - Main body
 
 class AddWorkoutRouterTests: XCTestCase {
+
+    // MARK: - AddWorkoutViewControllerTestDouble definition
+
+    class AddWorkoutViewControllerTestDouble: AddWorkoutViewController {
+
+        // MARK: - Public properties
+
+        var otherNavigationController: UINavigationController?
+
+        // MARK: - Overrided properties
+
+        override var navigationController: UINavigationController? {
+            set {
+                otherNavigationController = newValue
+            }
+            get {
+                return otherNavigationController
+            }
+        }
+    }
+
+    // MARK: - UINavigationControllerTestDouble definition
+
+    class UINavigationControllerTestDouble: UINavigationController {
+
+        // MARK: - Public properties
+
+        private (set) var popViewControllerCount = 0
+
+        // MARK: - Overrided methods
+
+        override func popViewController(animated: Bool) -> UIViewController? {
+            popViewControllerCount += 1
+
+            return nil
+        }
+    }
+
+    // MARK: - Properties
+
+    let addWorkoutViewController = AddWorkoutViewControllerTestDouble()
+    let navigationController = UINavigationControllerTestDouble()
+
+    let sut = AddWorkoutRouter()
 
     // MARK: - Setup / Teardown
 
     override func setUp() {
         super.setUp()
 
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        sut.viewController = addWorkoutViewController
+        addWorkoutViewController.navigationController = navigationController
     }
 
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    // MARK: - Tests
 
-        super.tearDown()
+    func test_presentWorkoutList_popViewController() {
+        // when
+        sut.presentWorkoutList()
+
+        // then
+        XCTAssertEqual(navigationController.popViewControllerCount, 1)
     }
 }

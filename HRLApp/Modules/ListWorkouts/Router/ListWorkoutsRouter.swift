@@ -19,7 +19,6 @@ class ListWorkoutsRouter {
     // MARK: - Dependencies
 
     weak var viewController: ListWorkoutsViewController!
-
 }
 
 // MARK: - ListWorkoutsRouterInput methods
