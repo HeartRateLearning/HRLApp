@@ -8,15 +8,16 @@
 
 import Foundation
 
-protocol WorkoutStoreProtocol {
-    func workoutCount() -> Int
-    func workout(at index: Int) -> Workout
-    func appendWorkout(_ workout: Workout)
-}
+// MARK: - Main body
 
 class WorkoutStore {
+
+    // MARK: - Private properties
+
     fileprivate var workouts = [] as [Workout]
 }
+
+// MARK: - WorkoutStoreProtocol methods
 
 extension WorkoutStore: WorkoutStoreProtocol {
     func workoutCount() -> Int {

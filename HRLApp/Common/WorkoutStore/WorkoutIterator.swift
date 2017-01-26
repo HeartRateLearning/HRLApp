@@ -17,7 +17,7 @@ struct WorkoutIterator {
     fileprivate let first: Workout
     fileprivate var last: Workout?
 
-    // MARK: - Init
+    // MARK: - Init methods
 
     init(first: Workout) {
         self.first = first
