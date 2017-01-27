@@ -20,7 +20,7 @@ class WorkoutStoreTestDouble {
     fileprivate (set) var workoutAtIndexCount = 0
     fileprivate (set) var appendWorkoutCount = 0
 
-    fileprivate (set) var lastWorkoutIndex = 0
+    fileprivate (set) var lastWorkoutIndex = -1
     fileprivate (set) var lastAppendedWorkout = Workout.other
 
     var workoutCountResult = 0

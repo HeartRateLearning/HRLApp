@@ -17,7 +17,7 @@ class StoreWorkoutInteractorInputTestDouble {
     // MARK: - Public properties
 
     fileprivate (set) var executeCount = 0
-    fileprivate (set) var lastWorkoutIndex = 0
+    fileprivate (set) var lastWorkoutIndex = -1
 }
 
 // MARK: - StoreWorkoutInteractorInput methods

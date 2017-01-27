@@ -1,8 +1,8 @@
 //
-//  ListWorkoutsViewOutputTestDouble.swift
+//  AddWorkoutViewOutputTestDouble.swift
 //  HRLApp
 //
-//  Created by Enrique de la Torre (dev) on 17/01/2017.
+//  Created by Enrique de la Torre (dev) on 24/01/2017.
 //  Copyright © 2017 Enrique de la Torre. All rights reserved.
 //
 
@@ -12,22 +12,23 @@ import Foundation
 
 // MARK: - Main body
 
-class ListWorkoutsViewOutputTestDouble {
-    
+class AddWorkoutViewOutputTestDouble {
+
     // MARK: - Public properties
 
     fileprivate (set) var numberOfWorkoutsCount = 0
     fileprivate (set) var workoutAtIndexCount = 0
-    fileprivate (set) var addCount = 0
+    fileprivate (set) var addWorkoutCount = 0
 
-    fileprivate (set) var lastWorkoutIndex = 0
+    fileprivate (set) var lastWorkoutIndex = -1
+    fileprivate (set) var lastAddWorkoutIndex = -1
 
     var numberOfWorkoutsResult = 0
 }
 
 // MARK: - ListWorkoutsViewOutput methods
 
-extension ListWorkoutsViewOutputTestDouble: ListWorkoutsViewOutput {
+extension AddWorkoutViewOutputTestDouble: AddWorkoutViewOutput {
     func viewIsReady() {}
 
     func numberOfWorkouts() -> Int {
@@ -43,7 +44,9 @@ extension ListWorkoutsViewOutputTestDouble: ListWorkoutsViewOutput {
         return ""
     }
 
-    func add() {
-        addCount += 1
+    func addWorkout(at index: Int) {
+        addWorkoutCount += 1
+
+        lastAddWorkoutIndex = index
     }
 }

@@ -12,6 +12,10 @@ import Foundation
 
 class WorkoutStore {
 
+    // MARK: - Public properties
+
+    weak var delegate: WorkoutStoreDelegate?
+
     // MARK: - Private properties
 
     fileprivate var workouts = [] as [Workout]
@@ -30,5 +34,7 @@ extension WorkoutStore: WorkoutStoreProtocol {
 
     func appendWorkout(_ workout: Workout) {
         workouts.append(workout)
+
+        delegate?.workoutStore(self, didAppendWorkoutAtIndex: workouts.count - 1)
     }
 }

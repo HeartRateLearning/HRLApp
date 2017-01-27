@@ -20,7 +20,7 @@ class StoreWorkoutInteractorOutputTestDouble {
     fileprivate (set) var didFailToStoreWorkoutWithIndexCount = 0
 
     fileprivate (set) var lastStoredWorkout = ""
-    fileprivate (set) var lastFailedWorkoutIndex = 0
+    fileprivate (set) var lastFailedWorkoutIndex = -1
 
 }
 
