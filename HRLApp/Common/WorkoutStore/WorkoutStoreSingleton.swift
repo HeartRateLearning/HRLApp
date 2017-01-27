@@ -18,7 +18,7 @@ class WorkoutStoreSingleton {
 
     // MARK: - Private properties
 
-    fileprivate let store: WorkoutStore
+    fileprivate var store: WorkoutStoreProtocol
 
     // MARK: - Init methods
 
@@ -30,6 +30,15 @@ class WorkoutStoreSingleton {
 // MARK: - WorkoutStoreProtocol methods
 
 extension WorkoutStoreSingleton: WorkoutStoreProtocol {
+    weak var delegate: WorkoutStoreDelegate? {
+        get {
+            return store.delegate
+        }
+        set {
+            store.delegate = newValue
+        }
+    }
+
     func workoutCount() -> Int {
         return store.workoutCount()
     }

@@ -22,7 +22,7 @@ class WorkoutStoreDelegateTestDouble {
 // MARK: - WorkoutStoreDelegate methods
 
 extension WorkoutStoreDelegateTestDouble: WorkoutStoreDelegate {
-    func workoutStore(_ store: WorkoutStore, didAppendWorkoutAtIndex index: Int) {
+    func workoutStore(_ store: WorkoutStoreProtocol, didAppendWorkoutAtIndex index: Int) {
         didAppendWorkoutAtIndexCount += 1
 
         lastAppendedWorkoutIndex = index

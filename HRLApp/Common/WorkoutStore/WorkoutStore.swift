@@ -12,7 +12,7 @@ import Foundation
 
 class WorkoutStore {
 
-    // MARK: - Public properties
+    // MARK: - WorkoutStoreProtocol properties
 
     weak var delegate: WorkoutStoreDelegate?
 

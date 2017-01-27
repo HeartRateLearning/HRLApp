@@ -40,6 +40,7 @@ private extension ListWorkoutsModuleConfigurator {
         interactor.store = store
         interactor.output = presenter
 
+        store.delegate = interactor
         presenter.interactor = interactor
         viewController.output = presenter
     }

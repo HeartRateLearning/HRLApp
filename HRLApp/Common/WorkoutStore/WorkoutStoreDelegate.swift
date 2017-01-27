@@ -9,5 +9,5 @@
 import Foundation
 
 protocol WorkoutStoreDelegate: class {
-    func workoutStore(_ store: WorkoutStore, didAppendWorkoutAtIndex index: Int)
+    func workoutStore(_ store: WorkoutStoreProtocol, didAppendWorkoutAtIndex index: Int)
 }

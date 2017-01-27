@@ -1,5 +1,5 @@
 //
-//  GetConfiguredWorkoutsInteractorTests.swift
+//  GetStoredWorkoutsInteractorTests.swift
 //  HRLApp
 //
 //  Created by Enrique de la Torre (dev) on 23/01/2017.
@@ -12,7 +12,7 @@ import XCTest
 
 // MARK: - Main body
 
-class GetConfiguredWorkoutsInteractorTests: XCTestCase {
+class GetStoredWorkoutsInteractorTests: XCTestCase {
 
     // MARK: - Properties
 
@@ -35,6 +35,15 @@ class GetConfiguredWorkoutsInteractorTests: XCTestCase {
     func test_execute_requestWorkoutsAndForwardToOuptut() {
         // when
         sut.execute()
+
+        // then
+        XCTAssertEqual(store.workoutCountCount, 1)
+        XCTAssertEqual(output.didFindWorkoutsCount, 1)
+    }
+
+    func test_didAppendWorkoutAtIndex_requestWorkoutsAndForwardToOuptut() {
+        // when
+        sut.workoutStore(store, didAppendWorkoutAtIndex: 0)
 
         // then
         XCTAssertEqual(store.workoutCountCount, 1)

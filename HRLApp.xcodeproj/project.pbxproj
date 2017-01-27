@@ -44,7 +44,7 @@
 		FF46F0521E36842A004E1F8D /* GetStoredWorkoutsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF46F0511E36842A004E1F8D /* GetStoredWorkoutsInteractor.swift */; };
 		FF46F0541E368436004E1F8D /* GetStoredWorkoutsInteractorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF46F0531E368436004E1F8D /* GetStoredWorkoutsInteractorInput.swift */; };
 		FF46F0561E368442004E1F8D /* GetStoredWorkoutsInteractorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF46F0551E368442004E1F8D /* GetStoredWorkoutsInteractorOutput.swift */; };
-		FF46F05C1E368848004E1F8D /* GetConfiguredWorkoutsInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF46F05B1E368848004E1F8D /* GetConfiguredWorkoutsInteractorTests.swift */; };
+		FF46F05C1E368848004E1F8D /* GetStoredWorkoutsInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF46F05B1E368848004E1F8D /* GetStoredWorkoutsInteractorTests.swift */; };
 		FF46F05E1E368A26004E1F8D /* GetAllWorkoutsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF46F05D1E368A26004E1F8D /* GetAllWorkoutsInteractor.swift */; };
 		FF46F0601E368A9F004E1F8D /* GetAllWorkoutsInteractorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF46F05F1E368A9F004E1F8D /* GetAllWorkoutsInteractorInput.swift */; };
 		FF46F0621E368AAB004E1F8D /* GetAllWorkoutsInteractorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF46F0611E368AAB004E1F8D /* GetAllWorkoutsInteractorOutput.swift */; };
@@ -127,7 +127,7 @@
 		FF46F0511E36842A004E1F8D /* GetStoredWorkoutsInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetStoredWorkoutsInteractor.swift; sourceTree = "<group>"; };
 		FF46F0531E368436004E1F8D /* GetStoredWorkoutsInteractorInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetStoredWorkoutsInteractorInput.swift; sourceTree = "<group>"; };
 		FF46F0551E368442004E1F8D /* GetStoredWorkoutsInteractorOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetStoredWorkoutsInteractorOutput.swift; sourceTree = "<group>"; };
-		FF46F05B1E368848004E1F8D /* GetConfiguredWorkoutsInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetConfiguredWorkoutsInteractorTests.swift; sourceTree = "<group>"; };
+		FF46F05B1E368848004E1F8D /* GetStoredWorkoutsInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetStoredWorkoutsInteractorTests.swift; sourceTree = "<group>"; };
 		FF46F05D1E368A26004E1F8D /* GetAllWorkoutsInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetAllWorkoutsInteractor.swift; sourceTree = "<group>"; };
 		FF46F05F1E368A9F004E1F8D /* GetAllWorkoutsInteractorInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetAllWorkoutsInteractorInput.swift; sourceTree = "<group>"; };
 		FF46F0611E368AAB004E1F8D /* GetAllWorkoutsInteractorOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetAllWorkoutsInteractorOutput.swift; sourceTree = "<group>"; };
@@ -288,7 +288,7 @@
 		749554386121EAD6ECA2887B /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
-				FF46F05B1E368848004E1F8D /* GetConfiguredWorkoutsInteractorTests.swift */,
+				FF46F05B1E368848004E1F8D /* GetStoredWorkoutsInteractorTests.swift */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -907,7 +907,7 @@
 				EE59355D06B6F17F27D32630 /* AddWorkoutConfiguratorTests.swift in Sources */,
 				6CBB16A29BF5E2E2F390262D /* AddWorkoutViewTests.swift in Sources */,
 				FFF51FF01E3B67DA00914740 /* GetAllWorkoutsInteractorOutputTestDouble.swift in Sources */,
-				FF46F05C1E368848004E1F8D /* GetConfiguredWorkoutsInteractorTests.swift in Sources */,
+				FF46F05C1E368848004E1F8D /* GetStoredWorkoutsInteractorTests.swift in Sources */,
 				FFF51FF21E3B67DA00914740 /* StoreWorkoutInteractorOutputTestDouble.swift in Sources */,
 				FFF51FFB1E3B67ED00914740 /* GetStoredWorkoutsInteractorInputTestDouble.swift in Sources */,
 				4056F299BC163958B14A63C0 /* AddWorkoutPresenterTests.swift in Sources */,

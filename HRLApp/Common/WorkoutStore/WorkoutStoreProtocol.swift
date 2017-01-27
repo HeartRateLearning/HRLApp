@@ -9,6 +9,8 @@
 import Foundation
 
 protocol WorkoutStoreProtocol {
+    weak var delegate: WorkoutStoreDelegate? { get set }
+
     func workoutCount() -> Int
     func workout(at index: Int) -> Workout
     func appendWorkout(_ workout: Workout)

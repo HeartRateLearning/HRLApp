@@ -23,6 +23,22 @@ class GetStoredWorkoutsInteractor {
 
 extension GetStoredWorkoutsInteractor: GetStoredWorkoutsInteractorInput {
     func execute() {
+        output.interactor(self, didFindWorkouts: storedWorkouts())
+    }
+}
+
+// MARK: - WorkoutStoreDelegate methods
+
+extension GetStoredWorkoutsInteractor: WorkoutStoreDelegate {
+    func workoutStore(_ store: WorkoutStoreProtocol, didAppendWorkoutAtIndex index: Int) {
+        output.interactor(self, didFindWorkouts: storedWorkouts())
+    }
+}
+
+// MARK: - Private body
+
+private extension GetStoredWorkoutsInteractor {
+    func storedWorkouts() -> [String] {
         var workouts = [] as [String]
 
         for index in 0..<store.workoutCount() {
@@ -31,6 +47,6 @@ extension GetStoredWorkoutsInteractor: GetStoredWorkoutsInteractorInput {
             workouts.append(String(workout))
         }
 
-        output.interactor(self, didFindWorkouts: workouts)
+        return workouts
     }
 }

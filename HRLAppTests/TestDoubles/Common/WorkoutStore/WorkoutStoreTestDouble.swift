@@ -14,6 +14,10 @@ import Foundation
 
 class WorkoutStoreTestDouble {
 
+    // MARK: - WorkoutStoreProtocol properties
+
+    weak var delegate: WorkoutStoreDelegate?
+
     // MARK: - Public properties
 
     fileprivate (set) var workoutCountCount = 0
