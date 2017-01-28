@@ -9,5 +9,5 @@
 import Foundation
 
 protocol StoreWorkoutInteractorInput {
-    func execute(withWorkoutIndex index: Int)
+    func execute(withWorkoutIndex index: Int, startingOn date: Date)
 }

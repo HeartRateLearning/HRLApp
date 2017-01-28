@@ -22,7 +22,7 @@ class StoreWorkoutInteractor {
 // MARK: - StoreWorkoutInteractorInput methods
 
 extension StoreWorkoutInteractor: StoreWorkoutInteractorInput {
-    func execute(withWorkoutIndex index: Int) {
+    func execute(withWorkoutIndex index: Int, startingOn date: Date) {
         guard let workout = Workout(rawValue: index) else {
             output.interactor(self, didFailToStoreWorkoutWithIndex: index)
 
@@ -31,6 +31,35 @@ extension StoreWorkoutInteractor: StoreWorkoutInteractorInput {
 
         store.appendWorkout(workout)
 
+        let workoutIndex = store.workoutCount() - 1
+        appendDates(startingOn: date, toWorkoutAtIndex: workoutIndex)
+
         output.interactor(self, didStoreWorkout: String(workout))
+    }
+}
+
+// MARK: - Private body
+
+private extension StoreWorkoutInteractor {
+
+    // MARK: - Constants
+
+    enum Constants {
+        static let dayInterval = TimeInterval(24 * 60 * 60)
+    }
+
+    // MARK: - Private methods
+
+    func appendDates(startingOn date: Date, toWorkoutAtIndex index: Int) {
+        let calendar = NSCalendar(calendarIdentifier: .gregorian)!
+
+        var nextDate = calendar.startOfDay(for: date)
+        let endDate = calendar.startOfDay(for: Date())
+
+        while nextDate <= endDate {
+            store.appendDate(nextDate, toWorkoutAt: index)
+
+            nextDate.addTimeInterval(Constants.dayInterval)
+        }
     }
 }

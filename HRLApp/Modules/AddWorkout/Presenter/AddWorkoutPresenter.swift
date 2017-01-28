@@ -6,6 +6,8 @@
 //  Copyright © 2017 Enrique de la Torre. All rights reserved.
 //
 
+import Foundation
+
 // MARK: - Main body
 
 class AddWorkoutPresenter {
@@ -43,7 +45,7 @@ extension AddWorkoutPresenter: AddWorkoutViewOutput {
     }
 
     func addWorkout(at index: Int) {
-        storeWorkout.execute(withWorkoutIndex: index)
+        storeWorkout.execute(withWorkoutIndex: index, startingOn: Date())
     }
 }
 
