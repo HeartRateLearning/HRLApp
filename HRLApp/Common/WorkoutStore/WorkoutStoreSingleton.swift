@@ -43,11 +43,23 @@ extension WorkoutStoreSingleton: WorkoutStoreProtocol {
         return store.workoutCount()
     }
 
-    func workout(at index: Int) -> Workout {
+    func workout(at index: Int) -> Workout? {
         return store.workout(at: index)
     }
 
     func appendWorkout(_ workout: Workout) {
         store.appendWorkout(workout)
+    }
+
+    func dateCount(forWorkoutAt workoutIndex: Int) -> Int? {
+        return store.dateCount(forWorkoutAt: workoutIndex)
+    }
+
+    func date(at index: Int, forWorkoutAt workoutIndex: Int) -> Date? {
+        return store.date(at: index, forWorkoutAt: workoutIndex)
+    }
+
+    func appendDate(_ date: Date, toWorkoutAt workoutIndex: Int) {
+        store.appendDate(date, toWorkoutAt: workoutIndex)
     }
 }

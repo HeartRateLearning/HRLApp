@@ -42,7 +42,7 @@ private extension GetStoredWorkoutsInteractor {
         var workouts = [] as [String]
 
         for index in 0..<store.workoutCount() {
-            let workout = store.workout(at: index)
+            let workout = store.workout(at: index)!
 
             workouts.append(String(workout))
         }
