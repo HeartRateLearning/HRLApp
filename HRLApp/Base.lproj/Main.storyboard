@@ -50,6 +50,7 @@
                     </navigationItem>
                     <connections>
                         <segue destination="yFX-fh-J7A" kind="show" identifier="addWorkoutSegue" id="EMT-Hz-NQ0"/>
+                        <segue destination="CZ8-kt-l67" kind="show" identifier="listDatesSegue" id="KWW-OA-nbL"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cNt-aV-eTE" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -60,6 +61,43 @@
                 </customObject>
             </objects>
             <point key="canvasLocation" x="658" y="633"/>
+        </scene>
+        <!--Table View Controller-->
+        <scene sceneID="0mb-Ir-P7K">
+            <objects>
+                <tableViewController id="CZ8-kt-l67" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="2qM-Ec-gm8">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DateCell" textLabel="dIy-Ql-EO8" style="IBUITableViewCellStyleDefault" id="BTq-gH-Vkl">
+                                <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="BTq-gH-Vkl" id="vaN-VD-zbq">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dIy-Ql-EO8">
+                                            <rect key="frame" x="15" y="0.0" width="290" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="CZ8-kt-l67" id="HIs-kw-vJH"/>
+                            <outlet property="delegate" destination="CZ8-kt-l67" id="IEQ-gc-LV0"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="T1y-AU-PVZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1549" y="980"/>
         </scene>
         <!--Add Workout View Controller-->
         <scene sceneID="UZP-LE-xdJ">
@@ -116,7 +154,7 @@
                     </connections>
                 </customObject>
             </objects>
-            <point key="canvasLocation" x="1560" y="632.5"/>
+            <point key="canvasLocation" x="1549" y="285"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="cqb-9X-3YW">

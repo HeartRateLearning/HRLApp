@@ -40,6 +40,7 @@ extension ListWorkoutsViewOutputTestDouble: ListWorkoutsViewOutput {
 
     func workout(at index: Int) -> String {
         workoutAtIndexCount += 1
+        
         lastWorkoutIndex = index
 
         return ""
@@ -51,6 +52,7 @@ extension ListWorkoutsViewOutputTestDouble: ListWorkoutsViewOutput {
 
     func didSelectWorkout(at index: Int) {
         didSelectWorkoutCount += 1
+
         lastSelectedWorkoutIndex = index
     }
 }

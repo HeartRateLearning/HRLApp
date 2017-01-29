@@ -17,6 +17,9 @@ class ListWorkoutsRouterInputTestDouble {
     // MARK: - Public properties
 
     fileprivate (set) var presentAddWorkoutCount = 0
+    fileprivate (set) var presentDataListCount = 0
+
+    fileprivate (set) var lastDataListWorkoutIndex = -1
 }
 
 // MARK: - ListWorkoutsRouterInput methods
@@ -24,5 +27,11 @@ class ListWorkoutsRouterInputTestDouble {
 extension ListWorkoutsRouterInputTestDouble: ListWorkoutsRouterInput {
     func presentAddWorkout() {
         presentAddWorkoutCount += 1
+    }
+
+    func presentDateList(forWorkoutAt index: Int) {
+        presentDataListCount += 1
+
+        lastDataListWorkoutIndex = index
     }
 }

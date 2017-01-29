@@ -46,7 +46,7 @@ extension ListWorkoutsPresenter: ListWorkoutsViewOutput {
     }
 
     func didSelectWorkout(at index: Int) {
-        print("Selected workout at \(index)")
+        router.presentDateList(forWorkoutAt: index)
     }
 }
 

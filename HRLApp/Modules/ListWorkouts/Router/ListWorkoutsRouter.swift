@@ -14,6 +14,7 @@ class ListWorkoutsRouter {
 
     enum Segues {
         static let addWorkout = "addWorkoutSegue"
+        static let listDates = "listDatesSegue"
     }
 
     // MARK: - Dependencies
@@ -26,5 +27,9 @@ class ListWorkoutsRouter {
 extension ListWorkoutsRouter: ListWorkoutsRouterInput {
     func presentAddWorkout() {
         viewController.performSegue(withIdentifier: Segues.addWorkout, sender: viewController)
+    }
+
+    func presentDateList(forWorkoutAt index: Int) {
+        viewController.performSegue(withIdentifier: Segues.listDates, sender: viewController)
     }
 }

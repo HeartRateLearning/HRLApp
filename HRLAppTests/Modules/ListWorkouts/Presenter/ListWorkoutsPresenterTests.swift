@@ -82,4 +82,16 @@ class ListWorkoutsPresenterTest: XCTestCase {
         // then
         XCTAssertEqual(router.presentAddWorkoutCount, 1)
     }
+
+    func testAnyIndex_didSelectWorkoutAtIndex_forwardToRouter() {
+        // given
+        let anyIndex = 10
+
+        // when
+        sut.didSelectWorkout(at: anyIndex)
+
+        // then
+        XCTAssertEqual(router.presentDataListCount, 1)
+        XCTAssertEqual(router.lastDataListWorkoutIndex, anyIndex)
+    }
 }
