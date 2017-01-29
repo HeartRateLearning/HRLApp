@@ -22,6 +22,7 @@ class AddWorkoutViewOutputTestDouble {
 
     fileprivate (set) var lastWorkoutIndex = -1
     fileprivate (set) var lastAddWorkoutIndex = -1
+    fileprivate (set) var lastAddWorkoutDate = Date(timeIntervalSince1970: 0)
 
     var numberOfWorkoutsResult = 0
 }
@@ -44,9 +45,10 @@ extension AddWorkoutViewOutputTestDouble: AddWorkoutViewOutput {
         return ""
     }
 
-    func addWorkout(at index: Int) {
+    func addWorkout(at index: Int, startingOn date: Date) {
         addWorkoutCount += 1
 
         lastAddWorkoutIndex = index
+        lastAddWorkoutDate = date
     }
 }

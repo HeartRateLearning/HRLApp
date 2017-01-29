@@ -16,6 +16,7 @@ class AddWorkoutPresenterTest: XCTestCase {
 
     // MARK: - Properties
 
+    let anyDate = Date()
     let anyIndex = 11
     let workouts = ["Workout 01", "Workout 02"]
 
@@ -78,13 +79,14 @@ class AddWorkoutPresenterTest: XCTestCase {
         XCTAssertEqual(workouts[index], lastWorkout)
     }
 
-    func testAnyIndex_addWorkout_forwardToInteractor() {
+    func testAnyIndexAndAnyDate_addWorkout_forwardToInteractor() {
         // when
-        sut.addWorkout(at: anyIndex)
+        sut.addWorkout(at: anyIndex, startingOn: anyDate)
 
         // then
         XCTAssertEqual(storeWorkout.executeCount, 1)
         XCTAssertEqual(storeWorkout.lastWorkoutIndex, anyIndex)
+        XCTAssertEqual(storeWorkout.lastDate, anyDate)
     }
 
     func test_didStoreWorkout_forwardToRouter() {

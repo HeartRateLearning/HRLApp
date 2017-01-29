@@ -18,7 +18,8 @@ class AddWorkoutViewController: UIViewController {
 
     // MARK: - Outlets
 
-    @IBOutlet weak var pickerView: UIPickerView!
+    @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet weak var workoutPicker: UIPickerView!
 
     // MARK: - Memory management
 
@@ -38,9 +39,10 @@ class AddWorkoutViewController: UIViewController {
     // MARK: - Actions
     
     @IBAction func done(_ sender: Any) {
-        let index = pickerView.selectedRow(inComponent: Constants.numberOfComponents - 1)
+        let index = workoutPicker.selectedRow(inComponent: Constants.numberOfComponents - 1)
+        let date = datePicker.date
         
-        output.addWorkout(at: index)
+        output.addWorkout(at: index, startingOn: date)
     }
 }
 
@@ -70,7 +72,7 @@ extension AddWorkoutViewController: UIPickerViewDelegate {
 
 extension AddWorkoutViewController: AddWorkoutViewInput {
     func setupInitialState() {
-        pickerView.reloadAllComponents()
+        workoutPicker.reloadAllComponents()
     }
 }
 

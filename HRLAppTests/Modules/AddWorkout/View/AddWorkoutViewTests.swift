@@ -39,7 +39,7 @@ class AddWorkoutViewTests: XCTestCase {
         // when
         let component = 0
 
-        _ = sut.pickerView(sut.pickerView, numberOfRowsInComponent: component)
+        _ = sut.pickerView(sut.workoutPicker, numberOfRowsInComponent: component)
 
         // then
         XCTAssertEqual(output.numberOfWorkoutsCount, 1)
@@ -53,7 +53,7 @@ class AddWorkoutViewTests: XCTestCase {
         let row = 1
         let component = 0
 
-        _ = sut.pickerView(sut.pickerView, titleForRow: row, forComponent: component)
+        _ = sut.pickerView(sut.workoutPicker, titleForRow: row, forComponent: component)
 
         // then
         XCTAssertEqual(output.workoutAtIndexCount, 1)

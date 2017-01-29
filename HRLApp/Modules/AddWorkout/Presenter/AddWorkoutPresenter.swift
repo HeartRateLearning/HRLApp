@@ -44,8 +44,8 @@ extension AddWorkoutPresenter: AddWorkoutViewOutput {
         return workouts[index]
     }
 
-    func addWorkout(at index: Int) {
-        storeWorkout.execute(withWorkoutIndex: index, startingOn: Date())
+    func addWorkout(at index: Int, startingOn date: Date) {
+        storeWorkout.execute(withWorkoutIndex: index, startingOn: date)
     }
 }
 

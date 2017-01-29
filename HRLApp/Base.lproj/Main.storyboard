@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="38M-mq-la8">
-    <device id="retina4_7" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="38M-mq-la8">
+    <device id="retina3_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -13,19 +14,19 @@
             <objects>
                 <tableViewController storyboardIdentifier="ListWorkoutsViewController" id="Pg6-dV-zkj" customClass="ListWorkoutsViewController" customModule="HRLApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="UZo-w5-8VB">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="WorkoutCell" textLabel="9UJ-iX-EpB" style="IBUITableViewCellStyleDefault" id="oGg-ct-l2X">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oGg-ct-l2X" id="hNz-1d-6Dm">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9UJ-iX-EpB">
-                                            <rect key="frame" x="15" y="0.0" width="345" height="43.5"/>
+                                            <rect key="frame" x="15" y="0.0" width="290" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -69,22 +70,31 @@
                         <viewControllerLayoutGuide type="bottom" id="2gD-56-xua"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="7um-mi-eTr">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bi8-z3-9lN">
-                                <rect key="frame" x="0.0" y="64" width="375" height="216"/>
+                            <pickerView contentMode="scaleToFill" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="204" translatesAutoresizingMaskIntoConstraints="NO" id="bi8-z3-9lN">
+                                <rect key="frame" x="0.0" y="64" width="320" height="204"/>
                                 <connections>
                                     <outlet property="dataSource" destination="yFX-fh-J7A" id="cJZ-dN-DM3"/>
                                     <outlet property="delegate" destination="yFX-fh-J7A" id="QFV-qw-rdM"/>
                                 </connections>
                             </pickerView>
+                            <datePicker contentMode="scaleToFill" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="204" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="IZR-AZ-L27">
+                                <rect key="frame" x="0.0" y="276" width="320" height="204"/>
+                                <date key="date" timeIntervalSinceReferenceDate="507380582.04945701">
+                                    <!--2017-01-29 11:03:02 +0000-->
+                                </date>
+                            </datePicker>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="bi8-z3-9lN" secondAttribute="trailing" id="BDy-Na-rFr"/>
-                            <constraint firstItem="bi8-z3-9lN" firstAttribute="top" secondItem="hlW-PI-EZF" secondAttribute="bottom" id="Eru-Hs-K9U"/>
-                            <constraint firstItem="bi8-z3-9lN" firstAttribute="leading" secondItem="7um-mi-eTr" secondAttribute="leading" id="Fwq-qf-ZE3"/>
+                            <constraint firstItem="IZR-AZ-L27" firstAttribute="top" secondItem="bi8-z3-9lN" secondAttribute="bottom" constant="8" id="Fox-TY-v6e"/>
+                            <constraint firstItem="bi8-z3-9lN" firstAttribute="top" secondItem="hlW-PI-EZF" secondAttribute="bottom" id="Rfo-tS-6Pl"/>
+                            <constraint firstItem="bi8-z3-9lN" firstAttribute="leading" secondItem="7um-mi-eTr" secondAttribute="leadingMargin" constant="-16" id="vBk-aV-PNw"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="IZR-AZ-L27" secondAttribute="trailing" constant="-16" id="vwh-sO-Ewm"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="bi8-z3-9lN" secondAttribute="trailing" constant="-16" id="yL9-iH-6MC"/>
+                            <constraint firstItem="IZR-AZ-L27" firstAttribute="leading" secondItem="7um-mi-eTr" secondAttribute="leadingMargin" constant="-16" id="yc4-Nj-JwX"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="qrJ-ky-je7">
@@ -95,7 +105,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="pickerView" destination="bi8-z3-9lN" id="2JW-qn-A8n"/>
+                        <outlet property="datePicker" destination="IZR-AZ-L27" id="3iw-Wv-fLR"/>
+                        <outlet property="workoutPicker" destination="bi8-z3-9lN" id="bLp-8z-nx8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zV6-0b-wl9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -105,7 +116,7 @@
                     </connections>
                 </customObject>
             </objects>
-            <point key="canvasLocation" x="1561" y="633"/>
+            <point key="canvasLocation" x="1560" y="632.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="cqb-9X-3YW">

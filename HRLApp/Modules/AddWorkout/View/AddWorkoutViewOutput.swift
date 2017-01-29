@@ -6,11 +6,13 @@
 //  Copyright © 2017 Enrique de la Torre. All rights reserved.
 //
 
+import Foundation
+
 protocol AddWorkoutViewOutput {
     func viewIsReady()
 
     func numberOfWorkouts() -> Int
     func workout(at index: Int) -> String
 
-    func addWorkout(at index: Int)
+    func addWorkout(at index: Int, startingOn date: Date)
 }
