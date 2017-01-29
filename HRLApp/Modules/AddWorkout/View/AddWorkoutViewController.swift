@@ -21,13 +21,6 @@ class AddWorkoutViewController: UIViewController {
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var workoutPicker: UIPickerView!
 
-    // MARK: - Memory management
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
     // MARK: - Life cycle
 
     override func viewDidLoad() {

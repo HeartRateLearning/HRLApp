@@ -1,35 +1,42 @@
 //
-//  ListWorkoutsListWorkoutsRouter.swift
+//  ListWorkoutsRouter.swift
 //  HRLApp
 //
 //  Created by Enrique de la Torre on 16/01/2017.
 //  Copyright © 2017 Enrique de la Torre. All rights reserved.
 //
 
+import UIKit
+
 // MARK: - Main body
 
-class ListWorkoutsRouter {
+extension ListWorkoutsViewController {
+
+    // MARK: - Overrided methods
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {}
+}
+
+// MARK: - ListWorkoutsRouterInput methods
+
+extension ListWorkoutsViewController: ListWorkoutsRouterInput {
+    func presentAddWorkout() {
+        performSegue(withIdentifier: Segues.addWorkout, sender: self)
+    }
+
+    func presentDateList(forWorkoutAt index: Int) {
+        performSegue(withIdentifier: Segues.listDates, sender: index)
+    }
+}
+
+// MARK: - Private body
+
+private extension ListWorkoutsViewController {
 
     // MARK: - Segues
 
     enum Segues {
         static let addWorkout = "addWorkoutSegue"
         static let listDates = "listDatesSegue"
-    }
-
-    // MARK: - Dependencies
-
-    weak var viewController: ListWorkoutsViewController!
-}
-
-// MARK: - ListWorkoutsRouterInput methods
-
-extension ListWorkoutsRouter: ListWorkoutsRouterInput {
-    func presentAddWorkout() {
-        viewController.performSegue(withIdentifier: Segues.addWorkout, sender: viewController)
-    }
-
-    func presentDateList(forWorkoutAt index: Int) {
-        viewController.performSegue(withIdentifier: Segues.listDates, sender: viewController)
     }
 }

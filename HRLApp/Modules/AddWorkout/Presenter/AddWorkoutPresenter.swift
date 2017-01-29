@@ -15,8 +15,8 @@ class AddWorkoutPresenter {
     // MARK: - Dependencies
 
     weak var view: AddWorkoutViewInput!
+    weak var router: AddWorkoutRouterInput!
 
-    var router: AddWorkoutRouterInput!
     var getAllWorkouts: GetAllWorkoutsInteractorInput!
     var storeWorkout: StoreWorkoutInteractorInput!
 

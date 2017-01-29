@@ -6,20 +6,22 @@
 //  Copyright © 2017 Enrique de la Torre. All rights reserved.
 //
 
+import UIKit
+
 // MARK: - Main body
 
-class AddWorkoutRouter {
+extension AddWorkoutViewController {
 
-    // MARK: - Dependencies
+    // MARK: - Overrided methods
 
-    weak var viewController: AddWorkoutViewController!
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {}
 }
 
 // MARK: - AddWorkoutRouterInput methods
 
-extension AddWorkoutRouter: AddWorkoutRouterInput {
+extension AddWorkoutViewController: AddWorkoutRouterInput {
     func presentWorkoutList() {
-        guard let navigationController = viewController.navigationController else {
+        guard let navigationController = navigationController else {
             return
         }
 

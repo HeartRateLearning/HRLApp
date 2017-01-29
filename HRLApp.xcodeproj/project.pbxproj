@@ -13,11 +13,9 @@
 		2EDE269FC6F5BCE278DEDFFD /* AddWorkoutInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C430993AD706E8863BD23D65 /* AddWorkoutInitializer.swift */; };
 		381ACD079EF09F797A08E187 /* ListWorkoutsRouterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31B1F99FEF9C3C865D08B7C /* ListWorkoutsRouterInput.swift */; };
 		4056F299BC163958B14A63C0 /* AddWorkoutPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F44066A958721FB8E462D12 /* AddWorkoutPresenterTests.swift */; };
-		41289722AE30C4F4D0E2C98B /* ListWorkoutsRouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF58B161E477BF801A6B58B /* ListWorkoutsRouterTests.swift */; };
 		447667A7BCD286D8AC62B656 /* ListWorkoutsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB037D7DBC2812E12131E96 /* ListWorkoutsPresenter.swift */; };
 		4F9D0775D01F45AB46C7E698 /* ListWorkoutsViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94E3B91F246A52E28145721 /* ListWorkoutsViewTests.swift */; };
 		57F1B955F0E4F235D8689C88 /* ListWorkoutsViewOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = C702A16EFC7C08357505E6E3 /* ListWorkoutsViewOutput.swift */; };
-		62DF37D74EC0DBF88B0A4C15 /* AddWorkoutRouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E99FA58C89F22C237217A04 /* AddWorkoutRouterTests.swift */; };
 		6CBB16A29BF5E2E2F390262D /* AddWorkoutViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D388BED71965833851FFA467 /* AddWorkoutViewTests.swift */; };
 		760B56470909923350AE2981 /* ListWorkoutsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A02999EFCDF2AE5213F9C32 /* ListWorkoutsRouter.swift */; };
 		81AD7DBD26F12FCDCE186D86 /* AddWorkoutRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB76FB773B0B07EE94E6B95 /* AddWorkoutRouter.swift */; };
@@ -95,9 +93,7 @@
 		42803B5BF245ED232A9C6F9B /* AddWorkoutViewOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AddWorkoutViewOutput.swift; sourceTree = "<group>"; };
 		5A02999EFCDF2AE5213F9C32 /* ListWorkoutsRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ListWorkoutsRouter.swift; sourceTree = "<group>"; };
 		5AB76FB773B0B07EE94E6B95 /* AddWorkoutRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AddWorkoutRouter.swift; sourceTree = "<group>"; };
-		5E99FA58C89F22C237217A04 /* AddWorkoutRouterTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AddWorkoutRouterTests.swift; sourceTree = "<group>"; };
 		5EBDE61A16568544E97F80C8 /* AddWorkoutConfigurator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AddWorkoutConfigurator.swift; sourceTree = "<group>"; };
-		5FF58B161E477BF801A6B58B /* ListWorkoutsRouterTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ListWorkoutsRouterTests.swift; sourceTree = "<group>"; };
 		78D013AEE1B5A0A84CBA280C /* AddWorkoutViewInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AddWorkoutViewInput.swift; sourceTree = "<group>"; };
 		8F44066A958721FB8E462D12 /* AddWorkoutPresenterTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AddWorkoutPresenterTests.swift; sourceTree = "<group>"; };
 		97217BD64C91A9A4A807447F /* Pods-HRLAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HRLAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HRLAppTests/Pods-HRLAppTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -182,14 +178,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		12697A830D371CE0A22D8047 /* Router */ = {
-			isa = PBXGroup;
-			children = (
-				5FF58B161E477BF801A6B58B /* ListWorkoutsRouterTests.swift */,
-			);
-			path = Router;
-			sourceTree = "<group>";
-		};
 		19204FE6FBB727FA5A03FA85 /* Configurator */ = {
 			isa = PBXGroup;
 			children = (
@@ -225,14 +213,6 @@
 				C702A16EFC7C08357505E6E3 /* ListWorkoutsViewOutput.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		556D9095C3EF49D10B202087 /* Router */ = {
-			isa = PBXGroup;
-			children = (
-				5E99FA58C89F22C237217A04 /* AddWorkoutRouterTests.swift */,
-			);
-			path = Router;
 			sourceTree = "<group>";
 		};
 		5641AF6EF7CCD0FF4D5E99F9 /* Presenter */ = {
@@ -331,7 +311,6 @@
 				D5DF9DDCD8650F11BCE27776 /* Configurator */,
 				749554386121EAD6ECA2887B /* Interactor */,
 				79745C6CEED7150FD0DD70DF /* Presenter */,
-				12697A830D371CE0A22D8047 /* Router */,
 				FA37E830A7B4E646ACFADA7B /* View */,
 			);
 			path = ListWorkouts;
@@ -433,7 +412,6 @@
 				19204FE6FBB727FA5A03FA85 /* Configurator */,
 				35B007BC424F5ECBDA698211 /* Interactor */,
 				96CE47852263EB0AF4C9432E /* Presenter */,
-				556D9095C3EF49D10B202087 /* Router */,
 				FC9EEDAE9DBDE10D89A51EE4 /* View */,
 			);
 			path = AddWorkout;
@@ -900,7 +878,6 @@
 				FFF520041E3B68A300914740 /* WorkoutStoreDelegateTestDouble.swift in Sources */,
 				FFF51FFE1E3B67F200914740 /* ListWorkoutsRouterInputTestDouble.swift in Sources */,
 				FFF51FFC1E3B67ED00914740 /* GetStoredWorkoutsInteractorOutputTestDouble.swift in Sources */,
-				41289722AE30C4F4D0E2C98B /* ListWorkoutsRouterTests.swift in Sources */,
 				FFF51FF41E3B67E000914740 /* AddWorkoutRouterInputTestDouble.swift in Sources */,
 				FFF51FEF1E3B67DA00914740 /* GetAllWorkoutsInteractorInputTestDouble.swift in Sources */,
 				FFF520011E3B67FB00914740 /* ListWorkoutsViewInputTestDouble.swift in Sources */,
@@ -913,7 +890,6 @@
 				4056F299BC163958B14A63C0 /* AddWorkoutPresenterTests.swift in Sources */,
 				FFF51FF81E3B67E600914740 /* AddWorkoutViewOutputTestDouble.swift in Sources */,
 				FFF520021E3B67FB00914740 /* ListWorkoutsViewOutputTestDouble.swift in Sources */,
-				62DF37D74EC0DBF88B0A4C15 /* AddWorkoutRouterTests.swift in Sources */,
 				FF46F0661E36D690004E1F8D /* GetAllWorkoutsInteractorTests.swift in Sources */,
 				FFF51FE11E3B636000914740 /* WorkoutStoreTests.swift in Sources */,
 			);

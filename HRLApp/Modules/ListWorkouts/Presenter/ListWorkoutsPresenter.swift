@@ -13,8 +13,8 @@ class ListWorkoutsPresenter {
     // MARK: - Dependencies
 
     weak var view: ListWorkoutsViewInput!
+    weak var router: ListWorkoutsRouterInput!
 
-    var router: ListWorkoutsRouterInput!
     var interactor: GetStoredWorkoutsInteractorInput!
 
     // MARK: - Private properties

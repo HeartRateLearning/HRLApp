@@ -36,9 +36,6 @@ class ListWorkoutsModuleConfiguratorTests: XCTestCase {
         XCTAssertNotNil(interactor.store)
         XCTAssertTrue(interactor.output === presenter)
 
-        let router = presenter.router as! ListWorkoutsRouter
-        XCTAssertNotNil(router.viewController)
-
         let store = interactor.store!
         XCTAssertTrue(store.delegate === interactor)
     }

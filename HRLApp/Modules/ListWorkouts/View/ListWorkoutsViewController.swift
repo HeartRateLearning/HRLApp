@@ -16,13 +16,6 @@ class ListWorkoutsViewController: UITableViewController {
 
     var output: ListWorkoutsViewOutput!
 
-    // MARK: - Memory management
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
     // MARK: - Life cycle
 
     override func viewDidLoad() {

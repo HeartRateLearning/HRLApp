@@ -29,12 +29,9 @@ private extension ListWorkoutsModuleConfigurator {
     func configure(_ viewController: ListWorkoutsViewController) {
         let store = WorkoutStoreSingleton.sharedInstance
 
-        let router = ListWorkoutsRouter()
-        router.viewController = viewController
-
         let presenter = ListWorkoutsPresenter()
         presenter.view = viewController
-        presenter.router = router
+        presenter.router = viewController
 
         let interactor = GetStoredWorkoutsInteractor()
         interactor.store = store

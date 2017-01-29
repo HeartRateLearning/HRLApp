@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol ListWorkoutsRouterInput {
+protocol ListWorkoutsRouterInput: class {
     func presentAddWorkout()
     func presentDateList(forWorkoutAt index: Int)
 }

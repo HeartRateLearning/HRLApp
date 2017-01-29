@@ -39,8 +39,5 @@ class AddWorkoutModuleConfiguratorTests: XCTestCase {
         let storeWorkout = presenter.storeWorkout as! StoreWorkoutInteractor
         XCTAssertNotNil(storeWorkout.store)
         XCTAssertNotNil(storeWorkout.output)
-
-        let router = presenter.router as! AddWorkoutRouter
-        XCTAssertNotNil(router.viewController)
     }
 }
