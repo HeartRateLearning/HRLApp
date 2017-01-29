@@ -44,6 +44,10 @@ extension ListWorkoutsPresenter: ListWorkoutsViewOutput {
     func add() {
         router.presentAddWorkout()
     }
+
+    func didSelectWorkout(at index: Int) {
+        print("Selected workout at \(index)")
+    }
 }
 
 // MARK: - GetStoredWorkoutsInteractorOutput methods

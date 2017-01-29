@@ -51,6 +51,12 @@ class ListWorkoutsViewController: UITableViewController {
 
         return cell
     }
+
+    // MARK: - UITableViewDelegate methods
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        output.didSelectWorkout(at: indexPath.row)
+    }
 }
 
 // MARK: - ListWorkoutsViewInput methods

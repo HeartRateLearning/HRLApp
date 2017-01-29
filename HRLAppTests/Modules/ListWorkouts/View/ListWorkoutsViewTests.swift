@@ -78,6 +78,22 @@ class ListWorkoutsViewTests: XCTestCase {
         // then
         XCTAssertEqual(output.addCount, 1)
     }
+
+    func testOutputWithTwoWorkouts_didSelectSecondRow_forwardToOutput() {
+        // given
+        output.numberOfWorkoutsResult = 2
+
+        // when
+        let row = 1
+        let section = 0
+        let indexPath = IndexPath(row: row, section: section)
+
+        sut.tableView(sut.tableView, didSelectRowAt: indexPath)
+
+        // then
+        XCTAssertEqual(output.didSelectWorkoutCount, 1)
+        XCTAssertEqual(output.lastSelectedWorkoutIndex, row)
+    }
 }
 
 // MARK: - Private body
