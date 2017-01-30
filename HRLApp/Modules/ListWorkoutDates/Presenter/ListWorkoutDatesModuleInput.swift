@@ -6,4 +6,8 @@
 //  Copyright © 2017 Enrique de la Torre. All rights reserved.
 //
 
-protocol ListWorkoutDatesModuleInput: class {}
+import Foundation
+
+protocol ListWorkoutDatesModuleInput: class {
+    func configure(withWorkoutAt index: Int)
+}

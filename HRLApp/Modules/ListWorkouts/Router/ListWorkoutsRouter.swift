@@ -14,7 +14,25 @@ extension ListWorkoutsViewController {
 
     // MARK: - Overrided methods
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {}
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let identifier = segue.identifier else {
+            return
+        }
+
+        switch identifier {
+        case Segues.listDates:
+            guard let index = sender as? Int else {
+                return
+            }
+
+            configureListWorkoutDatesModule(for: segue.destination, withWorkoutAt: index)
+
+        default:
+            // Do nothing
+
+            break
+        }
+    }
 
     // MARK: - Unwind actions
 
@@ -42,5 +60,14 @@ private extension ListWorkoutsViewController {
     enum Segues {
         static let addWorkout = "addWorkoutSegue"
         static let listDates = "listDatesSegue"
+    }
+
+    // MARK: - Private methods
+
+    func configureListWorkoutDatesModule(for viewInput: UIViewController,
+                                         withWorkoutAt index: Int) {
+        let configurator = ListWorkoutDatesModuleConfigurator()
+
+        configurator.configureModule(for: viewInput, withWorkoutAt: index)
     }
 }

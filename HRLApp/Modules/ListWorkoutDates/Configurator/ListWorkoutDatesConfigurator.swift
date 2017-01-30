@@ -14,19 +14,30 @@ class ListWorkoutDatesModuleConfigurator {
 
     // MARK: - Public methods
 
-    func configureModule(for viewInput: UIViewController) {
+    func configureDependencies(for viewInput: UIViewController) {
         guard let viewController = viewInput as? ListWorkoutDatesViewController else {
             return
         }
 
-        configure(viewController)
+        configureDependencies(for: viewController)
+    }
+
+    func configureModule(for viewInput: UIViewController, withWorkoutAt index: Int) {
+        guard let viewController = viewInput as? ListWorkoutDatesViewController else {
+            return
+        }
+
+        configureModule(for: viewController, withWorkoutAt: index)
     }
 }
 
 // MARK: - Private body
 
 private extension ListWorkoutDatesModuleConfigurator {
-    func configure(_ viewController: ListWorkoutDatesViewController) {
+
+    // MARK: - Private methods
+
+    func configureDependencies(for viewController: ListWorkoutDatesViewController) {
         let router = ListWorkoutDatesRouter()
 
         let presenter = ListWorkoutDatesPresenter()
@@ -38,5 +49,14 @@ private extension ListWorkoutDatesModuleConfigurator {
 
         presenter.interactor = interactor
         viewController.output = presenter
+    }
+
+    func configureModule(for viewController: ListWorkoutDatesViewController,
+                         withWorkoutAt index: Int) {
+        guard let input = viewController.output as? ListWorkoutDatesModuleInput else {
+            return
+        }
+
+        input.configure(withWorkoutAt: index)
     }
 }

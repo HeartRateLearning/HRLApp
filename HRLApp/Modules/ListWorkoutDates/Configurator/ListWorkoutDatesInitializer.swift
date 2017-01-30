@@ -20,8 +20,8 @@ class ListWorkoutDatesModuleInitializer: NSObject {
 
     override func awakeFromNib() {
         let configurator = ListWorkoutDatesModuleConfigurator()
-        
-        configurator.configureModule(for: listworkoutdatesViewController)
+
+        configurator.configureDependencies(for: listworkoutdatesViewController)
     }
 
 }

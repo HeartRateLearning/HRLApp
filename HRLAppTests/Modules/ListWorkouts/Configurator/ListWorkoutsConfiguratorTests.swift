@@ -16,13 +16,13 @@ class ListWorkoutsModuleConfiguratorTests: XCTestCase {
 
     // MARK: - Tests
 
-    func testConfigureModuleForViewController() {
+    func test_configureDependenciesForViewController_setAllDependencies() {
         // given
         let viewController = ListWorkoutsViewController()
         let configurator = ListWorkoutsModuleConfigurator()
 
         // when
-        configurator.configureModule(for: viewController)
+        configurator.configureDependencies(for: viewController)
 
         // then
         XCTAssertNotNil(viewController.output)

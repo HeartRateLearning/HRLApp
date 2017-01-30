@@ -51,6 +51,7 @@
 		F8DC4A4E784CF5032A2BF2D1 /* ListWorkoutDatesPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F7703EFE3E7C3C2A8C1105 /* ListWorkoutDatesPresenterTests.swift */; };
 		FF08E3041E3AB71B001183A3 /* WorkoutStoreProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF08E3031E3AB71B001183A3 /* WorkoutStoreProtocol.swift */; };
 		FF08E3061E3AB810001183A3 /* WorkoutStoreSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF08E3051E3AB810001183A3 /* WorkoutStoreSingleton.swift */; };
+		FF2CAAB11E3FD86B0052129F /* ListWorkoutDatesModuleInputTestDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2CAAB01E3FD86B0052129F /* ListWorkoutDatesModuleInputTestDouble.swift */; };
 		FF3340B81E38009700E84AC2 /* StoreWorkoutInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3340B71E38009700E84AC2 /* StoreWorkoutInteractor.swift */; };
 		FF3340BA1E3800B500E84AC2 /* StoreWorkoutInteractorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3340B91E3800B500E84AC2 /* StoreWorkoutInteractorInput.swift */; };
 		FF3340BC1E3800D400E84AC2 /* StoreWorkoutInteractorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3340BB1E3800D400E84AC2 /* StoreWorkoutInteractorOutput.swift */; };
@@ -150,6 +151,7 @@
 		F474F96C56408F7016B4B9C7 /* ListWorkoutsPresenterTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ListWorkoutsPresenterTests.swift; sourceTree = "<group>"; };
 		FF08E3031E3AB71B001183A3 /* WorkoutStoreProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutStoreProtocol.swift; sourceTree = "<group>"; };
 		FF08E3051E3AB810001183A3 /* WorkoutStoreSingleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutStoreSingleton.swift; sourceTree = "<group>"; };
+		FF2CAAB01E3FD86B0052129F /* ListWorkoutDatesModuleInputTestDouble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListWorkoutDatesModuleInputTestDouble.swift; sourceTree = "<group>"; };
 		FF3340B71E38009700E84AC2 /* StoreWorkoutInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreWorkoutInteractor.swift; sourceTree = "<group>"; };
 		FF3340B91E3800B500E84AC2 /* StoreWorkoutInteractorInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreWorkoutInteractorInput.swift; sourceTree = "<group>"; };
 		FF3340BB1E3800D400E84AC2 /* StoreWorkoutInteractorOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreWorkoutInteractorOutput.swift; sourceTree = "<group>"; };
@@ -582,6 +584,22 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		FF2CAAAE1E3FD7F60052129F /* ListWorkoutDates */ = {
+			isa = PBXGroup;
+			children = (
+				FF2CAAAF1E3FD83B0052129F /* Presenter */,
+			);
+			path = ListWorkoutDates;
+			sourceTree = "<group>";
+		};
+		FF2CAAAF1E3FD83B0052129F /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				FF2CAAB01E3FD86B0052129F /* ListWorkoutDatesModuleInputTestDouble.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
 		FF9ADDB71E2BD534007F1187 = {
 			isa = PBXGroup;
 			children = (
@@ -694,6 +712,7 @@
 			isa = PBXGroup;
 			children = (
 				FFF51FE31E3B65FD00914740 /* AddWorkout */,
+				FF2CAAAE1E3FD7F60052129F /* ListWorkoutDates */,
 				FFF51FE41E3B661F00914740 /* ListWorkouts */,
 			);
 			path = Modules;
@@ -1052,6 +1071,7 @@
 				4056F299BC163958B14A63C0 /* AddWorkoutPresenterTests.swift in Sources */,
 				FFF51FF81E3B67E600914740 /* AddWorkoutViewOutputTestDouble.swift in Sources */,
 				FFF520021E3B67FB00914740 /* ListWorkoutsViewOutputTestDouble.swift in Sources */,
+				FF2CAAB11E3FD86B0052129F /* ListWorkoutDatesModuleInputTestDouble.swift in Sources */,
 				FF46F0661E36D690004E1F8D /* GetAllWorkoutsInteractorTests.swift in Sources */,
 				FFF51FE11E3B636000914740 /* WorkoutStoreTests.swift in Sources */,
 				7AC62CF39D720B2D476D08A3 /* ListWorkoutDatesConfiguratorTests.swift in Sources */,

@@ -20,7 +20,11 @@ class ListWorkoutDatesPresenter {
 
 // MARK: - ListWorkoutDatesModuleInput methods
 
-extension ListWorkoutDatesPresenter: ListWorkoutDatesModuleInput {}
+extension ListWorkoutDatesPresenter: ListWorkoutDatesModuleInput {
+    func configure(withWorkoutAt index: Int) {
+        print("Configure with \(index)")
+    }
+}
 
 // MARK: - ListWorkoutDatesViewOutput methods
 

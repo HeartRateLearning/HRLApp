@@ -21,6 +21,6 @@ class AddWorkoutModuleInitializer: NSObject {
     override func awakeFromNib() {
         let configurator = AddWorkoutModuleConfigurator()
         
-        configurator.configureModule(for: addWorkoutViewController)
+        configurator.configureDependencies(for: addWorkoutViewController)
     }
 }

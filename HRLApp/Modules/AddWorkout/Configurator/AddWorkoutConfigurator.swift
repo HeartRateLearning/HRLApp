@@ -14,19 +14,22 @@ class AddWorkoutModuleConfigurator {
 
     // MARK: - Public methods
 
-    func configureModule(for viewInput: UIViewController) {
+    func configureDependencies(for viewInput: UIViewController) {
         guard let viewController = viewInput as? AddWorkoutViewController else {
             return
         }
 
-        configure(viewController)
+        configureDependencies(for: viewController)
     }
 }
 
 // MARK: - Private body
 
 private extension AddWorkoutModuleConfigurator {
-    func configure(_ viewController: AddWorkoutViewController) {
+
+    // MARK: - Private methods
+
+    func configureDependencies(for viewController: AddWorkoutViewController) {
         let store = WorkoutStoreSingleton.sharedInstance
 
         let presenter = AddWorkoutPresenter()

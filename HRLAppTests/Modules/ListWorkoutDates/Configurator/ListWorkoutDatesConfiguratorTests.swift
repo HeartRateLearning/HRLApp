@@ -10,46 +10,46 @@ import XCTest
 
 @testable import HRLApp
 
+// MARK: - Main body
+
 class ListWorkoutDatesModuleConfiguratorTests: XCTestCase {
 
-    override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    // MARK: - Properties
+
+    let moduleInput = ListWorkoutDatesModuleInputTestDouble()
+    let viewController = ListWorkoutDatesViewController()
+
+    let sut = ListWorkoutDatesModuleConfigurator()
+
+    // MARK: - Tests
+
+    func test_configureDependenciesForViewController_setAllDependencies() {
+        // when
+        sut.configureDependencies(for: viewController)
+
+        // then
+        XCTAssertNotNil(viewController.output)
+
+        let presenter = viewController.output as! ListWorkoutDatesPresenter
+        XCTAssertNotNil(presenter.view)
+        XCTAssertNotNil(presenter.router)
+        XCTAssertNotNil(presenter.interactor)
+
+        let interactor = presenter.interactor as! ListWorkoutDatesInteractor
+        XCTAssertNotNil(interactor.output)
     }
 
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-    }
+    func test_configureModuleForViewController_configureModuleInput() {
+        // given
+        let anyIndex = 10
 
-    func testConfigureModuleForViewController() {
+        viewController.output = moduleInput
 
-        //given
-        let viewController = ListWorkoutDatesViewControllerMock()
-        let configurator = ListWorkoutDatesModuleConfigurator()
+        // when
+        sut.configureModule(for: viewController, withWorkoutAt: anyIndex)
 
-        //when
-        configurator.configureModule(for: viewController)
-
-        //then
-        XCTAssertNotNil(viewController.output, "ListWorkoutDatesViewController is nil after configuration")
-        XCTAssertTrue(viewController.output is ListWorkoutDatesPresenter, "output is not ListWorkoutDatesPresenter")
-
-        let presenter: ListWorkoutDatesPresenter = viewController.output as! ListWorkoutDatesPresenter
-        XCTAssertNotNil(presenter.view, "view in ListWorkoutDatesPresenter is nil after configuration")
-        XCTAssertNotNil(presenter.router, "router in ListWorkoutDatesPresenter is nil after configuration")
-        XCTAssertTrue(presenter.router is ListWorkoutDatesRouter, "router is not ListWorkoutDatesRouter")
-
-        let interactor: ListWorkoutDatesInteractor = presenter.interactor as! ListWorkoutDatesInteractor
-        XCTAssertNotNil(interactor.output, "output in ListWorkoutDatesInteractor is nil after configuration")
-    }
-
-    class ListWorkoutDatesViewControllerMock: ListWorkoutDatesViewController {
-
-        var setupInitialStateDidCall = false
-
-        override func setupInitialState() {
-            setupInitialStateDidCall = true
-        }
+        // then
+        XCTAssertEqual(moduleInput.configureCount, 1)
+        XCTAssertEqual(moduleInput.lastWorkoutIndex, anyIndex)
     }
 }
