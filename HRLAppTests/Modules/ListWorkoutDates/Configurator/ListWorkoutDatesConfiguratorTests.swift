@@ -29,7 +29,7 @@ class ListWorkoutDatesModuleConfiguratorTests: XCTestCase {
         let configurator = ListWorkoutDatesModuleConfigurator()
 
         //when
-        configurator.configureModuleForViewInput(viewInput: viewController)
+        configurator.configureModule(for: viewController)
 
         //then
         XCTAssertNotNil(viewController.output, "ListWorkoutDatesViewController is nil after configuration")

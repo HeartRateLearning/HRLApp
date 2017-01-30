@@ -6,6 +6,4 @@
 //  Copyright © 2017 Enrique de la Torre. All rights reserved.
 //
 
-class ListWorkoutDatesRouter: ListWorkoutDatesRouterInput {
-
-}
+class ListWorkoutDatesRouter: ListWorkoutDatesRouterInput {}

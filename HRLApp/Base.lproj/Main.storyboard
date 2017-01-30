@@ -62,10 +62,10 @@
             </objects>
             <point key="canvasLocation" x="658" y="633"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Listworkoutdates View Controller-->
         <scene sceneID="0mb-Ir-P7K">
             <objects>
-                <tableViewController id="CZ8-kt-l67" sceneMemberID="viewController">
+                <tableViewController id="CZ8-kt-l67" customClass="ListWorkoutDatesViewController" customModule="HRLApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="2qM-Ec-gm8">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -96,6 +96,11 @@
                     </tableView>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T1y-AU-PVZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="U69-lu-uz8" customClass="ListWorkoutDatesModuleInitializer" customModule="HRLApp" customModuleProvider="target">
+                    <connections>
+                        <outlet property="listworkoutdatesViewController" destination="CZ8-kt-l67" id="xS2-L9-PtR"/>
+                    </connections>
+                </customObject>
             </objects>
             <point key="canvasLocation" x="1549" y="980"/>
         </scene>

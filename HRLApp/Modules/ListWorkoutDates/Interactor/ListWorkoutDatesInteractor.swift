@@ -7,7 +7,5 @@
 //
 
 class ListWorkoutDatesInteractor: ListWorkoutDatesInteractorInput {
-
     weak var output: ListWorkoutDatesInteractorOutput!
-
 }

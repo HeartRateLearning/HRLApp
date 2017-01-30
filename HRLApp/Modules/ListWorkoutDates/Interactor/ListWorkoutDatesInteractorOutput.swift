@@ -8,6 +8,4 @@
 
 import Foundation
 
-protocol ListWorkoutDatesInteractorOutput: class {
-
-}
+protocol ListWorkoutDatesInteractorOutput: class {}

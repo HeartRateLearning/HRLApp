@@ -6,13 +6,28 @@
 //  Copyright © 2017 Enrique de la Torre. All rights reserved.
 //
 
-class ListWorkoutDatesPresenter: ListWorkoutDatesModuleInput, ListWorkoutDatesViewOutput, ListWorkoutDatesInteractorOutput {
+// MARK: - Main body
+
+class ListWorkoutDatesPresenter {
+
+    // MARK: - Dependencies
 
     weak var view: ListWorkoutDatesViewInput!
-    var interactor: ListWorkoutDatesInteractorInput!
+
     var router: ListWorkoutDatesRouterInput!
-
-    func viewIsReady() {
-
-    }
+    var interactor: ListWorkoutDatesInteractorInput!
 }
+
+// MARK: - ListWorkoutDatesModuleInput methods
+
+extension ListWorkoutDatesPresenter: ListWorkoutDatesModuleInput {}
+
+// MARK: - ListWorkoutDatesViewOutput methods
+
+extension ListWorkoutDatesPresenter: ListWorkoutDatesViewOutput {
+    func viewIsReady() {}
+}
+
+// MARK: - ListWorkoutDatesInteractorOutput methods
+
+extension ListWorkoutDatesPresenter: ListWorkoutDatesInteractorOutput {}

@@ -8,17 +8,25 @@
 
 import UIKit
 
+// MARK: - Main body
+
 class ListWorkoutDatesModuleConfigurator {
 
-    func configureModuleForViewInput<UIViewController>(viewInput: UIViewController) {
+    // MARK: - Public methods
 
-        if let viewController = viewInput as? ListWorkoutDatesViewController {
-            configure(viewController: viewController)
+    func configureModule(for viewInput: UIViewController) {
+        guard let viewController = viewInput as? ListWorkoutDatesViewController else {
+            return
         }
+
+        configure(viewController)
     }
+}
 
-    private func configure(viewController: ListWorkoutDatesViewController) {
+// MARK: - Private body
 
+private extension ListWorkoutDatesModuleConfigurator {
+    func configure(_ viewController: ListWorkoutDatesViewController) {
         let router = ListWorkoutDatesRouter()
 
         let presenter = ListWorkoutDatesPresenter()
@@ -31,5 +39,4 @@ class ListWorkoutDatesModuleConfigurator {
         presenter.interactor = interactor
         viewController.output = presenter
     }
-
 }

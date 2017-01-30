@@ -8,18 +8,25 @@
 
 import UIKit
 
-class ListWorkoutDatesViewController: UIViewController, ListWorkoutDatesViewInput {
+// MARK: - Main body
+
+class ListWorkoutDatesViewController: UITableViewController {
+
+    // MARK: - Dependencies
 
     var output: ListWorkoutDatesViewOutput!
 
-    // MARK: Life cycle
+    // MARK: - Life cycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
+
         output.viewIsReady()
     }
+}
 
+// MARK: - ListWorkoutDatesViewInput methods
 
-    // MARK: ListWorkoutDatesViewInput
-    func setupInitialState() {
-    }
+extension ListWorkoutDatesViewController: ListWorkoutDatesViewInput {
+    func setupInitialState() {}
 }
