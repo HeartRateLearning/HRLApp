@@ -15,6 +15,10 @@ extension ListWorkoutsViewController {
     // MARK: - Overrided methods
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {}
+
+    // MARK: - Unwind actions
+
+    @IBAction func unwindAddWorkout(_ segue: UIStoryboardSegue) {}
 }
 
 // MARK: - ListWorkoutsRouterInput methods

@@ -21,10 +21,17 @@ extension AddWorkoutViewController {
 
 extension AddWorkoutViewController: AddWorkoutRouterInput {
     func presentWorkoutList() {
-        guard let navigationController = navigationController else {
-            return
-        }
+        performSegue(withIdentifier: Segues.unwindAddWorkout, sender: self)
+    }
+}
 
-        navigationController.popViewController(animated: true)
+// MARK: - Private body
+
+private extension AddWorkoutViewController {
+
+    // MARK: - Segues
+
+    enum Segues {
+        static let unwindAddWorkout = "addWorkoutUnwindSegue"
     }
 }

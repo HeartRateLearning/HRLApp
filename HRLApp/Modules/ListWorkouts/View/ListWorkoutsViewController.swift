@@ -10,6 +10,7 @@ import UIKit
 
 // MARK: - Main body
 
+@objc(HRLListWorkoutsViewController)
 class ListWorkoutsViewController: UITableViewController {
 
     // MARK: - Dependencies

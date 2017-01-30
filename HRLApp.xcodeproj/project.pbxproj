@@ -120,6 +120,7 @@
 		FF3340B91E3800B500E84AC2 /* StoreWorkoutInteractorInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreWorkoutInteractorInput.swift; sourceTree = "<group>"; };
 		FF3340BB1E3800D400E84AC2 /* StoreWorkoutInteractorOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreWorkoutInteractorOutput.swift; sourceTree = "<group>"; };
 		FF3340BF1E381AD200E84AC2 /* StoreWorkoutInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreWorkoutInteractorTests.swift; sourceTree = "<group>"; };
+		FF4238231E3EBC0D005C1B9F /* HRLListWorkoutsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRLListWorkoutsViewController.h; sourceTree = "<group>"; };
 		FF46F0511E36842A004E1F8D /* GetStoredWorkoutsInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetStoredWorkoutsInteractor.swift; sourceTree = "<group>"; };
 		FF46F0531E368436004E1F8D /* GetStoredWorkoutsInteractorInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetStoredWorkoutsInteractorInput.swift; sourceTree = "<group>"; };
 		FF46F0551E368442004E1F8D /* GetStoredWorkoutsInteractorOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetStoredWorkoutsInteractorOutput.swift; sourceTree = "<group>"; };
@@ -327,6 +328,7 @@
 		B350D51929F16E4144C070FB /* Router */ = {
 			isa = PBXGroup;
 			children = (
+				FF4238231E3EBC0D005C1B9F /* HRLListWorkoutsViewController.h */,
 				5A02999EFCDF2AE5213F9C32 /* ListWorkoutsRouter.swift */,
 				C31B1F99FEF9C3C865D08B7C /* ListWorkoutsRouterInput.swift */,
 			);
@@ -680,6 +682,7 @@
 				TargetAttributes = {
 					FF9ADDBF1E2BD534007F1187 = {
 						CreatedOnToolsVersion = 8.2.1;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
 					FF9ADDD31E2BD535007F1187 = {
@@ -1021,10 +1024,12 @@
 			baseConfigurationReference = DBB035AD3807CFA509ADE459 /* Pods-HRLApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = HRLApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.indisoluble.HRLApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -1034,6 +1039,7 @@
 			baseConfigurationReference = A52A3518DBBD784E21CECA22 /* Pods-HRLApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = HRLApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.indisoluble.HRLApp;
