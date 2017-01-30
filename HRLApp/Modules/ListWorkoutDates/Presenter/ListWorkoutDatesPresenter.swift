@@ -6,6 +6,8 @@
 //  Copyright © 2017 Enrique de la Torre. All rights reserved.
 //
 
+import Foundation
+
 // MARK: - Main body
 
 class ListWorkoutDatesPresenter {
@@ -30,6 +32,14 @@ extension ListWorkoutDatesPresenter: ListWorkoutDatesModuleInput {
 
 extension ListWorkoutDatesPresenter: ListWorkoutDatesViewOutput {
     func viewIsReady() {}
+
+    func numberOfDates() -> Int {
+        return 10
+    }
+
+    func date(at index: Int) -> Date {
+        return Date()
+    }
 }
 
 // MARK: - ListWorkoutDatesInteractorOutput methods

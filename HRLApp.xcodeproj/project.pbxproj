@@ -52,6 +52,7 @@
 		FF08E3041E3AB71B001183A3 /* WorkoutStoreProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF08E3031E3AB71B001183A3 /* WorkoutStoreProtocol.swift */; };
 		FF08E3061E3AB810001183A3 /* WorkoutStoreSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF08E3051E3AB810001183A3 /* WorkoutStoreSingleton.swift */; };
 		FF2CAAB11E3FD86B0052129F /* ListWorkoutDatesModuleInputTestDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2CAAB01E3FD86B0052129F /* ListWorkoutDatesModuleInputTestDouble.swift */; };
+		FF2CAAB41E3FF1960052129F /* ListWorkoutDatesViewOutputTestDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2CAAB31E3FF1960052129F /* ListWorkoutDatesViewOutputTestDouble.swift */; };
 		FF3340B81E38009700E84AC2 /* StoreWorkoutInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3340B71E38009700E84AC2 /* StoreWorkoutInteractor.swift */; };
 		FF3340BA1E3800B500E84AC2 /* StoreWorkoutInteractorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3340B91E3800B500E84AC2 /* StoreWorkoutInteractorInput.swift */; };
 		FF3340BC1E3800D400E84AC2 /* StoreWorkoutInteractorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3340BB1E3800D400E84AC2 /* StoreWorkoutInteractorOutput.swift */; };
@@ -152,6 +153,7 @@
 		FF08E3031E3AB71B001183A3 /* WorkoutStoreProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutStoreProtocol.swift; sourceTree = "<group>"; };
 		FF08E3051E3AB810001183A3 /* WorkoutStoreSingleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutStoreSingleton.swift; sourceTree = "<group>"; };
 		FF2CAAB01E3FD86B0052129F /* ListWorkoutDatesModuleInputTestDouble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListWorkoutDatesModuleInputTestDouble.swift; sourceTree = "<group>"; };
+		FF2CAAB31E3FF1960052129F /* ListWorkoutDatesViewOutputTestDouble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListWorkoutDatesViewOutputTestDouble.swift; sourceTree = "<group>"; };
 		FF3340B71E38009700E84AC2 /* StoreWorkoutInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreWorkoutInteractor.swift; sourceTree = "<group>"; };
 		FF3340B91E3800B500E84AC2 /* StoreWorkoutInteractorInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreWorkoutInteractorInput.swift; sourceTree = "<group>"; };
 		FF3340BB1E3800D400E84AC2 /* StoreWorkoutInteractorOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreWorkoutInteractorOutput.swift; sourceTree = "<group>"; };
@@ -588,6 +590,7 @@
 			isa = PBXGroup;
 			children = (
 				FF2CAAAF1E3FD83B0052129F /* Presenter */,
+				FF2CAAB21E3FF0F10052129F /* View */,
 			);
 			path = ListWorkoutDates;
 			sourceTree = "<group>";
@@ -598,6 +601,14 @@
 				FF2CAAB01E3FD86B0052129F /* ListWorkoutDatesModuleInputTestDouble.swift */,
 			);
 			path = Presenter;
+			sourceTree = "<group>";
+		};
+		FF2CAAB21E3FF0F10052129F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FF2CAAB31E3FF1960052129F /* ListWorkoutDatesViewOutputTestDouble.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		FF9ADDB71E2BD534007F1187 = {
@@ -1068,6 +1079,7 @@
 				FF46F05C1E368848004E1F8D /* GetStoredWorkoutsInteractorTests.swift in Sources */,
 				FFF51FF21E3B67DA00914740 /* StoreWorkoutInteractorOutputTestDouble.swift in Sources */,
 				FFF51FFB1E3B67ED00914740 /* GetStoredWorkoutsInteractorInputTestDouble.swift in Sources */,
+				FF2CAAB41E3FF1960052129F /* ListWorkoutDatesViewOutputTestDouble.swift in Sources */,
 				4056F299BC163958B14A63C0 /* AddWorkoutPresenterTests.swift in Sources */,
 				FFF51FF81E3B67E600914740 /* AddWorkoutViewOutputTestDouble.swift in Sources */,
 				FFF520021E3B67FB00914740 /* ListWorkoutsViewOutputTestDouble.swift in Sources */,

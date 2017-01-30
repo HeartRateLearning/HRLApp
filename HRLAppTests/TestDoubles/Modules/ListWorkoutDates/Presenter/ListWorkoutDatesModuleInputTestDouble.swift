@@ -35,4 +35,12 @@ extension ListWorkoutDatesModuleInputTestDouble: ListWorkoutDatesModuleInput {
 
 extension ListWorkoutDatesModuleInputTestDouble: ListWorkoutDatesViewOutput {
     func viewIsReady() {}
+
+    func numberOfDates() -> Int {
+        return 0
+    }
+
+    func date(at index: Int) -> Date {
+        return Date()
+    }
 }
