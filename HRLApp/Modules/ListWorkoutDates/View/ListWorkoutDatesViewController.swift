@@ -18,7 +18,7 @@ class ListWorkoutDatesViewController: UITableViewController {
 
     // MARK: - Private properties
 
-    lazy var dateFormatter: DateFormatter = {
+    private lazy var dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateStyle = .short
         formatter.timeStyle = .short
@@ -26,25 +26,25 @@ class ListWorkoutDatesViewController: UITableViewController {
         return formatter
     }()
 
+    fileprivate var dates = [] as [Date]
+
     // MARK: - Life cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        output.viewIsReady()
     }
 
     // MARK: - UITableViewDataSource methods
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return output.numberOfDates()
+        return dates.count
     }
 
     override func tableView(_ tableView: UITableView,
                             cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellIdentifier,
                                                  for: indexPath)
-        let date = output.date(at: indexPath.row)
+        let date = dates[indexPath.row]
 
         cell.textLabel?.text = dateFormatter.string(from: date)
 
@@ -55,8 +55,12 @@ class ListWorkoutDatesViewController: UITableViewController {
 // MARK: - ListWorkoutDatesViewInput methods
 
 extension ListWorkoutDatesViewController: ListWorkoutDatesViewInput {
-    func setupInitialState() {
-        tableView.reloadData()
+    func setup(with dates: [Date]) {
+        self.dates = dates
+
+        if isViewLoaded {
+            tableView.reloadData()
+        }
     }
 }
 

@@ -12,13 +12,47 @@ import XCTest
 
 class ListWorkoutDatesPresenterTest: XCTestCase {
 
+    // MARK: - Properties
+
+    let view = ListWorkoutDatesViewInputTestDouble()
+    let router = ListWorkoutDatesRouter()
+    let interactor = GetWorkoutDatesInteractorInputTestDouble()
+
+    let sut = ListWorkoutDatesPresenter()
+
+    // MARK: - Setup / Teardown
+
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+
+        sut.view = view
+        sut.router = router
+        sut.interactor = interactor
     }
 
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
+    // MARK: - Tests
+
+    func testAnyWorkoutIndex_configureWithWorkoutIndex_forwardToInteractor() {
+        // given
+        let anyWorkoutIndex = 10
+
+        // when
+        sut.configure(withWorkoutAt: anyWorkoutIndex)
+
+        // then
+        XCTAssertEqual(interactor.executeCount, 1)
+        XCTAssertEqual(interactor.lastWorkoutIndex, anyWorkoutIndex)
+    }
+
+    func testAnyDates_interactorDidFindWorkoutDates_forwardToView() {
+        // given
+        let anyDates = [Date(), Date()]
+
+        // when
+        sut.interactor(interactor, didFindWorkoutDates: anyDates)
+
+        // then
+        XCTAssertEqual(view.setupCount, 1)
+        XCTAssertEqual(view.lastDates!, anyDates)
     }
 }

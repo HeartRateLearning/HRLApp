@@ -6,12 +6,8 @@
 //  Copyright © 2017 Enrique de la Torre. All rights reserved.
 //
 
+import Foundation
+
 protocol ListWorkoutDatesViewInput: class {
-
-    /**
-        @author Enrique de la Torre
-        Setup initial state of the view
-    */
-
-    func setupInitialState()
+    func setup(with dates: [Date])
 }

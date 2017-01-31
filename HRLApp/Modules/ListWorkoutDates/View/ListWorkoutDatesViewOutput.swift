@@ -8,9 +8,4 @@
 
 import Foundation
 
-protocol ListWorkoutDatesViewOutput {
-    func viewIsReady()
-
-    func numberOfDates() -> Int
-    func date(at index: Int) -> Date
-}
+protocol ListWorkoutDatesViewOutput {}

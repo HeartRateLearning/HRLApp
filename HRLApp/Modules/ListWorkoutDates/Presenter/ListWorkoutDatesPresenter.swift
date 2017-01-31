@@ -24,28 +24,19 @@ class ListWorkoutDatesPresenter {
 
 extension ListWorkoutDatesPresenter: ListWorkoutDatesModuleInput {
     func configure(withWorkoutAt index: Int) {
-        print("Configure with \(index)")
+        interactor.execute(withWorkoutIndex: index)
     }
 }
 
 // MARK: - ListWorkoutDatesViewOutput methods
 
-extension ListWorkoutDatesPresenter: ListWorkoutDatesViewOutput {
-    func viewIsReady() {}
-
-    func numberOfDates() -> Int {
-        return 10
-    }
-
-    func date(at index: Int) -> Date {
-        return Date()
-    }
-}
+extension ListWorkoutDatesPresenter: ListWorkoutDatesViewOutput {}
 
 // MARK: - GetWorkoutDatesInteractorOutput methods
 
 extension ListWorkoutDatesPresenter: GetWorkoutDatesInteractorOutput {
     func interactor(_ interactor: GetWorkoutDatesInteractorInput,
                     didFindWorkoutDates dates: [Date]) {
+        view.setup(with: dates)
     }
 }
