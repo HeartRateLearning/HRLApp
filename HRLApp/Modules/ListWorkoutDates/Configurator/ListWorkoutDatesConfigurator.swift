@@ -38,13 +38,15 @@ private extension ListWorkoutDatesModuleConfigurator {
     // MARK: - Private methods
 
     func configureDependencies(for viewController: ListWorkoutDatesViewController) {
+        let store = WorkoutStoreSingleton.sharedInstance
         let router = ListWorkoutDatesRouter()
 
         let presenter = ListWorkoutDatesPresenter()
         presenter.view = viewController
         presenter.router = router
 
-        let interactor = ListWorkoutDatesInteractor()
+        let interactor = GetWorkoutDatesInteractor()
+        interactor.store = store
         interactor.output = presenter
 
         presenter.interactor = interactor

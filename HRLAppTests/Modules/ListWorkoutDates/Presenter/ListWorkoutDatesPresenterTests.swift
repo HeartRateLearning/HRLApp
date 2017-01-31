@@ -21,19 +21,4 @@ class ListWorkoutDatesPresenterTest: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
-
-    class MockInteractor: ListWorkoutDatesInteractorInput {
-
-    }
-
-    class MockRouter: ListWorkoutDatesRouterInput {
-
-    }
-
-    class MockViewController: ListWorkoutDatesViewInput {
-
-        func setupInitialState() {
-
-        }
-    }
 }

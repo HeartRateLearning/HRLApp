@@ -17,7 +17,7 @@ class ListWorkoutDatesPresenter {
     weak var view: ListWorkoutDatesViewInput!
 
     var router: ListWorkoutDatesRouterInput!
-    var interactor: ListWorkoutDatesInteractorInput!
+    var interactor: GetWorkoutDatesInteractorInput!
 }
 
 // MARK: - ListWorkoutDatesModuleInput methods
@@ -42,6 +42,10 @@ extension ListWorkoutDatesPresenter: ListWorkoutDatesViewOutput {
     }
 }
 
-// MARK: - ListWorkoutDatesInteractorOutput methods
+// MARK: - GetWorkoutDatesInteractorOutput methods
 
-extension ListWorkoutDatesPresenter: ListWorkoutDatesInteractorOutput {}
+extension ListWorkoutDatesPresenter: GetWorkoutDatesInteractorOutput {
+    func interactor(_ interactor: GetWorkoutDatesInteractorInput,
+                    didFindWorkoutDates dates: [Date]) {
+    }
+}

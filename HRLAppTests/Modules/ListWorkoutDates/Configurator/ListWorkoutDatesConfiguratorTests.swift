@@ -35,8 +35,9 @@ class ListWorkoutDatesModuleConfiguratorTests: XCTestCase {
         XCTAssertNotNil(presenter.router)
         XCTAssertNotNil(presenter.interactor)
 
-        let interactor = presenter.interactor as! ListWorkoutDatesInteractor
+        let interactor = presenter.interactor as! GetWorkoutDatesInteractor
         XCTAssertNotNil(interactor.output)
+        XCTAssertNotNil(interactor.store)
     }
 
     func test_configureModuleForViewController_configureModuleInput() {
