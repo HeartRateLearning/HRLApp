@@ -17,6 +17,10 @@ class ListWorkoutsViewController: UITableViewController {
 
     var output: ListWorkoutsViewOutput!
 
+    // MARK: - Private properties
+
+    fileprivate var workouts = [] as [String]
+
     // MARK: - Life cycle
 
     override func viewDidLoad() {
@@ -34,14 +38,14 @@ class ListWorkoutsViewController: UITableViewController {
     // MARK: - UITableViewDataSource methods
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return output.numberOfWorkouts()
+        return workouts.count
     }
 
     override func tableView(_ tableView: UITableView,
                             cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellIdentifier,
                                                  for: indexPath)
-        cell.textLabel?.text = output.workout(at: indexPath.row)
+        cell.textLabel?.text = workouts[indexPath.row]
 
         return cell
     }
@@ -56,8 +60,12 @@ class ListWorkoutsViewController: UITableViewController {
 // MARK: - ListWorkoutsViewInput methods
 
 extension ListWorkoutsViewController: ListWorkoutsViewInput {
-    func setupInitialState() {
-        tableView.reloadData()
+    func setup(with workouts: [String]) {
+        self.workouts = workouts
+
+        if isViewLoaded {
+            tableView.reloadData()
+        }
     }
 }
 

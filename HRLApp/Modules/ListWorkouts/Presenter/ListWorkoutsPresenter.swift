@@ -16,10 +16,6 @@ class ListWorkoutsPresenter {
     weak var router: ListWorkoutsRouterInput!
 
     var interactor: GetStoredWorkoutsInteractorInput!
-
-    // MARK: - Private properties
-
-    fileprivate var workouts = [] as [String]
 }
 
 // MARK: - ListWorkoutsModuleInput methods
@@ -31,14 +27,6 @@ extension ListWorkoutsPresenter: ListWorkoutsModuleInput {}
 extension ListWorkoutsPresenter: ListWorkoutsViewOutput {
     func viewIsReady() {
         interactor.execute()
-    }
-
-    func numberOfWorkouts() -> Int {
-        return workouts.count
-    }
-
-    func workout(at index: Int) -> String {
-        return workouts[index]
     }
 
     func add() {
@@ -55,8 +43,6 @@ extension ListWorkoutsPresenter: ListWorkoutsViewOutput {
 extension ListWorkoutsPresenter: GetStoredWorkoutsInteractorOutput {
     func interactor(_ interactor: GetStoredWorkoutsInteractorInput,
                     didFindWorkouts workouts: [String]) {
-        self.workouts = workouts
-
-        view.setupInitialState()
+        view.setup(with: workouts)
     }
 }

@@ -7,11 +7,5 @@
 //
 
 protocol ListWorkoutsViewInput: class {
-
-    /**
-        @author Enrique de la Torre
-        Setup initial state of the view
-    */
-
-    func setupInitialState()
+    func setup(with workouts: [String])
 }

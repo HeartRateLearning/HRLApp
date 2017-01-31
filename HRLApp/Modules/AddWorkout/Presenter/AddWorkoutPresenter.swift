@@ -19,10 +19,6 @@ class AddWorkoutPresenter {
 
     var getAllWorkouts: GetAllWorkoutsInteractorInput!
     var storeWorkout: StoreWorkoutInteractorInput!
-
-    // MARK: - Private properties
-
-    fileprivate var workouts = [] as [String]
 }
 
 // MARK: - AddWorkoutModuleInput methods
@@ -36,14 +32,6 @@ extension AddWorkoutPresenter: AddWorkoutViewOutput {
         getAllWorkouts.execute()
     }
 
-    func numberOfWorkouts() -> Int {
-        return workouts.count
-    }
-
-    func workout(at index: Int) -> String {
-        return workouts[index]
-    }
-
     func addWorkout(at index: Int, startingOn date: Date) {
         storeWorkout.execute(withWorkoutIndex: index, startingOn: date)
     }
@@ -54,9 +42,7 @@ extension AddWorkoutPresenter: AddWorkoutViewOutput {
 extension AddWorkoutPresenter: GetAllWorkoutsInteractorOutput {
     func interactor(_ interactor: GetAllWorkoutsInteractorInput,
                     didFindWorkouts workouts: [String]) {
-        self.workouts = workouts
-
-        view.setupInitialState()
+        view.setup(with: workouts)
     }
 }
 

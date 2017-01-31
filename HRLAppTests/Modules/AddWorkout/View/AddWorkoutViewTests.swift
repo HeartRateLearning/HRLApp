@@ -35,31 +35,6 @@ class AddWorkoutViewTests: XCTestCase {
 
     // MARK: - Tests
 
-    func test_pickerViewNumberOfRowsInComponent_forwardToOutput() {
-        // when
-        let component = 0
-
-        _ = sut.pickerView(sut.workoutPicker, numberOfRowsInComponent: component)
-
-        // then
-        XCTAssertEqual(output.numberOfWorkoutsCount, 1)
-    }
-
-    func testOutputWithTwoWorkouts_pickerViewTitleForSecondRow_forwardToOutput() {
-        // given
-        output.numberOfWorkoutsResult = 2
-
-        // when
-        let row = 1
-        let component = 0
-
-        _ = sut.pickerView(sut.workoutPicker, titleForRow: row, forComponent: component)
-
-        // then
-        XCTAssertEqual(output.workoutAtIndexCount, 1)
-        XCTAssertEqual(output.lastWorkoutIndex, row)
-    }
-
     func test_done_forwardToOutput() {
         // when
         sut.done("")

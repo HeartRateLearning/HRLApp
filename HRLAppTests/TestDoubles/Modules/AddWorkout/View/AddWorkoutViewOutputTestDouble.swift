@@ -16,34 +16,16 @@ class AddWorkoutViewOutputTestDouble {
 
     // MARK: - Public properties
 
-    fileprivate (set) var numberOfWorkoutsCount = 0
-    fileprivate (set) var workoutAtIndexCount = 0
     fileprivate (set) var addWorkoutCount = 0
 
-    fileprivate (set) var lastWorkoutIndex = -1
     fileprivate (set) var lastAddWorkoutIndex = -1
     fileprivate (set) var lastAddWorkoutDate = Date(timeIntervalSince1970: 0)
-
-    var numberOfWorkoutsResult = 0
 }
 
 // MARK: - ListWorkoutsViewOutput methods
 
 extension AddWorkoutViewOutputTestDouble: AddWorkoutViewOutput {
     func viewIsReady() {}
-
-    func numberOfWorkouts() -> Int {
-        numberOfWorkoutsCount += 1
-
-        return numberOfWorkoutsResult
-    }
-
-    func workout(at index: Int) -> String {
-        workoutAtIndexCount += 1
-        lastWorkoutIndex = index
-
-        return ""
-    }
 
     func addWorkout(at index: Int, startingOn date: Date) {
         addWorkoutCount += 1

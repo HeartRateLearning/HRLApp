@@ -11,8 +11,5 @@ import Foundation
 protocol AddWorkoutViewOutput {
     func viewIsReady()
 
-    func numberOfWorkouts() -> Int
-    func workout(at index: Int) -> String
-
     func addWorkout(at index: Int, startingOn date: Date)
 }

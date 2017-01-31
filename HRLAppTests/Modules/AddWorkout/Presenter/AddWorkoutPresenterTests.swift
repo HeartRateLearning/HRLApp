@@ -48,37 +48,6 @@ class AddWorkoutPresenterTest: XCTestCase {
         XCTAssertEqual(getAllWorkouts.executeCount, 1)
     }
 
-    func test_didFindWorkouts_setupInitialStateInView() {
-        // when
-        sut.interactor(getAllWorkouts, didFindWorkouts: workouts)
-
-        // then
-        XCTAssertEqual(view.setupInitialStateCount, 1)
-    }
-
-    func testSutWithWorkouts_numberOfWorkouts_returnExpectedCount() {
-        // given
-        sut.interactor(getAllWorkouts, didFindWorkouts: workouts)
-
-        // when
-        let count = sut.numberOfWorkouts()
-
-        // then
-        XCTAssertEqual(count, workouts.count)
-    }
-
-    func testSutWithWorkouts_workoutAtLastIndex_returnExpectedWorkout() {
-        // given
-        sut.interactor(getAllWorkouts, didFindWorkouts: workouts)
-
-        // when
-        let index = workouts.count - 1
-        let lastWorkout = sut.workout(at: index)
-        
-        // then
-        XCTAssertEqual(workouts[index], lastWorkout)
-    }
-
     func testAnyIndexAndAnyDate_addWorkout_forwardToInteractor() {
         // when
         sut.addWorkout(at: anyIndex, startingOn: anyDate)
@@ -87,6 +56,15 @@ class AddWorkoutPresenterTest: XCTestCase {
         XCTAssertEqual(storeWorkout.executeCount, 1)
         XCTAssertEqual(storeWorkout.lastWorkoutIndex, anyIndex)
         XCTAssertEqual(storeWorkout.lastDate, anyDate)
+    }
+
+    func test_didFindWorkouts_setupInitialStateInView() {
+        // when
+        sut.interactor(getAllWorkouts, didFindWorkouts: workouts)
+
+        // then
+        XCTAssertEqual(view.setupCount, 1)
+        XCTAssertEqual(view.lastWorkouts!, workouts)
     }
 
     func test_didStoreWorkout_forwardToRouter() {

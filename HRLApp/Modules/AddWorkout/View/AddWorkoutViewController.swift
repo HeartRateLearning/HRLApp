@@ -21,6 +21,10 @@ class AddWorkoutViewController: UIViewController {
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var workoutPicker: UIPickerView!
 
+    // MARK: - Private properties
+
+    fileprivate var workouts = [] as [String]
+
     // MARK: - Life cycle
 
     override func viewDidLoad() {
@@ -47,7 +51,7 @@ extension AddWorkoutViewController: UIPickerViewDataSource {
     }
 
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return output.numberOfWorkouts()
+        return workouts.count
     }
 }
 
@@ -57,15 +61,19 @@ extension AddWorkoutViewController: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView,
                     titleForRow row: Int,
                     forComponent component: Int) -> String? {
-        return output.workout(at: row)
+        return workouts[row]
     }
 }
 
 // MARK: - AddWorkoutViewInput methods
 
 extension AddWorkoutViewController: AddWorkoutViewInput {
-    func setupInitialState() {
-        workoutPicker.reloadAllComponents()
+    func setup(with workouts: [String]) {
+        self.workouts = workouts
+
+        if isViewLoaded {
+            workoutPicker.reloadAllComponents()
+        }
     }
 }
 

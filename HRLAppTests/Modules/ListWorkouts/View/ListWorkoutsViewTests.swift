@@ -34,43 +34,6 @@ class ListWorkoutsViewTests: XCTestCase {
 
     // MARK: - Tests
 
-    func test_tableViewNumberOfRowsInSection_forwardToOutput() {
-        // when
-        let section = 0
-
-        _ = sut.tableView(sut.tableView, numberOfRowsInSection: section)
-
-        // then
-        XCTAssertEqual(output.numberOfWorkoutsCount, 1)
-    }
-
-    func testOutputWithTwoWorkouts_tableViewCellForSecondRow_forwardToOutput() {
-        // given
-        output.numberOfWorkoutsResult = 2
-
-        // when
-        let row = 1
-        let section = 0
-        let indexPath = IndexPath(row: row, section: section)
-
-        _ = sut.tableView(sut.tableView, cellForRowAt: indexPath)
-
-        // then
-        XCTAssertEqual(output.workoutAtIndexCount, 1)
-        XCTAssertEqual(output.lastWorkoutIndex, row)
-    }
-
-    func testOutputWithWorkouts_setupInitialState_atLeastRequestNumberOfWorkouts() {
-        // given
-        output.numberOfWorkoutsResult = 1
-
-        // when
-        sut.setupInitialState()
-
-        // then
-        XCTAssertEqual(output.numberOfWorkoutsCount, 1)
-    }
-
     func test_add_forwardToOuput() {
         // when
         sut.add("")
@@ -79,10 +42,7 @@ class ListWorkoutsViewTests: XCTestCase {
         XCTAssertEqual(output.addCount, 1)
     }
 
-    func testOutputWithTwoWorkouts_didSelectSecondRow_forwardToOutput() {
-        // given
-        output.numberOfWorkoutsResult = 2
-
+    func test_tableViewDidSelectSecondRow_forwardToOutput() {
         // when
         let row = 1
         let section = 0

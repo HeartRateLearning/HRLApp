@@ -9,9 +9,6 @@
 protocol ListWorkoutsViewOutput {
     func viewIsReady()
 
-    func numberOfWorkouts() -> Int
-    func workout(at index: Int) -> String
-
     func add()
     func didSelectWorkout(at index: Int)
 }

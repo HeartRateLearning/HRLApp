@@ -16,13 +16,17 @@ class AddWorkoutViewInputTestDouble {
 
     // MARK: - Public properties
 
-    fileprivate (set) var setupInitialStateCount = 0
+    fileprivate (set) var setupCount = 0
+
+    fileprivate (set) var lastWorkouts: [String]?
 }
 
 // MARK: - AddWorkoutViewInput methods
 
 extension AddWorkoutViewInputTestDouble: AddWorkoutViewInput {
-    func setupInitialState() {
-        setupInitialStateCount += 1
+    func setup(with workouts: [String]) {
+        setupCount += 1
+
+        lastWorkouts = workouts
     }
 }
