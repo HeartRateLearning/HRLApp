@@ -18,4 +18,12 @@ protocol WorkoutStoreProtocol {
     func dateCount(forWorkoutAt workoutIndex: Int) -> Int?
     func date(at index: Int, forWorkoutAt workoutIndex: Int) -> Date?
     func appendDate(_ date: Date, toWorkoutAt workoutIndex: Int)
+
+    func recordCount(forWorkoutAt workoutIndex: Int, dateAt dateIndex: Int) -> Int?
+    func record(at index: Int,
+                forWorkoutAt workoutIndex: Int,
+                dateAt dateIndex: Int) -> HeartRateRecord?
+    func appendRecord(_ record: HeartRateRecord,
+                      toWorkoutAt workoutIndex: Int,
+                      dateAt dateIndex: Int)
 }

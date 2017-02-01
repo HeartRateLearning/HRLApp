@@ -17,9 +17,14 @@ class WorkoutStoreTests: XCTestCase {
     // MARK: - Properties
 
     let anyDateIndex = 0
-    let outOfRangeWorkoutIndex = 1000
+    let anyRecordIndex = 0
+    let anyWorkoutIndex = 0
     let outOfRangeDateIndex = 1000
+    let outOfRangeRecordIndex = 1000
+    let outOfRangeWorkoutIndex = 1000
 
+    let anyDate = Date()
+    let anyRecord = HeartRateRecord(date: Date(), bpm: Float(60))
     let anyWorkout = Workout.other
 
     let delegate = WorkoutStoreDelegateTestDouble()
@@ -37,6 +42,9 @@ class WorkoutStoreTests: XCTestCase {
     // MARK: - Tests
 
     func testOutOfRangeIndex_workoutAtIndex_returnNil() {
+        // given
+        fillSut()
+
         // when
         let workout = sut.workout(at: outOfRangeWorkoutIndex)
 
@@ -54,6 +62,9 @@ class WorkoutStoreTests: XCTestCase {
     }
 
     func testOutOfRangeWorkoutIndex_dateCount_returnNil() {
+        // given
+        fillSut()
+
         // when
         let count = sut.dateCount(forWorkoutAt: outOfRangeWorkoutIndex)
 
@@ -62,6 +73,9 @@ class WorkoutStoreTests: XCTestCase {
     }
 
     func testOutOfRangeWorkoutIndex_dateAtIndex_returnNil() {
+        // given
+        fillSut()
+
         // when
         let date = sut.date(at: anyDateIndex, forWorkoutAt: outOfRangeWorkoutIndex)
 
@@ -71,11 +85,10 @@ class WorkoutStoreTests: XCTestCase {
 
     func testSutWithWorkoutAndOutRangeDateIndex_dateAtIndex_returnNil() {
         // given
-        sut.appendWorkout(anyWorkout)
+        fillSut()
 
         // when
-        let workoutIndex = 0
-        let date = sut.date(at: outOfRangeDateIndex, forWorkoutAt: workoutIndex)
+        let date = sut.date(at: outOfRangeDateIndex, forWorkoutAt: anyWorkoutIndex)
 
         // then
         XCTAssertNil(date)
@@ -83,17 +96,113 @@ class WorkoutStoreTests: XCTestCase {
 
     func testSutWithAppendedDate_dateAtIndex_returnExpectedDate() {
         // given
-        let expectedDate = Date()
-        let workoutIndex = 0
-
-        sut.appendWorkout(anyWorkout)
-        sut.appendDate(expectedDate, toWorkoutAt: workoutIndex)
+        fillSut()
 
         // when
-        let dateIndex = 0
-        let date = sut.date(at: dateIndex, forWorkoutAt: workoutIndex)
+        let date = sut.date(at: anyDateIndex, forWorkoutAt: anyWorkoutIndex)
 
         // then
-        XCTAssertEqual(expectedDate, date)
+        XCTAssertEqual(anyDate, date)
+    }
+
+    func testOutOfRangeWorkoutIndex_recordCount_returnNil() {
+        // given
+        fillSut()
+
+        // when
+        let count = sut.record(at: anyRecordIndex,
+                               forWorkoutAt: outOfRangeWorkoutIndex,
+                               dateAt: anyDateIndex)
+
+        // then
+        XCTAssertNil(count)
+    }
+
+    func testOutOfRangeDateIndex_recordCount_returnNil() {
+        // given
+        fillSut()
+
+        // when
+        let count = sut.record(at: anyRecordIndex,
+                               forWorkoutAt: anyWorkoutIndex,
+                               dateAt: outOfRangeDateIndex)
+
+        // then
+        XCTAssertNil(count)
+    }
+
+    func testOutOfRangeRecordIndex_recordCount_returnNil() {
+        // given
+        fillSut()
+
+        // when
+        let count = sut.record(at: outOfRangeRecordIndex,
+                               forWorkoutAt: anyWorkoutIndex,
+                               dateAt: anyDateIndex)
+
+        // then
+        XCTAssertNil(count)
+    }
+
+    func testOutOfRangeWorkoutIndex_recordAtIndex_returnNil() {
+        // given
+        fillSut()
+
+        // when
+        let record = sut.record(at: anyRecordIndex,
+                                forWorkoutAt: outOfRangeRecordIndex,
+                                dateAt: anyDateIndex)
+
+        // then
+        XCTAssertNil(record)
+    }
+
+    func testOutOfRangeDateIndex_recordAtIndex_returnNil() {
+        // given
+        fillSut()
+
+        // when
+        let record = sut.record(at: anyRecordIndex,
+                                forWorkoutAt: anyWorkoutIndex,
+                                dateAt: outOfRangeDateIndex)
+
+        // then
+        XCTAssertNil(record)
+    }
+
+    func testOutOfRangeRecordIndex_recordAtIndex_returnNil() {
+        // given
+        fillSut()
+
+        // when
+        let record = sut.record(at: outOfRangeRecordIndex,
+                                forWorkoutAt: anyWorkoutIndex,
+                                dateAt: anyDateIndex)
+
+        // then
+        XCTAssertNil(record)
+    }
+
+    func testSutWithAppendedDate_recordAtIndex_returnExpectedRecord() {
+        // given
+        fillSut()
+
+        // when
+        let record = sut.record(at: anyRecordIndex,
+                                forWorkoutAt: anyWorkoutIndex,
+                                dateAt: anyDateIndex)
+
+        // then
+        XCTAssertEqual(anyRecord, record)
+    }
+}
+
+// MARK: - Private body
+
+private extension WorkoutStoreTests {
+    func fillSut() {
+        sut.appendWorkout(anyWorkout)
+        sut.appendDate(anyDate, toWorkoutAt: anyWorkoutIndex)
+        sut.appendRecord(anyRecord, toWorkoutAt: anyWorkoutIndex, dateAt: anyDateIndex)
     }
 }

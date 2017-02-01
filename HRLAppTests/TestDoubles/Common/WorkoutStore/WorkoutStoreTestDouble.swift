@@ -26,19 +26,32 @@ class WorkoutStoreTestDouble {
     fileprivate (set) var dateCountCount = 0
     fileprivate (set) var dateAtIndexCount = 0
     fileprivate (set) var appendDateCount = 0
+    fileprivate (set) var recordCountCount = 0
+    fileprivate (set) var recordAtIndexCount = 0
+    fileprivate (set) var appendRecordCount = 0
 
     fileprivate (set) var lastWorkoutIndex = -1
-    fileprivate (set) var lastAppendedWorkout = Workout.other
+    fileprivate (set) var lastAppendedWorkout: Workout?
     fileprivate (set) var lastDateCountWorkoutIndex = -1
     fileprivate (set) var lastDateIndex = -1
     fileprivate (set) var lastDateWorkoutIndex = -1
-    fileprivate (set) var lastAppendedDate = Date(timeIntervalSince1970: 0)
+    fileprivate (set) var lastAppendedDate: Date?
     fileprivate (set) var lastAppendedDateWorkoutIndex = -1
+    fileprivate (set) var lastRecordCountWorkoutIndex = -1
+    fileprivate (set) var lastRecordCountDateIndex = -1
+    fileprivate (set) var lastRecordIndex = -1
+    fileprivate (set) var lastRecordWorkoutIndex = -1
+    fileprivate (set) var lastRecordDateIndex = -1
+    fileprivate (set) var lastAppendedRecord: HeartRateRecord?
+    fileprivate (set) var lastAppendedRecordWorkoutIndex = -1
+    fileprivate (set) var lastAppendedRecordDateIndex = -1
 
     var workoutCountResult = 0
     var workoutAtIndexResult: Workout?
     var dateCountResult: Int?
     var dateAtIndexResult: Date?
+    var recordCountResult: Int?
+    var recordAtIndexResult: HeartRateRecord?
 }
 
 // MARK: - WorkoutStoreProtocol methods
@@ -87,5 +100,36 @@ extension WorkoutStoreTestDouble: WorkoutStoreProtocol {
 
         lastAppendedDate = date
         lastAppendedDateWorkoutIndex = workoutIndex
+    }
+
+    func recordCount(forWorkoutAt workoutIndex: Int, dateAt dateIndex: Int) -> Int? {
+        recordCountCount += 1
+
+        lastRecordCountWorkoutIndex = workoutIndex
+        lastRecordCountDateIndex = dateIndex
+
+        return recordCountResult
+    }
+
+    func record(at index: Int,
+                forWorkoutAt workoutIndex: Int,
+                dateAt dateIndex: Int) -> HeartRateRecord? {
+        recordAtIndexCount += 1
+
+        lastRecordIndex = index
+        lastRecordWorkoutIndex = workoutIndex
+        lastRecordDateIndex = dateIndex
+
+        return recordAtIndexResult
+    }
+
+    func appendRecord(_ record: HeartRateRecord,
+                      toWorkoutAt workoutIndex: Int,
+                      dateAt dateIndex: Int) {
+        appendRecordCount += 1
+
+        lastAppendedRecord = record
+        lastAppendedRecordWorkoutIndex = workoutIndex
+        lastAppendedRecordDateIndex = dateIndex
     }
 }
