@@ -15,7 +15,6 @@ class HealthStoreFactory {
 
     // MARK: - Private properties
 
-    fileprivate let store = HKHealthStore()
     fileprivate var state = State.rejected
 }
 
@@ -23,38 +22,21 @@ class HealthStoreFactory {
 
 extension HealthStoreFactory: HealthStoreFactoryProtocol {
     func setup() {
-        guard state != .requesting else {
+        guard !isRequestingAuthorization() else {
             print("Already requesting authorization")
 
             return
         }
 
-        guard HKHealthStore.isHealthDataAvailable() else {
-            print("Health data is NOT available")
-
-            state = .rejected
-
-            return
-        }
-
-        state = .requesting
-
-        let completion = { [weak self] (success: Bool, error: Error?) in
-            if !success {
-                print("Request Authorization Error: \(error)")
-            }
-
-            DispatchQueue.main.async {
-                self?.state = State(success)
-            }
-        }
-        store.requestAuthorization(toShare: nil,
-                                   read: [HeartRateStore.heartRateType],
-                                   completion: completion)
+        requestAuthorization()
     }
 
     func makeHeartRateStore() -> HeartRateStore? {
-        return state == .authorized ? HeartRateStore(store: store) : nil
+        guard let currentStore = currentHealthStore() else {
+            return nil
+        }
+
+        return HeartRateStore(store: currentStore)
     }
 }
 
@@ -65,12 +47,75 @@ private extension HealthStoreFactory {
     // MARK: - Type definitions
 
     enum State {
-        case authorized
-        case rejected
         case requesting
+        case rejected
+        case authorized(HKHealthStore)
 
-        init(_ success: Bool) {
-            self = success ? .authorized : .rejected
+        init(isAuthorized: Bool, store: HKHealthStore) {
+            self = isAuthorized ? .authorized(store) : .rejected
         }
+    }
+
+    // MARK: - Constants
+
+    enum Constants {
+        static let typesToShare = nil as Set<HKSampleType>?
+        static let typesToRead = Set(arrayLiteral: HeartRateStore.heartRateType)
+    }
+
+    // MARK: - Private methods
+
+    func isRequestingAuthorization() -> Bool {
+        var isRequesting = false
+
+        switch state {
+        case .requesting:
+            isRequesting = true
+        default:
+            isRequesting = false
+        }
+
+        return isRequesting
+    }
+
+    func requestAuthorization() {
+        guard HKHealthStore.isHealthDataAvailable() else {
+            print("Health data is NOT available")
+
+            state = .rejected
+
+            return
+        }
+
+        state = .requesting
+
+        let store = HKHealthStore()
+
+        let completion = { [weak self] (success: Bool, error: Error?) in
+            if !success {
+                print("Request authorization failed: \(error)")
+            }
+
+            DispatchQueue.main.async {
+                self?.state = State(isAuthorized: success, store: store)
+            }
+        }
+
+        store.requestAuthorization(toShare: Constants.typesToShare,
+                                   read: Constants.typesToRead,
+                                   completion: completion)
+    }
+
+    func currentHealthStore() -> HKHealthStore? {
+        var currentStore: HKHealthStore?
+
+        switch state {
+        case .authorized(let store):
+            currentStore = store
+        default:
+            currentStore = nil
+        }
+
+        return currentStore
     }
 }
