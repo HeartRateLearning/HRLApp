@@ -8,16 +8,32 @@
 
 import XCTest
 
+@testable import HRLApp
+
+// MARK: - Main body
+
 class ListHeartRatesViewTests: XCTestCase {
+
+    // MARK: - Properties
+
+    var sut: ListHeartRatesViewController!
+
+    // MARK: - Setup / Teardown
 
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
 
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-    }
+        let instantiater = ViewControllerInstantiaterHelper()
+        let viewController = instantiater.viewController(with: Constants.viewControllerId)
 
+        sut = viewController as! ListHeartRatesViewController
+    }
+}
+
+// MARK: - Private body
+
+private extension ListHeartRatesViewTests {
+    enum Constants {
+        static let viewControllerId = "ListHeartRatesViewController"
+    }
 }

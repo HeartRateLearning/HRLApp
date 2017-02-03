@@ -21,19 +21,4 @@ class ListHeartRatesPresenterTest: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
-
-    class MockInteractor: ListHeartRatesInteractorInput {
-
-    }
-
-    class MockRouter: ListHeartRatesRouterInput {
-
-    }
-
-    class MockViewController: ListHeartRatesViewInput {
-
-        func setupInitialState() {
-
-        }
-    }
 }

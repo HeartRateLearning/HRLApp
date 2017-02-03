@@ -6,12 +6,4 @@
 //  Copyright © 2017 Enrique de la Torre. All rights reserved.
 //
 
-protocol ListHeartRatesViewOutput {
-
-    /**
-        @author Enrique de la Torre
-        Notify presenter that view is ready
-    */
-
-    func viewIsReady()
-}
+protocol ListHeartRatesViewOutput {}

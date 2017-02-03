@@ -26,9 +26,7 @@ extension ListHeartRatesPresenter: ListHeartRatesModuleInput {
 
 // MARK: - ListHeartRatesViewOutput methods
 
-extension ListHeartRatesPresenter: ListHeartRatesViewOutput {
-    func viewIsReady() {}
-}
+extension ListHeartRatesPresenter: ListHeartRatesViewOutput {}
 
 // MARK: - ListHeartRatesInteractorOutput methods
 
