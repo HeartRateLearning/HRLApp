@@ -8,4 +8,6 @@
 
 import Foundation
 
-protocol ListWorkoutDatesViewOutput {}
+protocol ListWorkoutDatesViewOutput {
+    func didSelectDate(at index: Int)
+}

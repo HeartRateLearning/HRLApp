@@ -22,11 +22,11 @@
                                 <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oGg-ct-l2X" id="hNz-1d-6Dm">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9UJ-iX-EpB">
-                                            <rect key="frame" x="15" y="0.0" width="290" height="43.5"/>
+                                            <rect key="frame" x="15" y="0.0" width="290" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -75,11 +75,11 @@
                                 <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="BTq-gH-Vkl" id="vaN-VD-zbq">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dIy-Ql-EO8">
-                                            <rect key="frame" x="15" y="0.0" width="290" height="43.5"/>
+                                            <rect key="frame" x="15" y="0.0" width="290" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -94,6 +94,9 @@
                             <outlet property="delegate" destination="CZ8-kt-l67" id="IEQ-gc-LV0"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <segue destination="1iv-wc-mLe" kind="show" identifier="listHeartRatesSegue" id="MVp-hB-a1H"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T1y-AU-PVZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <customObject id="U69-lu-uz8" customClass="ListWorkoutDatesModuleInitializer" customModule="HRLApp" customModuleProvider="target">
@@ -103,6 +106,29 @@
                 </customObject>
             </objects>
             <point key="canvasLocation" x="1549" y="980"/>
+        </scene>
+        <!--Listheartrates View Controller-->
+        <scene sceneID="SJB-CS-ImA">
+            <objects>
+                <viewController storyboardIdentifier="ListHeartRatesViewController" id="1iv-wc-mLe" customClass="ListHeartRatesViewController" customModule="HRLApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="EHK-8A-gNi"/>
+                        <viewControllerLayoutGuide type="bottom" id="xIv-vh-rhr"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ecp-t7-i65">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Q4m-oa-ifs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="4vo-UG-TI5" customClass="ListHeartRatesModuleInitializer" customModule="HRLApp" customModuleProvider="target">
+                    <connections>
+                        <outlet property="listheartratesViewController" destination="1iv-wc-mLe" id="lfp-04-sjO"/>
+                    </connections>
+                </customObject>
+            </objects>
+            <point key="canvasLocation" x="2419" y="980"/>
         </scene>
         <!--Add Workout View Controller-->
         <scene sceneID="UZP-LE-xdJ">

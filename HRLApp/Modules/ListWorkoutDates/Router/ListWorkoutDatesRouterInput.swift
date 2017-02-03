@@ -8,4 +8,6 @@
 
 import Foundation
 
-protocol ListWorkoutDatesRouterInput {}
+protocol ListWorkoutDatesRouterInput: class {
+    func presentHeartRates(forWorkoutAt workoutIndex: Int, dateAt dateIndex: Int)
+}

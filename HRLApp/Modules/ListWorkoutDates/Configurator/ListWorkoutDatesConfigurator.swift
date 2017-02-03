@@ -39,11 +39,10 @@ private extension ListWorkoutDatesModuleConfigurator {
 
     func configureDependencies(for viewController: ListWorkoutDatesViewController) {
         let store = WorkoutStoreSingleton.sharedInstance
-        let router = ListWorkoutDatesRouter()
 
         let presenter = ListWorkoutDatesPresenter()
         presenter.view = viewController
-        presenter.router = router
+        presenter.router = viewController
 
         let interactor = GetWorkoutDatesInteractor()
         interactor.store = store

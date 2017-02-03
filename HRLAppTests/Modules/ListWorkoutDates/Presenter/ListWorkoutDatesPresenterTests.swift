@@ -15,7 +15,7 @@ class ListWorkoutDatesPresenterTest: XCTestCase {
     // MARK: - Properties
 
     let view = ListWorkoutDatesViewInputTestDouble()
-    let router = ListWorkoutDatesRouter()
+    let router = ListWorkoutDatesRouterInputTestDouble()
     let interactor = GetWorkoutDatesInteractorInputTestDouble()
 
     let sut = ListWorkoutDatesPresenter()

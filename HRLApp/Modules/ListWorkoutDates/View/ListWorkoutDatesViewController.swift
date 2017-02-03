@@ -50,6 +50,12 @@ class ListWorkoutDatesViewController: UITableViewController {
 
         return cell
     }
+
+    // MARK: - UITableViewDelegate methods
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        output.didSelectDate(at: indexPath.row)
+    }
 }
 
 // MARK: - ListWorkoutDatesViewInput methods
