@@ -9,16 +9,25 @@
 /* Begin PBXBuildFile section */
 		01215FE7B627CFCD27F246F8 /* ListWorkoutDatesRouterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278484420572665EE11CEB76 /* ListWorkoutDatesRouterInput.swift */; };
 		012CEFC7181AC96E537F94D6 /* ListWorkoutsModuleInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34DAD93C05175F1A57F8BFA /* ListWorkoutsModuleInput.swift */; };
+		0331991915A5DC14D2B42C5C /* ListHeartRatesConfiguratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047FAE641E3BDE167A544641 /* ListHeartRatesConfiguratorTests.swift */; };
 		03C31E41F1B5E107DE9D352A /* ListWorkoutDatesRouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313AE122FD392074DB9E1732 /* ListWorkoutDatesRouterTests.swift */; };
 		0AF16C3F67B7E998905AADC6 /* Pods_HRLAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9DE7918A4F0A992FF46E35F /* Pods_HRLAppTests.framework */; };
+		0F6882F98BD26B06B3DF0BDB /* ListHeartRatesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2686AB5C782DD191BDA48A70 /* ListHeartRatesInteractor.swift */; };
+		14DCCEDC8A1E35F65D413043 /* ListHeartRatesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3986C4A8A2D4493C773407 /* ListHeartRatesPresenter.swift */; };
 		1839BB62694D5624DB457E2D /* AddWorkoutConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBDE61A16568544E97F80C8 /* AddWorkoutConfigurator.swift */; };
+		1DD76351473C75D00F730881 /* ListHeartRatesViewOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47D9B8E97201D1DB7EF1C7C /* ListHeartRatesViewOutput.swift */; };
 		2EDE269FC6F5BCE278DEDFFD /* AddWorkoutInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C430993AD706E8863BD23D65 /* AddWorkoutInitializer.swift */; };
+		31F44035709BF082427D14CE /* ListHeartRatesViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A221DB3C300A46CCD1C426 /* ListHeartRatesViewInput.swift */; };
 		381ACD079EF09F797A08E187 /* ListWorkoutsRouterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31B1F99FEF9C3C865D08B7C /* ListWorkoutsRouterInput.swift */; };
 		3D94B071249339F379839E18 /* ListWorkoutDatesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC396B5ED697FAB7E39A243C /* ListWorkoutDatesPresenter.swift */; };
 		4056F299BC163958B14A63C0 /* AddWorkoutPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F44066A958721FB8E462D12 /* AddWorkoutPresenterTests.swift */; };
+		42D27511777CC5F05FA2DF4E /* ListHeartRatesConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C512CAD1DBDF918C7B3DC6 /* ListHeartRatesConfigurator.swift */; };
 		447667A7BCD286D8AC62B656 /* ListWorkoutsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB037D7DBC2812E12131E96 /* ListWorkoutsPresenter.swift */; };
 		4F9D0775D01F45AB46C7E698 /* ListWorkoutsViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94E3B91F246A52E28145721 /* ListWorkoutsViewTests.swift */; };
+		5136B8814604D3FBC52AFA1A /* ListHeartRatesRouterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B22F8A7D9B395940C5A6171 /* ListHeartRatesRouterInput.swift */; };
+		578A90494D62209B45962A47 /* ListHeartRatesPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF23E7B6F6C1AE6C1594CE04 /* ListHeartRatesPresenterTests.swift */; };
 		57F1B955F0E4F235D8689C88 /* ListWorkoutsViewOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = C702A16EFC7C08357505E6E3 /* ListWorkoutsViewOutput.swift */; };
+		5C41783C1C24E8E62D4E7C9E /* ListHeartRatesModuleInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FACF513F7CA691700FEE16 /* ListHeartRatesModuleInput.swift */; };
 		5C992993F3EED1775A288E78 /* ListWorkoutDatesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5152993107AC12F031365BE /* ListWorkoutDatesRouter.swift */; };
 		68315D7E31A705EBD3FE6FAB /* ListWorkoutDatesViewOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FE1256FAC419F9EAFB47FA /* ListWorkoutDatesViewOutput.swift */; };
 		69B7F25F5D5D4B2F0173ED0D /* ListWorkoutDatesModuleInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51B9FF00D0880A7169CA319 /* ListWorkoutDatesModuleInput.swift */; };
@@ -33,7 +42,10 @@
 		9D17B91ED38CC2BD41EE396C /* ListWorkoutsConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CF59FFFA22B61F7C26B019 /* ListWorkoutsConfigurator.swift */; };
 		9F43C6F79607A43059593E24 /* AddWorkoutRouterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B37248B742B81E526AB4F0 /* AddWorkoutRouterInput.swift */; };
 		A9C8205D8ADEBD3AEDB29822 /* AddWorkoutPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2206D004C438B998CB9DAC71 /* AddWorkoutPresenter.swift */; };
+		AA5DBEABBC3D86EF36ADA14C /* ListHeartRatesRouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B87328B137ED1D675E8EF9A /* ListHeartRatesRouterTests.swift */; };
+		AB7D81B32BCDF19C7C32D694 /* ListHeartRatesViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00C82FB4152AE63ABA8D41A /* ListHeartRatesViewTests.swift */; };
 		ACFAC34686348218CC846B29 /* ListWorkoutsInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23B9E41FB8276BF1C7A20A3 /* ListWorkoutsInitializer.swift */; };
+		AFDF0DE6D431571B5F99C520 /* ListHeartRatesInteractorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD94BDC192F9F9EFFD8DB190 /* ListHeartRatesInteractorOutput.swift */; };
 		B379385126751B79CED5277E /* AddWorkoutModuleInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = D084429C8C06A5C4DC1F7653 /* AddWorkoutModuleInput.swift */; };
 		C85F15B2B7C379627CCC5EB0 /* AddWorkoutViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D013AEE1B5A0A84CBA280C /* AddWorkoutViewInput.swift */; };
 		CBAC8CB79D25866019E35FB7 /* Pods_HRLApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8AB0591D95BBCCB727D0E1B /* Pods_HRLApp.framework */; };
@@ -41,9 +53,14 @@
 		D4A804E9DE4CA6F70B3EE600 /* ListWorkoutsViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB0C6B88D415359700E8BC8 /* ListWorkoutsViewInput.swift */; };
 		E0A71D7AFEC37CDBDF9CA856 /* ListWorkoutsPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F474F96C56408F7016B4B9C7 /* ListWorkoutsPresenterTests.swift */; };
 		E339D7FF0A7537DF140A594F /* AddWorkoutViewOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42803B5BF245ED232A9C6F9B /* AddWorkoutViewOutput.swift */; };
+		E9F76FACC8DC55D06C78796D /* ListHeartRatesInteractorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A941EC7F804B17C0AFF0AE6 /* ListHeartRatesInteractorInput.swift */; };
+		EACAE6BF7A430501B7F5D3AE /* ListHeartRatesInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916F260591379C3E456DA752 /* ListHeartRatesInteractorTests.swift */; };
 		EE59355D06B6F17F27D32630 /* AddWorkoutConfiguratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00947A1124FE7371B83D948C /* AddWorkoutConfiguratorTests.swift */; };
 		F099B002012AE5B32859D768 /* ListWorkoutDatesInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB4F18225B2D097F3E4CD41 /* ListWorkoutDatesInitializer.swift */; };
+		F0C2DEB36F7133C2F0C2CB0C /* ListHeartRatesInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87CCBFFA4C4954394E9BC12 /* ListHeartRatesInitializer.swift */; };
+		F23E937FE9B5DD19FFDBE4A2 /* ListHeartRatesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F761A61E1EFE2404E3B14CAE /* ListHeartRatesRouter.swift */; };
 		F8DC4A4E784CF5032A2BF2D1 /* ListWorkoutDatesPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F7703EFE3E7C3C2A8C1105 /* ListWorkoutDatesPresenterTests.swift */; };
+		FAD30821A0FB4C462A33B81F /* ListHeartRatesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36221820E462A5239F6E6A57 /* ListHeartRatesViewController.swift */; };
 		FF08E3041E3AB71B001183A3 /* WorkoutStoreProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF08E3031E3AB71B001183A3 /* WorkoutStoreProtocol.swift */; };
 		FF08E3061E3AB810001183A3 /* WorkoutStoreSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF08E3051E3AB810001183A3 /* WorkoutStoreSingleton.swift */; };
 		FF2CAAB11E3FD86B0052129F /* ListWorkoutDatesModuleInputTestDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2CAAB01E3FD86B0052129F /* ListWorkoutDatesModuleInputTestDouble.swift */; };
@@ -112,25 +129,35 @@
 /* Begin PBXFileReference section */
 		00947A1124FE7371B83D948C /* AddWorkoutConfiguratorTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AddWorkoutConfiguratorTests.swift; sourceTree = "<group>"; };
 		03CF59FFFA22B61F7C26B019 /* ListWorkoutsConfigurator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ListWorkoutsConfigurator.swift; sourceTree = "<group>"; };
+		047FAE641E3BDE167A544641 /* ListHeartRatesConfiguratorTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ListHeartRatesConfiguratorTests.swift; sourceTree = "<group>"; };
+		0A941EC7F804B17C0AFF0AE6 /* ListHeartRatesInteractorInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ListHeartRatesInteractorInput.swift; sourceTree = "<group>"; };
 		0B9E5CB7E0C68085F986F125 /* ListWorkoutDatesConfiguratorTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ListWorkoutDatesConfiguratorTests.swift; sourceTree = "<group>"; };
 		0BB037D7DBC2812E12131E96 /* ListWorkoutsPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ListWorkoutsPresenter.swift; sourceTree = "<group>"; };
 		14B37248B742B81E526AB4F0 /* AddWorkoutRouterInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AddWorkoutRouterInput.swift; sourceTree = "<group>"; };
+		1B22F8A7D9B395940C5A6171 /* ListHeartRatesRouterInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ListHeartRatesRouterInput.swift; sourceTree = "<group>"; };
 		2206D004C438B998CB9DAC71 /* AddWorkoutPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AddWorkoutPresenter.swift; sourceTree = "<group>"; };
 		224942A5E948F95E0B3F4BDA /* ListWorkoutDatesConfigurator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ListWorkoutDatesConfigurator.swift; sourceTree = "<group>"; };
+		2686AB5C782DD191BDA48A70 /* ListHeartRatesInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ListHeartRatesInteractor.swift; sourceTree = "<group>"; };
 		278484420572665EE11CEB76 /* ListWorkoutDatesRouterInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ListWorkoutDatesRouterInput.swift; sourceTree = "<group>"; };
 		3114E6BC03073E99879DCEEB /* AddWorkoutViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AddWorkoutViewController.swift; sourceTree = "<group>"; };
 		313AE122FD392074DB9E1732 /* ListWorkoutDatesRouterTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ListWorkoutDatesRouterTests.swift; sourceTree = "<group>"; };
 		33FE1256FAC419F9EAFB47FA /* ListWorkoutDatesViewOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ListWorkoutDatesViewOutput.swift; sourceTree = "<group>"; };
+		36221820E462A5239F6E6A57 /* ListHeartRatesViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ListHeartRatesViewController.swift; sourceTree = "<group>"; };
 		37F7703EFE3E7C3C2A8C1105 /* ListWorkoutDatesPresenterTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ListWorkoutDatesPresenterTests.swift; sourceTree = "<group>"; };
+		3B87328B137ED1D675E8EF9A /* ListHeartRatesRouterTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ListHeartRatesRouterTests.swift; sourceTree = "<group>"; };
 		42803B5BF245ED232A9C6F9B /* AddWorkoutViewOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AddWorkoutViewOutput.swift; sourceTree = "<group>"; };
 		5A02999EFCDF2AE5213F9C32 /* ListWorkoutsRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ListWorkoutsRouter.swift; sourceTree = "<group>"; };
 		5A05F3F77C11FBC4852A4853 /* ListWorkoutDatesViewInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ListWorkoutDatesViewInput.swift; sourceTree = "<group>"; };
 		5AB76FB773B0B07EE94E6B95 /* AddWorkoutRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AddWorkoutRouter.swift; sourceTree = "<group>"; };
 		5EBDE61A16568544E97F80C8 /* AddWorkoutConfigurator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AddWorkoutConfigurator.swift; sourceTree = "<group>"; };
 		78D013AEE1B5A0A84CBA280C /* AddWorkoutViewInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AddWorkoutViewInput.swift; sourceTree = "<group>"; };
+		86A221DB3C300A46CCD1C426 /* ListHeartRatesViewInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ListHeartRatesViewInput.swift; sourceTree = "<group>"; };
+		8B3986C4A8A2D4493C773407 /* ListHeartRatesPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ListHeartRatesPresenter.swift; sourceTree = "<group>"; };
 		8F44066A958721FB8E462D12 /* AddWorkoutPresenterTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AddWorkoutPresenterTests.swift; sourceTree = "<group>"; };
+		916F260591379C3E456DA752 /* ListHeartRatesInteractorTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ListHeartRatesInteractorTests.swift; sourceTree = "<group>"; };
 		97217BD64C91A9A4A807447F /* Pods-HRLAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HRLAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HRLAppTests/Pods-HRLAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9B2C2201815C32E0F716AD5A /* Pods-HRLAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HRLAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HRLAppTests/Pods-HRLAppTests.release.xcconfig"; sourceTree = "<group>"; };
+		A1FACF513F7CA691700FEE16 /* ListHeartRatesModuleInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ListHeartRatesModuleInput.swift; sourceTree = "<group>"; };
 		A2765CAADE82E4F9DB76EC16 /* ListWorkoutsConfiguratorTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ListWorkoutsConfiguratorTests.swift; sourceTree = "<group>"; };
 		A52A3518DBBD784E21CECA22 /* Pods-HRLApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HRLApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-HRLApp/Pods-HRLApp.release.xcconfig"; sourceTree = "<group>"; };
 		A8C43FA2DAAE196CA34C705F /* ListWorkoutDatesViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ListWorkoutDatesViewController.swift; sourceTree = "<group>"; };
@@ -141,19 +168,26 @@
 		B51B9FF00D0880A7169CA319 /* ListWorkoutDatesModuleInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ListWorkoutDatesModuleInput.swift; sourceTree = "<group>"; };
 		BDB0C6B88D415359700E8BC8 /* ListWorkoutsViewInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ListWorkoutsViewInput.swift; sourceTree = "<group>"; };
 		BF256BC1FE2C552B0891E089 /* ListWorkoutsViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ListWorkoutsViewController.swift; sourceTree = "<group>"; };
+		C00C82FB4152AE63ABA8D41A /* ListHeartRatesViewTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ListHeartRatesViewTests.swift; sourceTree = "<group>"; };
 		C31B1F99FEF9C3C865D08B7C /* ListWorkoutsRouterInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ListWorkoutsRouterInput.swift; sourceTree = "<group>"; };
 		C34DAD93C05175F1A57F8BFA /* ListWorkoutsModuleInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ListWorkoutsModuleInput.swift; sourceTree = "<group>"; };
 		C430993AD706E8863BD23D65 /* AddWorkoutInitializer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AddWorkoutInitializer.swift; sourceTree = "<group>"; };
 		C5152993107AC12F031365BE /* ListWorkoutDatesRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ListWorkoutDatesRouter.swift; sourceTree = "<group>"; };
 		C702A16EFC7C08357505E6E3 /* ListWorkoutsViewOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ListWorkoutsViewOutput.swift; sourceTree = "<group>"; };
 		CC396B5ED697FAB7E39A243C /* ListWorkoutDatesPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ListWorkoutDatesPresenter.swift; sourceTree = "<group>"; };
+		CD94BDC192F9F9EFFD8DB190 /* ListHeartRatesInteractorOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ListHeartRatesInteractorOutput.swift; sourceTree = "<group>"; };
 		D084429C8C06A5C4DC1F7653 /* AddWorkoutModuleInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AddWorkoutModuleInput.swift; sourceTree = "<group>"; };
 		D388BED71965833851FFA467 /* AddWorkoutViewTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AddWorkoutViewTests.swift; sourceTree = "<group>"; };
+		D6C512CAD1DBDF918C7B3DC6 /* ListHeartRatesConfigurator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ListHeartRatesConfigurator.swift; sourceTree = "<group>"; };
 		D8AB0591D95BBCCB727D0E1B /* Pods_HRLApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HRLApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBB035AD3807CFA509ADE459 /* Pods-HRLApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HRLApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HRLApp/Pods-HRLApp.debug.xcconfig"; sourceTree = "<group>"; };
+		E47D9B8E97201D1DB7EF1C7C /* ListHeartRatesViewOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ListHeartRatesViewOutput.swift; sourceTree = "<group>"; };
+		E87CCBFFA4C4954394E9BC12 /* ListHeartRatesInitializer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ListHeartRatesInitializer.swift; sourceTree = "<group>"; };
 		F474F96C56408F7016B4B9C7 /* ListWorkoutsPresenterTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ListWorkoutsPresenterTests.swift; sourceTree = "<group>"; };
+		F761A61E1EFE2404E3B14CAE /* ListHeartRatesRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ListHeartRatesRouter.swift; sourceTree = "<group>"; };
 		FF08E3031E3AB71B001183A3 /* WorkoutStoreProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutStoreProtocol.swift; sourceTree = "<group>"; };
 		FF08E3051E3AB810001183A3 /* WorkoutStoreSingleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutStoreSingleton.swift; sourceTree = "<group>"; };
+		FF23E7B6F6C1AE6C1594CE04 /* ListHeartRatesPresenterTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ListHeartRatesPresenterTests.swift; sourceTree = "<group>"; };
 		FF2CAAB01E3FD86B0052129F /* ListWorkoutDatesModuleInputTestDouble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListWorkoutDatesModuleInputTestDouble.swift; sourceTree = "<group>"; };
 		FF2CAAB51E3FFD330052129F /* GetWorkoutDatesInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetWorkoutDatesInteractor.swift; sourceTree = "<group>"; };
 		FF2CAAB71E3FFD430052129F /* GetWorkoutDatesInteractorInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetWorkoutDatesInteractorInput.swift; sourceTree = "<group>"; };
@@ -276,6 +310,14 @@
 			path = Interactor;
 			sourceTree = "<group>";
 		};
+		4582314B2929B05149BE23F5 /* Configurator */ = {
+			isa = PBXGroup;
+			children = (
+				047FAE641E3BDE167A544641 /* ListHeartRatesConfiguratorTests.swift */,
+			);
+			path = Configurator;
+			sourceTree = "<group>";
+		};
 		4B27B87E2422C427BAA745ED /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -311,6 +353,7 @@
 				FF0EED261E2E9C8F0069B4D5 /* Helpers */,
 				78FD22E5C331E7F14CC11CBE /* ListWorkoutDates */,
 				849BDDC3BF07471A08C4C059 /* ListWorkouts */,
+				CAB94BD9DCF12E4D97AB7EE6 /* ListHeartRates */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -319,6 +362,7 @@
 			isa = PBXGroup;
 			children = (
 				76190261A282A6894D9BF6BC /* AddWorkout */,
+				BEBC0EFE343D560C98C15F96 /* ListHeartRates */,
 				B80D587D9A50AF4760CDF86C /* ListWorkoutDates */,
 				820F9013145F011C718F358C /* ListWorkouts */,
 			);
@@ -344,6 +388,14 @@
 				FF46F05B1E368848004E1F8D /* GetStoredWorkoutsInteractorTests.swift */,
 			);
 			path = Interactor;
+			sourceTree = "<group>";
+		};
+		760D21F26EAC2B5BC598A1AD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C00C82FB4152AE63ABA8D41A /* ListHeartRatesViewTests.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		76190261A282A6894D9BF6BC /* AddWorkout */ = {
@@ -418,6 +470,14 @@
 			path = Router;
 			sourceTree = "<group>";
 		};
+		8B52C9B5E9486CF4DE0197A4 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				3B87328B137ED1D675E8EF9A /* ListHeartRatesRouterTests.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
 		8E593D14C34962435082445C /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
@@ -441,6 +501,24 @@
 				8F44066A958721FB8E462D12 /* AddWorkoutPresenterTests.swift */,
 			);
 			path = Presenter;
+			sourceTree = "<group>";
+		};
+		9A365EA28E1B9667229585CD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				36221820E462A5239F6E6A57 /* ListHeartRatesViewController.swift */,
+				86A221DB3C300A46CCD1C426 /* ListHeartRatesViewInput.swift */,
+				E47D9B8E97201D1DB7EF1C7C /* ListHeartRatesViewOutput.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A0889D4E5F57CE41F535E763 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				916F260591379C3E456DA752 /* ListHeartRatesInteractorTests.swift */,
+			);
+			path = Interactor;
 			sourceTree = "<group>";
 		};
 		B350D51929F16E4144C070FB /* Router */ = {
@@ -472,6 +550,40 @@
 				2206D004C438B998CB9DAC71 /* AddWorkoutPresenter.swift */,
 			);
 			path = Presenter;
+			sourceTree = "<group>";
+		};
+		BEBC0EFE343D560C98C15F96 /* ListHeartRates */ = {
+			isa = PBXGroup;
+			children = (
+				DDA95157B4BA17631EF2D575 /* Configurator */,
+				C7CA6BA8AAC4305F8CCABB19 /* Interactor */,
+				D664FF62431A0A9254827080 /* Presenter */,
+				EBADDC29E7747DCEDA681009 /* Router */,
+				9A365EA28E1B9667229585CD /* View */,
+			);
+			path = ListHeartRates;
+			sourceTree = "<group>";
+		};
+		C7CA6BA8AAC4305F8CCABB19 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				2686AB5C782DD191BDA48A70 /* ListHeartRatesInteractor.swift */,
+				0A941EC7F804B17C0AFF0AE6 /* ListHeartRatesInteractorInput.swift */,
+				CD94BDC192F9F9EFFD8DB190 /* ListHeartRatesInteractorOutput.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		CAB94BD9DCF12E4D97AB7EE6 /* ListHeartRates */ = {
+			isa = PBXGroup;
+			children = (
+				4582314B2929B05149BE23F5 /* Configurator */,
+				760D21F26EAC2B5BC598A1AD /* View */,
+				A0889D4E5F57CE41F535E763 /* Interactor */,
+				DF64F5524E19E79AE84B33EE /* Presenter */,
+				8B52C9B5E9486CF4DE0197A4 /* Router */,
+			);
+			path = ListHeartRates;
 			sourceTree = "<group>";
 		};
 		CB418BC360445931CA161382 /* Router */ = {
@@ -510,6 +622,15 @@
 			path = Configurator;
 			sourceTree = "<group>";
 		};
+		D664FF62431A0A9254827080 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				A1FACF513F7CA691700FEE16 /* ListHeartRatesModuleInput.swift */,
+				8B3986C4A8A2D4493C773407 /* ListHeartRatesPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
 		D6B99F553210166242BD909D /* Configurator */ = {
 			isa = PBXGroup;
 			children = (
@@ -519,12 +640,38 @@
 			path = Configurator;
 			sourceTree = "<group>";
 		};
+		DDA95157B4BA17631EF2D575 /* Configurator */ = {
+			isa = PBXGroup;
+			children = (
+				D6C512CAD1DBDF918C7B3DC6 /* ListHeartRatesConfigurator.swift */,
+				E87CCBFFA4C4954394E9BC12 /* ListHeartRatesInitializer.swift */,
+			);
+			path = Configurator;
+			sourceTree = "<group>";
+		};
+		DF64F5524E19E79AE84B33EE /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				FF23E7B6F6C1AE6C1594CE04 /* ListHeartRatesPresenterTests.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
 		E414734BCC4FDD4838C9CC5F /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
 				37F7703EFE3E7C3C2A8C1105 /* ListWorkoutDatesPresenterTests.swift */,
 			);
 			path = Presenter;
+			sourceTree = "<group>";
+		};
+		EBADDC29E7747DCEDA681009 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				F761A61E1EFE2404E3B14CAE /* ListHeartRatesRouter.swift */,
+				1B22F8A7D9B395940C5A6171 /* ListHeartRatesRouterInput.swift */,
+			);
+			path = Router;
 			sourceTree = "<group>";
 		};
 		EC49618A0BE4DA796960FE6F /* Interactor */ = {
@@ -1103,6 +1250,18 @@
 				FF4ED3D71E412B5A0064D496 /* Workout.swift in Sources */,
 				CDC2CCBCA5E26BF762494BB5 /* ListWorkoutDatesConfigurator.swift in Sources */,
 				F099B002012AE5B32859D768 /* ListWorkoutDatesInitializer.swift in Sources */,
+				31F44035709BF082427D14CE /* ListHeartRatesViewInput.swift in Sources */,
+				1DD76351473C75D00F730881 /* ListHeartRatesViewOutput.swift in Sources */,
+				FAD30821A0FB4C462A33B81F /* ListHeartRatesViewController.swift in Sources */,
+				5C41783C1C24E8E62D4E7C9E /* ListHeartRatesModuleInput.swift in Sources */,
+				14DCCEDC8A1E35F65D413043 /* ListHeartRatesPresenter.swift in Sources */,
+				E9F76FACC8DC55D06C78796D /* ListHeartRatesInteractorInput.swift in Sources */,
+				AFDF0DE6D431571B5F99C520 /* ListHeartRatesInteractorOutput.swift in Sources */,
+				0F6882F98BD26B06B3DF0BDB /* ListHeartRatesInteractor.swift in Sources */,
+				5136B8814604D3FBC52AFA1A /* ListHeartRatesRouterInput.swift in Sources */,
+				F23E937FE9B5DD19FFDBE4A2 /* ListHeartRatesRouter.swift in Sources */,
+				42D27511777CC5F05FA2DF4E /* ListHeartRatesConfigurator.swift in Sources */,
+				F0C2DEB36F7133C2F0C2CB0C /* ListHeartRatesInitializer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1143,6 +1302,11 @@
 				F8DC4A4E784CF5032A2BF2D1 /* ListWorkoutDatesPresenterTests.swift in Sources */,
 				FF4ED3D41E410D020064D496 /* ListWorkoutDatesViewInputTestDouble.swift in Sources */,
 				03C31E41F1B5E107DE9D352A /* ListWorkoutDatesRouterTests.swift in Sources */,
+				0331991915A5DC14D2B42C5C /* ListHeartRatesConfiguratorTests.swift in Sources */,
+				AB7D81B32BCDF19C7C32D694 /* ListHeartRatesViewTests.swift in Sources */,
+				EACAE6BF7A430501B7F5D3AE /* ListHeartRatesInteractorTests.swift in Sources */,
+				578A90494D62209B45962A47 /* ListHeartRatesPresenterTests.swift in Sources */,
+				AA5DBEABBC3D86EF36ADA14C /* ListHeartRatesRouterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
