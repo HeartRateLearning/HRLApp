@@ -7,5 +7,5 @@
 //
 
 protocol ListHeartRatesModuleInput: class {
-
+    func configure(withWorkoutAt workoutIndex: Int, dateAt dateIndex: Int)
 }

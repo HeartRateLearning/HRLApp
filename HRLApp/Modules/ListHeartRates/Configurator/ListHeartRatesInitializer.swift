@@ -8,15 +8,20 @@
 
 import UIKit
 
+// MARK: - Main body
+
 class ListHeartRatesModuleInitializer: NSObject {
 
-    //Connect with object on storyboard
+    // MARK: - Outlets
+
     @IBOutlet weak var listheartratesViewController: ListHeartRatesViewController!
 
-    override func awakeFromNib() {
+    // MARK: - NSObject methods
 
+    override func awakeFromNib() {
         let configurator = ListHeartRatesModuleConfigurator()
-        configurator.configureModuleForViewInput(viewInput: listheartratesViewController)
+
+        configurator.configureDependencies(for: listheartratesViewController)
     }
 
 }

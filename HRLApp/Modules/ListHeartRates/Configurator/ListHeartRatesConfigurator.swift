@@ -8,17 +8,38 @@
 
 import UIKit
 
+// MARK: - Main body
+
 class ListHeartRatesModuleConfigurator {
 
-    func configureModuleForViewInput<UIViewController>(viewInput: UIViewController) {
+    // MARK: - Public methods
 
-        if let viewController = viewInput as? ListHeartRatesViewController {
-            configure(viewController: viewController)
+    func configureDependencies(for viewInput: UIViewController) {
+        guard let viewController = viewInput as? ListHeartRatesViewController else {
+            return
         }
+
+        configureDependencies(for: viewController)
     }
 
-    private func configure(viewController: ListHeartRatesViewController) {
+    func configureModule(for viewInput: UIViewController,
+                         withWorkoutAt workoutIndex: Int,
+                         dateAt dateIndex: Int) {
+        guard let viewController = viewInput as? ListHeartRatesViewController else {
+            return
+        }
 
+        configureModule(for: viewController, withWorkoutAt: workoutIndex, dateAt: dateIndex)
+    }
+}
+
+// MARK: - Private body
+
+private extension ListHeartRatesModuleConfigurator {
+
+    // MARK: - Private methods
+
+    func configureDependencies(for viewController: ListHeartRatesViewController) {
         let router = ListHeartRatesRouter()
 
         let presenter = ListHeartRatesPresenter()
@@ -32,4 +53,13 @@ class ListHeartRatesModuleConfigurator {
         viewController.output = presenter
     }
 
+    func configureModule(for viewController: ListHeartRatesViewController,
+                         withWorkoutAt workoutIndex: Int,
+                         dateAt dateIndex: Int) {
+        guard let input = viewController.output as? ListHeartRatesModuleInput else {
+            return
+        }
+
+        input.configure(withWorkoutAt: workoutIndex, dateAt: dateIndex)
+    }
 }

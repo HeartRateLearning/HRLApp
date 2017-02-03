@@ -6,13 +6,30 @@
 //  Copyright © 2017 Enrique de la Torre. All rights reserved.
 //
 
-class ListHeartRatesPresenter: ListHeartRatesModuleInput, ListHeartRatesViewOutput, ListHeartRatesInteractorOutput {
+// MARK: - Main body
+
+class ListHeartRatesPresenter {
+
+    // MARK: - Dependencies
 
     weak var view: ListHeartRatesViewInput!
-    var interactor: ListHeartRatesInteractorInput!
+
     var router: ListHeartRatesRouterInput!
-
-    func viewIsReady() {
-
-    }
+    var interactor: ListHeartRatesInteractorInput!
 }
+
+// MARK: - ListHeartRatesModuleInput methods
+
+extension ListHeartRatesPresenter: ListHeartRatesModuleInput {
+    func configure(withWorkoutAt workoutIndex: Int, dateAt dateIndex: Int) {}
+}
+
+// MARK: - ListHeartRatesViewOutput methods
+
+extension ListHeartRatesPresenter: ListHeartRatesViewOutput {
+    func viewIsReady() {}
+}
+
+// MARK: - ListHeartRatesInteractorOutput methods
+
+extension ListHeartRatesPresenter: ListHeartRatesInteractorOutput {}
