@@ -15,7 +15,7 @@ class ListHeartRatesPresenter {
     weak var view: ListHeartRatesViewInput!
 
     var router: ListHeartRatesRouterInput!
-    var interactor: ListHeartRatesInteractorInput!
+    var interactor: GetHeartRatesInteractorInput!
 }
 
 // MARK: - ListHeartRatesModuleInput methods
@@ -30,4 +30,8 @@ extension ListHeartRatesPresenter: ListHeartRatesViewOutput {}
 
 // MARK: - ListHeartRatesInteractorOutput methods
 
-extension ListHeartRatesPresenter: ListHeartRatesInteractorOutput {}
+extension ListHeartRatesPresenter: GetHeartRatesInteractorOutput {
+    func interactor(_ interactor: GetHeartRatesInteractorInput,
+                    didFindHeartRates records: [HeartRateRecord]) {
+    }
+}

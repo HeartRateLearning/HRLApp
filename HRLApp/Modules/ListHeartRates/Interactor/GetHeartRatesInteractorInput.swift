@@ -1,5 +1,5 @@
 //
-//  ListHeartRatesListHeartRatesInteractorOutput.swift
+//  GetHeartRatesInteractorInput.swift
 //  HRLApp
 //
 //  Created by Enrique de la Torre on 03/02/2017.
@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol ListHeartRatesInteractorOutput: class {
-
+protocol GetHeartRatesInteractorInput {
+    func execute(withWorkoutIndex workoutIndex: Int, dateIndex: Int)
 }

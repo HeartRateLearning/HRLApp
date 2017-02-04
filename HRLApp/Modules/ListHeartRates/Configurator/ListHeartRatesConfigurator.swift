@@ -12,6 +12,18 @@ import UIKit
 
 class ListHeartRatesModuleConfigurator {
 
+    // MARK: - Private properties
+
+    fileprivate let store: WorkoutStoreProtocol
+    fileprivate let factory: HealthStoreFactoryProtocol
+
+    // MARK: - Init methods
+
+    init(store: WorkoutStoreProtocol, factory: HealthStoreFactoryProtocol) {
+        self.store = store
+        self.factory = factory
+    }
+
     // MARK: - Public methods
 
     func configureDependencies(for viewInput: UIViewController) {
@@ -41,13 +53,16 @@ private extension ListHeartRatesModuleConfigurator {
 
     func configureDependencies(for viewController: ListHeartRatesViewController) {
         let router = ListHeartRatesRouter()
+        let heartRateStore = factory.makeHeartRateStore()
 
         let presenter = ListHeartRatesPresenter()
         presenter.view = viewController
         presenter.router = router
 
-        let interactor = ListHeartRatesInteractor()
+        let interactor = GetHeartRatesInteractor()
         interactor.output = presenter
+        interactor.workoutStore = store
+        interactor.heartRateStore = heartRateStore
 
         presenter.interactor = interactor
         viewController.output = presenter

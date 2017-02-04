@@ -44,7 +44,7 @@ class GetWorkoutDatesInteractorTests: XCTestCase {
         XCTAssertEqual(store.dateCountCount, 1)
         XCTAssertEqual(store.dateAtIndexCount, 0)
         XCTAssertEqual(output.didFindDatesCount, 1)
-        XCTAssertEqual(output.lastFoundDates, [])
+        XCTAssertEqual(output.lastFoundDates!, [])
     }
 
     func testIndexForWorkoutWithoutDates_execute_forwardEmptyListToOutput() {
@@ -59,7 +59,7 @@ class GetWorkoutDatesInteractorTests: XCTestCase {
         XCTAssertEqual(store.dateCountCount, 1)
         XCTAssertEqual(store.dateAtIndexCount, 0)
         XCTAssertEqual(output.didFindDatesCount, 1)
-        XCTAssertEqual(output.lastFoundDates, [])
+        XCTAssertEqual(output.lastFoundDates!, [])
     }
 
     func testIndexForWorkoutWithTwoDates_execute_forwardExpectedListToOuput() {
@@ -78,7 +78,7 @@ class GetWorkoutDatesInteractorTests: XCTestCase {
         XCTAssertEqual(store.dateCountCount, 1)
         XCTAssertEqual(store.dateAtIndexCount, count)
         XCTAssertEqual(output.didFindDatesCount, 1)
-        XCTAssertEqual(output.lastFoundDates, [date, date])
+        XCTAssertEqual(output.lastFoundDates!, [date, date])
 
     }
 }

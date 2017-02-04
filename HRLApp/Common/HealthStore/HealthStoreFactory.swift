@@ -31,7 +31,7 @@ extension HealthStoreFactory: HealthStoreFactoryProtocol {
         requestAuthorization()
     }
 
-    func makeHeartRateStore() -> HeartRateStore? {
+    func makeHeartRateStore() -> HeartRateStoreProtocol? {
         guard let currentStore = currentHealthStore() else {
             return nil
         }

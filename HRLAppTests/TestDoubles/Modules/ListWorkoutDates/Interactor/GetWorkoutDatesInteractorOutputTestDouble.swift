@@ -18,7 +18,7 @@ class GetWorkoutDatesInteractorOutputTestDouble {
 
     fileprivate (set) var didFindDatesCount = 0
 
-    fileprivate (set) var lastFoundDates = [] as [Date]
+    fileprivate (set) var lastFoundDates: [Date]?
 }
 
 // MARK: - GetWorkoutDatesInteractorOutput methods

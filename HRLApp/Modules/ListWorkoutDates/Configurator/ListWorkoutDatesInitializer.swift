@@ -19,7 +19,8 @@ class ListWorkoutDatesModuleInitializer: NSObject {
     // MARK: - NSObject methods
 
     override func awakeFromNib() {
-        let configurator = ListWorkoutDatesModuleConfigurator()
+        let store = WorkoutStoreSingleton.sharedInstance
+        let configurator = ListWorkoutDatesModuleConfigurator(store: store)
 
         configurator.configureDependencies(for: listworkoutdatesViewController)
     }

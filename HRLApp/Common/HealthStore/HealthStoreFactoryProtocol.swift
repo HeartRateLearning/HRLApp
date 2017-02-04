@@ -11,5 +11,5 @@ import Foundation
 protocol HealthStoreFactoryProtocol {
     func setup()
 
-    func makeHeartRateStore() -> HeartRateStore?
+    func makeHeartRateStore() -> HeartRateStoreProtocol?
 }

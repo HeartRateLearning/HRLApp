@@ -19,7 +19,7 @@ class ListWorkoutsModuleConfiguratorTests: XCTestCase {
     func test_configureDependenciesForViewController_setAllDependencies() {
         // given
         let viewController = ListWorkoutsViewController()
-        let configurator = ListWorkoutsModuleConfigurator()
+        let configurator = ListWorkoutsModuleConfigurator(store: WorkoutStoreTestDouble())
 
         // when
         configurator.configureDependencies(for: viewController)

@@ -19,7 +19,7 @@ class ListWorkoutDatesModuleConfiguratorTests: XCTestCase {
     let moduleInput = ListWorkoutDatesModuleInputTestDouble()
     let viewController = ListWorkoutDatesViewController()
 
-    let sut = ListWorkoutDatesModuleConfigurator()
+    let sut = ListWorkoutDatesModuleConfigurator(store: WorkoutStoreTestDouble())
 
     // MARK: - Tests
 
