@@ -104,6 +104,9 @@
 		FFA8CDB31E452E5600E4305B /* HeartRateStoreTestDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA8CDB21E452E5600E4305B /* HeartRateStoreTestDouble.swift */; };
 		FFA8CDB61E454D8400E4305B /* GetHeartRatesInteractorOutputTestDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA8CDB51E454D8400E4305B /* GetHeartRatesInteractorOutputTestDouble.swift */; };
 		FFA8CDB81E454F7400E4305B /* GetHeartRatesInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA8CDB71E454F7400E4305B /* GetHeartRatesInteractorTests.swift */; };
+		FFCB066A1E462E790065CEA3 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFCB06691E462E790065CEA3 /* HealthKit.framework */; };
+		FFCB066D1E4631F90065CEA3 /* ListHeartRatesViewInputTestDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCB066C1E4631F90065CEA3 /* ListHeartRatesViewInputTestDouble.swift */; };
+		FFCB066F1E46339D0065CEA3 /* GetHeartRatesInteractorInputTestDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCB066E1E46339D0065CEA3 /* GetHeartRatesInteractorInputTestDouble.swift */; };
 		FFE41CAD1E2EE74C00BC7B72 /* WorkoutStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE41CAC1E2EE74C00BC7B72 /* WorkoutStore.swift */; };
 		FFF51FDD1E3B5EFD00914740 /* WorkoutStoreDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF51FDC1E3B5EFD00914740 /* WorkoutStoreDelegate.swift */; };
 		FFF51FE11E3B636000914740 /* WorkoutStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF51FE01E3B636000914740 /* WorkoutStoreTests.swift */; };
@@ -239,6 +242,10 @@
 		FFA8CDB21E452E5600E4305B /* HeartRateStoreTestDouble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeartRateStoreTestDouble.swift; sourceTree = "<group>"; };
 		FFA8CDB51E454D8400E4305B /* GetHeartRatesInteractorOutputTestDouble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetHeartRatesInteractorOutputTestDouble.swift; sourceTree = "<group>"; };
 		FFA8CDB71E454F7400E4305B /* GetHeartRatesInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetHeartRatesInteractorTests.swift; sourceTree = "<group>"; };
+		FFCB06681E462E790065CEA3 /* HRLApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HRLApp.entitlements; sourceTree = "<group>"; };
+		FFCB06691E462E790065CEA3 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		FFCB066C1E4631F90065CEA3 /* ListHeartRatesViewInputTestDouble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListHeartRatesViewInputTestDouble.swift; sourceTree = "<group>"; };
+		FFCB066E1E46339D0065CEA3 /* GetHeartRatesInteractorInputTestDouble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetHeartRatesInteractorInputTestDouble.swift; sourceTree = "<group>"; };
 		FFE41CAC1E2EE74C00BC7B72 /* WorkoutStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutStore.swift; sourceTree = "<group>"; };
 		FFF51FDC1E3B5EFD00914740 /* WorkoutStoreDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutStoreDelegate.swift; sourceTree = "<group>"; };
 		FFF51FE01E3B636000914740 /* WorkoutStoreTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutStoreTests.swift; sourceTree = "<group>"; };
@@ -263,6 +270,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CBAC8CB79D25866019E35FB7 /* Pods_HRLApp.framework in Frameworks */,
+				FFCB066A1E462E790065CEA3 /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -344,6 +352,7 @@
 		568E42F0769F5C3CFC1856AD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FFCB06691E462E790065CEA3 /* HealthKit.framework */,
 				D8AB0591D95BBCCB727D0E1B /* Pods_HRLApp.framework */,
 				A9DE7918A4F0A992FF46E35F /* Pods_HRLAppTests.framework */,
 			);
@@ -837,6 +846,7 @@
 				FF9ADDCC1E2BD535007F1187 /* LaunchScreen.storyboard */,
 				FF9ADDC71E2BD535007F1187 /* Main.storyboard */,
 				FF9ADDCA1E2BD535007F1187 /* Assets.xcassets */,
+				FFCB06681E462E790065CEA3 /* HRLApp.entitlements */,
 				FF9ADDCF1E2BD535007F1187 /* Info.plist */,
 			);
 			path = HRLApp;
@@ -893,6 +903,7 @@
 			children = (
 				FFA8CDB41E454D4900E4305B /* Interactor */,
 				FFA8CDA61E44E10E00E4305B /* Presenter */,
+				FFCB066B1E4631C20065CEA3 /* View */,
 			);
 			path = ListHeartRates;
 			sourceTree = "<group>";
@@ -933,9 +944,18 @@
 		FFA8CDB41E454D4900E4305B /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
+				FFCB066E1E46339D0065CEA3 /* GetHeartRatesInteractorInputTestDouble.swift */,
 				FFA8CDB51E454D8400E4305B /* GetHeartRatesInteractorOutputTestDouble.swift */,
 			);
 			path = Interactor;
+			sourceTree = "<group>";
+		};
+		FFCB066B1E4631C20065CEA3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FFCB066C1E4631F90065CEA3 /* ListHeartRatesViewInputTestDouble.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		FFE41CA81E2ED74A00BC7B72 /* Common */ = {
@@ -1119,6 +1139,11 @@
 						CreatedOnToolsVersion = 8.2.1;
 						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.HealthKit = {
+								enabled = 1;
+							};
+						};
 					};
 					FF9ADDD31E2BD535007F1187 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -1347,10 +1372,12 @@
 				FF82D2C11E2EB1C300119044 /* ViewControllerInstantiaterHelper.swift in Sources */,
 				FFA8CDB61E454D8400E4305B /* GetHeartRatesInteractorOutputTestDouble.swift in Sources */,
 				FF4ED3D21E4109FF0064D496 /* GetWorkoutDatesInteractorInputTestDouble.swift in Sources */,
+				FFCB066F1E46339D0065CEA3 /* GetHeartRatesInteractorInputTestDouble.swift in Sources */,
 				FFA8CDA41E44A7C400E4305B /* ListWorkoutDatesRouterInputTestDouble.swift in Sources */,
 				FFF520041E3B68A300914740 /* WorkoutStoreDelegateTestDouble.swift in Sources */,
 				FFF51FFE1E3B67F200914740 /* ListWorkoutsRouterInputTestDouble.swift in Sources */,
 				FFA8CDB01E4521CB00E4305B /* HealthStoreFactoryTestDouble.swift in Sources */,
+				FFCB066D1E4631F90065CEA3 /* ListHeartRatesViewInputTestDouble.swift in Sources */,
 				FFF51FFC1E3B67ED00914740 /* GetStoredWorkoutsInteractorOutputTestDouble.swift in Sources */,
 				FFF51FF41E3B67E000914740 /* AddWorkoutRouterInputTestDouble.swift in Sources */,
 				FFF51FEF1E3B67DA00914740 /* GetAllWorkoutsInteractorInputTestDouble.swift in Sources */,
@@ -1509,6 +1536,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = HRLApp/HRLApp.entitlements;
 				INFOPLIST_FILE = HRLApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.indisoluble.HRLApp;
@@ -1524,6 +1552,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = HRLApp/HRLApp.entitlements;
 				INFOPLIST_FILE = HRLApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.indisoluble.HRLApp;

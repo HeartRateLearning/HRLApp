@@ -53,7 +53,7 @@ private extension ListHeartRatesModuleConfigurator {
 
     func configureDependencies(for viewController: ListHeartRatesViewController) {
         let router = ListHeartRatesRouter()
-        let heartRateStore = factory.makeHeartRateStore()
+        let heartRateStore = factory.makeHeartRateStore()!
 
         let presenter = ListHeartRatesPresenter()
         presenter.view = viewController

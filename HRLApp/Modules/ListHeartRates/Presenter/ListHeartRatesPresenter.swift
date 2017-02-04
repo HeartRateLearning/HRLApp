@@ -21,7 +21,9 @@ class ListHeartRatesPresenter {
 // MARK: - ListHeartRatesModuleInput methods
 
 extension ListHeartRatesPresenter: ListHeartRatesModuleInput {
-    func configure(withWorkoutAt workoutIndex: Int, dateAt dateIndex: Int) {}
+    func configure(withWorkoutAt workoutIndex: Int, dateAt dateIndex: Int) {
+        interactor.execute(withWorkoutIndex: workoutIndex, dateIndex: dateIndex)
+    }
 }
 
 // MARK: - ListHeartRatesViewOutput methods
@@ -33,5 +35,6 @@ extension ListHeartRatesPresenter: ListHeartRatesViewOutput {}
 extension ListHeartRatesPresenter: GetHeartRatesInteractorOutput {
     func interactor(_ interactor: GetHeartRatesInteractorInput,
                     didFindHeartRates records: [HeartRateRecord]) {
+        view.setup(with: records)
     }
 }
