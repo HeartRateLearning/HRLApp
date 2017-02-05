@@ -18,13 +18,13 @@ class ListHeartRatesViewInputTestDouble {
 
     fileprivate (set) var setupCount = 0
 
-    fileprivate (set) var lastRecords: [HeartRateRecord]?
+    fileprivate (set) var lastRecords: [FoundHeartRateRecord]?
 }
 
 // MARK: - ListHeartRatesViewInput methods
 
 extension ListHeartRatesViewInputTestDouble: ListHeartRatesViewInput {
-    func setup(with records: [HeartRateRecord]) {
+    func setup(with records: [FoundHeartRateRecord]) {
         setupCount += 1
 
         lastRecords = records

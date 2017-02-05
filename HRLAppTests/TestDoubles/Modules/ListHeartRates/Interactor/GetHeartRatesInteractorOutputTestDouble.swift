@@ -18,14 +18,14 @@ class GetHeartRatesInteractorOutputTestDouble {
 
     fileprivate (set) var didFindHeartRatesCount = 0
 
-    fileprivate (set) var lastFoundRecords: [HeartRateRecord]?
+    fileprivate (set) var lastFoundRecords: [FoundHeartRateRecord]?
 }
 
 // MARK: - GetHeartRatesInteractorOutput methods
 
 extension GetHeartRatesInteractorOutputTestDouble: GetHeartRatesInteractorOutput {
     func interactor(_ interactor: GetHeartRatesInteractorInput,
-                    didFindHeartRates records: [HeartRateRecord]) {
+                    didFindHeartRates records: [FoundHeartRateRecord]) {
         didFindHeartRatesCount += 1
 
         lastFoundRecords = records

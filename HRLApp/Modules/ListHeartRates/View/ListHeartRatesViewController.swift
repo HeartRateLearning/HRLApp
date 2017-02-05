@@ -30,7 +30,7 @@ class ListHeartRatesViewController: UIViewController {
         return formatter
     }()
 
-    fileprivate var records = [] as [HeartRateRecord]
+    fileprivate var records = [] as [FoundHeartRateRecord]
 
     // MARK: Life cycle
 
@@ -62,7 +62,7 @@ extension ListHeartRatesViewController: UITableViewDataSource {
 // MARK: - ListHeartRatesViewInput methods
 
 extension ListHeartRatesViewController: ListHeartRatesViewInput {
-    func setup(with records: [HeartRateRecord]) {
+    func setup(with records: [FoundHeartRateRecord]) {
         self.records = records
 
         if isViewLoaded {

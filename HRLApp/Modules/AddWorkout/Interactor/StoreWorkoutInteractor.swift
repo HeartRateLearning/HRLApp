@@ -51,7 +51,7 @@ private extension StoreWorkoutInteractor {
     // MARK: - Private methods
 
     func appendDates(startingOn date: Date, toWorkoutAtIndex index: Int) {
-        let calendar = NSCalendar(calendarIdentifier: .gregorian)!
+        let calendar = CalendarFactory.makeDefaultCalendar()
 
         var nextDate = calendar.startOfDay(for: date)
         let endDate = calendar.startOfDay(for: Date())

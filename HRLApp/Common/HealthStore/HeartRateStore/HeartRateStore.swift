@@ -31,11 +31,41 @@ class HeartRateStore {
 // MARK: - HeartRateStoreProtocol methods
 
 extension HeartRateStore: HeartRateStoreProtocol {
-    func queryRecords(from startDate: Date,
+    func queryRecords(after startDate: Date,
+                      before endDate: Date,
                       resultsHandler: @escaping HeartRateStoreProtocol.ResultsHandler) {
-        let endDate = Date()
-        let predicate = HKQuery.predicateForSamples(withStart: startDate, end: endDate)
+        let predicate = NSPredicate(format: "%K > %@ AND %K < %@",
+                                    HKPredicateKeyPathStartDate, startDate as CVarArg,
+                                    HKPredicateKeyPathStartDate, endDate as CVarArg)
 
+        queryRecords(with: predicate, resultsHandler: resultsHandler)
+    }
+
+    func queryRecords(afterOrEqualTo startDate: Date,
+                      before endDate: Date,
+                      resultsHandler: @escaping HeartRateStoreProtocol.ResultsHandler) {
+        let predicate = NSPredicate(format: "%K >= %@ AND %K < %@",
+                                    HKPredicateKeyPathStartDate, startDate as CVarArg,
+                                    HKPredicateKeyPathStartDate, endDate as CVarArg)
+
+        queryRecords(with: predicate, resultsHandler: resultsHandler)
+    }
+}
+
+// MARK: - Private body
+
+private extension HeartRateStore {
+
+    // MARK: - Constants
+
+    enum Constants {
+        static let heartRateUnit = HKUnit(from: "count/min")
+    }
+
+    // MARK: - Private methods
+
+    func queryRecords(with predicate: NSPredicate,
+                      resultsHandler: @escaping HeartRateStoreProtocol.ResultsHandler) {
         let queryHandler = { (_: HKSampleQuery, queryResults: [HKSample]?, queryError: Error?) in
             var results = [] as [HeartRateRecord]
 
@@ -55,17 +85,6 @@ extension HeartRateStore: HeartRateStoreProtocol {
                                   resultsHandler: queryHandler)
 
         store.execute(query)
-    }
-}
-
-// MARK: - Private body
-
-private extension HeartRateStore {
-
-    // MARK: - Constants
-
-    enum Constants {
-        static let heartRateUnit = HKUnit(from: "count/min")
     }
 
     // MARK: - Private class methods

@@ -29,6 +29,7 @@ class WorkoutStoreTestDouble {
     fileprivate (set) var recordCountCount = 0
     fileprivate (set) var recordAtIndexCount = 0
     fileprivate (set) var appendRecordCount = 0
+    fileprivate (set) var mostRecentRecordCount = 0
 
     fileprivate (set) var lastWorkoutIndex = -1
     fileprivate (set) var lastAppendedWorkout: Workout?
@@ -42,16 +43,19 @@ class WorkoutStoreTestDouble {
     fileprivate (set) var lastRecordIndex = -1
     fileprivate (set) var lastRecordWorkoutIndex = -1
     fileprivate (set) var lastRecordDateIndex = -1
-    fileprivate (set) var lastAppendedRecord: HeartRateRecord?
+    fileprivate (set) var lastAppendedRecord: WorkoutRecord?
     fileprivate (set) var lastAppendedRecordWorkoutIndex = -1
     fileprivate (set) var lastAppendedRecordDateIndex = -1
+    fileprivate (set) var lastMostRecentRecordWorkoutIndex = -1
+    fileprivate (set) var lastMostRecentRecordDateIndex = -1
 
     var workoutCountResult = 0
     var workoutAtIndexResult: Workout?
     var dateCountResult: Int?
     var dateAtIndexResult: Date?
     var recordCountResult: Int?
-    var recordAtIndexResult: HeartRateRecord?
+    var recordAtIndexResult: WorkoutRecord?
+    var mostRecentRecordResult: WorkoutRecord?
 }
 
 // MARK: - WorkoutStoreProtocol methods
@@ -113,7 +117,7 @@ extension WorkoutStoreTestDouble: WorkoutStoreProtocol {
 
     func record(at index: Int,
                 forWorkoutAt workoutIndex: Int,
-                dateAt dateIndex: Int) -> HeartRateRecord? {
+                dateAt dateIndex: Int) -> WorkoutRecord? {
         recordAtIndexCount += 1
 
         lastRecordIndex = index
@@ -123,7 +127,7 @@ extension WorkoutStoreTestDouble: WorkoutStoreProtocol {
         return recordAtIndexResult
     }
 
-    func appendRecord(_ record: HeartRateRecord,
+    func appendRecord(_ record: WorkoutRecord,
                       toWorkoutAt workoutIndex: Int,
                       dateAt dateIndex: Int) {
         appendRecordCount += 1
@@ -131,5 +135,14 @@ extension WorkoutStoreTestDouble: WorkoutStoreProtocol {
         lastAppendedRecord = record
         lastAppendedRecordWorkoutIndex = workoutIndex
         lastAppendedRecordDateIndex = dateIndex
+    }
+
+    func mostRecentRecord(forWorkoutAt workoutIndex: Int, dateAt dateIndex: Int) -> WorkoutRecord? {
+        mostRecentRecordCount += 1
+
+        lastMostRecentRecordWorkoutIndex = workoutIndex
+        lastMostRecentRecordDateIndex = dateIndex
+
+        return mostRecentRecordResult
     }
 }

@@ -48,7 +48,8 @@ class ListHeartRatesPresenterTest: XCTestCase {
 
     func testAnyHeartRateRecords_interactorDidFindHeartRates_forwardToView() {
         // given
-        let anyRecords = [HeartRateRecord(date: Date(), bpm: Float(60))]
+        let anyRecord = FoundHeartRateRecord(date: Date(), bpm: Float(60), workingOut: false)
+        let anyRecords = [anyRecord]
 
         // when
         sut.interactor(interactor, didFindHeartRates: anyRecords)

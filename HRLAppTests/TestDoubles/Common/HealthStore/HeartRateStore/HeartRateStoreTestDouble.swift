@@ -16,26 +16,48 @@ class HeartRateStoreTestDouble {
 
     // MARK: - Public properties
 
-    fileprivate (set) var queryRecordsCount = 0
+    fileprivate (set) var queryRecordsAfterCount = 0
+    fileprivate (set) var queryRecordsAfterOrEqualCount = 0
 
-    fileprivate (set) var lastQueryRecordsStartDate: Date?
+    fileprivate (set) var lastQueryRecordsAfterStartDate: Date?
+    fileprivate (set) var lastQueryRecordsAfterEndDate: Date?
+    fileprivate (set) var lastQueryRecordsAfterOrEqualStartDate: Date?
+    fileprivate (set) var lastQueryRecordsAfterOrEqualEndDate: Date?
 
-    var queryRecordsResult: [HeartRateRecord]?
+    var queryRecordsAfterResult: [HeartRateRecord]?
+    var queryRecordsAfterOrEqualResult: [HeartRateRecord]?
 }
 
 // MARK: - HeartRateStoreProtocol methods
 
 extension HeartRateStoreTestDouble: HeartRateStoreProtocol {
-    func queryRecords(from startDate: Date,
+    func queryRecords(after startDate: Date,
+                      before endDate: Date,
                       resultsHandler: @escaping HeartRateStoreProtocol.ResultsHandler) {
-        queryRecordsCount += 1
+        queryRecordsAfterCount += 1
 
-        lastQueryRecordsStartDate = startDate
+        lastQueryRecordsAfterStartDate = startDate
+        lastQueryRecordsAfterEndDate = endDate
 
-        guard let result = queryRecordsResult else {
+        guard let results = queryRecordsAfterResult else {
             return
         }
 
-        resultsHandler(result)
+        resultsHandler(results)
+    }
+
+    func queryRecords(afterOrEqualTo startDate: Date,
+                      before endDate: Date,
+                      resultsHandler: @escaping HeartRateStoreProtocol.ResultsHandler) {
+        queryRecordsAfterOrEqualCount += 1
+
+        lastQueryRecordsAfterOrEqualStartDate = startDate
+        lastQueryRecordsAfterOrEqualEndDate = endDate
+
+        guard let results = queryRecordsAfterOrEqualResult else {
+            return
+        }
+
+        resultsHandler(results)
     }
 }

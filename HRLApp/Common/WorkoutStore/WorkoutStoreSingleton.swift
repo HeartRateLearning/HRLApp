@@ -69,13 +69,17 @@ extension WorkoutStoreSingleton: WorkoutStoreProtocol {
 
     func record(at index: Int,
                 forWorkoutAt workoutIndex: Int,
-                dateAt dateIndex: Int) -> HeartRateRecord? {
+                dateAt dateIndex: Int) -> WorkoutRecord? {
         return store.record(at: index, forWorkoutAt: workoutIndex, dateAt: dateIndex)
     }
 
-    func appendRecord(_ record: HeartRateRecord,
+    func appendRecord(_ record: WorkoutRecord,
                       toWorkoutAt workoutIndex: Int,
                       dateAt dateIndex: Int) {
         store.appendRecord(record, toWorkoutAt: workoutIndex, dateAt: dateIndex)
+    }
+
+    func mostRecentRecord(forWorkoutAt workoutIndex: Int, dateAt dateIndex: Int) -> WorkoutRecord? {
+        return store.mostRecentRecord(forWorkoutAt: workoutIndex, dateAt: dateIndex)
     }
 }

@@ -8,12 +8,21 @@
 
 import Foundation
 
+// MARK: - Main body
+
 struct HeartRateRecord {
+
+    // MARK: - Public properties 
+
     let date: Date
     let bpm: Float
 }
 
+// MARK: - Equatable methods
+
 extension HeartRateRecord: Equatable {}
+
+// MARK: - Free functions
 
 func ==(lhs: HeartRateRecord, rhs: HeartRateRecord) -> Bool {
     return lhs.date == rhs.date && lhs.bpm == rhs.bpm

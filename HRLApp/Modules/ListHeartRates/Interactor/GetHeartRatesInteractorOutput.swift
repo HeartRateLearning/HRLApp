@@ -10,5 +10,5 @@ import Foundation
 
 protocol GetHeartRatesInteractorOutput: class {
     func interactor(_ interactor: GetHeartRatesInteractorInput,
-                    didFindHeartRates records: [HeartRateRecord])
+                    didFindHeartRates records: [FoundHeartRateRecord])
 }

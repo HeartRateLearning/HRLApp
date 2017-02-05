@@ -22,8 +22,10 @@ protocol WorkoutStoreProtocol {
     func recordCount(forWorkoutAt workoutIndex: Int, dateAt dateIndex: Int) -> Int?
     func record(at index: Int,
                 forWorkoutAt workoutIndex: Int,
-                dateAt dateIndex: Int) -> HeartRateRecord?
-    func appendRecord(_ record: HeartRateRecord,
+                dateAt dateIndex: Int) -> WorkoutRecord?
+    func appendRecord(_ record: WorkoutRecord,
                       toWorkoutAt workoutIndex: Int,
                       dateAt dateIndex: Int)
+
+    func mostRecentRecord(forWorkoutAt workoutIndex: Int, dateAt dateIndex: Int) -> WorkoutRecord?
 }

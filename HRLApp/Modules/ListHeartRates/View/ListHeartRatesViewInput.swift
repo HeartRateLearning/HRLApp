@@ -7,5 +7,5 @@
 //
 
 protocol ListHeartRatesViewInput: class {
-    func setup(with records: [HeartRateRecord])
+    func setup(with records: [FoundHeartRateRecord])
 }

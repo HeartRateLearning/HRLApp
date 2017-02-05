@@ -56,7 +56,7 @@ extension WorkoutStore: WorkoutStoreProtocol {
 
     func record(at index: Int,
                 forWorkoutAt workoutIndex: Int,
-                dateAt dateIndex: Int) -> HeartRateRecord? {
+                dateAt dateIndex: Int) -> WorkoutRecord? {
         guard let records = storedDate(at: dateIndex, forWorkoutAt: workoutIndex)?.records else {
             return nil
         }
@@ -68,10 +68,25 @@ extension WorkoutStore: WorkoutStoreProtocol {
         return records[index]
     }
 
-    func appendRecord(_ record: HeartRateRecord,
+    func appendRecord(_ record: WorkoutRecord,
                       toWorkoutAt workoutIndex: Int,
                       dateAt dateIndex: Int) {
-        storedDate(at: dateIndex, forWorkoutAt: workoutIndex)?.records.append(record)
+        guard let date = storedDate(at: dateIndex, forWorkoutAt: workoutIndex) else {
+            return
+        }
+
+        let heartRateDate = record.date
+        let mostRecentHeartRateDate = date.mostRecentRecord?.date
+
+        if mostRecentHeartRateDate == nil || mostRecentHeartRateDate! < heartRateDate {
+            date.mostRecentRecord = record
+        }
+
+        date.records.append(record)
+    }
+
+    func mostRecentRecord(forWorkoutAt workoutIndex: Int, dateAt dateIndex: Int) -> WorkoutRecord? {
+        return storedDate(at: dateIndex, forWorkoutAt: workoutIndex)?.mostRecentRecord
     }
 }
 
@@ -83,11 +98,14 @@ private extension WorkoutStore {
 
     class StoredDate {
         let date: Date
-        var records: [HeartRateRecord]
+        var records: [WorkoutRecord]
+        var mostRecentRecord: WorkoutRecord?
 
-        init(date: Date, records: [HeartRateRecord] = []) {
+        init(date: Date) {
             self.date = date
-            self.records = records
+
+            records = []
+            mostRecentRecord = nil
         }
     }
 
@@ -95,9 +113,10 @@ private extension WorkoutStore {
         let workout: Workout
         var dates: [StoredDate]
 
-        init(workout: Workout, dates: [StoredDate] = []) {
+        init(workout: Workout) {
             self.workout = workout
-            self.dates = dates
+
+            dates = []
         }
     }
 

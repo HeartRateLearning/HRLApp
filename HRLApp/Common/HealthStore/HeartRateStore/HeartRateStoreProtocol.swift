@@ -16,5 +16,11 @@ protocol HeartRateStoreProtocol {
 
     // MARK: - Methods
 
-    func queryRecords(from startDate: Date, resultsHandler: @escaping ResultsHandler)
+    func queryRecords(after startDate: Date,
+                      before endDate: Date,
+                      resultsHandler: @escaping ResultsHandler)
+
+    func queryRecords(afterOrEqualTo startDate: Date,
+                      before endDate: Date,
+                      resultsHandler: @escaping ResultsHandler)
 }

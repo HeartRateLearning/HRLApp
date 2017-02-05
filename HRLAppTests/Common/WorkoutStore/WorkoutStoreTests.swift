@@ -23,8 +23,8 @@ class WorkoutStoreTests: XCTestCase {
     let outOfRangeRecordIndex = 1000
     let outOfRangeWorkoutIndex = 1000
 
-    let anyDate = Date()
-    let anyRecord = HeartRateRecord(date: Date(), bpm: Float(60))
+    let anyRecord = WorkoutRecord(heartRate: HeartRateRecord(date: Date(), bpm: Float(60)),
+                                  workingOut: .unknown)
     let anyWorkout = Workout.other
 
     let delegate = WorkoutStoreDelegateTestDouble()
@@ -102,7 +102,7 @@ class WorkoutStoreTests: XCTestCase {
         let date = sut.date(at: anyDateIndex, forWorkoutAt: anyWorkoutIndex)
 
         // then
-        XCTAssertEqual(anyDate, date)
+        XCTAssertEqual(anyRecord.date, date)
     }
 
     func testOutOfRangeWorkoutIndex_recordCount_returnNil() {
@@ -195,6 +195,51 @@ class WorkoutStoreTests: XCTestCase {
         // then
         XCTAssertEqual(anyRecord, record)
     }
+
+    func testSutWithTwoRecordsAppendedInInverseOrder_mostRecentRecord_returnExpectedRecord() {
+        // given
+        fillSut()
+
+        let anyBPM = Float(60)
+        let minuteInterval = TimeInterval(60)
+
+        let newestDate = anyRecord.date.addingTimeInterval(minuteInterval + minuteInterval)
+        let newestRecord = WorkoutRecord(heartRate: HeartRateRecord(date: newestDate, bpm: anyBPM),
+                                         workingOut: .unknown)
+        sut.appendRecord(newestRecord, toWorkoutAt: anyWorkoutIndex, dateAt: anyDateIndex)
+
+        let newerDate = anyRecord.date.addingTimeInterval(minuteInterval)
+        let newerRecord = WorkoutRecord(heartRate: HeartRateRecord(date: newerDate, bpm: anyBPM),
+                                        workingOut: .unknown)
+        sut.appendRecord(newerRecord, toWorkoutAt: anyWorkoutIndex, dateAt: anyDateIndex)
+
+        // when
+        let record = sut.mostRecentRecord(forWorkoutAt: anyWorkoutIndex, dateAt: anyDateIndex)
+
+        // then
+        XCTAssertEqual(record, newestRecord)
+    }
+
+    func testSutWithTwoRecordsAppendedInDifferentDates_mostRecentRecord_returnExpectedRecord() {
+        // given
+        fillSut()
+
+        let anyBPM = Float(60)
+        let dayInterval = TimeInterval(24 * 60 * 60)
+
+        let newestDate = anyRecord.date.addingTimeInterval(dayInterval)
+        sut.appendDate(newestDate, toWorkoutAt: anyWorkoutIndex)
+
+        let newestRecord = WorkoutRecord(heartRate: HeartRateRecord(date: newestDate, bpm: anyBPM),
+                                         workingOut: .unknown)
+        sut.appendRecord(newestRecord, toWorkoutAt: anyWorkoutIndex, dateAt: anyDateIndex + 1)
+
+        // when
+        let record = sut.mostRecentRecord(forWorkoutAt: anyWorkoutIndex, dateAt: anyDateIndex)
+
+        // then
+        XCTAssertEqual(record, anyRecord)
+    }
 }
 
 // MARK: - Private body
@@ -202,7 +247,7 @@ class WorkoutStoreTests: XCTestCase {
 private extension WorkoutStoreTests {
     func fillSut() {
         sut.appendWorkout(anyWorkout)
-        sut.appendDate(anyDate, toWorkoutAt: anyWorkoutIndex)
+        sut.appendDate(anyRecord.date, toWorkoutAt: anyWorkoutIndex)
         sut.appendRecord(anyRecord, toWorkoutAt: anyWorkoutIndex, dateAt: anyDateIndex)
     }
 }

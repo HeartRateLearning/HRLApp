@@ -34,7 +34,7 @@ extension ListHeartRatesPresenter: ListHeartRatesViewOutput {}
 
 extension ListHeartRatesPresenter: GetHeartRatesInteractorOutput {
     func interactor(_ interactor: GetHeartRatesInteractorInput,
-                    didFindHeartRates records: [HeartRateRecord]) {
+                    didFindHeartRates records: [FoundHeartRateRecord]) {
         view.setup(with: records)
     }
 }
