@@ -36,5 +36,5 @@ extension ListHeartRatesModuleInputTestDouble: ListHeartRatesModuleInput {
 // MARK: - ListHeartRatesViewOutput methods
 
 extension ListHeartRatesModuleInputTestDouble: ListHeartRatesViewOutput {
-    func viewIsReady() {}
+    func save(workingOuts: [Bool]) {}
 }

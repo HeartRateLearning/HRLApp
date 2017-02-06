@@ -6,4 +6,6 @@
 //  Copyright © 2017 Enrique de la Torre. All rights reserved.
 //
 
-protocol ListHeartRatesViewOutput {}
+protocol ListHeartRatesViewOutput {
+    func save(workingOuts: [Bool])
+}

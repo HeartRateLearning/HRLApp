@@ -37,6 +37,16 @@ class ListHeartRatesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+
+    // MARK: - Actions
+
+    @IBAction func save(_ sender: Any) {
+        let workingOuts = records.map { (record) -> Bool in
+            return record.workingOut
+        }
+
+        output.save(workingOuts: workingOuts)
+    }
 }
 
 // MARK: - UITableViewDataSource methods
@@ -59,6 +69,31 @@ extension ListHeartRatesViewController: UITableViewDataSource {
     }
 }
 
+// MARK: - UITableViewDelegate methods
+
+extension ListHeartRatesViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView,
+                   willDisplay cell: UITableViewCell,
+                   forRowAt indexPath: IndexPath) {
+        let record = records[indexPath.row]
+
+        if record.workingOut {
+            tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
+        }
+        else {
+            tableView.deselectRow(at: indexPath, animated: false)
+        }
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        replaceRecord(at: indexPath.row, withWorkingOut: true)
+    }
+
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        replaceRecord(at: indexPath.row, withWorkingOut: false)
+    }
+}
+
 // MARK: - ListHeartRatesViewInput methods
 
 extension ListHeartRatesViewController: ListHeartRatesViewInput {
@@ -74,7 +109,20 @@ extension ListHeartRatesViewController: ListHeartRatesViewInput {
 // MARK: - Private body
 
 private extension ListHeartRatesViewController {
+
+    // MARK: - Constants
+
     enum Constants {
         static let cellIdentifier = "HeartRateCell"
+    }
+
+    // MARK: - Private methods
+
+    func replaceRecord(at index: Int, withWorkingOut workingOut: Bool) {
+        let oldRecord = records[index]
+        let nextRecord = FoundHeartRateRecord(date: oldRecord.date,
+                                              bpm: oldRecord.bpm,
+                                              workingOut: workingOut)
+        records[index] = nextRecord
     }
 }

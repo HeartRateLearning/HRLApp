@@ -28,7 +28,11 @@ extension ListHeartRatesPresenter: ListHeartRatesModuleInput {
 
 // MARK: - ListHeartRatesViewOutput methods
 
-extension ListHeartRatesPresenter: ListHeartRatesViewOutput {}
+extension ListHeartRatesPresenter: ListHeartRatesViewOutput {
+    func save(workingOuts: [Bool]) {
+        print("workingOuts: \(workingOuts)")
+    }
+}
 
 // MARK: - ListHeartRatesInteractorOutput methods
 

@@ -119,7 +119,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="uOd-ti-8MW">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsMultipleSelection="YES" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="uOd-ti-8MW">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -150,6 +150,7 @@
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="1iv-wc-mLe" id="6yY-pz-1jX"/>
+                                    <outlet property="delegate" destination="1iv-wc-mLe" id="zvL-3G-eFj"/>
                                 </connections>
                             </tableView>
                         </subviews>
@@ -161,6 +162,13 @@
                             <constraint firstItem="uOd-ti-8MW" firstAttribute="top" secondItem="ecp-t7-i65" secondAttribute="top" id="Pdl-IF-0Ix"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="BxW-V0-SQN">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="dae-yu-9CH">
+                            <connections>
+                                <action selector="save:" destination="1iv-wc-mLe" id="2ZE-Ma-Tq2"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="uOd-ti-8MW" id="G4y-pg-gdQ"/>
                     </connections>

@@ -192,10 +192,10 @@ private extension GetHeartRatesInteractorTests {
                                    heartRateWorkingOut: Bool) -> [FoundHeartRateRecord] {
         let heartRateRecords = makeHeartRateRecords(with: workingOut)
 
-        return heartRateRecords.map({ (record) -> FoundHeartRateRecord in
+        return heartRateRecords.map { (record) -> FoundHeartRateRecord in
             return FoundHeartRateRecord(date: record.date,
                                         bpm: record.bpm,
                                         workingOut: heartRateWorkingOut)
-        })
+        }
     }
 }
