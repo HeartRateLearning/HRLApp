@@ -12,14 +12,6 @@ import Foundation
 
 struct WorkoutRecord {
 
-    // MARK: - Type definitions
-
-    enum WorkingOut {
-        case unknown
-        case `false`
-        case `true`
-    }
-
     // MARK: - Public properties
 
     var date: Date {

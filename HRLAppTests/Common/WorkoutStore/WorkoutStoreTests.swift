@@ -23,8 +23,12 @@ class WorkoutStoreTests: XCTestCase {
     let outOfRangeRecordIndex = 1000
     let outOfRangeWorkoutIndex = 1000
 
-    let anyRecord = WorkoutRecord(heartRate: HeartRateRecord(date: Date(), bpm: Float(60)),
+    let anyRecord = WorkoutRecord(heartRate: HeartRateRecord(date: Date(),
+                                                             bpm: Float(60)),
                                   workingOut: .unknown)
+    let otherRecord = WorkoutRecord(heartRate: HeartRateRecord(date: Date().addingTimeInterval(60),
+                                                               bpm: Float(60)),
+                                    workingOut: .unknown)
     let anyWorkout = Workout.other
 
     let delegate = WorkoutStoreDelegateTestDouble()
@@ -196,6 +200,39 @@ class WorkoutStoreTests: XCTestCase {
         XCTAssertEqual(anyRecord, record)
     }
 
+    func testSutWithAppendedRecord_insertRecordWithIndexOufOfRange_recordCountDoesNotChange() {
+        // given
+        fillSut()
+
+        // when
+        sut.insertRecord(otherRecord,
+                         intoWorkoutAt: anyWorkoutIndex,
+                         dateAt: anyDateIndex,
+                         recordAt: outOfRangeRecordIndex)
+
+        // then
+        XCTAssertEqual(sut.recordCount(forWorkoutAt: anyWorkoutIndex, dateAt: anyDateIndex), 1)
+    }
+
+    func testSutWithAppendedRecord_insertRecordWithIndexInRange_recordCountDoesNotChangeButNewRecordIsReturned() {
+        // given
+        fillSut()
+
+        // when
+        sut.insertRecord(otherRecord,
+                         intoWorkoutAt: anyWorkoutIndex,
+                         dateAt: anyDateIndex,
+                         recordAt: anyRecordIndex)
+
+        // then
+        XCTAssertEqual(sut.recordCount(forWorkoutAt: anyWorkoutIndex, dateAt: anyDateIndex), 1)
+
+        let record = sut.record(at: anyRecordIndex,
+                                forWorkoutAt: anyWorkoutIndex,
+                                dateAt: anyDateIndex)
+        XCTAssertEqual(record, otherRecord)
+    }
+
     func testSutWithTwoRecordsAppendedInInverseOrder_mostRecentRecord_returnExpectedRecord() {
         // given
         fillSut()
@@ -239,6 +276,33 @@ class WorkoutStoreTests: XCTestCase {
 
         // then
         XCTAssertEqual(record, anyRecord)
+    }
+
+    func testSutWithOneRecordInsertedAndOtherAppended_mostRecentRecord_returnExpectedRecord() {
+        // given
+        fillSut()
+
+        let anyBPM = Float(60)
+        let minuteInterval = TimeInterval(60)
+
+        let newestDate = anyRecord.date.addingTimeInterval(minuteInterval + minuteInterval)
+        let newestRecord = WorkoutRecord(heartRate: HeartRateRecord(date: newestDate, bpm: anyBPM),
+                                         workingOut: .unknown)
+        sut.insertRecord(newestRecord,
+                         intoWorkoutAt: anyWorkoutIndex,
+                         dateAt: anyDateIndex,
+                         recordAt: anyRecordIndex)
+
+        let newerDate = anyRecord.date.addingTimeInterval(minuteInterval)
+        let newerRecord = WorkoutRecord(heartRate: HeartRateRecord(date: newerDate, bpm: anyBPM),
+                                        workingOut: .unknown)
+        sut.appendRecord(newerRecord, toWorkoutAt: anyWorkoutIndex, dateAt: anyDateIndex)
+
+        // when
+        let record = sut.mostRecentRecord(forWorkoutAt: anyWorkoutIndex, dateAt: anyDateIndex)
+
+        // then
+        XCTAssertEqual(record, newestRecord)
     }
 }
 

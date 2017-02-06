@@ -79,6 +79,16 @@ extension WorkoutStoreSingleton: WorkoutStoreProtocol {
         store.appendRecord(record, toWorkoutAt: workoutIndex, dateAt: dateIndex)
     }
 
+    func insertRecord(_ record: WorkoutRecord,
+                      intoWorkoutAt workoutIndex: Int,
+                      dateAt dateIndex: Int,
+                      recordAt recordIndex: Int) {
+        store.insertRecord(record,
+                           intoWorkoutAt: workoutIndex,
+                           dateAt: dateIndex,
+                           recordAt: recordIndex)
+    }
+
     func mostRecentRecord(forWorkoutAt workoutIndex: Int, dateAt dateIndex: Int) -> WorkoutRecord? {
         return store.mostRecentRecord(forWorkoutAt: workoutIndex, dateAt: dateIndex)
     }

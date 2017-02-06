@@ -101,7 +101,7 @@ class GetHeartRatesInteractorTests: XCTestCase {
 
     func testWorkoutStoreWithUnknownWorkingOut_execute_outputExpectedRecords() {
         // given
-        let recordWorkingOut = WorkoutRecord.WorkingOut.unknown
+        let recordWorkingOut = WorkingOut.unknown
         let heartRateWorkingOut = false
 
         let records = makeHeartRateRecords(with: recordWorkingOut)
@@ -125,7 +125,7 @@ class GetHeartRatesInteractorTests: XCTestCase {
 
     func testWorkoutStoreWithFalseWorkingOut_execute_outputExpectedRecords() {
         // given
-        let recordWorkingOut = WorkoutRecord.WorkingOut.false
+        let recordWorkingOut = WorkingOut.false
         let heartRateWorkingOut = false
 
         let records = makeHeartRateRecords(with: recordWorkingOut)
@@ -149,7 +149,7 @@ class GetHeartRatesInteractorTests: XCTestCase {
 
     func testWorkoutStoreWithTrueWorkingOut_execute_outputExpectedRecords() {
         // given
-        let recordWorkingOut = WorkoutRecord.WorkingOut.true
+        let recordWorkingOut = WorkingOut.true
         let heartRateWorkingOut = true
 
         let records = makeHeartRateRecords(with: recordWorkingOut)
@@ -175,20 +175,20 @@ class GetHeartRatesInteractorTests: XCTestCase {
 // MARK: - Private body
 
 private extension GetHeartRatesInteractorTests {
-    func makeWorkoutRecord(with workingOut: WorkoutRecord.WorkingOut) -> WorkoutRecord {
+    func makeWorkoutRecord(with workingOut: WorkingOut) -> WorkoutRecord {
         let heartRateRecord = HeartRateRecord(date: anyDate, bpm: anyBPM)
 
         return WorkoutRecord(heartRate: heartRateRecord, workingOut: workingOut)
     }
 
-    func makeHeartRateRecords(with workingOut: WorkoutRecord.WorkingOut) -> [HeartRateRecord] {
+    func makeHeartRateRecords(with workingOut: WorkingOut) -> [HeartRateRecord] {
         let workoutRecord = makeWorkoutRecord(with: workingOut)
         let heartRateRecord = HeartRateRecord(date: workoutRecord.date, bpm: workoutRecord.bpm)
 
         return [heartRateRecord, heartRateRecord]
     }
 
-    func makeFoundHeartRateRecords(with workingOut: WorkoutRecord.WorkingOut,
+    func makeFoundHeartRateRecords(with workingOut: WorkingOut,
                                    heartRateWorkingOut: Bool) -> [FoundHeartRateRecord] {
         let heartRateRecords = makeHeartRateRecords(with: workingOut)
 

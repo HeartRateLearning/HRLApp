@@ -75,14 +75,30 @@ extension WorkoutStore: WorkoutStoreProtocol {
             return
         }
 
-        let heartRateDate = record.date
-        let mostRecentHeartRateDate = date.mostRecentRecord?.date
-
-        if mostRecentHeartRateDate == nil || mostRecentHeartRateDate! < heartRateDate {
+        if workoutRecord(record, isMostRecentRecordIn: date) {
             date.mostRecentRecord = record
         }
 
         date.records.append(record)
+    }
+
+    func insertRecord(_ record: WorkoutRecord,
+                      intoWorkoutAt workoutIndex: Int,
+                      dateAt dateIndex: Int,
+                      recordAt recordIndex: Int) {
+        guard let date = storedDate(at: dateIndex, forWorkoutAt: workoutIndex) else {
+            return
+        }
+
+        guard recordIndex < date.records.count else {
+            return
+        }
+
+        if workoutRecord(record, isMostRecentRecordIn: date) {
+            date.mostRecentRecord = record
+        }
+
+        date.records[recordIndex] = record
     }
 
     func mostRecentRecord(forWorkoutAt workoutIndex: Int, dateAt dateIndex: Int) -> WorkoutRecord? {
@@ -140,5 +156,12 @@ private extension WorkoutStore {
         }
 
         return dates[index]
+    }
+
+    func workoutRecord(_ record: WorkoutRecord, isMostRecentRecordIn date: StoredDate) -> Bool {
+        let heartRateDate = record.date
+        let mostRecentHeartRateDate = date.mostRecentRecord?.date
+
+        return mostRecentHeartRateDate == nil || mostRecentHeartRateDate! < heartRateDate
     }
 }

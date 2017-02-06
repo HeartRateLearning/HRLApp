@@ -29,6 +29,7 @@ class WorkoutStoreTestDouble {
     fileprivate (set) var recordCountCount = 0
     fileprivate (set) var recordAtIndexCount = 0
     fileprivate (set) var appendRecordCount = 0
+    fileprivate (set) var insertRecordCount = 0
     fileprivate (set) var mostRecentRecordCount = 0
 
     fileprivate (set) var lastWorkoutIndex = -1
@@ -46,6 +47,12 @@ class WorkoutStoreTestDouble {
     fileprivate (set) var lastAppendedRecord: WorkoutRecord?
     fileprivate (set) var lastAppendedRecordWorkoutIndex = -1
     fileprivate (set) var lastAppendedRecordDateIndex = -1
+
+    fileprivate (set) var lastInsertedRecord: WorkoutRecord?
+    fileprivate (set) var lastInsertedRecordWorkoutIndex = -1
+    fileprivate (set) var lastInsertedRecordDateIndex = -1
+    fileprivate (set) var lastInsertedRecordRecordIndex = -1
+
     fileprivate (set) var lastMostRecentRecordWorkoutIndex = -1
     fileprivate (set) var lastMostRecentRecordDateIndex = -1
 
@@ -135,6 +142,18 @@ extension WorkoutStoreTestDouble: WorkoutStoreProtocol {
         lastAppendedRecord = record
         lastAppendedRecordWorkoutIndex = workoutIndex
         lastAppendedRecordDateIndex = dateIndex
+    }
+
+    func insertRecord(_ record: WorkoutRecord,
+                      intoWorkoutAt workoutIndex: Int,
+                      dateAt dateIndex: Int,
+                      recordAt recordIndex: Int) {
+        insertRecordCount += 1
+
+        lastInsertedRecord = record
+        lastInsertedRecordWorkoutIndex = workoutIndex
+        lastInsertedRecordDateIndex = dateIndex
+        lastInsertedRecordRecordIndex = recordIndex
     }
 
     func mostRecentRecord(forWorkoutAt workoutIndex: Int, dateAt dateIndex: Int) -> WorkoutRecord? {
