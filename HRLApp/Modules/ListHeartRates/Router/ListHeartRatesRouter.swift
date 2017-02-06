@@ -7,5 +7,5 @@
 //
 
 class ListHeartRatesRouter: ListHeartRatesRouterInput {
-
+    func presentWorkoutDateList() {}
 }

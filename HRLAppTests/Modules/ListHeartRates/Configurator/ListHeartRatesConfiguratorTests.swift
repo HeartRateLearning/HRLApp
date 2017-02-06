@@ -48,10 +48,14 @@ class ListHeartRatesModuleConfiguratorTests: XCTestCase {
         XCTAssertNotNil(presenter.router)
         XCTAssertNotNil(presenter.interactor)
 
-        let interactor = presenter.interactor as! GetHeartRatesInteractor
-        XCTAssertNotNil(interactor.workoutStore)
-        XCTAssertNotNil(interactor.heartRateStore)
-        XCTAssertTrue(interactor.output === presenter)
+        let getHeartRates = presenter.getHeartRates as! GetHeartRatesInteractor
+        XCTAssertNotNil(getHeartRates.workoutStore)
+        XCTAssertNotNil(getHeartRates.heartRateStore)
+        XCTAssertTrue(getHeartRates.output === presenter)
+
+        let saveWorkingOuts = presenter.saveWorkingOuts as! SaveWorkingOutsInteractor
+        XCTAssertNotNil(saveWorkingOuts.workoutStore)
+        XCTAssertTrue(saveWorkingOuts.output === presenter)
     }
 
     func test_configureModuleForViewController_configureModuleInput() {

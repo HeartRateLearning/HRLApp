@@ -132,6 +132,8 @@
 		FFFB950A1E49079E002DE7A5 /* WorkingOut.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFFB95091E49079E002DE7A5 /* WorkingOut.swift */; };
 		FFFB950C1E490D4B002DE7A5 /* SaveWorkingOutsInteractorOutputTestDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFFB950B1E490D4B002DE7A5 /* SaveWorkingOutsInteractorOutputTestDouble.swift */; };
 		FFFB950E1E490EA3002DE7A5 /* SaveWorkingOutsInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFFB950D1E490EA3002DE7A5 /* SaveWorkingOutsInteractorTests.swift */; };
+		FFFB95101E49386A002DE7A5 /* SaveWorkingOutsInteractorInputTestDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFFB950F1E49386A002DE7A5 /* SaveWorkingOutsInteractorInputTestDouble.swift */; };
+		FFFB95131E493BD7002DE7A5 /* ListHeartRatesRouterInputTestDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFFB95121E493BD7002DE7A5 /* ListHeartRatesRouterInputTestDouble.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -280,6 +282,8 @@
 		FFFB95091E49079E002DE7A5 /* WorkingOut.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkingOut.swift; sourceTree = "<group>"; };
 		FFFB950B1E490D4B002DE7A5 /* SaveWorkingOutsInteractorOutputTestDouble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveWorkingOutsInteractorOutputTestDouble.swift; sourceTree = "<group>"; };
 		FFFB950D1E490EA3002DE7A5 /* SaveWorkingOutsInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveWorkingOutsInteractorTests.swift; sourceTree = "<group>"; };
+		FFFB950F1E49386A002DE7A5 /* SaveWorkingOutsInteractorInputTestDouble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveWorkingOutsInteractorInputTestDouble.swift; sourceTree = "<group>"; };
+		FFFB95121E493BD7002DE7A5 /* ListHeartRatesRouterInputTestDouble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListHeartRatesRouterInputTestDouble.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -928,6 +932,7 @@
 			children = (
 				FFA8CDB41E454D4900E4305B /* Interactor */,
 				FFA8CDA61E44E10E00E4305B /* Presenter */,
+				FFFB95111E493B9A002DE7A5 /* Router */,
 				FFCB066B1E4631C20065CEA3 /* View */,
 			);
 			path = ListHeartRates;
@@ -971,6 +976,7 @@
 			children = (
 				FFCB066E1E46339D0065CEA3 /* GetHeartRatesInteractorInputTestDouble.swift */,
 				FFA8CDB51E454D8400E4305B /* GetHeartRatesInteractorOutputTestDouble.swift */,
+				FFFB950F1E49386A002DE7A5 /* SaveWorkingOutsInteractorInputTestDouble.swift */,
 				FFFB950B1E490D4B002DE7A5 /* SaveWorkingOutsInteractorOutputTestDouble.swift */,
 			);
 			path = Interactor;
@@ -1114,6 +1120,14 @@
 				FFF520001E3B67FB00914740 /* ListWorkoutsViewOutputTestDouble.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		FFFB95111E493B9A002DE7A5 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				FFFB95121E493BD7002DE7A5 /* ListHeartRatesRouterInputTestDouble.swift */,
+			);
+			path = Router;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1409,6 +1423,7 @@
 				FFA8CDB31E452E5600E4305B /* HeartRateStoreTestDouble.swift in Sources */,
 				FFF51FF71E3B67E600914740 /* AddWorkoutViewInputTestDouble.swift in Sources */,
 				FFA8CDAD1E45041A00E4305B /* ListWorkoutDatesViewOutputTestDouble.swift in Sources */,
+				FFFB95131E493BD7002DE7A5 /* ListHeartRatesRouterInputTestDouble.swift in Sources */,
 				FF3340C01E381AD200E84AC2 /* StoreWorkoutInteractorTests.swift in Sources */,
 				E0A71D7AFEC37CDBDF9CA856 /* ListWorkoutsPresenterTests.swift in Sources */,
 				FF82D2C11E2EB1C300119044 /* ViewControllerInstantiaterHelper.swift in Sources */,
@@ -1429,6 +1444,7 @@
 				FFFB950E1E490EA3002DE7A5 /* SaveWorkingOutsInteractorTests.swift in Sources */,
 				6CBB16A29BF5E2E2F390262D /* AddWorkoutViewTests.swift in Sources */,
 				FFF51FF01E3B67DA00914740 /* GetAllWorkoutsInteractorOutputTestDouble.swift in Sources */,
+				FFFB95101E49386A002DE7A5 /* SaveWorkingOutsInteractorInputTestDouble.swift in Sources */,
 				FF46F05C1E368848004E1F8D /* GetStoredWorkoutsInteractorTests.swift in Sources */,
 				FFF51FF21E3B67DA00914740 /* StoreWorkoutInteractorOutputTestDouble.swift in Sources */,
 				FFF51FFB1E3B67ED00914740 /* GetStoredWorkoutsInteractorInputTestDouble.swift in Sources */,

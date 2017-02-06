@@ -15,14 +15,23 @@ class ListHeartRatesPresenter {
     weak var view: ListHeartRatesViewInput!
 
     var router: ListHeartRatesRouterInput!
-    var interactor: GetHeartRatesInteractorInput!
+    var getHeartRates: GetHeartRatesInteractorInput!
+    var saveWorkingOuts: SaveWorkingOutsInteractorInput!
+
+    // MARK: - Private properties
+
+    fileprivate var workoutIndex: Int?
+    fileprivate var dateIndex: Int?
 }
 
 // MARK: - ListHeartRatesModuleInput methods
 
 extension ListHeartRatesPresenter: ListHeartRatesModuleInput {
     func configure(withWorkoutAt workoutIndex: Int, dateAt dateIndex: Int) {
-        interactor.execute(withWorkoutIndex: workoutIndex, dateIndex: dateIndex)
+        self.workoutIndex = workoutIndex
+        self.dateIndex = dateIndex
+
+        getHeartRates.execute(withWorkoutIndex: workoutIndex, dateIndex: dateIndex)
     }
 }
 
@@ -30,7 +39,13 @@ extension ListHeartRatesPresenter: ListHeartRatesModuleInput {
 
 extension ListHeartRatesPresenter: ListHeartRatesViewOutput {
     func save(workingOuts: [Bool]) {
-        print("workingOuts: \(workingOuts)")
+        guard let workoutIndex = workoutIndex, let dateIndex = dateIndex else {
+            return
+        }
+
+        saveWorkingOuts.execute(withWorkoutIndex: workoutIndex,
+                                dateIndex: dateIndex,
+                                workingOuts: workingOuts)
     }
 }
 
@@ -40,5 +55,17 @@ extension ListHeartRatesPresenter: GetHeartRatesInteractorOutput {
     func interactor(_ interactor: GetHeartRatesInteractorInput,
                     didFindHeartRates records: [FoundHeartRateRecord]) {
         view.setup(with: records)
+    }
+}
+
+// MARK: - SaveWorkingOutsInteractorOutput methods
+
+extension ListHeartRatesPresenter: SaveWorkingOutsInteractorOutput {
+    func interactorDidSaveWorkingOuts(_ interactor: SaveWorkingOutsInteractorInput) {
+        router.presentWorkoutDateList()
+    }
+
+    func interactorDidFailToSaveWorkingOuts(_ interactor: SaveWorkingOutsInteractorInput) {
+        print("ListHeartRatesPresenter: SaveWorkingOutsInteractor: didFailToSaveWorkingOuts")
     }
 }

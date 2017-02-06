@@ -59,12 +59,17 @@ private extension ListHeartRatesModuleConfigurator {
         presenter.view = viewController
         presenter.router = router
 
-        let interactor = GetHeartRatesInteractor()
-        interactor.output = presenter
-        interactor.workoutStore = store
-        interactor.heartRateStore = heartRateStore
+        let getHeartRates = GetHeartRatesInteractor()
+        getHeartRates.output = presenter
+        getHeartRates.workoutStore = store
+        getHeartRates.heartRateStore = heartRateStore
 
-        presenter.interactor = interactor
+        let saveWorkingOuts = SaveWorkingOutsInteractor()
+        saveWorkingOuts.output = presenter
+        saveWorkingOuts.workoutStore = store
+
+        presenter.getHeartRates = getHeartRates
+        presenter.saveWorkingOuts = saveWorkingOuts
         viewController.output = presenter
     }
 

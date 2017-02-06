@@ -14,9 +14,14 @@ class ListHeartRatesPresenterTest: XCTestCase {
 
     // MARK: - Properties
 
+    let anyWorkoutIndex = 10
+    let anyDateIndex = 20
+    let anyWorkingOuts = [true]
+
     let view = ListHeartRatesViewInputTestDouble()
-    let router = ListHeartRatesRouter()
-    let interactor = GetHeartRatesInteractorInputTestDouble()
+    let router = ListHeartRatesRouterInputTestDouble()
+    let getHeartRates = GetHeartRatesInteractorInputTestDouble()
+    let saveWorkingOuts = SaveWorkingOutsInteractorInputTestDouble()
 
     let sut = ListHeartRatesPresenter()
 
@@ -27,23 +32,20 @@ class ListHeartRatesPresenterTest: XCTestCase {
 
         sut.view = view
         sut.router = router
-        sut.interactor = interactor
+        sut.getHeartRates = getHeartRates
+        sut.saveWorkingOuts = saveWorkingOuts
     }
 
     // MARK: - Tests
 
     func testAnyIndexes_configure_forwardToInteractor() {
-        // given
-        let anyWorkoutIndex = 10
-        let anyDateIndex = 20
-
         // when
         sut.configure(withWorkoutAt: anyWorkoutIndex, dateAt: anyDateIndex)
 
         // then
-        XCTAssertEqual(interactor.executeCount, 1)
-        XCTAssertEqual(interactor.lastWorkoutIndex, anyWorkoutIndex)
-        XCTAssertEqual(interactor.lastDateIndex, anyDateIndex)
+        XCTAssertEqual(getHeartRates.executeCount, 1)
+        XCTAssertEqual(getHeartRates.lastWorkoutIndex, anyWorkoutIndex)
+        XCTAssertEqual(getHeartRates.lastDateIndex, anyDateIndex)
     }
 
     func testAnyHeartRateRecords_interactorDidFindHeartRates_forwardToView() {
@@ -52,10 +54,32 @@ class ListHeartRatesPresenterTest: XCTestCase {
         let anyRecords = [anyRecord]
 
         // when
-        sut.interactor(interactor, didFindHeartRates: anyRecords)
+        sut.interactor(getHeartRates, didFindHeartRates: anyRecords)
 
         // then
         XCTAssertEqual(view.setupCount, 1)
         XCTAssertEqual(view.lastRecords!, anyRecords)
+    }
+
+    func testConfiguredSut_save_forwardToInteractor() {
+        // given
+        sut.configure(withWorkoutAt: anyWorkoutIndex, dateAt: anyDateIndex)
+
+        // when
+        sut.save(workingOuts: anyWorkingOuts)
+
+        // then
+        XCTAssertEqual(saveWorkingOuts.executeCount, 1)
+        XCTAssertEqual(saveWorkingOuts.lastWorkoutIndex, anyWorkoutIndex)
+        XCTAssertEqual(saveWorkingOuts.lastDateIndex, anyDateIndex)
+        XCTAssertEqual(saveWorkingOuts.lastWorkingOuts!, anyWorkingOuts)
+    }
+
+    func test_interactorDidSaveWorkingOuts_forwardToRouter() {
+        // when
+        sut.interactorDidSaveWorkingOuts(saveWorkingOuts)
+
+        // then
+        XCTAssertEqual(router.presentWorkoutDateListCount, 1)
     }
 }

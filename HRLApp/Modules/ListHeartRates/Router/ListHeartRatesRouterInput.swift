@@ -9,5 +9,5 @@
 import Foundation
 
 protocol ListHeartRatesRouterInput {
-
+    func presentWorkoutDateList()
 }
