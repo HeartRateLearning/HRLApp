@@ -284,6 +284,7 @@
 		FFFB950D1E490EA3002DE7A5 /* SaveWorkingOutsInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveWorkingOutsInteractorTests.swift; sourceTree = "<group>"; };
 		FFFB950F1E49386A002DE7A5 /* SaveWorkingOutsInteractorInputTestDouble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveWorkingOutsInteractorInputTestDouble.swift; sourceTree = "<group>"; };
 		FFFB95121E493BD7002DE7A5 /* ListHeartRatesRouterInputTestDouble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListHeartRatesRouterInputTestDouble.swift; sourceTree = "<group>"; };
+		FFFB95141E494606002DE7A5 /* HRLListWorkoutDatesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRLListWorkoutDatesViewController.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -499,6 +500,7 @@
 		897FDF6CCD2A6027D93466FD /* Router */ = {
 			isa = PBXGroup;
 			children = (
+				FFFB95141E494606002DE7A5 /* HRLListWorkoutDatesViewController.h */,
 				C5152993107AC12F031365BE /* ListWorkoutDatesRouter.swift */,
 				278484420572665EE11CEB76 /* ListWorkoutDatesRouterInput.swift */,
 			);

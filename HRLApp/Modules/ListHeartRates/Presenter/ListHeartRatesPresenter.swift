@@ -13,8 +13,8 @@ class ListHeartRatesPresenter {
     // MARK: - Dependencies
 
     weak var view: ListHeartRatesViewInput!
+    weak var router: ListHeartRatesRouterInput!
 
-    var router: ListHeartRatesRouterInput!
     var getHeartRates: GetHeartRatesInteractorInput!
     var saveWorkingOuts: SaveWorkingOutsInteractorInput!
 

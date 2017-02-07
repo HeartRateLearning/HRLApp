@@ -65,7 +65,7 @@
         <!--Listworkoutdates View Controller-->
         <scene sceneID="0mb-Ir-P7K">
             <objects>
-                <tableViewController storyboardIdentifier="ListWorkoutDatesViewController" id="CZ8-kt-l67" customClass="ListWorkoutDatesViewController" customModule="HRLApp" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="ListWorkoutDatesViewController" id="CZ8-kt-l67" customClass="HRLListWorkoutDatesViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="2qM-Ec-gm8">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -171,9 +171,11 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="uOd-ti-8MW" id="G4y-pg-gdQ"/>
+                        <segue destination="y9L-7b-KyD" kind="unwind" identifier="listHeartRatesUnwindSegue" unwindAction="unwindHeartRateList:" id="Cp8-En-ToM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q4m-oa-ifs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="y9L-7b-KyD" userLabel="Exit" sceneMemberID="exit"/>
                 <customObject id="4vo-UG-TI5" customClass="ListHeartRatesModuleInitializer" customModule="HRLApp" customModuleProvider="target">
                     <connections>
                         <outlet property="listheartratesViewController" destination="1iv-wc-mLe" id="lfp-04-sjO"/>

@@ -21,6 +21,10 @@ extension ListWorkoutDatesViewController {
 
         configureListHeartRatesModule(for: segue.destination, with: index)
     }
+
+    // MARK: - Unwind actions
+
+    @IBAction func unwindHeartRateList(_ segue: UIStoryboardSegue) {}
 }
 
 // MARK: - ListWorkoutDatesRouterInput methods

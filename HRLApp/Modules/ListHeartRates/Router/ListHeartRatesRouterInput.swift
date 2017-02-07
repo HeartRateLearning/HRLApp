@@ -1,5 +1,5 @@
 //
-//  ListHeartRatesListHeartRatesRouterInput.swift
+//  ListHeartRatesRouterInput.swift
 //  HRLApp
 //
 //  Created by Enrique de la Torre on 03/02/2017.
@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol ListHeartRatesRouterInput {
+protocol ListHeartRatesRouterInput: class {
     func presentWorkoutDateList()
 }
