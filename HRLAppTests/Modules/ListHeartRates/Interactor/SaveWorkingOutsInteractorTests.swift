@@ -22,6 +22,7 @@ class SaveWorkingOutsInteractorTests: XCTestCase {
     let anyHeartRate = HeartRateRecord(date: Date(), bpm: Float(60))
 
     let output = SaveWorkingOutsInteractorOutputTestDouble()
+    let trainer = TrainerTestDouble()
     let workoutStore = WorkoutStoreTestDouble()
 
     var sut = SaveWorkingOutsInteractor()
@@ -32,6 +33,7 @@ class SaveWorkingOutsInteractorTests: XCTestCase {
         super.setUp()
 
         sut.output = output
+        sut.trainer = trainer
         sut.workoutStore = workoutStore
     }
 
@@ -83,6 +85,7 @@ class SaveWorkingOutsInteractorTests: XCTestCase {
 
         XCTAssertEqual(workoutStore.insertRecordCount, 1)
         XCTAssertEqual(workoutStore.lastInsertedRecord!, trueRecord)
+        XCTAssertEqual(trainer.fitCount, 1)
         XCTAssertEqual(output.didSaveCount, 1)
     }
 
@@ -104,6 +107,7 @@ class SaveWorkingOutsInteractorTests: XCTestCase {
 
         XCTAssertEqual(workoutStore.insertRecordCount, 1)
         XCTAssertEqual(workoutStore.lastInsertedRecord!, falseRecord)
+        XCTAssertEqual(trainer.fitCount, 1)
         XCTAssertEqual(output.didSaveCount, 1)
     }
 
@@ -125,6 +129,7 @@ class SaveWorkingOutsInteractorTests: XCTestCase {
 
         XCTAssertEqual(workoutStore.insertRecordCount, 1)
         XCTAssertEqual(workoutStore.lastInsertedRecord!, falseRecord)
+        XCTAssertEqual(trainer.fitCount, 1)
         XCTAssertEqual(output.didSaveCount, 1)
     }
 
@@ -146,10 +151,11 @@ class SaveWorkingOutsInteractorTests: XCTestCase {
 
         XCTAssertEqual(workoutStore.insertRecordCount, 1)
         XCTAssertEqual(workoutStore.lastInsertedRecord!, trueRecord)
+        XCTAssertEqual(trainer.fitCount, 1)
         XCTAssertEqual(output.didSaveCount, 1)
     }
 
-    func testRecordWithWorkingOutToFalseAndInputWorkingOutToFalse_execute_doNotInsertNewRecordButOuputSuccess() {
+    func testRecordWithWorkingOutToFalseAndInputWorkingOutToFalse_execute_doNotInsertNewRecordDoNotTrainButOuputSuccess() {
         // given
         let workingOuts = [false]
         let falseRecord = makeWorkoutRecord(with: .false)
@@ -164,6 +170,7 @@ class SaveWorkingOutsInteractorTests: XCTestCase {
 
         // then
         XCTAssertEqual(workoutStore.insertRecordCount, 0)
+        XCTAssertEqual(trainer.fitCount, 0)
         XCTAssertEqual(output.didSaveCount, 1)
     }
 }

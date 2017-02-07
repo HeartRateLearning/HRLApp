@@ -104,6 +104,12 @@
 		FFA8CDB31E452E5600E4305B /* HeartRateStoreTestDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA8CDB21E452E5600E4305B /* HeartRateStoreTestDouble.swift */; };
 		FFA8CDB61E454D8400E4305B /* GetHeartRatesInteractorOutputTestDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA8CDB51E454D8400E4305B /* GetHeartRatesInteractorOutputTestDouble.swift */; };
 		FFA8CDB81E454F7400E4305B /* GetHeartRatesInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA8CDB71E454F7400E4305B /* GetHeartRatesInteractorTests.swift */; };
+		FFB5C4B31E4A492E00FE2FC6 /* PredictorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB5C4B21E4A492E00FE2FC6 /* PredictorProtocol.swift */; };
+		FFB5C4B81E4A518A00FE2FC6 /* PredictorTestDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB5C4B71E4A518A00FE2FC6 /* PredictorTestDouble.swift */; };
+		FFB5C4BA1E4A596000FE2FC6 /* TrainerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB5C4B91E4A596000FE2FC6 /* TrainerProtocol.swift */; };
+		FFB5C4BC1E4A603400FE2FC6 /* TrainerTestDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB5C4BB1E4A603400FE2FC6 /* TrainerTestDouble.swift */; };
+		FFB5C4BE1E4A6D9000FE2FC6 /* Classifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB5C4BD1E4A6D9000FE2FC6 /* Classifier.swift */; };
+		FFB5C4C01E4A711800FE2FC6 /* ClassifierSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB5C4BF1E4A711700FE2FC6 /* ClassifierSingleton.swift */; };
 		FFCB066A1E462E790065CEA3 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFCB06691E462E790065CEA3 /* HealthKit.framework */; };
 		FFCB066D1E4631F90065CEA3 /* ListHeartRatesViewInputTestDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCB066C1E4631F90065CEA3 /* ListHeartRatesViewInputTestDouble.swift */; };
 		FFCB066F1E46339D0065CEA3 /* GetHeartRatesInteractorInputTestDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCB066E1E46339D0065CEA3 /* GetHeartRatesInteractorInputTestDouble.swift */; };
@@ -253,6 +259,12 @@
 		FFA8CDB21E452E5600E4305B /* HeartRateStoreTestDouble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeartRateStoreTestDouble.swift; sourceTree = "<group>"; };
 		FFA8CDB51E454D8400E4305B /* GetHeartRatesInteractorOutputTestDouble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetHeartRatesInteractorOutputTestDouble.swift; sourceTree = "<group>"; };
 		FFA8CDB71E454F7400E4305B /* GetHeartRatesInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetHeartRatesInteractorTests.swift; sourceTree = "<group>"; };
+		FFB5C4B21E4A492E00FE2FC6 /* PredictorProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PredictorProtocol.swift; sourceTree = "<group>"; };
+		FFB5C4B71E4A518A00FE2FC6 /* PredictorTestDouble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PredictorTestDouble.swift; sourceTree = "<group>"; };
+		FFB5C4B91E4A596000FE2FC6 /* TrainerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainerProtocol.swift; sourceTree = "<group>"; };
+		FFB5C4BB1E4A603400FE2FC6 /* TrainerTestDouble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainerTestDouble.swift; sourceTree = "<group>"; };
+		FFB5C4BD1E4A6D9000FE2FC6 /* Classifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Classifier.swift; sourceTree = "<group>"; };
+		FFB5C4BF1E4A711700FE2FC6 /* ClassifierSingleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassifierSingleton.swift; sourceTree = "<group>"; };
 		FFCB06681E462E790065CEA3 /* HRLApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HRLApp.entitlements; sourceTree = "<group>"; };
 		FFCB06691E462E790065CEA3 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		FFCB066C1E4631F90065CEA3 /* ListHeartRatesViewInputTestDouble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListHeartRatesViewInputTestDouble.swift; sourceTree = "<group>"; };
@@ -906,6 +918,7 @@
 		FF9B8CDE1E2FE8CD00A7EB47 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				FFB5C4B61E4A512300FE2FC6 /* Classifier */,
 				FFA8CDAE1E45218F00E4305B /* HealthStore */,
 				FF9B8CDF1E2FE8E900A7EB47 /* WorkoutStore */,
 			);
@@ -984,6 +997,26 @@
 			path = Interactor;
 			sourceTree = "<group>";
 		};
+		FFB5C4B11E4A48ED00FE2FC6 /* Classifier */ = {
+			isa = PBXGroup;
+			children = (
+				FFB5C4BD1E4A6D9000FE2FC6 /* Classifier.swift */,
+				FFB5C4BF1E4A711700FE2FC6 /* ClassifierSingleton.swift */,
+				FFB5C4B21E4A492E00FE2FC6 /* PredictorProtocol.swift */,
+				FFB5C4B91E4A596000FE2FC6 /* TrainerProtocol.swift */,
+			);
+			path = Classifier;
+			sourceTree = "<group>";
+		};
+		FFB5C4B61E4A512300FE2FC6 /* Classifier */ = {
+			isa = PBXGroup;
+			children = (
+				FFB5C4B71E4A518A00FE2FC6 /* PredictorTestDouble.swift */,
+				FFB5C4BB1E4A603400FE2FC6 /* TrainerTestDouble.swift */,
+			);
+			path = Classifier;
+			sourceTree = "<group>";
+		};
 		FFCB066B1E4631C20065CEA3 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -995,6 +1028,7 @@
 		FFE41CA81E2ED74A00BC7B72 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				FFB5C4B11E4A48ED00FE2FC6 /* Classifier */,
 				FF6314211E428F9D00989B09 /* HealthStore */,
 				FFF0248F1E47804E0075E7F9 /* Helpers */,
 				FF4ED3D51E412AC50064D496 /* Model */,
@@ -1365,6 +1399,7 @@
 				FFF024931E47B5FD0075E7F9 /* FoundHeartRateRecord.swift in Sources */,
 				E339D7FF0A7537DF140A594F /* AddWorkoutViewOutput.swift in Sources */,
 				98C62D0961C44E24E4F8005D /* AddWorkoutViewController.swift in Sources */,
+				FFB5C4BE1E4A6D9000FE2FC6 /* Classifier.swift in Sources */,
 				B379385126751B79CED5277E /* AddWorkoutModuleInput.swift in Sources */,
 				A9C8205D8ADEBD3AEDB29822 /* AddWorkoutPresenter.swift in Sources */,
 				FF08E3061E3AB810001183A3 /* WorkoutStoreSingleton.swift in Sources */,
@@ -1374,6 +1409,7 @@
 				FF46F0541E368436004E1F8D /* GetStoredWorkoutsInteractorInput.swift in Sources */,
 				FF46F05E1E368A26004E1F8D /* GetAllWorkoutsInteractor.swift in Sources */,
 				9F43C6F79607A43059593E24 /* AddWorkoutRouterInput.swift in Sources */,
+				FFB5C4B31E4A492E00FE2FC6 /* PredictorProtocol.swift in Sources */,
 				FF6314281E42972100989B09 /* HealthStoreFactoryProtocol.swift in Sources */,
 				81AD7DBD26F12FCDCE186D86 /* AddWorkoutRouter.swift in Sources */,
 				FFFB95061E48E612002DE7A5 /* SaveWorkingOutsInteractorInput.swift in Sources */,
@@ -1386,6 +1422,7 @@
 				7050C178B892D0772A76D89B /* ListWorkoutDatesViewInput.swift in Sources */,
 				68315D7E31A705EBD3FE6FAB /* ListWorkoutDatesViewOutput.swift in Sources */,
 				FF65CC66483771783B8F172E /* ListWorkoutDatesViewController.swift in Sources */,
+				FFB5C4C01E4A711800FE2FC6 /* ClassifierSingleton.swift in Sources */,
 				69B7F25F5D5D4B2F0173ED0D /* ListWorkoutDatesModuleInput.swift in Sources */,
 				FF63142C1E42B3EF00989B09 /* HealthStoreFactorySingleton.swift in Sources */,
 				3D94B071249339F379839E18 /* ListWorkoutDatesPresenter.swift in Sources */,
@@ -1402,6 +1439,7 @@
 				1DD76351473C75D00F730881 /* ListHeartRatesViewOutput.swift in Sources */,
 				FAD30821A0FB4C462A33B81F /* ListHeartRatesViewController.swift in Sources */,
 				5C41783C1C24E8E62D4E7C9E /* ListHeartRatesModuleInput.swift in Sources */,
+				FFB5C4BA1E4A596000FE2FC6 /* TrainerProtocol.swift in Sources */,
 				14DCCEDC8A1E35F65D413043 /* ListHeartRatesPresenter.swift in Sources */,
 				E9F76FACC8DC55D06C78796D /* GetHeartRatesInteractorInput.swift in Sources */,
 				AFDF0DE6D431571B5F99C520 /* GetHeartRatesInteractorOutput.swift in Sources */,
@@ -1424,6 +1462,7 @@
 				FF9B8CE41E2FEA0C00A7EB47 /* WorkoutStoreTestDouble.swift in Sources */,
 				FFA8CDB31E452E5600E4305B /* HeartRateStoreTestDouble.swift in Sources */,
 				FFF51FF71E3B67E600914740 /* AddWorkoutViewInputTestDouble.swift in Sources */,
+				FFB5C4BC1E4A603400FE2FC6 /* TrainerTestDouble.swift in Sources */,
 				FFA8CDAD1E45041A00E4305B /* ListWorkoutDatesViewOutputTestDouble.swift in Sources */,
 				FFFB95131E493BD7002DE7A5 /* ListHeartRatesRouterInputTestDouble.swift in Sources */,
 				FF3340C01E381AD200E84AC2 /* StoreWorkoutInteractorTests.swift in Sources */,
@@ -1456,6 +1495,7 @@
 				FFF51FF81E3B67E600914740 /* AddWorkoutViewOutputTestDouble.swift in Sources */,
 				FFF520021E3B67FB00914740 /* ListWorkoutsViewOutputTestDouble.swift in Sources */,
 				FF2CAAB11E3FD86B0052129F /* ListWorkoutDatesModuleInputTestDouble.swift in Sources */,
+				FFB5C4B81E4A518A00FE2FC6 /* PredictorTestDouble.swift in Sources */,
 				FF2CAAC11E400F2A0052129F /* GetWorkoutDatesInteractorOutputTestDouble.swift in Sources */,
 				FF46F0661E36D690004E1F8D /* GetAllWorkoutsInteractorTests.swift in Sources */,
 				FFFB950C1E490D4B002DE7A5 /* SaveWorkingOutsInteractorOutputTestDouble.swift in Sources */,

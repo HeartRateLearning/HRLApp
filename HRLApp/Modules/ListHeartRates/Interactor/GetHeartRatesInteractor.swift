@@ -16,6 +16,7 @@ class GetHeartRatesInteractor {
 
     weak var output: GetHeartRatesInteractorOutput!
 
+    var predictor: PredictorProtocol!
     var workoutStore: WorkoutStoreProtocol!
     var heartRateStore: HeartRateStoreProtocol!
 }
@@ -76,7 +77,8 @@ private extension GetHeartRatesInteractor {
                        toWorkoutAt workoutIndex: Int,
                        dateAt dateIndex: Int) {
         for heartRateRecord in records {
-            let workoutRecord = WorkoutRecord(heartRate: heartRateRecord, workingOut: .unknown)
+            let workingOut = predictor.predictedWorkingOut(for: heartRateRecord)
+            let workoutRecord = WorkoutRecord(heartRate: heartRateRecord, workingOut: workingOut)
 
             workoutStore.appendRecord(workoutRecord, toWorkoutAt: workoutIndex, dateAt: dateIndex)
         }

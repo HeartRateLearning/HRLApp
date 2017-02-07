@@ -22,6 +22,7 @@ class GetHeartRatesInteractorTests: XCTestCase {
     let anyWorkoutIndex = 0
 
     let output = GetHeartRatesInteractorOutputTestDouble()
+    let predictor = PredictorTestDouble()
     let workoutStore = WorkoutStoreTestDouble()
     let heartRateStore = HeartRateStoreTestDouble()
 
@@ -33,6 +34,7 @@ class GetHeartRatesInteractorTests: XCTestCase {
         super.setUp()
 
         sut.output = output
+        sut.predictor = predictor
         sut.workoutStore = workoutStore
         sut.heartRateStore = heartRateStore
     }
@@ -83,6 +85,20 @@ class GetHeartRatesInteractorTests: XCTestCase {
         XCTAssertEqual(workoutStore.mostRecentRecordCount, 1)
         XCTAssertEqual(heartRateStore.queryRecordsAfterCount, 0)
         XCTAssertEqual(heartRateStore.queryRecordsAfterOrEqualCount, 1)
+    }
+
+    func testHeartRateStoreWithRecords_execute_classifierPredictsWorkingOut() {
+        // given
+        workoutStore.dateAtIndexResult = anyDate
+        workoutStore.mostRecentRecordResult = nil
+        heartRateStore.queryRecordsAfterOrEqualResult = makeHeartRateRecords(with: .unknown)
+
+        // when
+        sut.execute(withWorkoutIndex: anyWorkoutIndex, dateIndex: anyDateIndex)
+
+        // then
+        XCTAssertEqual(predictor.predictedCount,
+                       heartRateStore.queryRecordsAfterOrEqualResult!.count)
     }
 
     func testHeartRateStoreWithRecords_execute_appendRecordsToWorkoutStore() {

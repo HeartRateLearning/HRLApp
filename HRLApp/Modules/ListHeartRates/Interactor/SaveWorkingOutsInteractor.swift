@@ -16,6 +16,7 @@ class SaveWorkingOutsInteractor {
 
     weak var output: SaveWorkingOutsInteractorOutput!
 
+    var trainer: TrainerProtocol!
     var workoutStore: WorkoutStoreProtocol!
 }
 
@@ -43,8 +44,11 @@ extension SaveWorkingOutsInteractor: SaveWorkingOutsInteractorInput {
             let workingOut = workingOuts[index]
 
             if shouldUpdateRecord(record, withWorkingOut: workingOut) {
-                let updatedRecord = makeRecord(with: record, workingOut: workingOut)
+                let heartRate = HeartRateRecord(date: record.date, bpm: record.bpm)
+                trainer.fit(record: heartRate, workingOut: workingOut)
 
+                let updatedRecord = WorkoutRecord(heartRate: heartRate,
+                                                  workingOut: WorkingOut(workingOut))
                 workoutStore.insertRecord(updatedRecord,
                                           intoWorkoutAt: workoutIndex,
                                           dateAt: dateIndex,
@@ -72,10 +76,5 @@ private extension SaveWorkingOutsInteractor {
         }
 
         return result
-    }
-
-    func makeRecord(with record: WorkoutRecord, workingOut: Bool) -> WorkoutRecord {
-        return WorkoutRecord(heartRate: HeartRateRecord(date: record.date, bpm: record.bpm),
-                             workingOut: WorkingOut(workingOut))
     }
 }
