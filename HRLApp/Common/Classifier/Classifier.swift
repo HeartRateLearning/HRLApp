@@ -15,17 +15,15 @@ final class Classifier {
 
     // MARK: - Private properties
 
-    fileprivate let hrlFactory: HRLClassifier.ClassifierFactoryProtocol
-    fileprivate let hrlDataFrame: HRLClassifier.DataFrame
+    fileprivate let factory: HRLClassifier.ClassifierFactoryProtocol
 
-    fileprivate var hrlClassifier: HRLClassifier.ClassifierProtocol?
+    fileprivate var dataFrame = HRLClassifier.DataFrame()
+    fileprivate var classifier: HRLClassifier.ClassifierProtocol?
 
     // MARK: - Init methods
 
     init(factory: HRLClassifier.ClassifierFactoryProtocol = HRLClassifier.ClassifierFactory()) {
-        hrlFactory = factory
-
-        hrlDataFrame = HRLClassifier.DataFrame()
+        self.factory = factory
     }
 }
 
@@ -34,9 +32,9 @@ final class Classifier {
 extension Classifier: TrainerProtocol {
     func fit(record: HeartRateRecord, workingOut: Bool) {
         let hrlRecord = HRLClassifier.Record(date: record.date, bpm: record.bpm)
-        hrlDataFrame.append(record: hrlRecord, isWorkingOut: workingOut)
+        dataFrame.append(record: hrlRecord, isWorkingOut: workingOut)
 
-        hrlClassifier = try? hrlFactory.makeClassifier(with: hrlDataFrame)
+        remakeClassifier()
     }
 }
 
@@ -44,13 +42,42 @@ extension Classifier: TrainerProtocol {
 
 extension Classifier: PredictorProtocol {
     func predictedWorkingOut(for record: HeartRateRecord) -> WorkingOut {
-        guard let hrlClassifier = hrlClassifier else {
+        guard let classifier = classifier else {
             return .unknown
         }
 
         let hrlRecord = HRLClassifier.Record(date: record.date, bpm: record.bpm)
-        let prediction = hrlClassifier.predictedWorkingOut(for: hrlRecord)
+        let prediction = classifier.predictedWorkingOut(for: hrlRecord)
 
         return WorkingOut(prediction)
+    }
+}
+
+// MARK: - MementoConvertible methods
+
+extension Classifier: MementoConvertible {
+    func makeMemento() -> Data {
+        return NSKeyedArchiver.archivedData(withRootObject: dataFrame)
+    }
+
+    func setup(withMemento memento: Data) {
+        guard let dataFrame = NSKeyedUnarchiver.unarchiveObject(with: memento) as? DataFrame else {
+            return
+        }
+
+        self.dataFrame = dataFrame
+
+        remakeClassifier()
+    }
+}
+
+// MARK: - Private body
+
+private extension Classifier {
+
+    // MARK: - Private methods
+
+    func remakeClassifier() {
+        classifier = try? factory.makeClassifier(with: dataFrame)
     }
 }

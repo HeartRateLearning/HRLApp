@@ -54,4 +54,26 @@ final class ClassifierTests: XCTestCase {
         // then
         XCTAssertEqual(classifier.predictedWorkingOutCount, 1)
     }
+
+    func testAnyData_setupWithMemento_factoryDoesNotMakeClassifier() {
+        // given
+        let memento = Data()
+
+        // when
+        sut.setup(withMemento: memento)
+
+        // then
+        XCTAssertEqual(factory.makeClassifierCount, 0)
+    }
+
+    func testMemento_setupWithMemento_factoryMakeClassifier() {
+        // given
+        let memento = sut.makeMemento()
+
+        // when
+        sut.setup(withMemento: memento)
+
+        // then
+        XCTAssertEqual(factory.makeClassifierCount, 1)
+    }
 }

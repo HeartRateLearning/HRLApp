@@ -42,3 +42,15 @@ extension ClassifierSingleton: PredictorProtocol {
         return classifier.predictedWorkingOut(for: record)
     }
 }
+
+// MARK: - MementoConvertible methods
+
+extension ClassifierSingleton: MementoConvertible {
+    func makeMemento() -> Data {
+        return classifier.makeMemento()
+    }
+
+    func setup(withMemento memento: Data) {
+        classifier.setup(withMemento: memento)
+    }
+}
