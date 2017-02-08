@@ -22,8 +22,9 @@ final class Classifier {
 
     // MARK: - Init methods
 
-    init() {
-        hrlFactory = HRLClassifier.ClassifierFactory()
+    init(factory: HRLClassifier.ClassifierFactoryProtocol = HRLClassifier.ClassifierFactory()) {
+        hrlFactory = factory
+
         hrlDataFrame = HRLClassifier.DataFrame()
     }
 }

@@ -18,12 +18,12 @@ final class ClassifierSingleton {
 
     // MARK: - Private properties
 
-    fileprivate var store: Classifier
+    fileprivate var classifier: Classifier
 
     // MARK: - Init methods
 
     private init() {
-        store = Classifier()
+        classifier = Classifier()
     }
 }
 
@@ -31,7 +31,7 @@ final class ClassifierSingleton {
 
 extension ClassifierSingleton: TrainerProtocol {
     func fit(record: HeartRateRecord, workingOut: Bool) {
-        store.fit(record: record, workingOut: workingOut)
+        classifier.fit(record: record, workingOut: workingOut)
     }
 }
 
@@ -39,6 +39,6 @@ extension ClassifierSingleton: TrainerProtocol {
 
 extension ClassifierSingleton: PredictorProtocol {
     func predictedWorkingOut(for record: HeartRateRecord) -> WorkingOut {
-        return store.predictedWorkingOut(for: record)
+        return classifier.predictedWorkingOut(for: record)
     }
 }
