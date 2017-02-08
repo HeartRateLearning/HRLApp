@@ -10,7 +10,7 @@ import UIKit
 
 // MARK: - Main body
 
-class ListHeartRatesViewController: UIViewController {
+final class ListHeartRatesViewController: UIViewController {
 
     // MARK: - Dependencies
 

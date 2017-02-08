@@ -10,7 +10,7 @@ import UIKit
 
 // MARK: - Main body
 
-class ListWorkoutDatesModuleConfigurator {
+final class ListWorkoutDatesModuleConfigurator {
 
     // MARK: - Private properties
 

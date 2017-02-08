@@ -11,7 +11,7 @@ import UIKit
 
 // MARK: - Main body
 
-class ViewControllerInstantiaterHelper {
+final class ViewControllerInstantiaterHelper {
     
     // MARK: - Private properties
 

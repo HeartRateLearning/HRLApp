@@ -10,7 +10,7 @@ import UIKit
 
 // MARK: - Main body
 
-class ListHeartRatesModuleConfigurator {
+final class ListHeartRatesModuleConfigurator {
 
     // MARK: - Private properties
 

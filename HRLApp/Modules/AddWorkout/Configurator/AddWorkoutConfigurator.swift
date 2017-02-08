@@ -10,7 +10,7 @@ import UIKit
 
 // MARK: - Main body
 
-class AddWorkoutModuleConfigurator {
+final class AddWorkoutModuleConfigurator {
 
     // MARK: - Private properties
 

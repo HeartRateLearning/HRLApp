@@ -10,7 +10,7 @@ import Foundation
 
 // MARK: - Main body
 
-class WorkoutStore {
+final class WorkoutStore {
 
     // MARK: - WorkoutStoreProtocol properties
 
@@ -112,7 +112,7 @@ private extension WorkoutStore {
 
     // MARK: - Type definitions
 
-    class StoredDate {
+    final class StoredDate {
         let date: Date
         var records: [WorkoutRecord]
         var mostRecentRecord: WorkoutRecord?
@@ -125,7 +125,7 @@ private extension WorkoutStore {
         }
     }
 
-    class StoredWorkout {
+    final class StoredWorkout {
         let workout: Workout
         var dates: [StoredDate]
 

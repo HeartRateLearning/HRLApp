@@ -12,7 +12,7 @@ import Foundation
 
 // MARK: - Main body
 
-class ListWorkoutDatesViewOutputTestDouble {
+final class ListWorkoutDatesViewOutputTestDouble {
 
     // MARK: - Public properties
 

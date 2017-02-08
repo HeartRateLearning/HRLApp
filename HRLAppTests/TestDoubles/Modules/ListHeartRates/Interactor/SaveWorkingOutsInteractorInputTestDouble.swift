@@ -12,7 +12,7 @@ import Foundation
 
 // MARK: - Main body
 
-class SaveWorkingOutsInteractorInputTestDouble {
+final class SaveWorkingOutsInteractorInputTestDouble {
 
     // MARK: - Public properties
 

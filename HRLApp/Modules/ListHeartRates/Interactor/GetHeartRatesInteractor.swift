@@ -10,7 +10,7 @@ import Foundation
 
 // MARK: - Main body
 
-class GetHeartRatesInteractor {
+final class GetHeartRatesInteractor {
 
     // MARK: - Dependencies
 

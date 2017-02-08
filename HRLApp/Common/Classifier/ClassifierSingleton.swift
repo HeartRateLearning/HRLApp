@@ -10,7 +10,7 @@ import Foundation
 
 // MARK: - Main body
 
-class ClassifierSingleton {
+final class ClassifierSingleton {
 
     // MARK: - Public properties
 

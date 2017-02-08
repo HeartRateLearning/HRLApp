@@ -10,7 +10,7 @@ import UIKit
 
 // MARK: - Main body
 
-class AddWorkoutViewController: UIViewController {
+final class AddWorkoutViewController: UIViewController {
 
     // MARK: - Dependencies
 

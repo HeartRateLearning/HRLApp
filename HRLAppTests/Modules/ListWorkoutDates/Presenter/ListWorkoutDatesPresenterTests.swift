@@ -10,7 +10,7 @@ import XCTest
 
 @testable import HRLApp
 
-class ListWorkoutDatesPresenterTest: XCTestCase {
+final class ListWorkoutDatesPresenterTest: XCTestCase {
 
     // MARK: - Properties
 

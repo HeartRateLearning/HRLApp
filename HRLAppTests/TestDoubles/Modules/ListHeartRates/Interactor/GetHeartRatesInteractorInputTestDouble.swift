@@ -12,7 +12,7 @@ import Foundation
 
 // MARK: - Main body
 
-class GetHeartRatesInteractorInputTestDouble {
+final class GetHeartRatesInteractorInputTestDouble {
 
     // MARK: - Public properties
 

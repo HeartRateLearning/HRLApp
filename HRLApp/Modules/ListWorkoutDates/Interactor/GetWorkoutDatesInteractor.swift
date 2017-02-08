@@ -10,7 +10,7 @@ import Foundation
 
 // MARK: - Main body
 
-class GetWorkoutDatesInteractor {
+final class GetWorkoutDatesInteractor {
 
     // MARK: - Dependencies
 

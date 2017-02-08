@@ -12,7 +12,7 @@ import Foundation
 
 // MARK: - Main body
 
-class PredictorTestDouble {
+final class PredictorTestDouble {
 
     // MARK: - Public properties
 

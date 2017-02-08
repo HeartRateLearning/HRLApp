@@ -12,7 +12,7 @@ import Foundation
 
 // MARK: - Main body
 
-class ListHeartRatesViewInputTestDouble {
+final class ListHeartRatesViewInputTestDouble {
 
     // MARK: - Public properties
 

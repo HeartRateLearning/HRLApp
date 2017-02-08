@@ -12,7 +12,7 @@ import Foundation
 
 // MARK: - Main body
 
-class WorkoutStoreTestDouble {
+final class WorkoutStoreTestDouble {
 
     // MARK: - WorkoutStoreProtocol properties
 

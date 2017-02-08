@@ -10,7 +10,7 @@ import Foundation
 
 // MARK: - Main body
 
-class SaveWorkingOutsInteractor {
+final class SaveWorkingOutsInteractor {
 
     // MARK: - Dependencies
 

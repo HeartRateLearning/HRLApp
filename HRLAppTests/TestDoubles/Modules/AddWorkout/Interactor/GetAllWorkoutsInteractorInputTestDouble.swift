@@ -12,7 +12,7 @@ import Foundation
 
 // MARK: - Main body
 
-class GetAllWorkoutsInteractorInputTestDouble {
+final class GetAllWorkoutsInteractorInputTestDouble {
 
     // MARK: - Public properties
 

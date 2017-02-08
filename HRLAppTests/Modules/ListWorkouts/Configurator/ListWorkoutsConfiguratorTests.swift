@@ -12,7 +12,7 @@ import XCTest
 
 // MARK: - Main body
 
-class ListWorkoutsModuleConfiguratorTests: XCTestCase {
+final class ListWorkoutsModuleConfiguratorTests: XCTestCase {
 
     // MARK: - Tests
 

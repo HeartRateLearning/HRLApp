@@ -11,7 +11,7 @@ import HealthKit
 
 // MARK: - Main body
 
-class HeartRateStore {
+final class HeartRateStore {
 
     // MARK: - Public class properties
 

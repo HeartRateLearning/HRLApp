@@ -8,7 +8,7 @@
 
 import XCTest
 
-class ListHeartRatesRouterTests: XCTestCase {
+final class ListHeartRatesRouterTests: XCTestCase {
 
     override func setUp() {
         super.setUp()

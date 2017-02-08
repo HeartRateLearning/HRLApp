@@ -12,7 +12,7 @@ import XCTest
 
 // MARK: - Main body
 
-class WorkoutStoreTests: XCTestCase {
+final class WorkoutStoreTests: XCTestCase {
 
     // MARK: - Properties
 

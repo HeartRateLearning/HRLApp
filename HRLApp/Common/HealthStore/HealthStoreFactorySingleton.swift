@@ -10,7 +10,7 @@ import Foundation
 
 // MARK: - Main body
 
-class HealthStoreFactorySingleton {
+final class HealthStoreFactorySingleton {
 
     // MARK: - Public properties
 

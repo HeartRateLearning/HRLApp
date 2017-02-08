@@ -12,7 +12,7 @@ import XCTest
 
 // MARK: - Main body
 
-class SaveWorkingOutsInteractorTests: XCTestCase {
+final class SaveWorkingOutsInteractorTests: XCTestCase {
 
     // MARK: - Properties
 

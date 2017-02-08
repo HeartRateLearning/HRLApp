@@ -12,7 +12,7 @@ import XCTest
 
 // MARK: - Main body
 
-class GetHeartRatesInteractorTests: XCTestCase {
+final class GetHeartRatesInteractorTests: XCTestCase {
 
     // MARK: - Properties
 

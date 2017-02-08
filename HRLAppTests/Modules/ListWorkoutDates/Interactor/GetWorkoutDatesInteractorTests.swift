@@ -12,7 +12,7 @@ import XCTest
 
 // MARK: - Main body
 
-class GetWorkoutDatesInteractorTests: XCTestCase {
+final class GetWorkoutDatesInteractorTests: XCTestCase {
 
     // MARK: - Properties
 

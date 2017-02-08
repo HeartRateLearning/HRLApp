@@ -8,7 +8,7 @@
 
 // MARK: - Main body
 
-class ListWorkoutsPresenter {
+final class ListWorkoutsPresenter {
     
     // MARK: - Dependencies
 

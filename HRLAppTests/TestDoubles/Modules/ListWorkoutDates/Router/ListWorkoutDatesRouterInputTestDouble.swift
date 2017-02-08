@@ -12,7 +12,7 @@ import Foundation
 
 // MARK: - Main body
 
-class ListWorkoutDatesRouterInputTestDouble {
+final class ListWorkoutDatesRouterInputTestDouble {
 
     // MARK: - Public properties
 

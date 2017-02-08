@@ -11,7 +11,7 @@ import HealthKit
 
 // MARK: - Main body
 
-class HealthStoreFactory {
+final class HealthStoreFactory {
 
     // MARK: - Private properties
 

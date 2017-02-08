@@ -12,7 +12,7 @@ import Foundation
 
 // MARK: - Main body
 
-class TrainerTestDouble {
+final class TrainerTestDouble {
 
     // MARK: - Public properties
 

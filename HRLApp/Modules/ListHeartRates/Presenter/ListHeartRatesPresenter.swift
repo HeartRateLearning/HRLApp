@@ -8,7 +8,7 @@
 
 // MARK: - Main body
 
-class ListHeartRatesPresenter {
+final class ListHeartRatesPresenter {
 
     // MARK: - Dependencies
 

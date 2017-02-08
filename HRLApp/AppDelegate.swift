@@ -11,7 +11,7 @@ import UIKit
 // MARK: - Main body
 
 @UIApplicationMain
-class AppDelegate: UIResponder {
+final class AppDelegate: UIResponder {
 
     // MARK: - Public properties
 

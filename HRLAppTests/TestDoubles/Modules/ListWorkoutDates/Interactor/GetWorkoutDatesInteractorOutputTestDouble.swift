@@ -12,7 +12,7 @@ import Foundation
 
 // MARK: - Main body
 
-class GetWorkoutDatesInteractorOutputTestDouble {
+final class GetWorkoutDatesInteractorOutputTestDouble {
 
     // MARK: - Public properties
 

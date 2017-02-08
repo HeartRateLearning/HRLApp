@@ -12,7 +12,7 @@ import Foundation
 
 // MARK: - Main body
 
-class AddWorkoutViewOutputTestDouble {
+final class AddWorkoutViewOutputTestDouble {
 
     // MARK: - Public properties
 

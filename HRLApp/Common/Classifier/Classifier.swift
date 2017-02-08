@@ -11,7 +11,7 @@ import HRLClassifier
 
 // MARK: - Main body
 
-class Classifier {
+final class Classifier {
 
     // MARK: - Private properties
 

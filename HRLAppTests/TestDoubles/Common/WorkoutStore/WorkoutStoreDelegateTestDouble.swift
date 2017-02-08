@@ -12,7 +12,7 @@ import Foundation
 
 // MARK: - Main body
 
-class WorkoutStoreDelegateTestDouble {
+final class WorkoutStoreDelegateTestDouble {
 
     // MARK: - Public properties
     fileprivate (set) var didAppendWorkoutAtIndexCount = 0

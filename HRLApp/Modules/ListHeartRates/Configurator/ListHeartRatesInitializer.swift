@@ -10,7 +10,7 @@ import UIKit
 
 // MARK: - Main body
 
-class ListHeartRatesModuleInitializer: NSObject {
+final class ListHeartRatesModuleInitializer: NSObject {
 
     // MARK: - Outlets
 

@@ -12,7 +12,7 @@ import Foundation
 
 // MARK: - Main body
 
-class HealthStoreFactoryTestDouble {
+final class HealthStoreFactoryTestDouble {
 
     // MARK: - Public properties
 

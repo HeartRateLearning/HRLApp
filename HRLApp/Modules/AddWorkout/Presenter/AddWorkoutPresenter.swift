@@ -10,7 +10,7 @@ import Foundation
 
 // MARK: - Main body
 
-class AddWorkoutPresenter {
+final class AddWorkoutPresenter {
 
     // MARK: - Dependencies
 

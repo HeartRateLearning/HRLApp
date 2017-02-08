@@ -10,7 +10,7 @@ import Foundation
 
 // MARK: - Main body
 
-class ListWorkoutDatesPresenter {
+final class ListWorkoutDatesPresenter {
 
     // MARK: - Dependencies
 

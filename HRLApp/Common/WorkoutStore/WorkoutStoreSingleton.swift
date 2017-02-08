@@ -10,7 +10,7 @@ import Foundation
 
 // MARK: - Main body
 
-class WorkoutStoreSingleton {
+final class WorkoutStoreSingleton {
 
     // MARK: - Public properties
 

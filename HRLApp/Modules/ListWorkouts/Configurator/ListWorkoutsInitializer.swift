@@ -10,7 +10,7 @@ import UIKit
 
 // MARK: - Main body
 
-class ListWorkoutsModuleInitializer: NSObject {
+final class ListWorkoutsModuleInitializer: NSObject {
 
     // MARK: - Outlets
 

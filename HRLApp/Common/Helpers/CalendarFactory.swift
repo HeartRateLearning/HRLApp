@@ -10,7 +10,7 @@ import Foundation
 
 // MARK: - Main body
 
-class CalendarFactory {
+final class CalendarFactory {
 
     // MARK: - Public class methods
 

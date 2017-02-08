@@ -12,7 +12,7 @@ import Foundation
 
 // MARK: - Main body
 
-class AddWorkoutRouterInputTestDouble {
+final class AddWorkoutRouterInputTestDouble {
 
     // MARK: - Public properties
 
