@@ -6,6 +6,7 @@
 //  Copyright © 2017 Enrique de la Torre. All rights reserved.
 //
 
+import HRLClassifier
 import XCTest
 
 @testable import HRLApp
@@ -22,6 +23,7 @@ final class ClassifierTests: XCTestCase {
 
     let factory = HRLClassifierFactoryTestDouble()
     let classifier = HRLClassifierTestDouble()
+    let dataFrameStore = DataFramePersistentStoreTestDouble()
 
     var sut: Classifier!
 
@@ -32,12 +34,28 @@ final class ClassifierTests: XCTestCase {
 
         factory.makeClassifierResult = classifier
 
-        sut = Classifier(factory: factory)
+        sut = Classifier(factory: factory, dataFrameStore: dataFrameStore)
 
-        anyTrainingData = [(record: anyRecord, workingOut: anyWorkingOut)]
+        let tuple = (record: anyRecord, workingOut: anyWorkingOut) as Trainable.TrainingTuple
+        anyTrainingData = [tuple, tuple, tuple]
     }
 
     // MARK: - Tests
+
+    func testNonEmptyPersistedDataFrameAndAnyTrainingData_fit_persistedDataFrameIsUpdated() {
+        // given
+        dataFrameStore.readResult = makeNonEmptyDataFrame()
+
+        // when
+        sut.fit(trainingData: anyTrainingData)
+
+        // then
+        let expectedDataFrame = makeNonEmptyDataFrame(plus: anyTrainingData)
+
+        XCTAssertEqual(dataFrameStore.readCount, 1)
+        XCTAssertEqual(dataFrameStore.writeCount, 1)
+        XCTAssertEqual(dataFrameStore.lastWriteDataFrame, expectedDataFrame)
+    }
 
     func testAnyTrainingData_fit_tryToMakeANewClassifier() {
         // when
@@ -57,26 +75,23 @@ final class ClassifierTests: XCTestCase {
         // then
         XCTAssertEqual(classifier.predictedWorkingOutCount, 1)
     }
+}
 
-    func testAnyData_setupWithMemento_factoryDoesNotMakeClassifier() {
-        // given
-        let memento = Data()
+// MARK: - Private body
 
-        // when
-        sut.setup(withMemento: memento)
+private extension ClassifierTests {
+    func makeNonEmptyDataFrame(plus data: [Trainable.TrainingTuple] = []) -> DataFrame {
+        let dataFrame = DataFrame()
 
-        // then
-        XCTAssertEqual(factory.makeClassifierCount, 0)
-    }
+        let record = HRLClassifier.Record(date: anyRecord.date, bpm: anyRecord.bpm)
+        dataFrame.append(record: record, isWorkingOut: anyWorkingOut)
 
-    func testMemento_setupWithMemento_factoryMakeClassifier() {
-        // given
-        let memento = sut.makeMemento()
+        for (record, workingOut) in data {
+            let hrlRecord = HRLClassifier.Record(date: record.date, bpm: record.bpm)
 
-        // when
-        sut.setup(withMemento: memento)
+            dataFrame.append(record: hrlRecord, isWorkingOut: workingOut)
+        }
 
-        // then
-        XCTAssertEqual(factory.makeClassifierCount, 1)
+        return dataFrame
     }
 }

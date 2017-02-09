@@ -16,14 +16,16 @@ final class Classifier {
     // MARK: - Private properties
 
     fileprivate let factory: HRLClassifier.ClassifierFactoryProtocol
+    fileprivate let dataFrameStore: DataFramePersistentStoreProtocol
 
-    fileprivate var dataFrame = HRLClassifier.DataFrame()
     fileprivate var classifier: HRLClassifier.ClassifierProtocol?
 
     // MARK: - Init methods
 
-    init(factory: HRLClassifier.ClassifierFactoryProtocol) {
+    init(factory: HRLClassifier.ClassifierFactoryProtocol,
+         dataFrameStore: DataFramePersistentStoreProtocol) {
         self.factory = factory
+        self.dataFrameStore = dataFrameStore
     }
 }
 
@@ -31,13 +33,9 @@ final class Classifier {
 
 extension Classifier: Trainable {
     func fit(trainingData: [Trainable.TrainingTuple]) {
-        for (record, workingOut) in trainingData {
-            let hrlRecord = HRLClassifier.Record(date: record.date, bpm: record.bpm)
+        let updatedDataFrame = updatePersistedDataFrame(with: trainingData)
 
-            dataFrame.append(record: hrlRecord, isWorkingOut: workingOut)
-        }
-
-        remakeClassifier()
+        classifier = try? factory.makeClassifier(with: updatedDataFrame)
     }
 }
 
@@ -56,31 +54,23 @@ extension Classifier: Predictor {
     }
 }
 
-// MARK: - MementoConvertible methods
-
-extension Classifier: MementoConvertible {
-    func makeMemento() -> Data {
-        return NSKeyedArchiver.archivedData(withRootObject: dataFrame)
-    }
-
-    func setup(withMemento memento: Data) {
-        guard let dataFrame = NSKeyedUnarchiver.unarchiveObject(with: memento) as? DataFrame else {
-            return
-        }
-
-        self.dataFrame = dataFrame
-
-        remakeClassifier()
-    }
-}
-
 // MARK: - Private body
 
 private extension Classifier {
 
     // MARK: - Private methods
 
-    func remakeClassifier() {
-        classifier = try? factory.makeClassifier(with: dataFrame)
+    func updatePersistedDataFrame(with trainingData: [Trainable.TrainingTuple]) -> DataFrame {
+        let dataFrame = dataFrameStore.read()
+
+        for (record, workingOut) in trainingData {
+            let hrlRecord = HRLClassifier.Record(date: record.date, bpm: record.bpm)
+
+            dataFrame.append(record: hrlRecord, isWorkingOut: workingOut)
+        }
+
+        dataFrameStore.write(dataFrame)
+
+        return dataFrame
     }
 }

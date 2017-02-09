@@ -24,7 +24,8 @@ final class ClassifierSingleton {
     // MARK: - Init methods
 
     private init() {
-        classifier = Classifier(factory: HRLClassifier.ClassifierFactory())
+        classifier = Classifier(factory: HRLClassifier.ClassifierFactory(),
+                                dataFrameStore: DataFramePersistentStore())
     }
 }
 
@@ -41,17 +42,5 @@ extension ClassifierSingleton: Trainable {
 extension ClassifierSingleton: Predictor {
     func predictedWorkingOut(for record: HeartRateRecord) -> WorkingOut {
         return classifier.predictedWorkingOut(for: record)
-    }
-}
-
-// MARK: - MementoConvertible methods
-
-extension ClassifierSingleton: MementoConvertible {
-    func makeMemento() -> Data {
-        return classifier.makeMemento()
-    }
-
-    func setup(withMemento memento: Data) {
-        classifier.setup(withMemento: memento)
     }
 }
