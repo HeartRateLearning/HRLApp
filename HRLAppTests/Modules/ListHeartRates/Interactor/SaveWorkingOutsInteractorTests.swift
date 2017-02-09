@@ -89,6 +89,25 @@ final class SaveWorkingOutsInteractorTests: XCTestCase {
         XCTAssertEqual(output.didSaveCount, 1)
     }
 
+    func testMultipleRecordsWithWorkingOutToUnkwnonAndInputWorkingOutsToTrue_execute_trainerFitDataOnlyOnce() {
+        // given
+        let workingOuts = [true, true, true]
+        let unknownRecord = makeWorkoutRecord(with: .unknown)
+
+        workoutStore.recordCountResult = workingOuts.count
+        workoutStore.recordAtIndexResult = unknownRecord
+
+        // when
+        sut.execute(withWorkoutIndex: anyWorkoutIndex,
+                    dateIndex: anyDateIndex,
+                    workingOuts: workingOuts)
+
+        // then
+        XCTAssertEqual(workoutStore.insertRecordCount, workingOuts.count)
+        XCTAssertEqual(trainer.fitCount, 1)
+        XCTAssertEqual(output.didSaveCount, 1)
+    }
+
     func testRecordWithWorkingOutToUnkwnonAndInputWorkingOutToFalse_execute_insertNewRecordWithWorkingOutToFalse() {
         // given
         let workingOuts = [false]

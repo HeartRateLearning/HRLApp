@@ -30,8 +30,8 @@ final class ClassifierSingleton {
 // MARK: - TrainerProtocol methods
 
 extension ClassifierSingleton: TrainerProtocol {
-    func fit(record: HeartRateRecord, workingOut: Bool) {
-        classifier.fit(record: record, workingOut: workingOut)
+    func fit(trainingData: [TrainerProtocol.TrainingTuple]) {
+        classifier.fit(trainingData: trainingData)
     }
 }
 

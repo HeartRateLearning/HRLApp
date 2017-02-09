@@ -9,5 +9,7 @@
 import Foundation
 
 protocol TrainerProtocol {
-    func fit(record: HeartRateRecord, workingOut: Bool)
+    typealias TrainingTuple = (record: HeartRateRecord, workingOut: Bool)
+
+    func fit(trainingData: [TrainingTuple])
 }

@@ -30,9 +30,12 @@ final class Classifier {
 // MARK: - TrainerProtocol methods
 
 extension Classifier: TrainerProtocol {
-    func fit(record: HeartRateRecord, workingOut: Bool) {
-        let hrlRecord = HRLClassifier.Record(date: record.date, bpm: record.bpm)
-        dataFrame.append(record: hrlRecord, isWorkingOut: workingOut)
+    func fit(trainingData: [TrainerProtocol.TrainingTuple]) {
+        for (record, workingOut) in trainingData {
+            let hrlRecord = HRLClassifier.Record(date: record.date, bpm: record.bpm)
+
+            dataFrame.append(record: hrlRecord, isWorkingOut: workingOut)
+        }
 
         remakeClassifier()
     }

@@ -18,17 +18,15 @@ final class TrainerTestDouble {
 
     fileprivate (set) var fitCount = 0
 
-    fileprivate (set) var lastFitRecord: HeartRateRecord?
-    fileprivate (set) var lastFitWorkingOut: Bool?
+    fileprivate (set) var lastTrainingData: [TrainerProtocol.TrainingTuple]?
 }
 
 // MARK: - TrainerProtocol methods
 
 extension TrainerTestDouble: TrainerProtocol {
-    func fit(record: HeartRateRecord, workingOut: Bool) {
+    func fit(trainingData: [TrainerProtocol.TrainingTuple]) {
         fitCount += 1
 
-        lastFitRecord = record
-        lastFitWorkingOut = workingOut
+        lastTrainingData = trainingData
     }
 }

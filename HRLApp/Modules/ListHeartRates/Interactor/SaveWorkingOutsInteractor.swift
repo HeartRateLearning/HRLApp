@@ -37,6 +37,8 @@ extension SaveWorkingOutsInteractor: SaveWorkingOutsInteractorInput {
             return
         }
 
+        var trainingData = [] as [TrainerProtocol.TrainingTuple]
+        
         for index in 0..<count {
             let record = workoutStore.record(at: index,
                                              forWorkoutAt: workoutIndex,
@@ -45,7 +47,7 @@ extension SaveWorkingOutsInteractor: SaveWorkingOutsInteractorInput {
 
             if shouldUpdateRecord(record, withWorkingOut: workingOut) {
                 let heartRate = HeartRateRecord(date: record.date, bpm: record.bpm)
-                trainer.fit(record: heartRate, workingOut: workingOut)
+                trainingData.append((heartRate, workingOut))
 
                 let updatedRecord = WorkoutRecord(heartRate: heartRate,
                                                   workingOut: WorkingOut(workingOut))
@@ -54,6 +56,10 @@ extension SaveWorkingOutsInteractor: SaveWorkingOutsInteractorInput {
                                           dateAt: dateIndex,
                                           recordAt: index)
             }
+        }
+
+        if !trainingData.isEmpty {
+            trainer.fit(trainingData: trainingData)
         }
 
         output.interactorDidSaveWorkingOuts(self)

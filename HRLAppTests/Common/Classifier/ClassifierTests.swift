@@ -18,6 +18,7 @@ final class ClassifierTests: XCTestCase {
 
     let anyRecord = HeartRateRecord(date: Date(), bpm: Float(60))
     let anyWorkingOut = false
+    var anyTrainingData: [TrainerProtocol.TrainingTuple]!
 
     let factory = HRLClassifierFactoryTestDouble()
     let classifier = HRLClassifierTestDouble()
@@ -32,13 +33,15 @@ final class ClassifierTests: XCTestCase {
         factory.makeClassifierResult = classifier
 
         sut = Classifier(factory: factory)
+
+        anyTrainingData = [(record: anyRecord, workingOut: anyWorkingOut)]
     }
 
     // MARK: - Tests
 
-    func testAnyRecordAndWorkingOut_fit_tryToMakeANewClassifier() {
+    func testAnyTrainingData_fit_tryToMakeANewClassifier() {
         // when
-        sut.fit(record: anyRecord, workingOut: anyWorkingOut)
+        sut.fit(trainingData: anyTrainingData)
 
         // then
         XCTAssertEqual(factory.makeClassifierCount, 1)
@@ -46,7 +49,7 @@ final class ClassifierTests: XCTestCase {
 
     func testFittedClassifier_predictedWorkingOut_forwardToHRLClassifier() {
         // given
-        sut.fit(record: anyRecord, workingOut: anyWorkingOut)
+        sut.fit(trainingData: anyTrainingData)
 
         // when
         _ = sut.predictedWorkingOut(for: anyRecord)
