@@ -18,7 +18,7 @@ final class ClassifierTests: XCTestCase {
 
     let anyRecord = HeartRateRecord(date: Date(), bpm: Float(60))
     let anyWorkingOut = false
-    var anyTrainingData: [TrainerProtocol.TrainingTuple]!
+    var anyTrainingData: [Trainable.TrainingTuple]!
 
     let factory = HRLClassifierFactoryTestDouble()
     let classifier = HRLClassifierTestDouble()

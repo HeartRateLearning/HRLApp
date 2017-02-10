@@ -27,10 +27,10 @@ final class Classifier {
     }
 }
 
-// MARK: - TrainerProtocol methods
+// MARK: - Trainable methods
 
-extension Classifier: TrainerProtocol {
-    func fit(trainingData: [TrainerProtocol.TrainingTuple]) {
+extension Classifier: Trainable {
+    func fit(trainingData: [Trainable.TrainingTuple]) {
         for (record, workingOut) in trainingData {
             let hrlRecord = HRLClassifier.Record(date: record.date, bpm: record.bpm)
 
@@ -41,9 +41,9 @@ extension Classifier: TrainerProtocol {
     }
 }
 
-// MARK: - PredictorProtocol methods
+// MARK: - Predictor methods
 
-extension Classifier: PredictorProtocol {
+extension Classifier: Predictor {
     func predictedWorkingOut(for record: HeartRateRecord) -> WorkingOut {
         guard let classifier = classifier else {
             return .unknown

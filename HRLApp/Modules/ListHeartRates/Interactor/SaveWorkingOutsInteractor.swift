@@ -16,7 +16,7 @@ final class SaveWorkingOutsInteractor {
 
     weak var output: SaveWorkingOutsInteractorOutput!
 
-    var trainer: TrainerProtocol!
+    var trainer: Trainable!
     var workoutStore: WorkoutStoreProtocol!
 }
 
@@ -37,7 +37,7 @@ extension SaveWorkingOutsInteractor: SaveWorkingOutsInteractorInput {
             return
         }
 
-        var trainingData = [] as [TrainerProtocol.TrainingTuple]
+        var trainingData = [] as [Trainable.TrainingTuple]
         
         for index in 0..<count {
             let record = workoutStore.record(at: index,

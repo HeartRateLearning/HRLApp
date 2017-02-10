@@ -27,17 +27,17 @@ final class ClassifierSingleton {
     }
 }
 
-// MARK: - TrainerProtocol methods
+// MARK: - Trainable methods
 
-extension ClassifierSingleton: TrainerProtocol {
-    func fit(trainingData: [TrainerProtocol.TrainingTuple]) {
+extension ClassifierSingleton: Trainable {
+    func fit(trainingData: [Trainable.TrainingTuple]) {
         classifier.fit(trainingData: trainingData)
     }
 }
 
-// MARK: - PredictorProtocol methods
+// MARK: - Predictor methods
 
-extension ClassifierSingleton: PredictorProtocol {
+extension ClassifierSingleton: Predictor {
     func predictedWorkingOut(for record: HeartRateRecord) -> WorkingOut {
         return classifier.predictedWorkingOut(for: record)
     }

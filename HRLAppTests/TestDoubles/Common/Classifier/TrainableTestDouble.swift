@@ -1,5 +1,5 @@
 //
-//  TrainerTestDouble.swift
+//  TrainableTestDouble.swift
 //  HRLApp
 //
 //  Created by Enrique de la Torre (dev) on 07/02/2017.
@@ -12,19 +12,19 @@ import Foundation
 
 // MARK: - Main body
 
-final class TrainerTestDouble {
+final class TrainableTestDouble {
 
     // MARK: - Public properties
 
     fileprivate (set) var fitCount = 0
 
-    fileprivate (set) var lastTrainingData: [TrainerProtocol.TrainingTuple]?
+    fileprivate (set) var lastTrainingData: [Trainable.TrainingTuple]?
 }
 
-// MARK: - TrainerProtocol methods
+// MARK: - Trainable methods
 
-extension TrainerTestDouble: TrainerProtocol {
-    func fit(trainingData: [TrainerProtocol.TrainingTuple]) {
+extension TrainableTestDouble: Trainable {
+    func fit(trainingData: [Trainable.TrainingTuple]) {
         fitCount += 1
 
         lastTrainingData = trainingData

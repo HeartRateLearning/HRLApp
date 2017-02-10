@@ -16,7 +16,7 @@ final class GetHeartRatesInteractor {
 
     weak var output: GetHeartRatesInteractorOutput!
 
-    var predictor: PredictorProtocol!
+    var predictor: Predictor!
     var workoutStore: WorkoutStoreProtocol!
     var heartRateStore: HeartRateStoreProtocol!
 }

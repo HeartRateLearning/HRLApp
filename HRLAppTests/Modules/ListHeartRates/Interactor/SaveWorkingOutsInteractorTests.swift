@@ -22,7 +22,7 @@ final class SaveWorkingOutsInteractorTests: XCTestCase {
     let anyHeartRate = HeartRateRecord(date: Date(), bpm: Float(60))
 
     let output = SaveWorkingOutsInteractorOutputTestDouble()
-    let trainer = TrainerTestDouble()
+    let trainer = TrainableTestDouble()
     let workoutStore = WorkoutStoreTestDouble()
 
     var sut = SaveWorkingOutsInteractor()

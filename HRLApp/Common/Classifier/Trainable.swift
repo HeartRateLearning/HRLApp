@@ -1,5 +1,5 @@
 //
-//  PredictorProtocol.swift
+//  Trainable.swift
 //  HRLApp
 //
 //  Created by Enrique de la Torre (dev) on 07/02/2017.
@@ -8,6 +8,8 @@
 
 import Foundation
 
-protocol PredictorProtocol {
-    func predictedWorkingOut(for record: HeartRateRecord) -> WorkingOut
+protocol Trainable {
+    typealias TrainingTuple = (record: HeartRateRecord, workingOut: Bool)
+
+    func fit(trainingData: [TrainingTuple])
 }

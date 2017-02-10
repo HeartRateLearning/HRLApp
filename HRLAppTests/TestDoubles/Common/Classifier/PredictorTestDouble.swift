@@ -23,9 +23,9 @@ final class PredictorTestDouble {
     var predictedResult = WorkingOut.unknown
 }
 
-// MARK: - PredictorProtocol methods
+// MARK: - Predictor methods
 
-extension PredictorTestDouble: PredictorProtocol {
+extension PredictorTestDouble: Predictor {
     func predictedWorkingOut(for record: HeartRateRecord) -> WorkingOut {
         predictedCount += 1
 
