@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11759" systemVersion="16D32" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="CoreDataDate" representedClassName="CoreDataDate" syncable="YES" codeGenerationType="class">
+        <attribute name="date" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <relationship name="records" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="CoreDataRecord" inverseName="day" inverseEntity="CoreDataRecord" syncable="YES"/>
+        <relationship name="workout" maxCount="1" deletionRule="Nullify" destinationEntity="CoreDataWorkout" inverseName="days" inverseEntity="CoreDataWorkout" syncable="YES"/>
+    </entity>
+    <entity name="CoreDataRecord" representedClassName="CoreDataRecord" syncable="YES" codeGenerationType="class">
+        <attribute name="bpm" attributeType="Float" minValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="date" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="workingOut" attributeType="Integer 32" minValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="day" maxCount="1" deletionRule="Nullify" destinationEntity="CoreDataDate" inverseName="records" inverseEntity="CoreDataDate" syncable="YES"/>
+    </entity>
+    <entity name="CoreDataRoot" representedClassName="CoreDataRoot" syncable="YES" codeGenerationType="class">
+        <relationship name="workouts" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="CoreDataWorkout" inverseName="root" inverseEntity="CoreDataWorkout" syncable="YES"/>
+    </entity>
+    <entity name="CoreDataWorkout" representedClassName="CoreDataWorkout" syncable="YES" codeGenerationType="class">
+        <attribute name="workout" attributeType="Integer 32" minValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="days" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="CoreDataDate" inverseName="workout" inverseEntity="CoreDataDate" syncable="YES"/>
+        <relationship name="root" maxCount="1" deletionRule="Nullify" destinationEntity="CoreDataRoot" inverseName="workouts" inverseEntity="CoreDataRoot" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="CoreDataDate" positionX="-216" positionY="-124" width="128" height="88"/>
+        <element name="CoreDataRecord" positionX="-29" positionY="-135" width="128" height="103"/>
+        <element name="CoreDataWorkout" positionX="-398" positionY="-127" width="128" height="90"/>
+        <element name="CoreDataRoot" positionX="-567" positionY="-114" width="128" height="60"/>
+    </elements>
+</model>

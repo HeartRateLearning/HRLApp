@@ -123,6 +123,7 @@
 		FFECF0101E50FA1E0098098A /* PersistableWorkoutStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFECF00F1E50FA1E0098098A /* PersistableWorkoutStore.swift */; };
 		FFECF0121E50FC220098098A /* PersistableDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFECF0111E50FC220098098A /* PersistableDate.swift */; };
 		FFECF0141E50FC460098098A /* PersistableWorkout.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFECF0131E50FC460098098A /* PersistableWorkout.swift */; };
+		FFECF0181E5119B80098098A /* WorkoutStore.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FFECF0161E5119B80098098A /* WorkoutStore.xcdatamodeld */; };
 		FFF024911E4782980075E7F9 /* CalendarFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF024901E4782980075E7F9 /* CalendarFactory.swift */; };
 		FFF024931E47B5FD0075E7F9 /* FoundHeartRateRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF024921E47B5FD0075E7F9 /* FoundHeartRateRecord.swift */; };
 		FFF51FDD1E3B5EFD00914740 /* WorkoutStoreDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF51FDC1E3B5EFD00914740 /* WorkoutStoreDelegate.swift */; };
@@ -287,6 +288,7 @@
 		FFECF00F1E50FA1E0098098A /* PersistableWorkoutStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistableWorkoutStore.swift; sourceTree = "<group>"; };
 		FFECF0111E50FC220098098A /* PersistableDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistableDate.swift; sourceTree = "<group>"; };
 		FFECF0131E50FC460098098A /* PersistableWorkout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistableWorkout.swift; sourceTree = "<group>"; };
+		FFECF0171E5119B80098098A /* WorkoutStore.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WorkoutStore.xcdatamodel; sourceTree = "<group>"; };
 		FFF024901E4782980075E7F9 /* CalendarFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarFactory.swift; sourceTree = "<group>"; };
 		FFF024921E47B5FD0075E7F9 /* FoundHeartRateRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoundHeartRateRecord.swift; sourceTree = "<group>"; };
 		FFF51FDC1E3B5EFD00914740 /* WorkoutStoreDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutStoreDelegate.swift; sourceTree = "<group>"; };
@@ -1096,12 +1098,21 @@
 		FFECF0081E50CD700098098A /* Persistence */ = {
 			isa = PBXGroup;
 			children = (
+				FFECF0151E5114790098098A /* CoreData */,
 				FFECF0091E50DF150098098A /* InMemoryWorkoutStore.swift */,
 				FFECF0111E50FC220098098A /* PersistableDate.swift */,
 				FFECF0131E50FC460098098A /* PersistableWorkout.swift */,
 				FFECF00F1E50FA1E0098098A /* PersistableWorkoutStore.swift */,
 			);
 			path = Persistence;
+			sourceTree = "<group>";
+		};
+		FFECF0151E5114790098098A /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				FFECF0161E5119B80098098A /* WorkoutStore.xcdatamodeld */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 		FFF0248F1E47804E0075E7F9 /* Helpers */ = {
@@ -1496,6 +1507,7 @@
 				31F44035709BF082427D14CE /* ListHeartRatesViewInput.swift in Sources */,
 				FF2AD95B1E4BD4A300068FEB /* MementoConvertible.swift in Sources */,
 				1DD76351473C75D00F730881 /* ListHeartRatesViewOutput.swift in Sources */,
+				FFECF0181E5119B80098098A /* WorkoutStore.xcdatamodeld in Sources */,
 				FAD30821A0FB4C462A33B81F /* ListHeartRatesViewController.swift in Sources */,
 				5C41783C1C24E8E62D4E7C9E /* ListHeartRatesModuleInput.swift in Sources */,
 				FFB5C4BA1E4A596000FE2FC6 /* Trainable.swift in Sources */,
@@ -1788,6 +1800,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		FFECF0161E5119B80098098A /* WorkoutStore.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				FFECF0171E5119B80098098A /* WorkoutStore.xcdatamodel */,
+			);
+			currentVersion = FFECF0171E5119B80098098A /* WorkoutStore.xcdatamodel */;
+			path = WorkoutStore.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = FF9ADDB81E2BD534007F1187 /* Project object */;
 }
