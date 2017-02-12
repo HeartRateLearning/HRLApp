@@ -51,6 +51,10 @@ extension WorkoutStore: WorkoutStoreProtocol {
     }
 
     func appendDate(_ date: Date, toWorkoutAt workoutIndex: Int) {
+        guard !isDateStored(date, forWorkoutAt: workoutIndex) else {
+            return
+        }
+
         storedWorkout(at: workoutIndex)?.dates.append(StoredDate(date: date))
     }
 
@@ -152,6 +156,14 @@ private extension WorkoutStore {
         }
 
         return workouts[index]
+    }
+
+    func isDateStored(_ date: Date, forWorkoutAt workoutIndex: Int) -> Bool {
+        guard let dates = storedWorkout(at: workoutIndex)?.dates else {
+            return false
+        }
+
+        return dates.reduce(false, { $0 || $1.date == date})
     }
 
     func storedDate(at index: Int, forWorkoutAt workoutIndex: Int) -> StoredDate? {

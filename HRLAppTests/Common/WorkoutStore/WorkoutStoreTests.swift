@@ -119,6 +119,17 @@ final class WorkoutStoreTests: XCTestCase {
         XCTAssertEqual(anyRecord.date, date)
     }
 
+    func testSutWithWorkout_appendSameDateTwice_onlyOneDateIsAddedToStore() {
+        // given
+        fillSut()
+
+        // when
+        sut.appendDate(anyRecord.date, toWorkoutAt: anyWorkoutIndex)
+
+        // then
+        XCTAssertEqual(sut.dateCount(forWorkoutAt: anyWorkoutIndex), 1)
+    }
+
     func testOutOfRangeWorkoutIndex_recordCount_returnNil() {
         // given
         fillSut()
