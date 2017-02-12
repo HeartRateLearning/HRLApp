@@ -10,7 +10,7 @@ import Foundation
 
 protocol HeartRateStoreProtocol {
 
-    // MARk: - Type definitions
+    // MARK: - Type definitions
 
     typealias ResultsHandler = ([HeartRateRecord]) -> Void
 

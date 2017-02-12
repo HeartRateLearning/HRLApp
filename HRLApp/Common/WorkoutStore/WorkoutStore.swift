@@ -18,99 +18,103 @@ final class WorkoutStore {
 
     // MARK: - Private properties
 
-    fileprivate var workouts = [] as [StoredWorkout]
+    fileprivate let store: PersistableWorkoutStore
+
+    // MARK: - Init object
+
+    init(store: PersistableWorkoutStore = InMemoryWorkoutStore()) {
+        self.store = store
+    }
 }
 
 // MARK: - WorkoutStoreProtocol methods
 
 extension WorkoutStore: WorkoutStoreProtocol {
     func workoutCount() -> Int {
-        return workouts.count
+        return store.workoutCount()
     }
 
     func workout(at index: Int) -> Workout? {
-        return storedWorkout(at: index)?.workout
+        return store.persistedWorkout(at: index)?.workout
     }
 
     func appendWorkout(_ workout: Workout) {
-        guard !isWorkoutStored(workout) else {
+        guard !store.isWorkoutPersisted(workout) else {
             return
         }
 
-        workouts.append(StoredWorkout(workout: workout))
+        store.appendWorkout(workout)
 
-        delegate?.workoutStore(self, didAppendWorkoutAtIndex: workouts.count - 1)
+        delegate?.workoutStore(self, didAppendWorkoutAtIndex: store.workoutCount() - 1)
     }
 
     func dateCount(forWorkoutAt workoutIndex: Int) -> Int? {
-        return storedWorkout(at: workoutIndex)?.dates.count
+        return store.dateCount(forWorkoutAt: workoutIndex)
     }
 
     func date(at index: Int, forWorkoutAt workoutIndex: Int) -> Date? {
-        return storedDate(at: index, forWorkoutAt: workoutIndex)?.date
+        return store.persistedDate(at: index, forWorkoutAt: workoutIndex)?.date
     }
 
     func appendDate(_ date: Date, toWorkoutAt workoutIndex: Int) {
-        guard !isDateStored(date, forWorkoutAt: workoutIndex) else {
+        guard !store.isDatePersisted(date, forWorkoutAt: workoutIndex) else {
             return
         }
 
-        storedWorkout(at: workoutIndex)?.dates.append(StoredDate(date: date))
+        store.appendDate(date, toWorkoutAt: workoutIndex)
     }
 
     func recordCount(forWorkoutAt workoutIndex: Int, dateAt dateIndex: Int) -> Int? {
-        return storedDate(at: dateIndex, forWorkoutAt: workoutIndex)?.records.count
+        return store.recordCount(forWorkoutAt: workoutIndex, dateAt: dateIndex)
     }
 
     func record(at index: Int,
                 forWorkoutAt workoutIndex: Int,
                 dateAt dateIndex: Int) -> WorkoutRecord? {
-        guard let records = storedDate(at: dateIndex, forWorkoutAt: workoutIndex)?.records else {
-            return nil
-        }
-
-        guard index < records.count else {
-            return nil
-        }
-
-        return records[index]
+        return store.persistedRecord(at: index, forWorkoutAt: workoutIndex, dateAt: dateIndex)
     }
 
     func appendRecord(_ record: WorkoutRecord,
                       toWorkoutAt workoutIndex: Int,
                       dateAt dateIndex: Int) {
-        guard let date = storedDate(at: dateIndex, forWorkoutAt: workoutIndex) else {
+        guard let date = store.persistedDate(at: dateIndex, forWorkoutAt: workoutIndex) else {
             return
         }
 
-        if workoutRecord(record, isMostRecentRecordIn: date) {
-            date.mostRecentRecord = record
-        }
+        store.appendRecord(record, toWorkoutAt: workoutIndex, dateAt: dateIndex)
 
-        date.records.append(record)
+        if workoutRecord(record, isMostRecentRecordIn: date) {
+            store.updateDate(at: dateIndex,
+                             forWorkoutAt: workoutIndex,
+                             withMostRecentRecord: record)
+        }
     }
 
     func insertRecord(_ record: WorkoutRecord,
                       intoWorkoutAt workoutIndex: Int,
                       dateAt dateIndex: Int,
                       recordAt recordIndex: Int) {
-        guard let date = storedDate(at: dateIndex, forWorkoutAt: workoutIndex) else {
+        guard let date = store.persistedDate(at: dateIndex, forWorkoutAt: workoutIndex) else {
             return
         }
 
-        guard recordIndex < date.records.count else {
+        let isRecordInserted = store.insertRecord(record,
+                                                  intoWorkoutAt: workoutIndex,
+                                                  dateAt: dateIndex,
+                                                  recordAt: recordIndex)
+        guard isRecordInserted else {
             return
         }
 
         if workoutRecord(record, isMostRecentRecordIn: date) {
-            date.mostRecentRecord = record
+            store.updateDate(at: dateIndex,
+                             forWorkoutAt: workoutIndex,
+                             withMostRecentRecord: record)
         }
-
-        date.records[recordIndex] = record
     }
 
     func mostRecentRecord(forWorkoutAt workoutIndex: Int, dateAt dateIndex: Int) -> WorkoutRecord? {
-        return storedDate(at: dateIndex, forWorkoutAt: workoutIndex)?.mostRecentRecord
+        return store.persistedDate(at: dateIndex, forWorkoutAt: workoutIndex)?.mostRecentRecord
     }
 }
 
@@ -118,67 +122,10 @@ extension WorkoutStore: WorkoutStoreProtocol {
 
 private extension WorkoutStore {
 
-    // MARK: - Type definitions
-
-    final class StoredDate {
-        let date: Date
-        var records: [WorkoutRecord]
-        var mostRecentRecord: WorkoutRecord?
-
-        init(date: Date) {
-            self.date = date
-
-            records = []
-            mostRecentRecord = nil
-        }
-    }
-
-    final class StoredWorkout {
-        let workout: Workout
-        var dates: [StoredDate]
-
-        init(workout: Workout) {
-            self.workout = workout
-
-            dates = []
-        }
-    }
-
     // MARK: - Private methods
 
-    func isWorkoutStored(_ workout: Workout) -> Bool {
-        return workouts.reduce(false, { $0 || $1.workout == workout })
-    }
-
-    func storedWorkout(at index: Int) -> StoredWorkout? {
-        guard index < workouts.count else {
-            return nil
-        }
-
-        return workouts[index]
-    }
-
-    func isDateStored(_ date: Date, forWorkoutAt workoutIndex: Int) -> Bool {
-        guard let dates = storedWorkout(at: workoutIndex)?.dates else {
-            return false
-        }
-
-        return dates.reduce(false, { $0 || $1.date == date})
-    }
-
-    func storedDate(at index: Int, forWorkoutAt workoutIndex: Int) -> StoredDate? {
-        guard let dates = storedWorkout(at: workoutIndex)?.dates else {
-            return nil
-        }
-
-        guard index < dates.count else {
-            return nil
-        }
-
-        return dates[index]
-    }
-
-    func workoutRecord(_ record: WorkoutRecord, isMostRecentRecordIn date: StoredDate) -> Bool {
+    func workoutRecord(_ record: WorkoutRecord,
+                       isMostRecentRecordIn date: PersistableDate) -> Bool {
         let heartRateDate = record.date
         let mostRecentHeartRateDate = date.mostRecentRecord?.date
 
