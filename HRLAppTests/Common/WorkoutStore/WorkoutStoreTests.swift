@@ -65,6 +65,16 @@ final class WorkoutStoreTests: XCTestCase {
         XCTAssertEqual(delegate.lastAppendedWorkoutIndex, 0)
     }
 
+    func testEmptyStore_appendSameWorkoutTwice_onlyOneWorkoutIsAddedToStore() {
+        // when
+        sut.appendWorkout(anyWorkout)
+        sut.appendWorkout(anyWorkout)
+
+        // then
+        XCTAssertEqual(sut.workoutCount(), 1)
+        XCTAssertEqual(delegate.didAppendWorkoutAtIndexCount, 1)
+    }
+
     func testOutOfRangeWorkoutIndex_dateCount_returnNil() {
         // given
         fillSut()

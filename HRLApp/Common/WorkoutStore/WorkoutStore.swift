@@ -33,6 +33,10 @@ extension WorkoutStore: WorkoutStoreProtocol {
     }
 
     func appendWorkout(_ workout: Workout) {
+        guard !isWorkoutStored(workout) else {
+            return
+        }
+
         workouts.append(StoredWorkout(workout: workout))
 
         delegate?.workoutStore(self, didAppendWorkoutAtIndex: workouts.count - 1)
@@ -137,6 +141,10 @@ private extension WorkoutStore {
     }
 
     // MARK: - Private methods
+
+    func isWorkoutStored(_ workout: Workout) -> Bool {
+        return workouts.reduce(false, { $0 || $1.workout == workout })
+    }
 
     func storedWorkout(at index: Int) -> StoredWorkout? {
         guard index < workouts.count else {
