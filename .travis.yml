@@ -4,7 +4,7 @@ before_install:
 - pod repo update > /dev/null
 - pod install
 script:
-- xcodebuild build test -workspace HRLApp.xcworkspace -scheme HRLApp -sdk iphonesimulator10.2 -destination 'platform=iOS Simulator,name=iPhone 5,OS=10.0'
+- travis_retry xcodebuild test -workspace HRLApp.xcworkspace -scheme HRLApp -sdk iphonesimulator10.2 -destination 'platform=iOS Simulator,name=iPhone 5,OS=10.0'
 after_success:
 - bash <(curl -s https://codecov.io/bash)
 
