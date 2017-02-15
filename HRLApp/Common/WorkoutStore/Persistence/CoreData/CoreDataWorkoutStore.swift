@@ -171,7 +171,7 @@ extension CoreDataWorkoutStore: PersistableWorkoutStore {
             return nil
         }
 
-        return records.reversed.reduce(nil, { (current, next) -> WorkoutRecord? in
+        return records.reduce(nil, { (current, next) -> WorkoutRecord? in
             guard let currentRecord = current else {
                 return makeRecord(with: next as! CoreDataRecord)
             }

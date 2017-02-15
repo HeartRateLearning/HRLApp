@@ -1,8 +1,8 @@
 //
-//  WorkoutStoreTestDouble.swift
+//  PersistableWorkoutStoreTestDouble.swift
 //  HRLApp
 //
-//  Created by Enrique de la Torre (dev) on 18/01/2017.
+//  Created by Enrique de la Torre (dev) on 15/02/2017.
 //  Copyright © 2017 Enrique de la Torre. All rights reserved.
 //
 
@@ -12,42 +12,47 @@ import Foundation
 
 // MARK: - Main body
 
-final class WorkoutStoreTestDouble {
-
-    // MARK: - WorkoutStoreProtocol properties
-
-    weak var delegate: WorkoutStoreDelegate?
+final class PersistableWorkoutStoreTestDouble {
 
     // MARK: - Public properties
 
     fileprivate (set) var workoutCountCount = 0
-    fileprivate (set) var workoutAtIndexCount = 0
+    fileprivate (set) var isWorkoutPersistedCount = 0
+    fileprivate (set) var persistedWorkoutAtIndexCount = 0
     fileprivate (set) var appendWorkoutCount = 0
+
     fileprivate (set) var dateCountCount = 0
-    fileprivate (set) var dateAtIndexCount = 0
+    fileprivate (set) var isDatePersistedCount = 0
+    fileprivate (set) var persistedDateAtIndexCount = 0
     fileprivate (set) var appendDateCount = 0
+
     fileprivate (set) var recordCountCount = 0
-    fileprivate (set) var recordAtIndexCount = 0
+    fileprivate (set) var persistedRecordAtIndexCount = 0
     fileprivate (set) var appendRecordCount = 0
     fileprivate (set) var insertRecordCount = 0
+
     fileprivate (set) var mostRecentRecordCount = 0
 
-    fileprivate (set) var lastWorkoutIndex = -1
+    fileprivate (set) var lastCheckedWorkout: Workout?
+    fileprivate (set) var lastPersistedWorkoutIndex = -1
     fileprivate (set) var lastAppendedWorkout: Workout?
+
     fileprivate (set) var lastDateCountWorkoutIndex = -1
-    fileprivate (set) var lastDateIndex = -1
-    fileprivate (set) var lastDateWorkoutIndex = -1
+    fileprivate (set) var lastCheckedDate: Date?
+    fileprivate (set) var lastIsDatePersistedWorkoutIndex = -1
+    fileprivate (set) var lastPersistedDateIndex = -1
+    fileprivate (set) var lastPersistedDateWorkoutIndex = -1
     fileprivate (set) var lastAppendedDate: Date?
     fileprivate (set) var lastAppendedDateWorkoutIndex = -1
+
     fileprivate (set) var lastRecordCountWorkoutIndex = -1
     fileprivate (set) var lastRecordCountDateIndex = -1
-    fileprivate (set) var lastRecordIndex = -1
-    fileprivate (set) var lastRecordWorkoutIndex = -1
-    fileprivate (set) var lastRecordDateIndex = -1
+    fileprivate (set) var lastPersistedRecordIndex = -1
+    fileprivate (set) var lastPersistedRecordWorkoutIndex = -1
+    fileprivate (set) var lastPersistedRecordDateIndex = -1
     fileprivate (set) var lastAppendedRecord: WorkoutRecord?
     fileprivate (set) var lastAppendedRecordWorkoutIndex = -1
     fileprivate (set) var lastAppendedRecordDateIndex = -1
-
     fileprivate (set) var lastInsertedRecord: WorkoutRecord?
     fileprivate (set) var lastInsertedRecordWorkoutIndex = -1
     fileprivate (set) var lastInsertedRecordDateIndex = -1
@@ -57,29 +62,42 @@ final class WorkoutStoreTestDouble {
     fileprivate (set) var lastMostRecentRecordDateIndex = -1
 
     var workoutCountResult = 0
-    var workoutAtIndexResult: Workout?
+    var isWorkoutPersistedResult = false
+    var persistedWorkoutAtIndexResult: Workout?
+
     var dateCountResult: Int?
-    var dateAtIndexResult: Date?
+    var isDatePersistedResult = false
+    var persistedDateAtIndexResult: Date?
+
     var recordCountResult: Int?
-    var recordAtIndexResult: WorkoutRecord?
+    var persistedRecordAtIndexResult: WorkoutRecord?
+
     var mostRecentRecordResult: WorkoutRecord?
 }
 
-// MARK: - WorkoutStoreProtocol methods
+// MARK: - PersistableWorkoutStoreTestDouble methods
 
-extension WorkoutStoreTestDouble: WorkoutStoreProtocol {
+extension PersistableWorkoutStoreTestDouble: PersistableWorkoutStore {
     func workoutCount() -> Int {
         workoutCountCount += 1
 
         return workoutCountResult
     }
 
-    func workout(at index: Int) -> Workout? {
-        workoutAtIndexCount += 1
+    func isWorkoutPersisted(_ workout: Workout) -> Bool {
+        isWorkoutPersistedCount += 1
 
-        lastWorkoutIndex = index
+        lastCheckedWorkout = workout
 
-        return workoutAtIndexResult
+        return isWorkoutPersistedResult
+    }
+
+    func persistedWorkout(at index: Int) -> Workout? {
+        persistedWorkoutAtIndexCount += 1
+
+        lastPersistedWorkoutIndex = index
+
+        return persistedWorkoutAtIndexResult
     }
 
     func appendWorkout(_ workout: Workout) {
@@ -96,13 +114,22 @@ extension WorkoutStoreTestDouble: WorkoutStoreProtocol {
         return dateCountResult
     }
 
-    func date(at index: Int, forWorkoutAt workoutIndex: Int) -> Date? {
-        dateAtIndexCount += 1
+    func isDatePersisted(_ date: Date, forWorkoutAt workoutIndex: Int) -> Bool {
+        isDatePersistedCount += 1
 
-        lastDateIndex = index
-        lastDateWorkoutIndex = workoutIndex
+        lastCheckedDate = date
+        lastIsDatePersistedWorkoutIndex = workoutIndex
 
-        return dateAtIndexResult
+        return isDatePersistedResult
+    }
+
+    func persistedDate(at index: Int, forWorkoutAt workoutIndex: Int) -> Date? {
+        persistedDateAtIndexCount += 1
+
+        lastPersistedDateIndex = index
+        lastPersistedDateWorkoutIndex = workoutIndex
+
+        return persistedDateAtIndexResult
     }
 
     func appendDate(_ date: Date, toWorkoutAt workoutIndex: Int) {
@@ -121,16 +148,16 @@ extension WorkoutStoreTestDouble: WorkoutStoreProtocol {
         return recordCountResult
     }
 
-    func record(at index: Int,
-                forWorkoutAt workoutIndex: Int,
-                dateAt dateIndex: Int) -> WorkoutRecord? {
-        recordAtIndexCount += 1
+    func persistedRecord(at index: Int,
+                         forWorkoutAt workoutIndex: Int,
+                         dateAt dateIndex: Int) -> WorkoutRecord? {
+        persistedRecordAtIndexCount += 1
 
-        lastRecordIndex = index
-        lastRecordWorkoutIndex = workoutIndex
-        lastRecordDateIndex = dateIndex
+        lastPersistedRecordIndex = index
+        lastPersistedRecordWorkoutIndex = workoutIndex
+        lastPersistedRecordDateIndex = dateIndex
 
-        return recordAtIndexResult
+        return persistedRecordAtIndexResult
     }
 
     func appendRecord(_ record: WorkoutRecord,
@@ -157,10 +184,10 @@ extension WorkoutStoreTestDouble: WorkoutStoreProtocol {
 
     func mostRecentRecord(forWorkoutAt workoutIndex: Int, dateAt dateIndex: Int) -> WorkoutRecord? {
         mostRecentRecordCount += 1
-
+        
         lastMostRecentRecordWorkoutIndex = workoutIndex
         lastMostRecentRecordDateIndex = dateIndex
-
+        
         return mostRecentRecordResult
     }
 }

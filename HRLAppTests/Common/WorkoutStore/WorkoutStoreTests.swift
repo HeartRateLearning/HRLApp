@@ -19,320 +19,151 @@ final class WorkoutStoreTests: XCTestCase {
     let anyDateIndex = 0
     let anyRecordIndex = 0
     let anyWorkoutIndex = 0
-    let outOfRangeDateIndex = 1000
-    let outOfRangeRecordIndex = 1000
-    let outOfRangeWorkoutIndex = 1000
 
-    let anyRecord = WorkoutRecord(heartRate: HeartRateRecord(date: Date(),
-                                                             bpm: Float(60)),
+    let anyRecord = WorkoutRecord(heartRate: HeartRateRecord(date: Date(), bpm: Float(60)),
                                   workingOut: .unknown)
-    let otherRecord = WorkoutRecord(heartRate: HeartRateRecord(date: Date().addingTimeInterval(60),
-                                                               bpm: Float(60)),
-                                    workingOut: .unknown)
+    let anyDate = Date()
     let anyWorkout = Workout.other
 
+    let store = PersistableWorkoutStoreTestDouble()
     let delegate = WorkoutStoreDelegateTestDouble()
 
-    let sut = WorkoutStore()
+    var sut: WorkoutStore!
 
     // MARK: - Setup / Teardown
 
     override func setUp() {
         super.setUp()
 
+        sut = WorkoutStore(store: store)
         sut.delegate = delegate
     }
 
     // MARK: - Tests
 
-    func testOutOfRangeIndex_workoutAtIndex_returnNil() {
-        // given
-        fillSut()
-
+    func test_workoutCount_forwardToPersistableStore() {
         // when
-        let workout = sut.workout(at: outOfRangeWorkoutIndex)
+        _ = sut.workoutCount()
 
         // then
-        XCTAssertNil(workout)
+        XCTAssertEqual(store.workoutCountCount, 1)
     }
 
-    func testEmptyStoreAndAnyWorkout_appendWorkout_forwardToDelegateWithExpectedData() {
+    func test_workoutAtIndex_forwardToPersistableStore() {
+        // when
+        _ = sut.workout(at: anyWorkoutIndex)
+
+        // then
+        XCTAssertEqual(store.persistedWorkoutAtIndexCount, 1)
+        XCTAssertEqual(store.lastPersistedWorkoutIndex, anyWorkoutIndex)
+    }
+
+    func testWorkoutAlreadyPersisted_appendWorkout_doNotAppendWorkoutToPersistableStore() {
+        // given
+        store.isWorkoutPersistedResult = true
+
         // when
         sut.appendWorkout(anyWorkout)
 
         // then
+        XCTAssertEqual(store.isWorkoutPersistedCount, 1)
+        XCTAssertEqual(store.appendWorkoutCount, 0)
+        XCTAssertEqual(delegate.didAppendWorkoutAtIndexCount, 0)
+    }
+
+    func testNonPersistedWorkout_appendWorkout_appendWorkoutToPersistableStore() {
+        // given
+        store.isWorkoutPersistedResult = false
+
+        // when
+        sut.appendWorkout(anyWorkout)
+
+        // then
+        XCTAssertEqual(store.isWorkoutPersistedCount, 1)
+        XCTAssertEqual(store.appendWorkoutCount, 1)
         XCTAssertEqual(delegate.didAppendWorkoutAtIndexCount, 1)
-        XCTAssertEqual(delegate.lastAppendedWorkoutIndex, 0)
     }
 
-    func testEmptyStore_appendSameWorkoutTwice_onlyOneWorkoutIsAddedToStore() {
+    func testAnyWorkoutIndex_dateCount_forwardToPersistableStore() {
         // when
-        sut.appendWorkout(anyWorkout)
-        sut.appendWorkout(anyWorkout)
+        _ = sut.dateCount(forWorkoutAt: anyWorkoutIndex)
 
         // then
-        XCTAssertEqual(sut.workoutCount(), 1)
-        XCTAssertEqual(delegate.didAppendWorkoutAtIndexCount, 1)
+        XCTAssertEqual(store.dateCountCount, 1)
     }
 
-    func testOutOfRangeWorkoutIndex_dateCount_returnNil() {
+    func testAnyIndexPath_dateAtIndex_forwardToPersistableStore() {
+        // when
+        _ = sut.date(at: anyDateIndex, forWorkoutAt: anyWorkoutIndex)
+
+        // then
+        XCTAssertEqual(store.persistedDateAtIndexCount, 1)
+    }
+
+    func testDateAlreadyPersisted_appendDate_doNotAppendDateToPersistableStore() {
         // given
-        fillSut()
+        store.isDatePersistedResult = true
 
         // when
-        let count = sut.dateCount(forWorkoutAt: outOfRangeWorkoutIndex)
+        sut.appendDate(anyDate, toWorkoutAt: anyWorkoutIndex)
 
         // then
-        XCTAssertNil(count)
+        XCTAssertEqual(store.isDatePersistedCount, 1)
+        XCTAssertEqual(store.appendDateCount, 0)
     }
 
-    func testOutOfRangeWorkoutIndex_dateAtIndex_returnNil() {
+    func testNonPersistedDate_appendDate_appendDateToPersistableStore() {
         // given
-        fillSut()
+        store.isDatePersistedResult = false
 
         // when
-        let date = sut.date(at: anyDateIndex, forWorkoutAt: outOfRangeWorkoutIndex)
+        sut.appendDate(anyDate, toWorkoutAt: anyWorkoutIndex)
 
         // then
-        XCTAssertNil(date)
+        XCTAssertEqual(store.isDatePersistedCount, 1)
+        XCTAssertEqual(store.appendDateCount, 1)
     }
 
-    func testSutWithWorkoutAndOutRangeDateIndex_dateAtIndex_returnNil() {
-        // given
-        fillSut()
-
+    func testAnyIndexPath_recordCount_forwardToPersistableStore() {
         // when
-        let date = sut.date(at: outOfRangeDateIndex, forWorkoutAt: anyWorkoutIndex)
+        _ = sut.recordCount(forWorkoutAt: anyWorkoutIndex, dateAt: anyDateIndex)
 
         // then
-        XCTAssertNil(date)
+        XCTAssertEqual(store.recordCountCount, 1)
     }
 
-    func testSutWithAppendedDate_dateAtIndex_returnExpectedDate() {
-        // given
-        fillSut()
-
+    func testAnyIndexPath_recordAtIndex_forwardToPersistableStore() {
         // when
-        let date = sut.date(at: anyDateIndex, forWorkoutAt: anyWorkoutIndex)
+        _ = sut.record(at: anyRecordIndex, forWorkoutAt: anyWorkoutIndex, dateAt: anyDateIndex)
 
         // then
-        XCTAssertEqual(anyRecord.date, date)
+        XCTAssertEqual(store.persistedRecordAtIndexCount, 1)
     }
 
-    func testSutWithWorkout_appendSameDateTwice_onlyOneDateIsAddedToStore() {
-        // given
-        fillSut()
-
+    func testAnyRecordAndIndexPath_appendRecord_forwardToPersistableStore() {
         // when
-        sut.appendDate(anyRecord.date, toWorkoutAt: anyWorkoutIndex)
-
-        // then
-        XCTAssertEqual(sut.dateCount(forWorkoutAt: anyWorkoutIndex), 1)
-    }
-
-    func testOutOfRangeWorkoutIndex_recordCount_returnNil() {
-        // given
-        fillSut()
-
-        // when
-        let count = sut.record(at: anyRecordIndex,
-                               forWorkoutAt: outOfRangeWorkoutIndex,
-                               dateAt: anyDateIndex)
-
-        // then
-        XCTAssertNil(count)
-    }
-
-    func testOutOfRangeDateIndex_recordCount_returnNil() {
-        // given
-        fillSut()
-
-        // when
-        let count = sut.record(at: anyRecordIndex,
-                               forWorkoutAt: anyWorkoutIndex,
-                               dateAt: outOfRangeDateIndex)
-
-        // then
-        XCTAssertNil(count)
-    }
-
-    func testOutOfRangeRecordIndex_recordCount_returnNil() {
-        // given
-        fillSut()
-
-        // when
-        let count = sut.record(at: outOfRangeRecordIndex,
-                               forWorkoutAt: anyWorkoutIndex,
-                               dateAt: anyDateIndex)
-
-        // then
-        XCTAssertNil(count)
-    }
-
-    func testOutOfRangeWorkoutIndex_recordAtIndex_returnNil() {
-        // given
-        fillSut()
-
-        // when
-        let record = sut.record(at: anyRecordIndex,
-                                forWorkoutAt: outOfRangeRecordIndex,
-                                dateAt: anyDateIndex)
-
-        // then
-        XCTAssertNil(record)
-    }
-
-    func testOutOfRangeDateIndex_recordAtIndex_returnNil() {
-        // given
-        fillSut()
-
-        // when
-        let record = sut.record(at: anyRecordIndex,
-                                forWorkoutAt: anyWorkoutIndex,
-                                dateAt: outOfRangeDateIndex)
-
-        // then
-        XCTAssertNil(record)
-    }
-
-    func testOutOfRangeRecordIndex_recordAtIndex_returnNil() {
-        // given
-        fillSut()
-
-        // when
-        let record = sut.record(at: outOfRangeRecordIndex,
-                                forWorkoutAt: anyWorkoutIndex,
-                                dateAt: anyDateIndex)
-
-        // then
-        XCTAssertNil(record)
-    }
-
-    func testSutWithAppendedDate_recordAtIndex_returnExpectedRecord() {
-        // given
-        fillSut()
-
-        // when
-        let record = sut.record(at: anyRecordIndex,
-                                forWorkoutAt: anyWorkoutIndex,
-                                dateAt: anyDateIndex)
-
-        // then
-        XCTAssertEqual(anyRecord, record)
-    }
-
-    func testSutWithAppendedRecord_insertRecordWithIndexOufOfRange_recordCountDoesNotChange() {
-        // given
-        fillSut()
-
-        // when
-        sut.insertRecord(otherRecord,
-                         intoWorkoutAt: anyWorkoutIndex,
-                         dateAt: anyDateIndex,
-                         recordAt: outOfRangeRecordIndex)
-
-        // then
-        XCTAssertEqual(sut.recordCount(forWorkoutAt: anyWorkoutIndex, dateAt: anyDateIndex), 1)
-    }
-
-    func testSutWithAppendedRecord_insertRecordWithIndexInRange_recordCountDoesNotChangeButNewRecordIsReturned() {
-        // given
-        fillSut()
-
-        // when
-        sut.insertRecord(otherRecord,
-                         intoWorkoutAt: anyWorkoutIndex,
-                         dateAt: anyDateIndex,
-                         recordAt: anyRecordIndex)
-
-        // then
-        XCTAssertEqual(sut.recordCount(forWorkoutAt: anyWorkoutIndex, dateAt: anyDateIndex), 1)
-
-        let record = sut.record(at: anyRecordIndex,
-                                forWorkoutAt: anyWorkoutIndex,
-                                dateAt: anyDateIndex)
-        XCTAssertEqual(record, otherRecord)
-    }
-
-    func testSutWithTwoRecordsAppendedInInverseOrder_mostRecentRecord_returnExpectedRecord() {
-        // given
-        fillSut()
-
-        let anyBPM = Float(60)
-        let minuteInterval = TimeInterval(60)
-
-        let newestDate = anyRecord.date.addingTimeInterval(minuteInterval + minuteInterval)
-        let newestRecord = WorkoutRecord(heartRate: HeartRateRecord(date: newestDate, bpm: anyBPM),
-                                         workingOut: .unknown)
-        sut.appendRecord(newestRecord, toWorkoutAt: anyWorkoutIndex, dateAt: anyDateIndex)
-
-        let newerDate = anyRecord.date.addingTimeInterval(minuteInterval)
-        let newerRecord = WorkoutRecord(heartRate: HeartRateRecord(date: newerDate, bpm: anyBPM),
-                                        workingOut: .unknown)
-        sut.appendRecord(newerRecord, toWorkoutAt: anyWorkoutIndex, dateAt: anyDateIndex)
-
-        // when
-        let record = sut.mostRecentRecord(forWorkoutAt: anyWorkoutIndex, dateAt: anyDateIndex)
-
-        // then
-        XCTAssertEqual(record, newestRecord)
-    }
-
-    func testSutWithTwoRecordsAppendedInDifferentDates_mostRecentRecord_returnExpectedRecord() {
-        // given
-        fillSut()
-
-        let anyBPM = Float(60)
-        let dayInterval = TimeInterval(24 * 60 * 60)
-
-        let newestDate = anyRecord.date.addingTimeInterval(dayInterval)
-        sut.appendDate(newestDate, toWorkoutAt: anyWorkoutIndex)
-
-        let newestRecord = WorkoutRecord(heartRate: HeartRateRecord(date: newestDate, bpm: anyBPM),
-                                         workingOut: .unknown)
-        sut.appendRecord(newestRecord, toWorkoutAt: anyWorkoutIndex, dateAt: anyDateIndex + 1)
-
-        // when
-        let record = sut.mostRecentRecord(forWorkoutAt: anyWorkoutIndex, dateAt: anyDateIndex)
-
-        // then
-        XCTAssertEqual(record, anyRecord)
-    }
-
-    func testSutWithOneRecordInsertedAndOtherAppended_mostRecentRecord_returnExpectedRecord() {
-        // given
-        fillSut()
-
-        let anyBPM = Float(60)
-        let minuteInterval = TimeInterval(60)
-
-        let newestDate = anyRecord.date.addingTimeInterval(minuteInterval + minuteInterval)
-        let newestRecord = WorkoutRecord(heartRate: HeartRateRecord(date: newestDate, bpm: anyBPM),
-                                         workingOut: .unknown)
-        sut.insertRecord(newestRecord,
-                         intoWorkoutAt: anyWorkoutIndex,
-                         dateAt: anyDateIndex,
-                         recordAt: anyRecordIndex)
-
-        let newerDate = anyRecord.date.addingTimeInterval(minuteInterval)
-        let newerRecord = WorkoutRecord(heartRate: HeartRateRecord(date: newerDate, bpm: anyBPM),
-                                        workingOut: .unknown)
-        sut.appendRecord(newerRecord, toWorkoutAt: anyWorkoutIndex, dateAt: anyDateIndex)
-
-        // when
-        let record = sut.mostRecentRecord(forWorkoutAt: anyWorkoutIndex, dateAt: anyDateIndex)
-
-        // then
-        XCTAssertEqual(record, newestRecord)
-    }
-}
-
-// MARK: - Private body
-
-private extension WorkoutStoreTests {
-    func fillSut() {
-        sut.appendWorkout(anyWorkout)
-        sut.appendDate(anyRecord.date, toWorkoutAt: anyWorkoutIndex)
         sut.appendRecord(anyRecord, toWorkoutAt: anyWorkoutIndex, dateAt: anyDateIndex)
+
+        // then
+        XCTAssertEqual(store.appendRecordCount, 1)
+    }
+
+    func testAnyRecordAndIndexPath_insertRecord_forwardToPersistableStore() {
+        // when
+        sut.insertRecord(anyRecord,
+                         intoWorkoutAt: anyWorkoutIndex,
+                         dateAt: anyDateIndex,
+                         recordAt: anyRecordIndex)
+
+        // then
+        XCTAssertEqual(store.insertRecordCount, 1)
+    }
+
+    func testAnyIndexPath_mostRecentRecord_forwardToPersistableStore() {
+        // when
+        _ = sut.mostRecentRecord(forWorkoutAt: anyWorkoutIndex, dateAt: anyDateIndex)
+
+        // then
+        XCTAssertEqual(store.mostRecentRecordCount, 1)
     }
 }

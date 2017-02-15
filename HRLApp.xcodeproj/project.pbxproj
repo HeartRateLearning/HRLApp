@@ -85,6 +85,8 @@
 		FF4ED3D41E410D020064D496 /* ListWorkoutDatesViewInputTestDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4ED3D31E410D020064D496 /* ListWorkoutDatesViewInputTestDouble.swift */; };
 		FF4ED3D71E412B5A0064D496 /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4ED3D61E412B5A0064D496 /* Workout.swift */; };
 		FF4ED3D91E41399F0064D496 /* HeartRateRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4ED3D81E41399F0064D496 /* HeartRateRecord.swift */; };
+		FF50A07D1E547C5400B0EDAC /* InMemoryWorkoutStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF50A07C1E547C5400B0EDAC /* InMemoryWorkoutStoreTests.swift */; };
+		FF50A0801E547F6900B0EDAC /* PersistableWorkoutStoreTestDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF50A07F1E547F6900B0EDAC /* PersistableWorkoutStoreTestDouble.swift */; };
 		FF5DB35B1E53695500429344 /* CoreDataConfigurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5DB35A1E53695500429344 /* CoreDataConfigurable.swift */; };
 		FF5DB35D1E53698900429344 /* CoreDataWorkoutStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5DB35C1E53698900429344 /* CoreDataWorkoutStore.swift */; };
 		FF6314251E42909E00989B09 /* HeartRateStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6314231E42909E00989B09 /* HeartRateStore.swift */; };
@@ -247,6 +249,8 @@
 		FF4ED3D31E410D020064D496 /* ListWorkoutDatesViewInputTestDouble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListWorkoutDatesViewInputTestDouble.swift; sourceTree = "<group>"; };
 		FF4ED3D61E412B5A0064D496 /* Workout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
 		FF4ED3D81E41399F0064D496 /* HeartRateRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeartRateRecord.swift; sourceTree = "<group>"; };
+		FF50A07C1E547C5400B0EDAC /* InMemoryWorkoutStoreTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InMemoryWorkoutStoreTests.swift; sourceTree = "<group>"; };
+		FF50A07F1E547F6900B0EDAC /* PersistableWorkoutStoreTestDouble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistableWorkoutStoreTestDouble.swift; sourceTree = "<group>"; };
 		FF5DB35A1E53695500429344 /* CoreDataConfigurable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataConfigurable.swift; sourceTree = "<group>"; };
 		FF5DB35C1E53698900429344 /* CoreDataWorkoutStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataWorkoutStore.swift; sourceTree = "<group>"; };
 		FF6314231E42909E00989B09 /* HeartRateStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeartRateStore.swift; sourceTree = "<group>"; };
@@ -861,6 +865,22 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		FF50A07B1E547C2800B0EDAC /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				FF50A07C1E547C5400B0EDAC /* InMemoryWorkoutStoreTests.swift */,
+			);
+			path = Persistence;
+			sourceTree = "<group>";
+		};
+		FF50A07E1E547F3D00B0EDAC /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				FF50A07F1E547F6900B0EDAC /* PersistableWorkoutStoreTestDouble.swift */,
+			);
+			path = Persistence;
+			sourceTree = "<group>";
+		};
 		FF6314211E428F9D00989B09 /* HealthStore */ = {
 			isa = PBXGroup;
 			children = (
@@ -950,6 +970,7 @@
 		FF9B8CDF1E2FE8E900A7EB47 /* WorkoutStore */ = {
 			isa = PBXGroup;
 			children = (
+				FF50A07E1E547F3D00B0EDAC /* Persistence */,
 				FFF520031E3B68A300914740 /* WorkoutStoreDelegateTestDouble.swift */,
 				FF9B8CE31E2FEA0C00A7EB47 /* WorkoutStoreTestDouble.swift */,
 			);
@@ -1138,6 +1159,7 @@
 		FFF51FDF1E3B62FC00914740 /* WorkoutStore */ = {
 			isa = PBXGroup;
 			children = (
+				FF50A07B1E547C2800B0EDAC /* Persistence */,
 				FFF51FE01E3B636000914740 /* WorkoutStoreTests.swift */,
 			);
 			path = WorkoutStore;
@@ -1538,6 +1560,7 @@
 				FFF51FF11E3B67DA00914740 /* StoreWorkoutInteractorInputTestDouble.swift in Sources */,
 				FF9B8CE41E2FEA0C00A7EB47 /* WorkoutStoreTestDouble.swift in Sources */,
 				FFA8CDB31E452E5600E4305B /* HeartRateStoreTestDouble.swift in Sources */,
+				FF50A07D1E547C5400B0EDAC /* InMemoryWorkoutStoreTests.swift in Sources */,
 				FFF51FF71E3B67E600914740 /* AddWorkoutViewInputTestDouble.swift in Sources */,
 				FFB5C4BC1E4A603400FE2FC6 /* TrainableTestDouble.swift in Sources */,
 				FF9CDB301E4BA75C001C5A9F /* HRLClassifierFactoryTestDouble.swift in Sources */,
@@ -1563,6 +1586,7 @@
 				EE59355D06B6F17F27D32630 /* AddWorkoutConfiguratorTests.swift in Sources */,
 				FFFB950E1E490EA3002DE7A5 /* SaveWorkingOutsInteractorTests.swift in Sources */,
 				6CBB16A29BF5E2E2F390262D /* AddWorkoutViewTests.swift in Sources */,
+				FF50A0801E547F6900B0EDAC /* PersistableWorkoutStoreTestDouble.swift in Sources */,
 				FFF51FF01E3B67DA00914740 /* GetAllWorkoutsInteractorOutputTestDouble.swift in Sources */,
 				FFFB95101E49386A002DE7A5 /* SaveWorkingOutsInteractorInputTestDouble.swift in Sources */,
 				FF46F05C1E368848004E1F8D /* GetStoredWorkoutsInteractorTests.swift in Sources */,
