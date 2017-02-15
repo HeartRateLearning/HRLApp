@@ -10,46 +10,29 @@ import XCTest
 
 @testable import HRLApp
 
+// MARK: - Main body
+
 class SetupModuleConfiguratorTests: XCTestCase {
 
-    override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
+    // MARK: - Tests
 
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-    }
-
-    func testConfigureModuleForViewController() {
-
-        //given
-        let viewController = SetupViewControllerMock()
+    func test_configureDependenciesForViewController_setAllDependencies() {
+        // given
+        let viewController = SetupViewController()
         let configurator = SetupModuleConfigurator()
 
-        //when
-        configurator.configureModuleForViewInput(viewInput: viewController)
+        // when
+        configurator.configureDependencies(for: viewController)
 
-        //then
-        XCTAssertNotNil(viewController.output, "SetupViewController is nil after configuration")
-        XCTAssertTrue(viewController.output is SetupPresenter, "output is not SetupPresenter")
+        // then
+        XCTAssertNotNil(viewController.output)
 
-        let presenter: SetupPresenter = viewController.output as! SetupPresenter
-        XCTAssertNotNil(presenter.view, "view in SetupPresenter is nil after configuration")
-        XCTAssertNotNil(presenter.router, "router in SetupPresenter is nil after configuration")
-        XCTAssertTrue(presenter.router is SetupRouter, "router is not SetupRouter")
+        let presenter = viewController.output as! SetupPresenter
+        XCTAssertNotNil(presenter.view)
+        XCTAssertNotNil(presenter.router)
+        XCTAssertNotNil(presenter.interactor)
 
-        let interactor: SetupInteractor = presenter.interactor as! SetupInteractor
-        XCTAssertNotNil(interactor.output, "output in SetupInteractor is nil after configuration")
-    }
-
-    class SetupViewControllerMock: SetupViewController {
-
-        var setupInitialStateDidCall = false
-
-        override func setupInitialState() {
-            setupInitialStateDidCall = true
-        }
+        let interactor = presenter.interactor as! SetupInteractor
+        XCTAssertTrue(interactor.output === presenter)
     }
 }

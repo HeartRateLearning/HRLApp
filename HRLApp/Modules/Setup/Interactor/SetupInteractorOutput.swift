@@ -8,6 +8,4 @@
 
 import Foundation
 
-protocol SetupInteractorOutput: class {
-
-}
+protocol SetupInteractorOutput: class {}

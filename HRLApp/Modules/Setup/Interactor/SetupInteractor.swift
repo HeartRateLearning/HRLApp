@@ -6,8 +6,15 @@
 //  Copyright © 2017 Enrique de la Torre. All rights reserved.
 //
 
-class SetupInteractor: SetupInteractorInput {
+// MARK: - Main body
+
+final class SetupInteractor {
+
+    // MARK: - Dependencies
 
     weak var output: SetupInteractorOutput!
-
 }
+
+// MARK: - SetupInteractorInput methods
+
+extension SetupInteractor: SetupInteractorInput {}

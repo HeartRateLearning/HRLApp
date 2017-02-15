@@ -8,22 +8,31 @@
 
 import UIKit
 
-class SetupModuleConfigurator {
+// MARK: - Main body
 
-    func configureModuleForViewInput<UIViewController>(viewInput: UIViewController) {
+final class SetupModuleConfigurator {
 
-        if let viewController = viewInput as? SetupViewController {
-            configure(viewController: viewController)
+    // MARK: - Public methods
+
+    func configureDependencies(for viewInput: UIViewController) {
+        guard let viewController = viewInput as? SetupViewController else {
+            return
         }
+
+        configureDependencies(for: viewController)
     }
+}
 
-    private func configure(viewController: SetupViewController) {
+// MARK: - Private body
 
-        let router = SetupRouter()
+private extension SetupModuleConfigurator {
 
+    // MARK: - Private methods
+
+    func configureDependencies(for viewController: SetupViewController) {
         let presenter = SetupPresenter()
         presenter.view = viewController
-        presenter.router = router
+        presenter.router = viewController
 
         let interactor = SetupInteractor()
         interactor.output = presenter
@@ -31,5 +40,4 @@ class SetupModuleConfigurator {
         presenter.interactor = interactor
         viewController.output = presenter
     }
-
 }

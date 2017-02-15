@@ -8,18 +8,23 @@
 
 import UIKit
 
-class SetupViewController: UIViewController, SetupViewInput {
+// MARK: - Main body
+
+final class SetupViewController: UIViewController {
+
+    // MARK: - Dependencies
 
     var output: SetupViewOutput!
 
-    // MARK: Life cycle
+    // MARK: - Life cycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
+
         output.viewIsReady()
     }
-
-
-    // MARK: SetupViewInput
-    func setupInitialState() {
-    }
 }
+
+// MARK: - SetupViewInput methods
+
+extension SetupViewController: SetupViewInput {}

@@ -8,8 +8,6 @@
 
 import XCTest
 
-@testable import HRLApp
-
 class SetupPresenterTest: XCTestCase {
 
     override func setUp() {
@@ -20,20 +18,5 @@ class SetupPresenterTest: XCTestCase {
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
-    }
-
-    class MockInteractor: SetupInteractorInput {
-
-    }
-
-    class MockRouter: SetupRouterInput {
-
-    }
-
-    class MockViewController: SetupViewInput {
-
-        func setupInitialState() {
-
-        }
     }
 }

@@ -8,15 +8,19 @@
 
 import UIKit
 
-class SetupModuleInitializer: NSObject {
+// MARK: - Main body
 
-    //Connect with object on storyboard
+final class SetupModuleInitializer: NSObject {
+
+    // MARK: - Outlets
+
     @IBOutlet weak var setupViewController: SetupViewController!
 
+    // MARK: - NSObject methods
+
     override func awakeFromNib() {
-
         let configurator = SetupModuleConfigurator()
-        configurator.configureModuleForViewInput(viewInput: setupViewController)
-    }
 
+        configurator.configureDependencies(for: setupViewController)
+    }
 }
