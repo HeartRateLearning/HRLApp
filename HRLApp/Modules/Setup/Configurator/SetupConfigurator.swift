@@ -12,6 +12,18 @@ import UIKit
 
 final class SetupModuleConfigurator {
 
+    // MARK: - Private properties
+
+    fileprivate let coreDataStore: CoreDataConfigurable
+    fileprivate let healthStoreFactory: HealthStoreFactoryProtocol
+
+    // MARK: - Init methods
+
+    init(coreDataStore: CoreDataConfigurable, healthStoreFactory: HealthStoreFactoryProtocol) {
+        self.coreDataStore = coreDataStore
+        self.healthStoreFactory = healthStoreFactory
+    }
+
     // MARK: - Public methods
 
     func configureDependencies(for viewInput: UIViewController) {
@@ -36,6 +48,8 @@ private extension SetupModuleConfigurator {
 
         let interactor = SetupInteractor()
         interactor.output = presenter
+        interactor.coreDataStore = coreDataStore
+        interactor.healthStoreFactory = healthStoreFactory
 
         presenter.interactor = interactor
         viewController.output = presenter

@@ -38,8 +38,4 @@ extension SetupPresenter: SetupInteractorOutput {
     func interactorDidPerformSetup(_ interactor: SetupInteractorInput) {
         router.presentWorkoutList()
     }
-
-    func interactorDidFailToPerformSetup(_ interactor: SetupInteractorInput) {
-        print("SetupPresenter: SetupInteractor: didFailToPerformSetup")
-    }
 }

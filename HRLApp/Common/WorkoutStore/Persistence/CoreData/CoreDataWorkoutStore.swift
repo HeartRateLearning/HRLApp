@@ -27,11 +27,12 @@ extension CoreDataWorkoutStore: CoreDataConfigurable {
             if error != nil {
                 fatalError("Unresolved error \(error)")
             }
-            assert(Thread.isMainThread)
 
-            self?.setupWorkoutStore()
+            DispatchQueue.main.async {
+                self?.setupWorkoutStore()
 
-            completionHandler()
+                completionHandler()
+            }
         }
     }
 }

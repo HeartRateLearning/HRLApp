@@ -14,15 +14,28 @@ import XCTest
 
 class SetupModuleConfiguratorTests: XCTestCase {
 
+    // MARK: - Properties
+
+    let coreDataStore = CoreDataConfigurableTestDouble()
+    let healthStoreFactory = HealthStoreFactoryTestDouble()
+    let viewController = SetupViewController()
+
+    var sut: SetupModuleConfigurator!
+
+    // MARK: - Setup / Teardown
+
+    override func setUp() {
+        super.setUp()
+
+        sut = SetupModuleConfigurator(coreDataStore: coreDataStore,
+                                      healthStoreFactory: healthStoreFactory)
+    }
+
     // MARK: - Tests
 
     func test_configureDependenciesForViewController_setAllDependencies() {
-        // given
-        let viewController = SetupViewController()
-        let configurator = SetupModuleConfigurator()
-
         // when
-        configurator.configureDependencies(for: viewController)
+        sut.configureDependencies(for: viewController)
 
         // then
         XCTAssertNotNil(viewController.output)
@@ -33,6 +46,8 @@ class SetupModuleConfiguratorTests: XCTestCase {
         XCTAssertNotNil(presenter.interactor)
 
         let interactor = presenter.interactor as! SetupInteractor
+        XCTAssertNotNil(interactor.coreDataStore)
+        XCTAssertNotNil(interactor.healthStoreFactory)
         XCTAssertTrue(interactor.output === presenter)
     }
 }

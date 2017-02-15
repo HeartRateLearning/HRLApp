@@ -18,7 +18,6 @@
 		19E33B869D276CDDFC0AC09B /* SetupConfiguratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148EC5D5378C6555745E7212 /* SetupConfiguratorTests.swift */; };
 		1CA071C85EE34F0DD06819C8 /* SetupRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902E81A3CB1D7BCEE93EFC76 /* SetupRouter.swift */; };
 		1DD76351473C75D00F730881 /* ListHeartRatesViewOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47D9B8E97201D1DB7EF1C7C /* ListHeartRatesViewOutput.swift */; };
-		2D8948A664363FAA48A79899 /* SetupViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B315F1AF063021C9A370477 /* SetupViewTests.swift */; };
 		2EDE269FC6F5BCE278DEDFFD /* AddWorkoutInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C430993AD706E8863BD23D65 /* AddWorkoutInitializer.swift */; };
 		31F44035709BF082427D14CE /* ListHeartRatesViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A221DB3C300A46CCD1C426 /* ListHeartRatesViewInput.swift */; };
 		381ACD079EF09F797A08E187 /* ListWorkoutsRouterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31B1F99FEF9C3C865D08B7C /* ListWorkoutsRouterInput.swift */; };
@@ -70,7 +69,6 @@
 		F0C2DEB36F7133C2F0C2CB0C /* ListHeartRatesInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87CCBFFA4C4954394E9BC12 /* ListHeartRatesInitializer.swift */; };
 		F23E937FE9B5DD19FFDBE4A2 /* ListHeartRatesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F761A61E1EFE2404E3B14CAE /* ListHeartRatesRouter.swift */; };
 		F4D8B27A21DED3AB585BDE94 /* SetupInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDD19CE464BE417BED98735 /* SetupInteractor.swift */; };
-		F4DA052692885B873FC84E91 /* SetupRouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A49AE432CB08156FE406213 /* SetupRouterTests.swift */; };
 		F6EFA02289E7662EAF974899 /* SetupConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31145D989A1C0A5EE7B26E3D /* SetupConfigurator.swift */; };
 		F8DC4A4E784CF5032A2BF2D1 /* ListWorkoutDatesPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F7703EFE3E7C3C2A8C1105 /* ListWorkoutDatesPresenterTests.swift */; };
 		F9653F5A1A2D124D027C2656 /* SetupInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E111011B2584F2DEEB3292CE /* SetupInteractorTests.swift */; };
@@ -90,6 +88,7 @@
 		FF3340BA1E3800B500E84AC2 /* StoreWorkoutInteractorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3340B91E3800B500E84AC2 /* StoreWorkoutInteractorInput.swift */; };
 		FF3340BC1E3800D400E84AC2 /* StoreWorkoutInteractorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3340BB1E3800D400E84AC2 /* StoreWorkoutInteractorOutput.swift */; };
 		FF3340C01E381AD200E84AC2 /* StoreWorkoutInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3340BF1E381AD200E84AC2 /* StoreWorkoutInteractorTests.swift */; };
+		FF372EAF1E54D7BD0023704C /* SetupInteractorOutputTestDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF372EAE1E54D7BD0023704C /* SetupInteractorOutputTestDouble.swift */; };
 		FF46F0521E36842A004E1F8D /* GetStoredWorkoutsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF46F0511E36842A004E1F8D /* GetStoredWorkoutsInteractor.swift */; };
 		FF46F0541E368436004E1F8D /* GetStoredWorkoutsInteractorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF46F0531E368436004E1F8D /* GetStoredWorkoutsInteractorInput.swift */; };
 		FF46F0561E368442004E1F8D /* GetStoredWorkoutsInteractorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF46F0551E368442004E1F8D /* GetStoredWorkoutsInteractorOutput.swift */; };
@@ -108,6 +107,7 @@
 		FF50A08C1E54BBB000B0EDAC /* SetupInteractorInputTestDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF50A08B1E54BBB000B0EDAC /* SetupInteractorInputTestDouble.swift */; };
 		FF50A08E1E54BC8C00B0EDAC /* SetupRouterInputTestDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF50A08D1E54BC8C00B0EDAC /* SetupRouterInputTestDouble.swift */; };
 		FF50A0901E54BE0500B0EDAC /* SetupViewInputTestDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF50A08F1E54BE0500B0EDAC /* SetupViewInputTestDouble.swift */; };
+		FF50A0931E54C71300B0EDAC /* CoreDataConfigurableTestDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF50A0921E54C71300B0EDAC /* CoreDataConfigurableTestDouble.swift */; };
 		FF5DB35B1E53695500429344 /* CoreDataConfigurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5DB35A1E53695500429344 /* CoreDataConfigurable.swift */; };
 		FF5DB35D1E53698900429344 /* CoreDataWorkoutStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5DB35C1E53698900429344 /* CoreDataWorkoutStore.swift */; };
 		FF6314251E42909E00989B09 /* HeartRateStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6314231E42909E00989B09 /* HeartRateStore.swift */; };
@@ -189,7 +189,6 @@
 		00947A1124FE7371B83D948C /* AddWorkoutConfiguratorTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AddWorkoutConfiguratorTests.swift; sourceTree = "<group>"; };
 		03CF59FFFA22B61F7C26B019 /* ListWorkoutsConfigurator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ListWorkoutsConfigurator.swift; sourceTree = "<group>"; };
 		047FAE641E3BDE167A544641 /* ListHeartRatesConfiguratorTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ListHeartRatesConfiguratorTests.swift; sourceTree = "<group>"; };
-		0A49AE432CB08156FE406213 /* SetupRouterTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SetupRouterTests.swift; sourceTree = "<group>"; };
 		0A941EC7F804B17C0AFF0AE6 /* GetHeartRatesInteractorInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GetHeartRatesInteractorInput.swift; sourceTree = "<group>"; };
 		0B9E5CB7E0C68085F986F125 /* ListWorkoutDatesConfiguratorTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ListWorkoutDatesConfiguratorTests.swift; sourceTree = "<group>"; };
 		0BB037D7DBC2812E12131E96 /* ListWorkoutsPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ListWorkoutsPresenter.swift; sourceTree = "<group>"; };
@@ -210,7 +209,6 @@
 		37F7703EFE3E7C3C2A8C1105 /* ListWorkoutDatesPresenterTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ListWorkoutDatesPresenterTests.swift; sourceTree = "<group>"; };
 		3B87328B137ED1D675E8EF9A /* ListHeartRatesRouterTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ListHeartRatesRouterTests.swift; sourceTree = "<group>"; };
 		42803B5BF245ED232A9C6F9B /* AddWorkoutViewOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AddWorkoutViewOutput.swift; sourceTree = "<group>"; };
-		4B315F1AF063021C9A370477 /* SetupViewTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SetupViewTests.swift; sourceTree = "<group>"; };
 		582B9DCE5A553917BE35506A /* SetupViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SetupViewController.swift; sourceTree = "<group>"; };
 		5A02999EFCDF2AE5213F9C32 /* ListWorkoutsRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ListWorkoutsRouter.swift; sourceTree = "<group>"; };
 		5A05F3F77C11FBC4852A4853 /* ListWorkoutDatesViewInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ListWorkoutDatesViewInput.swift; sourceTree = "<group>"; };
@@ -273,6 +271,7 @@
 		FF3340B91E3800B500E84AC2 /* StoreWorkoutInteractorInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreWorkoutInteractorInput.swift; sourceTree = "<group>"; };
 		FF3340BB1E3800D400E84AC2 /* StoreWorkoutInteractorOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreWorkoutInteractorOutput.swift; sourceTree = "<group>"; };
 		FF3340BF1E381AD200E84AC2 /* StoreWorkoutInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreWorkoutInteractorTests.swift; sourceTree = "<group>"; };
+		FF372EAE1E54D7BD0023704C /* SetupInteractorOutputTestDouble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetupInteractorOutputTestDouble.swift; sourceTree = "<group>"; };
 		FF4238231E3EBC0D005C1B9F /* HRLListWorkoutsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRLListWorkoutsViewController.h; sourceTree = "<group>"; };
 		FF46F0511E36842A004E1F8D /* GetStoredWorkoutsInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetStoredWorkoutsInteractor.swift; sourceTree = "<group>"; };
 		FF46F0531E368436004E1F8D /* GetStoredWorkoutsInteractorInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetStoredWorkoutsInteractorInput.swift; sourceTree = "<group>"; };
@@ -292,6 +291,7 @@
 		FF50A08B1E54BBB000B0EDAC /* SetupInteractorInputTestDouble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetupInteractorInputTestDouble.swift; sourceTree = "<group>"; };
 		FF50A08D1E54BC8C00B0EDAC /* SetupRouterInputTestDouble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetupRouterInputTestDouble.swift; sourceTree = "<group>"; };
 		FF50A08F1E54BE0500B0EDAC /* SetupViewInputTestDouble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetupViewInputTestDouble.swift; sourceTree = "<group>"; };
+		FF50A0921E54C71300B0EDAC /* CoreDataConfigurableTestDouble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataConfigurableTestDouble.swift; sourceTree = "<group>"; };
 		FF5DB35A1E53695500429344 /* CoreDataConfigurable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataConfigurable.swift; sourceTree = "<group>"; };
 		FF5DB35C1E53698900429344 /* CoreDataWorkoutStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataWorkoutStore.swift; sourceTree = "<group>"; };
 		FF6314231E42909E00989B09 /* HeartRateStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeartRateStore.swift; sourceTree = "<group>"; };
@@ -437,14 +437,6 @@
 				FF3340BF1E381AD200E84AC2 /* StoreWorkoutInteractorTests.swift */,
 			);
 			path = Interactor;
-			sourceTree = "<group>";
-		};
-		3BDF1B7A6B71C1F73748ADF3 /* Router */ = {
-			isa = PBXGroup;
-			children = (
-				0A49AE432CB08156FE406213 /* SetupRouterTests.swift */,
-			);
-			path = Router;
 			sourceTree = "<group>";
 		};
 		40A49C8631797C40759C8AB3 /* Interactor */ = {
@@ -668,8 +660,6 @@
 				62A930EE2265D84EF5469054 /* Configurator */,
 				09627EFB6773E455CD110269 /* Interactor */,
 				71B3F2167C87E9798D04F902 /* Presenter */,
-				3BDF1B7A6B71C1F73748ADF3 /* Router */,
-				F5A5206552D513933FF2CD22 /* View */,
 			);
 			path = Setup;
 			sourceTree = "<group>";
@@ -919,14 +909,6 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		F5A5206552D513933FF2CD22 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				4B315F1AF063021C9A370477 /* SetupViewTests.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		F9B02F6969EDC2956945DF27 /* Configurator */ = {
 			isa = PBXGroup;
 			children = (
@@ -1031,6 +1013,7 @@
 		FF50A07E1E547F3D00B0EDAC /* Persistence */ = {
 			isa = PBXGroup;
 			children = (
+				FF50A0911E54C6DB00B0EDAC /* CoreData */,
 				FF50A07F1E547F6900B0EDAC /* PersistableWorkoutStoreTestDouble.swift */,
 			);
 			path = Persistence;
@@ -1076,8 +1059,17 @@
 			isa = PBXGroup;
 			children = (
 				FF50A08B1E54BBB000B0EDAC /* SetupInteractorInputTestDouble.swift */,
+				FF372EAE1E54D7BD0023704C /* SetupInteractorOutputTestDouble.swift */,
 			);
 			path = Interactor;
+			sourceTree = "<group>";
+		};
+		FF50A0911E54C6DB00B0EDAC /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				FF50A0921E54C71300B0EDAC /* CoreDataConfigurableTestDouble.swift */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 		FF6314211E428F9D00989B09 /* HealthStore */ = {
@@ -1804,7 +1796,9 @@
 				FFF51FF01E3B67DA00914740 /* GetAllWorkoutsInteractorOutputTestDouble.swift in Sources */,
 				FFFB95101E49386A002DE7A5 /* SaveWorkingOutsInteractorInputTestDouble.swift in Sources */,
 				FF46F05C1E368848004E1F8D /* GetStoredWorkoutsInteractorTests.swift in Sources */,
+				FF372EAF1E54D7BD0023704C /* SetupInteractorOutputTestDouble.swift in Sources */,
 				FFF51FF21E3B67DA00914740 /* StoreWorkoutInteractorOutputTestDouble.swift in Sources */,
+				FF50A0931E54C71300B0EDAC /* CoreDataConfigurableTestDouble.swift in Sources */,
 				FFF51FFB1E3B67ED00914740 /* GetStoredWorkoutsInteractorInputTestDouble.swift in Sources */,
 				4056F299BC163958B14A63C0 /* AddWorkoutPresenterTests.swift in Sources */,
 				FF2CAABE1E400D8B0052129F /* GetWorkoutDatesInteractorTests.swift in Sources */,
@@ -1828,10 +1822,8 @@
 				578A90494D62209B45962A47 /* ListHeartRatesPresenterTests.swift in Sources */,
 				AA5DBEABBC3D86EF36ADA14C /* ListHeartRatesRouterTests.swift in Sources */,
 				19E33B869D276CDDFC0AC09B /* SetupConfiguratorTests.swift in Sources */,
-				2D8948A664363FAA48A79899 /* SetupViewTests.swift in Sources */,
 				F9653F5A1A2D124D027C2656 /* SetupInteractorTests.swift in Sources */,
 				FE2163AF133F8577C0A4DE2F /* SetupPresenterTests.swift in Sources */,
-				F4DA052692885B873FC84E91 /* SetupRouterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

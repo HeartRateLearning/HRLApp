@@ -8,15 +8,39 @@
 
 import XCTest
 
+@testable import HRLApp
+
+// MARK: - Main body
+
 class SetupInteractorTests: XCTestCase {
+
+    // MARK: - Properties
+
+    let output = SetupInteractorOutputTestDouble()
+    let coreDataStore = CoreDataConfigurableTestDouble()
+    let healthStoreFactory = HealthStoreFactoryTestDouble()
+
+    var sut = SetupInteractor()
+
+    // MARK: - Setup / Teardown
 
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+
+        sut.output = output
+        sut.coreDataStore = coreDataStore
+        sut.healthStoreFactory = healthStoreFactory
     }
 
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
+    // MARK: - Tests
+
+    func test_execute_setupStoragesAndForwardToSetup() {
+        // when
+        sut.execute()
+
+        // then
+        XCTAssertEqual(coreDataStore.setupCount, 1)
+        XCTAssertEqual(healthStoreFactory.setupCount, 1)
+        XCTAssertEqual(output.didPerformSetupCount, 1)
     }
 }

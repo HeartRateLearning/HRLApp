@@ -15,18 +15,29 @@ final class SetupInteractor {
     // MARK: - Dependencies
 
     weak var output: SetupInteractorOutput!
+
+    var coreDataStore: CoreDataConfigurable!
+    var healthStoreFactory: HealthStoreFactoryProtocol!
 }
 
 // MARK: - SetupInteractorInput methods
 
 extension SetupInteractor: SetupInteractorInput {
     func execute() {
-        DispatchQueue.main.async { [weak self] in
-            guard let strongSelf = self else {
-                return
-            }
-
-            strongSelf.output.interactorDidPerformSetup(strongSelf)
+        healthStoreFactory.setup()
+        coreDataStore.setup { [weak self] in
+            self?.outputSuccess()
         }
+    }
+}
+
+// MARK: - Private body
+
+private extension SetupInteractor {
+
+    // MARK: - Private methods
+
+    func outputSuccess() {
+        output.interactorDidPerformSetup(self)
     }
 }
