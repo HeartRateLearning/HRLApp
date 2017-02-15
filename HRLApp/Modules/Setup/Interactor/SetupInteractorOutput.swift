@@ -8,4 +8,7 @@
 
 import Foundation
 
-protocol SetupInteractorOutput: class {}
+protocol SetupInteractorOutput: class {
+    func interactorDidPerformSetup(_ interactor: SetupInteractorInput)
+    func interactorDidFailToPerformSetup(_ interactor: SetupInteractorInput)
+}

@@ -28,12 +28,18 @@ extension SetupPresenter: SetupModuleInput {}
 
 extension SetupPresenter: SetupViewOutput {
     func viewIsReady() {
-        DispatchQueue.main.async { [weak router] in
-            router?.presentWorkoutList()
-        }
+        interactor.execute()
     }
 }
 
 // MARK: - SetupInteractorOutput methods
 
-extension SetupPresenter: SetupInteractorOutput {}
+extension SetupPresenter: SetupInteractorOutput {
+    func interactorDidPerformSetup(_ interactor: SetupInteractorInput) {
+        router.presentWorkoutList()
+    }
+
+    func interactorDidFailToPerformSetup(_ interactor: SetupInteractorInput) {
+        print("SetupPresenter: SetupInteractor: didFailToPerformSetup")
+    }
+}

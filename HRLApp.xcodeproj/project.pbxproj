@@ -105,6 +105,9 @@
 		FF50A07D1E547C5400B0EDAC /* InMemoryWorkoutStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF50A07C1E547C5400B0EDAC /* InMemoryWorkoutStoreTests.swift */; };
 		FF50A0801E547F6900B0EDAC /* PersistableWorkoutStoreTestDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF50A07F1E547F6900B0EDAC /* PersistableWorkoutStoreTestDouble.swift */; };
 		FF50A0841E54948300B0EDAC /* Setup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF50A0861E54948300B0EDAC /* Setup.storyboard */; };
+		FF50A08C1E54BBB000B0EDAC /* SetupInteractorInputTestDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF50A08B1E54BBB000B0EDAC /* SetupInteractorInputTestDouble.swift */; };
+		FF50A08E1E54BC8C00B0EDAC /* SetupRouterInputTestDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF50A08D1E54BC8C00B0EDAC /* SetupRouterInputTestDouble.swift */; };
+		FF50A0901E54BE0500B0EDAC /* SetupViewInputTestDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF50A08F1E54BE0500B0EDAC /* SetupViewInputTestDouble.swift */; };
 		FF5DB35B1E53695500429344 /* CoreDataConfigurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5DB35A1E53695500429344 /* CoreDataConfigurable.swift */; };
 		FF5DB35D1E53698900429344 /* CoreDataWorkoutStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5DB35C1E53698900429344 /* CoreDataWorkoutStore.swift */; };
 		FF6314251E42909E00989B09 /* HeartRateStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6314231E42909E00989B09 /* HeartRateStore.swift */; };
@@ -286,6 +289,9 @@
 		FF50A07C1E547C5400B0EDAC /* InMemoryWorkoutStoreTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InMemoryWorkoutStoreTests.swift; sourceTree = "<group>"; };
 		FF50A07F1E547F6900B0EDAC /* PersistableWorkoutStoreTestDouble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistableWorkoutStoreTestDouble.swift; sourceTree = "<group>"; };
 		FF50A0851E54948300B0EDAC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Setup.storyboard; sourceTree = "<group>"; };
+		FF50A08B1E54BBB000B0EDAC /* SetupInteractorInputTestDouble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetupInteractorInputTestDouble.swift; sourceTree = "<group>"; };
+		FF50A08D1E54BC8C00B0EDAC /* SetupRouterInputTestDouble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetupRouterInputTestDouble.swift; sourceTree = "<group>"; };
+		FF50A08F1E54BE0500B0EDAC /* SetupViewInputTestDouble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetupViewInputTestDouble.swift; sourceTree = "<group>"; };
 		FF5DB35A1E53695500429344 /* CoreDataConfigurable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataConfigurable.swift; sourceTree = "<group>"; };
 		FF5DB35C1E53698900429344 /* CoreDataWorkoutStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataWorkoutStore.swift; sourceTree = "<group>"; };
 		FF6314231E42909E00989B09 /* HeartRateStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeartRateStore.swift; sourceTree = "<group>"; };
@@ -1040,6 +1046,40 @@
 			name = Storyboards;
 			sourceTree = "<group>";
 		};
+		FF50A0871E54BAAA00B0EDAC /* Setup */ = {
+			isa = PBXGroup;
+			children = (
+				FF50A08A1E54BB5000B0EDAC /* Interactor */,
+				FF50A0891E54BB1D00B0EDAC /* Router */,
+				FF50A0881E54BAF800B0EDAC /* View */,
+			);
+			path = Setup;
+			sourceTree = "<group>";
+		};
+		FF50A0881E54BAF800B0EDAC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FF50A08F1E54BE0500B0EDAC /* SetupViewInputTestDouble.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FF50A0891E54BB1D00B0EDAC /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				FF50A08D1E54BC8C00B0EDAC /* SetupRouterInputTestDouble.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		FF50A08A1E54BB5000B0EDAC /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				FF50A08B1E54BBB000B0EDAC /* SetupInteractorInputTestDouble.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
 		FF6314211E428F9D00989B09 /* HealthStore */ = {
 			isa = PBXGroup;
 			children = (
@@ -1330,6 +1370,7 @@
 				FFA8CDA51E44E0CB00E4305B /* ListHeartRates */,
 				FF2CAAAE1E3FD7F60052129F /* ListWorkoutDates */,
 				FFF51FE41E3B661F00914740 /* ListWorkouts */,
+				FF50A0871E54BAAA00B0EDAC /* Setup */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -1732,6 +1773,7 @@
 				FF9B8CE41E2FEA0C00A7EB47 /* WorkoutStoreTestDouble.swift in Sources */,
 				FFA8CDB31E452E5600E4305B /* HeartRateStoreTestDouble.swift in Sources */,
 				FF50A07D1E547C5400B0EDAC /* InMemoryWorkoutStoreTests.swift in Sources */,
+				FF50A08C1E54BBB000B0EDAC /* SetupInteractorInputTestDouble.swift in Sources */,
 				FFF51FF71E3B67E600914740 /* AddWorkoutViewInputTestDouble.swift in Sources */,
 				FFB5C4BC1E4A603400FE2FC6 /* TrainableTestDouble.swift in Sources */,
 				FF9CDB301E4BA75C001C5A9F /* HRLClassifierFactoryTestDouble.swift in Sources */,
@@ -1746,6 +1788,7 @@
 				FFA8CDA41E44A7C400E4305B /* ListWorkoutDatesRouterInputTestDouble.swift in Sources */,
 				FFF520041E3B68A300914740 /* WorkoutStoreDelegateTestDouble.swift in Sources */,
 				FFF51FFE1E3B67F200914740 /* ListWorkoutsRouterInputTestDouble.swift in Sources */,
+				FF50A0901E54BE0500B0EDAC /* SetupViewInputTestDouble.swift in Sources */,
 				FFA8CDB01E4521CB00E4305B /* HealthStoreFactoryTestDouble.swift in Sources */,
 				FFCB066D1E4631F90065CEA3 /* ListHeartRatesViewInputTestDouble.swift in Sources */,
 				FFF51FFC1E3B67ED00914740 /* GetStoredWorkoutsInteractorOutputTestDouble.swift in Sources */,
@@ -1773,6 +1816,7 @@
 				FF2CAAC11E400F2A0052129F /* GetWorkoutDatesInteractorOutputTestDouble.swift in Sources */,
 				FF46F0661E36D690004E1F8D /* GetAllWorkoutsInteractorTests.swift in Sources */,
 				FFFB950C1E490D4B002DE7A5 /* SaveWorkingOutsInteractorOutputTestDouble.swift in Sources */,
+				FF50A08E1E54BC8C00B0EDAC /* SetupRouterInputTestDouble.swift in Sources */,
 				FFF51FE11E3B636000914740 /* WorkoutStoreTests.swift in Sources */,
 				7AC62CF39D720B2D476D08A3 /* ListWorkoutDatesConfiguratorTests.swift in Sources */,
 				FF9CDB321E4BA7B5001C5A9F /* HRLClassifierTestDouble.swift in Sources */,

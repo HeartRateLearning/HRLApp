@@ -8,4 +8,6 @@
 
 import Foundation
 
-protocol SetupInteractorInput {}
+protocol SetupInteractorInput {
+    func execute()
+}

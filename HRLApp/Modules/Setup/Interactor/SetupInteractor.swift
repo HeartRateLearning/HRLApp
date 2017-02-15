@@ -6,6 +6,8 @@
 //  Copyright © 2017 Enrique de la Torre. All rights reserved.
 //
 
+import Foundation
+
 // MARK: - Main body
 
 final class SetupInteractor {
@@ -17,4 +19,14 @@ final class SetupInteractor {
 
 // MARK: - SetupInteractorInput methods
 
-extension SetupInteractor: SetupInteractorInput {}
+extension SetupInteractor: SetupInteractorInput {
+    func execute() {
+        DispatchQueue.main.async { [weak self] in
+            guard let strongSelf = self else {
+                return
+            }
+
+            strongSelf.output.interactorDidPerformSetup(strongSelf)
+        }
+    }
+}
