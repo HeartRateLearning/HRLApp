@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="fif-AW-Tue">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="mDx-Lh-mNz">
+            <objects>
+                <viewController id="fif-AW-Tue" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="oYp-tn-FbN"/>
+                        <viewControllerLayoutGuide type="bottom" id="otU-L0-0Bp"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fJ4-Lb-h1O">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="qDL-kF-wOt">
+                                <rect key="frame" x="142" y="266" width="37" height="37"/>
+                                <color key="color" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="qDL-kF-wOt" firstAttribute="centerY" secondItem="fJ4-Lb-h1O" secondAttribute="centerY" id="IHa-tW-jih"/>
+                            <constraint firstItem="qDL-kF-wOt" firstAttribute="centerX" secondItem="fJ4-Lb-h1O" secondAttribute="centerX" id="a63-7X-9un"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <segue destination="bDP-Zv-5qg" kind="show" identifier="mainSegue" animates="NO" id="MCB-R6-2al"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MKY-Ki-YZK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-173" y="109"/>
+        </scene>
+        <!--Main-->
+        <scene sceneID="XDL-uB-eaf">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" id="bDP-Zv-5qg" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JWy-Vh-ztZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="368" y="109"/>
+        </scene>
+    </scenes>
+</document>

@@ -87,6 +87,7 @@
 		FF4ED3D91E41399F0064D496 /* HeartRateRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4ED3D81E41399F0064D496 /* HeartRateRecord.swift */; };
 		FF50A07D1E547C5400B0EDAC /* InMemoryWorkoutStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF50A07C1E547C5400B0EDAC /* InMemoryWorkoutStoreTests.swift */; };
 		FF50A0801E547F6900B0EDAC /* PersistableWorkoutStoreTestDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF50A07F1E547F6900B0EDAC /* PersistableWorkoutStoreTestDouble.swift */; };
+		FF50A0841E54948300B0EDAC /* Setup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF50A0861E54948300B0EDAC /* Setup.storyboard */; };
 		FF5DB35B1E53695500429344 /* CoreDataConfigurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5DB35A1E53695500429344 /* CoreDataConfigurable.swift */; };
 		FF5DB35D1E53698900429344 /* CoreDataWorkoutStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5DB35C1E53698900429344 /* CoreDataWorkoutStore.swift */; };
 		FF6314251E42909E00989B09 /* HeartRateStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6314231E42909E00989B09 /* HeartRateStore.swift */; };
@@ -251,6 +252,7 @@
 		FF4ED3D81E41399F0064D496 /* HeartRateRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeartRateRecord.swift; sourceTree = "<group>"; };
 		FF50A07C1E547C5400B0EDAC /* InMemoryWorkoutStoreTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InMemoryWorkoutStoreTests.swift; sourceTree = "<group>"; };
 		FF50A07F1E547F6900B0EDAC /* PersistableWorkoutStoreTestDouble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistableWorkoutStoreTestDouble.swift; sourceTree = "<group>"; };
+		FF50A0851E54948300B0EDAC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Setup.storyboard; sourceTree = "<group>"; };
 		FF5DB35A1E53695500429344 /* CoreDataConfigurable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataConfigurable.swift; sourceTree = "<group>"; };
 		FF5DB35C1E53698900429344 /* CoreDataWorkoutStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataWorkoutStore.swift; sourceTree = "<group>"; };
 		FF6314231E42909E00989B09 /* HeartRateStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeartRateStore.swift; sourceTree = "<group>"; };
@@ -881,6 +883,16 @@
 			path = Persistence;
 			sourceTree = "<group>";
 		};
+		FF50A0811E54934400B0EDAC /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				FF9ADDCC1E2BD535007F1187 /* LaunchScreen.storyboard */,
+				FF9ADDC71E2BD535007F1187 /* Main.storyboard */,
+				FF50A0861E54948300B0EDAC /* Setup.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
 		FF6314211E428F9D00989B09 /* HealthStore */ = {
 			isa = PBXGroup;
 			children = (
@@ -926,9 +938,8 @@
 			children = (
 				FFE41CA81E2ED74A00BC7B72 /* Common */,
 				62C39B4F86C1DEC1E488D153 /* Modules */,
+				FF50A0811E54934400B0EDAC /* Storyboards */,
 				FF9ADDC31E2BD535007F1187 /* AppDelegate.swift */,
-				FF9ADDCC1E2BD535007F1187 /* LaunchScreen.storyboard */,
-				FF9ADDC71E2BD535007F1187 /* Main.storyboard */,
 				FF9ADDCA1E2BD535007F1187 /* Assets.xcassets */,
 				FFCB06681E462E790065CEA3 /* HRLApp.entitlements */,
 				FF9ADDCF1E2BD535007F1187 /* Info.plist */,
@@ -1353,6 +1364,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF50A0841E54948300B0EDAC /* Setup.storyboard in Resources */,
 				FF9ADDCE1E2BD535007F1187 /* LaunchScreen.storyboard in Resources */,
 				FF9ADDCB1E2BD535007F1187 /* Assets.xcassets in Resources */,
 				FF9ADDC91E2BD535007F1187 /* Main.storyboard in Resources */,
@@ -1626,6 +1638,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		FF50A0861E54948300B0EDAC /* Setup.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FF50A0851E54948300B0EDAC /* Base */,
+			);
+			name = Setup.storyboard;
+			sourceTree = "<group>";
+		};
 		FF9ADDC71E2BD535007F1187 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
