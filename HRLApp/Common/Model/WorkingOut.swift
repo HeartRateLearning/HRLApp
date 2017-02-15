@@ -10,7 +10,7 @@ import Foundation
 
 // MARK: - Main body
 
-enum WorkingOut {
+enum WorkingOut: Int {
     case unknown
     case `false`
     case `true`

@@ -1,8 +1,8 @@
 //
-//  WorkoutStore.swift
+//  CoreDataWorkoutStoreSingleton.swift
 //  HRLApp
 //
-//  Created by Enrique de la Torre (dev) on 18/01/2017.
+//  Created by Enrique de la Torre (dev) on 15/02/2017.
 //  Copyright © 2017 Enrique de la Torre. All rights reserved.
 //
 
@@ -10,57 +10,63 @@ import Foundation
 
 // MARK: - Main body
 
-final class WorkoutStore {
+final class CoreDataWorkoutStoreSingleton {
 
-    // MARK: - WorkoutStoreProtocol properties
+    // MARK: - Public properties
 
-    weak var delegate: WorkoutStoreDelegate?
+    static let sharedInstance = CoreDataWorkoutStoreSingleton()
 
     // MARK: - Private properties
 
-    fileprivate let store: PersistableWorkoutStore
+    fileprivate var store: CoreDataWorkoutStore
 
-    // MARK: - Init object
+    // MARK: - Init methods
 
-    init(store: PersistableWorkoutStore = InMemoryWorkoutStore()) {
-        self.store = store
+    private init() {
+        store = CoreDataWorkoutStore()
     }
 }
 
-// MARK: - WorkoutStoreProtocol methods
+// MARK: - CoreDataConfigurable methods
 
-extension WorkoutStore: WorkoutStoreProtocol {
+extension CoreDataWorkoutStoreSingleton: CoreDataConfigurable {
+    func setup(completionHandler: @escaping CoreDataConfigurable.CompletionHandler) {
+        store.setup(completionHandler: completionHandler)
+    }
+}
+
+// MARK: - PersistableWorkoutStore methods
+
+extension CoreDataWorkoutStoreSingleton: PersistableWorkoutStore {
     func workoutCount() -> Int {
         return store.workoutCount()
     }
 
-    func workout(at index: Int) -> Workout? {
+    func isWorkoutPersisted(_ workout: Workout) -> Bool {
+        return store.isWorkoutPersisted(workout)
+    }
+
+    func persistedWorkout(at index: Int) -> Workout? {
         return store.persistedWorkout(at: index)
     }
 
     func appendWorkout(_ workout: Workout) {
-        guard !store.isWorkoutPersisted(workout) else {
-            return
-        }
-
         store.appendWorkout(workout)
-
-        delegate?.workoutStore(self, didAppendWorkoutAtIndex: store.workoutCount() - 1)
     }
 
     func dateCount(forWorkoutAt workoutIndex: Int) -> Int? {
         return store.dateCount(forWorkoutAt: workoutIndex)
     }
 
-    func date(at index: Int, forWorkoutAt workoutIndex: Int) -> Date? {
+    func isDatePersisted(_ date: Date, forWorkoutAt workoutIndex: Int) -> Bool {
+        return store.isDatePersisted(date, forWorkoutAt: workoutIndex)
+    }
+
+    func persistedDate(at index: Int, forWorkoutAt workoutIndex: Int) -> Date? {
         return store.persistedDate(at: index, forWorkoutAt: workoutIndex)
     }
 
     func appendDate(_ date: Date, toWorkoutAt workoutIndex: Int) {
-        guard !store.isDatePersisted(date, forWorkoutAt: workoutIndex) else {
-            return
-        }
-
         store.appendDate(date, toWorkoutAt: workoutIndex)
     }
 
@@ -68,9 +74,9 @@ extension WorkoutStore: WorkoutStoreProtocol {
         return store.recordCount(forWorkoutAt: workoutIndex, dateAt: dateIndex)
     }
 
-    func record(at index: Int,
-                forWorkoutAt workoutIndex: Int,
-                dateAt dateIndex: Int) -> WorkoutRecord? {
+    func persistedRecord(at index: Int,
+                         forWorkoutAt workoutIndex: Int,
+                         dateAt dateIndex: Int) -> WorkoutRecord? {
         return store.persistedRecord(at: index, forWorkoutAt: workoutIndex, dateAt: dateIndex)
     }
 

@@ -14,12 +14,11 @@ final class InMemoryWorkoutStore {
 
     // MARK: - Type definitions
 
-    final class InMemoryDate: PersistableDate {
+    final class InMemoryDate {
 
         // MARK: - PersistableDate properties
 
         let date: Date
-        fileprivate (set) var mostRecentRecord: WorkoutRecord?
 
         // MARK: - Private properties
 
@@ -31,11 +30,10 @@ final class InMemoryWorkoutStore {
             self.date = date
 
             records = []
-            mostRecentRecord = nil
         }
     }
 
-    final class InMemoryWorkout: PersistableWorkout {
+    final class InMemoryWorkout {
 
         // MARK: - PersistableWorkout properties
 
@@ -70,8 +68,8 @@ extension InMemoryWorkoutStore: PersistableWorkoutStore {
         return workouts.reduce(false, { $0 || $1.workout == workout })
     }
 
-    func persistedWorkout(at index: Int) -> PersistableWorkout? {
-        return inMemoryWorkout(at: index)
+    func persistedWorkout(at index: Int) -> Workout? {
+        return inMemoryWorkout(at: index)?.workout
     }
 
     func appendWorkout(_ workout: Workout) {
@@ -92,24 +90,14 @@ extension InMemoryWorkoutStore: PersistableWorkoutStore {
         return dates.reduce(false, { $0 || $1.date == date})
     }
 
-    func persistedDate(at index: Int, forWorkoutAt workoutIndex: Int) -> PersistableDate? {
-        return inMemoryDate(at: index, forWorkoutAt: workoutIndex)
+    func persistedDate(at index: Int, forWorkoutAt workoutIndex: Int) -> Date? {
+        return inMemoryDate(at: index, forWorkoutAt: workoutIndex)?.date
     }
 
     func appendDate(_ date: Date, toWorkoutAt workoutIndex: Int) {
         let inMemoryDate = InMemoryDate(date)
 
         inMemoryWorkout(at: workoutIndex)?.dates.append(inMemoryDate)
-    }
-
-    func updateDate(at index: Int,
-                    forWorkoutAt workoutIndex: Int,
-                    withMostRecentRecord record: WorkoutRecord) {
-        guard let date = inMemoryDate(at: index, forWorkoutAt: workoutIndex) else {
-            return
-        }
-
-        date.mostRecentRecord = record
     }
 
     func recordCount(forWorkoutAt workoutIndex: Int, dateAt dateIndex: Int) -> Int? {
@@ -135,18 +123,30 @@ extension InMemoryWorkoutStore: PersistableWorkoutStore {
     func insertRecord(_ record: WorkoutRecord,
                       intoWorkoutAt workoutIndex: Int,
                       dateAt dateIndex: Int,
-                      recordAt recordIndex: Int) -> Bool {
+                      recordAt recordIndex: Int) {
         guard let date = inMemoryDate(at: dateIndex, forWorkoutAt: workoutIndex) else {
-            return false
+            return
         }
 
         guard recordIndex < date.records.count else {
-            return false
+            return
         }
 
         date.records[recordIndex] = record
+    }
 
-        return true
+    func mostRecentRecord(forWorkoutAt workoutIndex: Int, dateAt dateIndex: Int) -> WorkoutRecord? {
+        guard let date = inMemoryDate(at: dateIndex, forWorkoutAt: workoutIndex) else {
+            return nil
+        }
+
+        return date.records.reversed().reduce(nil, { (current, next) -> WorkoutRecord? in
+            guard let current = current else {
+                return next
+            }
+
+            return current.date < next.date ? next : current
+        })
     }
 }
 
