@@ -14,15 +14,18 @@ import XCTest
 
 final class ListWorkoutsModuleConfiguratorTests: XCTestCase {
 
+    // MARK: - Properties
+
+    let workoutStore = WorkoutStoreTestDouble()
+    let viewController = ListWorkoutsViewController()
+
+    var sut = ListWorkoutsModuleConfigurator()
+
     // MARK: - Tests
 
     func test_configureDependenciesForViewController_setAllDependencies() {
-        // given
-        let viewController = ListWorkoutsViewController()
-        let configurator = ListWorkoutsModuleConfigurator(store: WorkoutStoreTestDouble())
-
         // when
-        configurator.configureDependencies(for: viewController)
+        sut.configureDependencies(for: viewController, with: workoutStore)
 
         // then
         XCTAssertNotNil(viewController.output)

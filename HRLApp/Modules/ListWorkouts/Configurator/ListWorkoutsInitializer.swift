@@ -20,8 +20,8 @@ final class ListWorkoutsModuleInitializer: NSObject {
 
     override func awakeFromNib() {
         let store = WorkoutStoreSingleton.sharedInstance
-        let configurator = ListWorkoutsModuleConfigurator(store: store)
+        let configurator = ListWorkoutsModuleConfigurator()
 
-        configurator.configureDependencies(for: listworkoutsViewController)
+        configurator.configureDependencies(for: listworkoutsViewController, with: store)
     }
 }

@@ -12,24 +12,15 @@ import UIKit
 
 final class ListWorkoutsModuleConfigurator {
 
-    // MARK: - Private properties
-
-    var store: WorkoutStoreProtocol
-
-    // MARK: - Init methods
-
-    init(store: WorkoutStoreProtocol) {
-        self.store = store
-    }
-
     // MARK: - Public methods
 
-    func configureDependencies(for viewInput: UIViewController) {
+    func configureDependencies(for viewInput: UIViewController,
+                               with store: WorkoutStoreProtocol) {
         guard let viewController = viewInput as? ListWorkoutsViewController else {
             return
         }
 
-        configureDependencies(for: viewController)
+        configureDependencies(for: viewController, with: store)
     }
 }
 
@@ -39,7 +30,8 @@ private extension ListWorkoutsModuleConfigurator {
 
     // MARK: - Private methods
 
-    func configureDependencies(for viewController: ListWorkoutsViewController) {
+    func configureDependencies(for viewController: ListWorkoutsViewController,
+                               with store: WorkoutStoreProtocol) {
         let presenter = ListWorkoutsPresenter()
         presenter.view = viewController
         presenter.router = viewController

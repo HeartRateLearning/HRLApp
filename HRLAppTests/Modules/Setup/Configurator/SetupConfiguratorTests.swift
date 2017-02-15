@@ -20,22 +20,15 @@ class SetupModuleConfiguratorTests: XCTestCase {
     let healthStoreFactory = HealthStoreFactoryTestDouble()
     let viewController = SetupViewController()
 
-    var sut: SetupModuleConfigurator!
-
-    // MARK: - Setup / Teardown
-
-    override func setUp() {
-        super.setUp()
-
-        sut = SetupModuleConfigurator(coreDataStore: coreDataStore,
-                                      healthStoreFactory: healthStoreFactory)
-    }
+    var sut = SetupModuleConfigurator()
 
     // MARK: - Tests
 
     func test_configureDependenciesForViewController_setAllDependencies() {
         // when
-        sut.configureDependencies(for: viewController)
+        sut.configureDependencies(for: viewController,
+                                  withCoreDataStore: coreDataStore,
+                                  healthStoreFactory: healthStoreFactory)
 
         // then
         XCTAssertNotNil(viewController.output)

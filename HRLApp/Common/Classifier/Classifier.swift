@@ -22,7 +22,7 @@ final class Classifier {
 
     // MARK: - Init methods
 
-    init(factory: HRLClassifier.ClassifierFactoryProtocol = HRLClassifier.ClassifierFactory()) {
+    init(factory: HRLClassifier.ClassifierFactoryProtocol) {
         self.factory = factory
     }
 }

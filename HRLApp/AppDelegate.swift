@@ -20,11 +20,4 @@ final class AppDelegate: UIResponder {
 
 // MARK: UIApplicationDelegate methods
 
-extension AppDelegate: UIApplicationDelegate {
-    func application(_ application: UIApplication,
-                     didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        HealthStoreFactorySingleton.sharedInstance.setup()
-
-        return true
-    }
-}
+extension AppDelegate: UIApplicationDelegate {}

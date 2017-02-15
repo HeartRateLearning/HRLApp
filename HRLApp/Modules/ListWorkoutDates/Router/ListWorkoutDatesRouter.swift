@@ -57,9 +57,7 @@ private extension ListWorkoutDatesViewController {
     // MARK: - Private methods
 
     func configureListHeartRatesModule(for viewInput: UIViewController, with index: Index) {
-        let store = WorkoutStoreSingleton.sharedInstance
-        let factory = HealthStoreFactorySingleton.sharedInstance
-        let configurator = ListHeartRatesModuleConfigurator(store: store, factory: factory)
+        let configurator = ListHeartRatesModuleConfigurator()
 
         configurator.configureModule(for: viewInput,
                                      withWorkoutAt: index.workout,

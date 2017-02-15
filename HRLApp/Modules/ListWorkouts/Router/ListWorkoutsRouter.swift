@@ -66,8 +66,7 @@ private extension ListWorkoutsViewController {
 
     func configureListWorkoutDatesModule(for viewInput: UIViewController,
                                          withWorkoutAt index: Int) {
-        let store = WorkoutStoreSingleton.sharedInstance
-        let configurator = ListWorkoutDatesModuleConfigurator(store: store)
+        let configurator = ListWorkoutDatesModuleConfigurator()
 
         configurator.configureModule(for: viewInput, withWorkoutAt: index)
     }

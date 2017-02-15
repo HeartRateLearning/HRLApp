@@ -21,9 +21,10 @@ final class SetupModuleInitializer: NSObject {
     override func awakeFromNib() {
         let coreDataStore = CoreDataWorkoutStoreSingleton.sharedInstance
         let healthStoreFactory = HealthStoreFactorySingleton.sharedInstance
-        let configurator = SetupModuleConfigurator(coreDataStore: coreDataStore,
-                                                   healthStoreFactory: healthStoreFactory)
+        let configurator = SetupModuleConfigurator()
 
-        configurator.configureDependencies(for: setupViewController)
+        configurator.configureDependencies(for: setupViewController,
+                                           withCoreDataStore: coreDataStore,
+                                           healthStoreFactory: healthStoreFactory)
     }
 }

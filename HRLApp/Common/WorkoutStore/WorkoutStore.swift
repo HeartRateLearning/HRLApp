@@ -22,7 +22,7 @@ final class WorkoutStore {
 
     // MARK: - Init object
 
-    init(store: PersistableWorkoutStore = InMemoryWorkoutStore()) {
+    init(store: PersistableWorkoutStore) {
         self.store = store
     }
 }

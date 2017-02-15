@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import HRLClassifier
 
 // MARK: - Main body
 
@@ -23,7 +24,7 @@ final class ClassifierSingleton {
     // MARK: - Init methods
 
     private init() {
-        classifier = Classifier()
+        classifier = Classifier(factory: HRLClassifier.ClassifierFactory())
     }
 }
 

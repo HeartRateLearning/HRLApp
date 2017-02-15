@@ -16,16 +16,17 @@ final class ListWorkoutDatesModuleConfiguratorTests: XCTestCase {
 
     // MARK: - Properties
 
+    let store = WorkoutStoreTestDouble()
     let moduleInput = ListWorkoutDatesModuleInputTestDouble()
     let viewController = ListWorkoutDatesViewController()
 
-    let sut = ListWorkoutDatesModuleConfigurator(store: WorkoutStoreTestDouble())
+    let sut = ListWorkoutDatesModuleConfigurator()
 
     // MARK: - Tests
 
     func test_configureDependenciesForViewController_setAllDependencies() {
         // when
-        sut.configureDependencies(for: viewController)
+        sut.configureDependencies(for: viewController, with: store)
 
         // then
         XCTAssertNotNil(viewController.output)

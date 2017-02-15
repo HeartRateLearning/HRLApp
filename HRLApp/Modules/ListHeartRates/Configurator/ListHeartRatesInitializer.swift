@@ -21,9 +21,9 @@ final class ListHeartRatesModuleInitializer: NSObject {
     override func awakeFromNib() {
         let store = WorkoutStoreSingleton.sharedInstance
         let factory = HealthStoreFactorySingleton.sharedInstance
-        let configurator = ListHeartRatesModuleConfigurator(store: store, factory: factory)
+        let configurator = ListHeartRatesModuleConfigurator()
 
-        configurator.configureDependencies(for: listheartratesViewController)
+        configurator.configureDependencies(for: listheartratesViewController, withStore: store, factory: factory)
     }
 
 }

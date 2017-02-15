@@ -8,7 +8,8 @@
 
 import Foundation
 
-protocol WorkoutStoreProtocol {
+protocol WorkoutStoreProtocol: class {
+    // A multicast delegate would be more appropiate here, than a simple delegate
     weak var delegate: WorkoutStoreDelegate? { get set }
 
     func workoutCount() -> Int

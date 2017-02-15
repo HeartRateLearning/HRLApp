@@ -23,7 +23,7 @@ final class WorkoutStoreSingleton {
     // MARK: - Init methods
 
     private init() {
-        store = WorkoutStore()
+        store = WorkoutStore(store: CoreDataWorkoutStoreSingleton.sharedInstance)
     }
 }
 

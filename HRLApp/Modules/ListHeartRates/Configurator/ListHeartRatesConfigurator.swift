@@ -12,26 +12,16 @@ import UIKit
 
 final class ListHeartRatesModuleConfigurator {
 
-    // MARK: - Private properties
-
-    fileprivate let store: WorkoutStoreProtocol
-    fileprivate let factory: HealthStoreFactoryProtocol
-
-    // MARK: - Init methods
-
-    init(store: WorkoutStoreProtocol, factory: HealthStoreFactoryProtocol) {
-        self.store = store
-        self.factory = factory
-    }
-
     // MARK: - Public methods
 
-    func configureDependencies(for viewInput: UIViewController) {
+    func configureDependencies(for viewInput: UIViewController,
+                               withStore store: WorkoutStoreProtocol,
+                               factory: HealthStoreFactoryProtocol) {
         guard let viewController = viewInput as? ListHeartRatesViewController else {
             return
         }
 
-        configureDependencies(for: viewController)
+        configureDependencies(for: viewController, withStore: store, factory: factory)
     }
 
     func configureModule(for viewInput: UIViewController,
@@ -51,7 +41,9 @@ private extension ListHeartRatesModuleConfigurator {
 
     // MARK: - Private methods
 
-    func configureDependencies(for viewController: ListHeartRatesViewController) {
+    func configureDependencies(for viewController: ListHeartRatesViewController,
+                               withStore store: WorkoutStoreProtocol,
+                               factory: HealthStoreFactoryProtocol) {
         let heartRateStore = factory.makeHeartRateStore()!
         let classifier = ClassifierSingleton.sharedInstance
 

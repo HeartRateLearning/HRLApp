@@ -12,26 +12,18 @@ import UIKit
 
 final class SetupModuleConfigurator {
 
-    // MARK: - Private properties
-
-    fileprivate let coreDataStore: CoreDataConfigurable
-    fileprivate let healthStoreFactory: HealthStoreFactoryProtocol
-
-    // MARK: - Init methods
-
-    init(coreDataStore: CoreDataConfigurable, healthStoreFactory: HealthStoreFactoryProtocol) {
-        self.coreDataStore = coreDataStore
-        self.healthStoreFactory = healthStoreFactory
-    }
-
     // MARK: - Public methods
 
-    func configureDependencies(for viewInput: UIViewController) {
+    func configureDependencies(for viewInput: UIViewController,
+                               withCoreDataStore coreDataStore: CoreDataConfigurable,
+                               healthStoreFactory: HealthStoreFactoryProtocol) {
         guard let viewController = viewInput as? SetupViewController else {
             return
         }
 
-        configureDependencies(for: viewController)
+        configureDependencies(for: viewController,
+                              withCoreDataStore: coreDataStore,
+                              healthStoreFactory: healthStoreFactory)
     }
 }
 
@@ -41,7 +33,9 @@ private extension SetupModuleConfigurator {
 
     // MARK: - Private methods
 
-    func configureDependencies(for viewController: SetupViewController) {
+    func configureDependencies(for viewController: SetupViewController,
+                               withCoreDataStore coreDataStore: CoreDataConfigurable,
+                               healthStoreFactory: HealthStoreFactoryProtocol) {
         let presenter = SetupPresenter()
         presenter.view = viewController
         presenter.router = viewController

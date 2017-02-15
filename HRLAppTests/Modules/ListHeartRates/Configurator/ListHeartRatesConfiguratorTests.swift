@@ -22,7 +22,7 @@ final class ListHeartRatesModuleConfiguratorTests: XCTestCase {
     let moduleInput = ListHeartRatesModuleInputTestDouble()
     let viewController = ListHeartRatesViewController()
 
-    var sut: ListHeartRatesModuleConfigurator!
+    var sut = ListHeartRatesModuleConfigurator()
 
     // MARK: - Setup / Teardown
 
@@ -30,15 +30,13 @@ final class ListHeartRatesModuleConfiguratorTests: XCTestCase {
         super.setUp()
 
         factory.makeHeartRateStoreResult = heartRateStore
-        
-        sut = ListHeartRatesModuleConfigurator(store: workoutStore, factory: factory)
     }
 
     // MARK: - Tests
 
     func test_configureDependenciesForViewController_setAllDependencies() {
         // when
-        sut.configureDependencies(for: viewController)
+        sut.configureDependencies(for: viewController, withStore: workoutStore, factory: factory)
 
         // then
         XCTAssertNotNil(viewController.output)

@@ -75,7 +75,6 @@
 		FAD30821A0FB4C462A33B81F /* ListHeartRatesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36221820E462A5239F6E6A57 /* ListHeartRatesViewController.swift */; };
 		FE2163AF133F8577C0A4DE2F /* SetupPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34BFB0C59E1BAA7EB64A80E /* SetupPresenterTests.swift */; };
 		FF08E3041E3AB71B001183A3 /* WorkoutStoreProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF08E3031E3AB71B001183A3 /* WorkoutStoreProtocol.swift */; };
-		FF08E3061E3AB810001183A3 /* WorkoutStoreSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF08E3051E3AB810001183A3 /* WorkoutStoreSingleton.swift */; };
 		FF2AD9571E4BC63A00068FEB /* WorkoutIterator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2AD9561E4BC63A00068FEB /* WorkoutIterator.swift */; };
 		FF2AD95B1E4BD4A300068FEB /* MementoConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2AD95A1E4BD4A300068FEB /* MementoConvertible.swift */; };
 		FF2CAAB11E3FD86B0052129F /* ListWorkoutDatesModuleInputTestDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2CAAB01E3FD86B0052129F /* ListWorkoutDatesModuleInputTestDouble.swift */; };
@@ -89,6 +88,7 @@
 		FF3340BC1E3800D400E84AC2 /* StoreWorkoutInteractorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3340BB1E3800D400E84AC2 /* StoreWorkoutInteractorOutput.swift */; };
 		FF3340C01E381AD200E84AC2 /* StoreWorkoutInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3340BF1E381AD200E84AC2 /* StoreWorkoutInteractorTests.swift */; };
 		FF372EAF1E54D7BD0023704C /* SetupInteractorOutputTestDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF372EAE1E54D7BD0023704C /* SetupInteractorOutputTestDouble.swift */; };
+		FF372EB11E54EE460023704C /* WorkoutStoreSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF372EB01E54EE460023704C /* WorkoutStoreSingleton.swift */; };
 		FF46F0521E36842A004E1F8D /* GetStoredWorkoutsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF46F0511E36842A004E1F8D /* GetStoredWorkoutsInteractor.swift */; };
 		FF46F0541E368436004E1F8D /* GetStoredWorkoutsInteractorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF46F0531E368436004E1F8D /* GetStoredWorkoutsInteractorInput.swift */; };
 		FF46F0561E368442004E1F8D /* GetStoredWorkoutsInteractorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF46F0551E368442004E1F8D /* GetStoredWorkoutsInteractorOutput.swift */; };
@@ -257,7 +257,6 @@
 		F474F96C56408F7016B4B9C7 /* ListWorkoutsPresenterTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ListWorkoutsPresenterTests.swift; sourceTree = "<group>"; };
 		F761A61E1EFE2404E3B14CAE /* ListHeartRatesRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ListHeartRatesRouter.swift; sourceTree = "<group>"; };
 		FF08E3031E3AB71B001183A3 /* WorkoutStoreProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutStoreProtocol.swift; sourceTree = "<group>"; };
-		FF08E3051E3AB810001183A3 /* WorkoutStoreSingleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutStoreSingleton.swift; sourceTree = "<group>"; };
 		FF23E7B6F6C1AE6C1594CE04 /* ListHeartRatesPresenterTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ListHeartRatesPresenterTests.swift; sourceTree = "<group>"; };
 		FF2AD9561E4BC63A00068FEB /* WorkoutIterator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutIterator.swift; sourceTree = "<group>"; };
 		FF2AD95A1E4BD4A300068FEB /* MementoConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MementoConvertible.swift; sourceTree = "<group>"; };
@@ -272,6 +271,7 @@
 		FF3340BB1E3800D400E84AC2 /* StoreWorkoutInteractorOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreWorkoutInteractorOutput.swift; sourceTree = "<group>"; };
 		FF3340BF1E381AD200E84AC2 /* StoreWorkoutInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreWorkoutInteractorTests.swift; sourceTree = "<group>"; };
 		FF372EAE1E54D7BD0023704C /* SetupInteractorOutputTestDouble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetupInteractorOutputTestDouble.swift; sourceTree = "<group>"; };
+		FF372EB01E54EE460023704C /* WorkoutStoreSingleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutStoreSingleton.swift; sourceTree = "<group>"; };
 		FF4238231E3EBC0D005C1B9F /* HRLListWorkoutsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRLListWorkoutsViewController.h; sourceTree = "<group>"; };
 		FF46F0511E36842A004E1F8D /* GetStoredWorkoutsInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetStoredWorkoutsInteractor.swift; sourceTree = "<group>"; };
 		FF46F0531E368436004E1F8D /* GetStoredWorkoutsInteractorInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetStoredWorkoutsInteractorInput.swift; sourceTree = "<group>"; };
@@ -1303,7 +1303,7 @@
 				FFE41CAC1E2EE74C00BC7B72 /* WorkoutStore.swift */,
 				FFF51FDC1E3B5EFD00914740 /* WorkoutStoreDelegate.swift */,
 				FF08E3031E3AB71B001183A3 /* WorkoutStoreProtocol.swift */,
-				FF08E3051E3AB810001183A3 /* WorkoutStoreSingleton.swift */,
+				FF372EB01E54EE460023704C /* WorkoutStoreSingleton.swift */,
 			);
 			path = WorkoutStore;
 			sourceTree = "<group>";
@@ -1687,7 +1687,6 @@
 				FFB5C4BE1E4A6D9000FE2FC6 /* Classifier.swift in Sources */,
 				B379385126751B79CED5277E /* AddWorkoutModuleInput.swift in Sources */,
 				A9C8205D8ADEBD3AEDB29822 /* AddWorkoutPresenter.swift in Sources */,
-				FF08E3061E3AB810001183A3 /* WorkoutStoreSingleton.swift in Sources */,
 				FF46F0601E368A9F004E1F8D /* GetAllWorkoutsInteractorInput.swift in Sources */,
 				FF6314261E42909E00989B09 /* HeartRateStoreProtocol.swift in Sources */,
 				FF46F0541E368436004E1F8D /* GetStoredWorkoutsInteractorInput.swift in Sources */,
@@ -1752,6 +1751,7 @@
 				1CA071C85EE34F0DD06819C8 /* SetupRouter.swift in Sources */,
 				F6EFA02289E7662EAF974899 /* SetupConfigurator.swift in Sources */,
 				103B7A5CD95DE2E78E591E7D /* SetupInitializer.swift in Sources */,
+				FF372EB11E54EE460023704C /* WorkoutStoreSingleton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -12,25 +12,15 @@ import UIKit
 
 final class ListWorkoutDatesModuleConfigurator {
 
-    // MARK: - Private properties
-
-    let store: WorkoutStoreProtocol
-
-    // MARK: - Init methods
-
-    init(store: WorkoutStoreProtocol) {
-        self.store = store
-    }
-
     // MARK: - Public methods
 
-    func configureDependencies(for viewInput: UIViewController) {
+    func configureDependencies(for viewInput: UIViewController, with store: WorkoutStoreProtocol) {
         guard let viewController = viewInput as? ListWorkoutDatesViewController else {
             return
         }
 
-        configureDependencies(for: viewController)
-    }
+        configureDependencies(for: viewController, with: store)
+    } 
 
     func configureModule(for viewInput: UIViewController, withWorkoutAt index: Int) {
         guard let viewController = viewInput as? ListWorkoutDatesViewController else {
@@ -47,7 +37,8 @@ private extension ListWorkoutDatesModuleConfigurator {
 
     // MARK: - Private methods
 
-    func configureDependencies(for viewController: ListWorkoutDatesViewController) {
+    func configureDependencies(for viewController: ListWorkoutDatesViewController,
+                               with store: WorkoutStoreProtocol) {
         let presenter = ListWorkoutDatesPresenter()
         presenter.view = viewController
         presenter.router = viewController
