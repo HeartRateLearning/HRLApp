@@ -65,6 +65,40 @@ final class ClassifierTests: XCTestCase {
         XCTAssertEqual(factory.makeClassifierCount, 1)
     }
 
+    func testNonFittedClassifier_predictedWorkingOut_readStoredDataFrameAndTryToMakeANewClassifier() {
+        // when
+        _ = sut.predictedWorkingOut(for: anyRecord)
+
+        // then
+        XCTAssertEqual(dataFrameStore.readCount, 1)
+        XCTAssertEqual(factory.makeClassifierCount, 1)
+        XCTAssertEqual(factory.lastMakeClassifierDataFrame, dataFrameStore.readResult)
+    }
+
+    func testFittedClassifier_predictedWorkingOut_DoNotReadStoredDataFrameNeitherTryToMakeANewClassifierAgain() {
+        // given
+        sut.fit(trainingData: anyTrainingData)
+
+        // when
+        _ = sut.predictedWorkingOut(for: anyRecord)
+
+        // then
+        XCTAssertEqual(dataFrameStore.readCount, 1)
+        XCTAssertEqual(factory.makeClassifierCount, 1)
+    }
+
+    func testSutAfterMakingAPrediction_predictedWorkingOut_DoNotReadStoredDataFrameNeitherTryToMakeANewClassifierAgain() {
+        // given
+        _ = sut.predictedWorkingOut(for: anyRecord)
+
+        // when
+        _ = sut.predictedWorkingOut(for: anyRecord)
+
+        // then
+        XCTAssertEqual(dataFrameStore.readCount, 1)
+        XCTAssertEqual(factory.makeClassifierCount, 1)
+    }
+
     func testFittedClassifier_predictedWorkingOut_forwardToHRLClassifier() {
         // given
         sut.fit(trainingData: anyTrainingData)

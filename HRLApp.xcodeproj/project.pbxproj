@@ -132,16 +132,20 @@
 		FFA8CDB31E452E5600E4305B /* HeartRateStoreTestDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA8CDB21E452E5600E4305B /* HeartRateStoreTestDouble.swift */; };
 		FFA8CDB61E454D8400E4305B /* GetHeartRatesInteractorOutputTestDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA8CDB51E454D8400E4305B /* GetHeartRatesInteractorOutputTestDouble.swift */; };
 		FFA8CDB81E454F7400E4305B /* GetHeartRatesInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA8CDB71E454F7400E4305B /* GetHeartRatesInteractorTests.swift */; };
-		FFB15EFE1E53E6AB0029D77F /* CoreDataWorkoutStoreSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB15EFD1E53E6AB0029D77F /* CoreDataWorkoutStoreSingleton.swift */; };
-		FFB5C4B31E4A492E00FE2FC6 /* Predictor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB5C4B21E4A492E00FE2FC6 /* Predictor.swift */; };
 		FFAA1E931E4D03E3004175F4 /* DataFramePersistentStoreTestDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAA1E921E4D03E3004175F4 /* DataFramePersistentStoreTestDouble.swift */; };
 		FFAD79441E4CBAFD00AD2A13 /* DataFramePersistentStoreProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAD79431E4CBAFD00AD2A13 /* DataFramePersistentStoreProtocol.swift */; };
 		FFAD79461E4CBFF000AD2A13 /* DataFramePersistentStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAD79451E4CBFF000AD2A13 /* DataFramePersistentStore.swift */; };
+		FFAFDD511E565F1B0023C4E6 /* PredictorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAFDD501E565F1B0023C4E6 /* PredictorFactory.swift */; };
+		FFAFDD531E565F680023C4E6 /* TrainableFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAFDD521E565F680023C4E6 /* TrainableFactory.swift */; };
+		FFAFDD551E56635B0023C4E6 /* ClassifierFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAFDD541E56635B0023C4E6 /* ClassifierFactory.swift */; };
+		FFAFDD571E5681DC0023C4E6 /* PredictorFactoryTestDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAFDD561E5681DC0023C4E6 /* PredictorFactoryTestDouble.swift */; };
+		FFAFDD591E56821D0023C4E6 /* TrainableFactoryTestDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAFDD581E56821D0023C4E6 /* TrainableFactoryTestDouble.swift */; };
+		FFB15EFE1E53E6AB0029D77F /* CoreDataWorkoutStoreSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB15EFD1E53E6AB0029D77F /* CoreDataWorkoutStoreSingleton.swift */; };
+		FFB5C4B31E4A492E00FE2FC6 /* Predictor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB5C4B21E4A492E00FE2FC6 /* Predictor.swift */; };
 		FFB5C4B81E4A518A00FE2FC6 /* PredictorTestDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB5C4B71E4A518A00FE2FC6 /* PredictorTestDouble.swift */; };
 		FFB5C4BA1E4A596000FE2FC6 /* Trainable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB5C4B91E4A596000FE2FC6 /* Trainable.swift */; };
 		FFB5C4BC1E4A603400FE2FC6 /* TrainableTestDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB5C4BB1E4A603400FE2FC6 /* TrainableTestDouble.swift */; };
 		FFB5C4BE1E4A6D9000FE2FC6 /* Classifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB5C4BD1E4A6D9000FE2FC6 /* Classifier.swift */; };
-		FFB5C4C01E4A711800FE2FC6 /* ClassifierSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB5C4BF1E4A711700FE2FC6 /* ClassifierSingleton.swift */; };
 		FFCB066A1E462E790065CEA3 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFCB06691E462E790065CEA3 /* HealthKit.framework */; };
 		FFCB066D1E4631F90065CEA3 /* ListHeartRatesViewInputTestDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCB066C1E4631F90065CEA3 /* ListHeartRatesViewInputTestDouble.swift */; };
 		FFCB066F1E46339D0065CEA3 /* GetHeartRatesInteractorInputTestDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCB066E1E46339D0065CEA3 /* GetHeartRatesInteractorInputTestDouble.swift */; };
@@ -321,16 +325,20 @@
 		FFA8CDB21E452E5600E4305B /* HeartRateStoreTestDouble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeartRateStoreTestDouble.swift; sourceTree = "<group>"; };
 		FFA8CDB51E454D8400E4305B /* GetHeartRatesInteractorOutputTestDouble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetHeartRatesInteractorOutputTestDouble.swift; sourceTree = "<group>"; };
 		FFA8CDB71E454F7400E4305B /* GetHeartRatesInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetHeartRatesInteractorTests.swift; sourceTree = "<group>"; };
-		FFB15EFD1E53E6AB0029D77F /* CoreDataWorkoutStoreSingleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataWorkoutStoreSingleton.swift; sourceTree = "<group>"; };
-		FFB5C4B21E4A492E00FE2FC6 /* Predictor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Predictor.swift; sourceTree = "<group>"; };
 		FFAA1E921E4D03E3004175F4 /* DataFramePersistentStoreTestDouble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataFramePersistentStoreTestDouble.swift; sourceTree = "<group>"; };
 		FFAD79431E4CBAFD00AD2A13 /* DataFramePersistentStoreProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataFramePersistentStoreProtocol.swift; sourceTree = "<group>"; };
 		FFAD79451E4CBFF000AD2A13 /* DataFramePersistentStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataFramePersistentStore.swift; sourceTree = "<group>"; };
+		FFAFDD501E565F1B0023C4E6 /* PredictorFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PredictorFactory.swift; sourceTree = "<group>"; };
+		FFAFDD521E565F680023C4E6 /* TrainableFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainableFactory.swift; sourceTree = "<group>"; };
+		FFAFDD541E56635B0023C4E6 /* ClassifierFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassifierFactory.swift; sourceTree = "<group>"; };
+		FFAFDD561E5681DC0023C4E6 /* PredictorFactoryTestDouble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PredictorFactoryTestDouble.swift; sourceTree = "<group>"; };
+		FFAFDD581E56821D0023C4E6 /* TrainableFactoryTestDouble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainableFactoryTestDouble.swift; sourceTree = "<group>"; };
+		FFB15EFD1E53E6AB0029D77F /* CoreDataWorkoutStoreSingleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataWorkoutStoreSingleton.swift; sourceTree = "<group>"; };
+		FFB5C4B21E4A492E00FE2FC6 /* Predictor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Predictor.swift; sourceTree = "<group>"; };
 		FFB5C4B71E4A518A00FE2FC6 /* PredictorTestDouble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PredictorTestDouble.swift; sourceTree = "<group>"; };
 		FFB5C4B91E4A596000FE2FC6 /* Trainable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trainable.swift; sourceTree = "<group>"; };
 		FFB5C4BB1E4A603400FE2FC6 /* TrainableTestDouble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainableTestDouble.swift; sourceTree = "<group>"; };
 		FFB5C4BD1E4A6D9000FE2FC6 /* Classifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Classifier.swift; sourceTree = "<group>"; };
-		FFB5C4BF1E4A711700FE2FC6 /* ClassifierSingleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassifierSingleton.swift; sourceTree = "<group>"; };
 		FFCB06681E462E790065CEA3 /* HRLApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HRLApp.entitlements; sourceTree = "<group>"; };
 		FFCB06691E462E790065CEA3 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		FFCB066C1E4631F90065CEA3 /* ListHeartRatesViewInputTestDouble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListHeartRatesViewInputTestDouble.swift; sourceTree = "<group>"; };
@@ -1281,9 +1289,11 @@
 			children = (
 				FFAD79421E4CB88900AD2A13 /* Persistence */,
 				FFB5C4BD1E4A6D9000FE2FC6 /* Classifier.swift */,
-				FFB5C4BF1E4A711700FE2FC6 /* ClassifierSingleton.swift */,
+				FFAFDD541E56635B0023C4E6 /* ClassifierFactory.swift */,
 				FFB5C4B21E4A492E00FE2FC6 /* Predictor.swift */,
+				FFAFDD501E565F1B0023C4E6 /* PredictorFactory.swift */,
 				FFB5C4B91E4A596000FE2FC6 /* Trainable.swift */,
+				FFAFDD521E565F680023C4E6 /* TrainableFactory.swift */,
 			);
 			path = Classifier;
 			sourceTree = "<group>";
@@ -1292,7 +1302,9 @@
 			isa = PBXGroup;
 			children = (
 				FFAA1E911E4D0379004175F4 /* Persistence */,
+				FFAFDD561E5681DC0023C4E6 /* PredictorFactoryTestDouble.swift */,
 				FFB5C4B71E4A518A00FE2FC6 /* PredictorTestDouble.swift */,
+				FFAFDD581E56821D0023C4E6 /* TrainableFactoryTestDouble.swift */,
 				FFB5C4BB1E4A603400FE2FC6 /* TrainableTestDouble.swift */,
 			);
 			path = Classifier;
@@ -1727,9 +1739,10 @@
 				FFFB95081E48E625002DE7A5 /* SaveWorkingOutsInteractorOutput.swift in Sources */,
 				2EDE269FC6F5BCE278DEDFFD /* AddWorkoutInitializer.swift in Sources */,
 				7050C178B892D0772A76D89B /* ListWorkoutDatesViewInput.swift in Sources */,
+				FFAFDD511E565F1B0023C4E6 /* PredictorFactory.swift in Sources */,
 				68315D7E31A705EBD3FE6FAB /* ListWorkoutDatesViewOutput.swift in Sources */,
+				FFAFDD551E56635B0023C4E6 /* ClassifierFactory.swift in Sources */,
 				FF65CC66483771783B8F172E /* ListWorkoutDatesViewController.swift in Sources */,
-				FFB5C4C01E4A711800FE2FC6 /* ClassifierSingleton.swift in Sources */,
 				69B7F25F5D5D4B2F0173ED0D /* ListWorkoutDatesModuleInput.swift in Sources */,
 				FF63142C1E42B3EF00989B09 /* HealthStoreFactorySingleton.swift in Sources */,
 				3D94B071249339F379839E18 /* ListWorkoutDatesPresenter.swift in Sources */,
@@ -1747,6 +1760,7 @@
 				1DD76351473C75D00F730881 /* ListHeartRatesViewOutput.swift in Sources */,
 				FFECF0181E5119B80098098A /* WorkoutStore.xcdatamodeld in Sources */,
 				FAD30821A0FB4C462A33B81F /* ListHeartRatesViewController.swift in Sources */,
+				FFAFDD531E565F680023C4E6 /* TrainableFactory.swift in Sources */,
 				5C41783C1C24E8E62D4E7C9E /* ListHeartRatesModuleInput.swift in Sources */,
 				FFB5C4BA1E4A596000FE2FC6 /* Trainable.swift in Sources */,
 				14DCCEDC8A1E35F65D413043 /* ListHeartRatesPresenter.swift in Sources */,
@@ -1799,12 +1813,14 @@
 				E0A71D7AFEC37CDBDF9CA856 /* ListWorkoutsPresenterTests.swift in Sources */,
 				FF82D2C11E2EB1C300119044 /* ViewControllerInstantiaterHelper.swift in Sources */,
 				FFA8CDB61E454D8400E4305B /* GetHeartRatesInteractorOutputTestDouble.swift in Sources */,
+				FFAFDD571E5681DC0023C4E6 /* PredictorFactoryTestDouble.swift in Sources */,
 				FF4ED3D21E4109FF0064D496 /* GetWorkoutDatesInteractorInputTestDouble.swift in Sources */,
 				FFCB066F1E46339D0065CEA3 /* GetHeartRatesInteractorInputTestDouble.swift in Sources */,
 				FFA8CDA41E44A7C400E4305B /* ListWorkoutDatesRouterInputTestDouble.swift in Sources */,
 				FFF520041E3B68A300914740 /* WorkoutStoreDelegateTestDouble.swift in Sources */,
 				FFF51FFE1E3B67F200914740 /* ListWorkoutsRouterInputTestDouble.swift in Sources */,
 				FF50A0901E54BE0500B0EDAC /* SetupViewInputTestDouble.swift in Sources */,
+				FFAFDD591E56821D0023C4E6 /* TrainableFactoryTestDouble.swift in Sources */,
 				FFA8CDB01E4521CB00E4305B /* HealthStoreFactoryTestDouble.swift in Sources */,
 				FFCB066D1E4631F90065CEA3 /* ListHeartRatesViewInputTestDouble.swift in Sources */,
 				FFF51FFC1E3B67ED00914740 /* GetStoredWorkoutsInteractorOutputTestDouble.swift in Sources */,

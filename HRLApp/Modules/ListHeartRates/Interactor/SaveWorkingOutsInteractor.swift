@@ -16,7 +16,7 @@ final class SaveWorkingOutsInteractor {
 
     weak var output: SaveWorkingOutsInteractorOutput!
 
-    var trainer: Trainable!
+    var factory: TrainableFactory!
     var workoutStore: WorkoutStoreProtocol!
 }
 
@@ -24,6 +24,12 @@ final class SaveWorkingOutsInteractor {
 
 extension SaveWorkingOutsInteractor: SaveWorkingOutsInteractorInput {
     func execute(withWorkoutIndex workoutIndex: Int, dateIndex: Int, workingOuts: [Bool]) {
+        guard let workout = workoutStore.workout(at: workoutIndex) else {
+            output.interactorDidFailToSaveWorkingOuts(self)
+
+            return
+        }
+
         let recordCount = workoutStore.recordCount(forWorkoutAt: workoutIndex, dateAt: dateIndex)
         guard let count = recordCount else {
             output.interactorDidFailToSaveWorkingOuts(self)
@@ -59,7 +65,9 @@ extension SaveWorkingOutsInteractor: SaveWorkingOutsInteractorInput {
         }
 
         if !trainingData.isEmpty {
-            trainer.fit(trainingData: trainingData)
+            let trainee = factory.makeTrainable(for: workout)
+            
+            trainee.fit(trainingData: trainingData)
         }
 
         output.interactorDidSaveWorkingOuts(self)

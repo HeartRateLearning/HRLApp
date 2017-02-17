@@ -49,11 +49,11 @@ final class ListHeartRatesModuleConfiguratorTests: XCTestCase {
         let getHeartRates = presenter.getHeartRates as! GetHeartRatesInteractor
         XCTAssertNotNil(getHeartRates.workoutStore)
         XCTAssertNotNil(getHeartRates.heartRateStore)
-        XCTAssertNotNil(getHeartRates.predictor)
+        XCTAssertNotNil(getHeartRates.factory)
         XCTAssertTrue(getHeartRates.output === presenter)
 
         let saveWorkingOuts = presenter.saveWorkingOuts as! SaveWorkingOutsInteractor
-        XCTAssertNotNil(saveWorkingOuts.trainer)
+        XCTAssertNotNil(saveWorkingOuts.factory)
         XCTAssertNotNil(saveWorkingOuts.workoutStore)
         XCTAssertTrue(saveWorkingOuts.output === presenter)
     }

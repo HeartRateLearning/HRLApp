@@ -13,7 +13,7 @@ import HRLClassifier
 
 // MARK: - Main body
 
-class DataFramePersistentStoreTestDouble {
+final class DataFramePersistentStoreTestDouble {
 
     // MARK: - Public properties
 

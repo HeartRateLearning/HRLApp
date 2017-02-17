@@ -18,7 +18,7 @@ final class Classifier {
     fileprivate let factory: HRLClassifier.ClassifierFactoryProtocol
     fileprivate let dataFrameStore: DataFramePersistentStoreProtocol
 
-    fileprivate var classifier: HRLClassifier.ClassifierProtocol?
+    fileprivate var state = State.pending
 
     // MARK: - Init methods
 
@@ -34,8 +34,9 @@ final class Classifier {
 extension Classifier: Trainable {
     func fit(trainingData: [Trainable.TrainingTuple]) {
         let updatedDataFrame = updatePersistedDataFrame(with: trainingData)
+        let classifier = makeClassifier(with: updatedDataFrame)
 
-        classifier = try? factory.makeClassifier(with: updatedDataFrame)
+        updateState(with: classifier)
     }
 }
 
@@ -43,7 +44,7 @@ extension Classifier: Trainable {
 
 extension Classifier: Predictor {
     func predictedWorkingOut(for record: HeartRateRecord) -> WorkingOut {
-        guard let classifier = classifier else {
+        guard let classifier = currentClassifier() else {
             return .unknown
         }
 
@@ -57,6 +58,13 @@ extension Classifier: Predictor {
 // MARK: - Private body
 
 private extension Classifier {
+
+    // MARK: - Type definitions
+
+    enum State {
+        case pending
+        case made(HRLClassifier.ClassifierProtocol?)
+    }
 
     // MARK: - Private methods
 
@@ -72,5 +80,28 @@ private extension Classifier {
         dataFrameStore.write(dataFrame)
 
         return dataFrame
+    }
+
+    func currentClassifier() -> HRLClassifier.ClassifierProtocol? {
+        var classifier: HRLClassifier.ClassifierProtocol?
+
+        switch state {
+        case .made(let madeClassifier):
+            classifier = madeClassifier
+        case .pending:
+            classifier = makeClassifier(with: dataFrameStore.read())
+
+            updateState(with: classifier)
+        }
+
+        return classifier
+    }
+
+    func makeClassifier(with dataFrame: DataFrame) -> HRLClassifier.ClassifierProtocol? {
+        return try? factory.makeClassifier(with: dataFrame)
+    }
+
+    func updateState(with classifier: HRLClassifier.ClassifierProtocol?) {
+        state = .made(classifier)
     }
 }

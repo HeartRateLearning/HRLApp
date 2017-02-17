@@ -12,7 +12,7 @@ import XCTest
 
 // MARK: - Main body
 
-class SetupPresenterTest: XCTestCase {
+final class SetupPresenterTest: XCTestCase {
 
     // MARK: - Properties
 

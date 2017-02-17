@@ -16,7 +16,7 @@ final class GetHeartRatesInteractor {
 
     weak var output: GetHeartRatesInteractorOutput!
 
-    var predictor: Predictor!
+    var factory: PredictorFactory!
     var workoutStore: WorkoutStoreProtocol!
     var heartRateStore: HeartRateStoreProtocol!
 }
@@ -25,6 +25,12 @@ final class GetHeartRatesInteractor {
 
 extension GetHeartRatesInteractor: GetHeartRatesInteractorInput {
     func execute(withWorkoutIndex workoutIndex: Int, dateIndex: Int) {
+        guard let workout = workoutStore.workout(at: workoutIndex) else {
+            output.interactor(self, didFindHeartRates: [])
+
+            return
+        }
+
         guard let date = workoutStore.date(at: dateIndex, forWorkoutAt: workoutIndex) else {
             output.interactor(self, didFindHeartRates: [])
 
@@ -32,8 +38,17 @@ extension GetHeartRatesInteractor: GetHeartRatesInteractorInput {
         }
 
         let handler: HeartRateStoreProtocol.ResultsHandler = { [weak self] (records) in
-            self?.appendRecords(records, toWorkoutAt: workoutIndex, dateAt: dateIndex)
-            self?.ouputAllRecords(forWorkoutAt: workoutIndex, dateAt: dateIndex)
+            guard let strongSelf = self else {
+                return
+            }
+
+            let predictor = strongSelf.factory.makePredictor(for: workout)
+            strongSelf.appendRecords(records,
+                                     toWorkoutAt: workoutIndex,
+                                     dateAt: dateIndex,
+                                     using: predictor)
+            
+            strongSelf.ouputAllRecords(forWorkoutAt: workoutIndex, dateAt: dateIndex)
         }
 
         let mostRecentRecord = workoutStore.mostRecentRecord(forWorkoutAt: workoutIndex,
@@ -75,7 +90,8 @@ private extension GetHeartRatesInteractor {
 
     func appendRecords(_ records: [HeartRateRecord],
                        toWorkoutAt workoutIndex: Int,
-                       dateAt dateIndex: Int) {
+                       dateAt dateIndex: Int,
+                       using predictor: Predictor) {
         for heartRateRecord in records {
             let workingOut = predictor.predictedWorkingOut(for: heartRateRecord)
             let workoutRecord = WorkoutRecord(heartRate: heartRateRecord, workingOut: workingOut)

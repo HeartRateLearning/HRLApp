@@ -45,7 +45,7 @@ private extension ListHeartRatesModuleConfigurator {
                                withStore store: WorkoutStoreProtocol,
                                factory: HealthStoreFactoryProtocol) {
         let heartRateStore = factory.makeHeartRateStore()!
-        let classifier = ClassifierSingleton.sharedInstance
+        let classifierFactory = ClassifierFactory()
 
         let presenter = ListHeartRatesPresenter()
         presenter.view = viewController
@@ -53,13 +53,13 @@ private extension ListHeartRatesModuleConfigurator {
 
         let getHeartRates = GetHeartRatesInteractor()
         getHeartRates.output = presenter
-        getHeartRates.predictor = classifier
+        getHeartRates.factory = classifierFactory
         getHeartRates.workoutStore = store
         getHeartRates.heartRateStore = heartRateStore
 
         let saveWorkingOuts = SaveWorkingOutsInteractor()
         saveWorkingOuts.output = presenter
-        saveWorkingOuts.trainer = classifier
+        saveWorkingOuts.factory = classifierFactory
         saveWorkingOuts.workoutStore = store
 
         presenter.getHeartRates = getHeartRates

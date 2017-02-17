@@ -11,7 +11,7 @@ import HRLClassifier
 
 // MARK: - Main body
 
-class DataFramePersistentStore {
+final class DataFramePersistentStore {
 
     // MARK: - Private properties
 
@@ -19,12 +19,16 @@ class DataFramePersistentStore {
 
     // MARK: - Init methods
 
-    convenience init() {
+    convenience init(workout: Workout) {
         let searchPaths = NSSearchPathForDirectoriesInDomains(.documentDirectory,
                                                               .userDomainMask,
                                                               true)
         let documentsPath = searchPaths[0] as NSString
-        let filepath = documentsPath.appendingPathComponent(Constants.filename)
+
+        let name = String(workout) as NSString
+        let filename = name.appendingPathExtension(Constants.fileExtension)!
+
+        let filepath = documentsPath.appendingPathComponent(filename)
 
         self.init(path: filepath)
     }
@@ -59,6 +63,6 @@ private extension DataFramePersistentStore {
     // MARK: - Constants
 
     enum Constants {
-        static let filename = "archivedDataFrame.dat"
+        static let fileExtension = "dataframe"
     }
 }
