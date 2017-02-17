@@ -184,29 +184,29 @@ class InMemoryWorkoutStoreTests: XCTestCase {
         XCTAssertEqual(anyRecord, record)
     }
 
-    func testSutWithAppendedRecord_insertRecordWithIndexOufOfRange_recordCountDoesNotChange() {
+    func testSutWithAppendedRecord_replaceRecordWithIndexOufOfRange_recordCountDoesNotChange() {
         // given
         fillSut()
 
         // when
-        sut.insertRecord(otherRecord,
-                         intoWorkoutAt: anyWorkoutIndex,
-                         dateAt: anyDateIndex,
-                         recordAt: outOfRangeRecordIndex)
+        sut.replaceRecord(at: outOfRangeRecordIndex,
+                          forWorkoutAt: anyWorkoutIndex,
+                          dateAt: anyDateIndex,
+                          with: otherRecord)
 
         // then
         XCTAssertEqual(sut.recordCount(forWorkoutAt: anyWorkoutIndex, dateAt: anyDateIndex), 1)
     }
 
-    func testSutWithAppendedRecord_insertRecordWithIndexInRange_recordCountDoesNotChangeButNewRecordIsReturned() {
+    func testSutWithAppendedRecord_replaceRecordWithIndexInRange_recordCountDoesNotChangeButNewRecordIsReturned() {
         // given
         fillSut()
 
         // when
-        sut.insertRecord(otherRecord,
-                         intoWorkoutAt: anyWorkoutIndex,
-                         dateAt: anyDateIndex,
-                         recordAt: anyRecordIndex)
+        sut.replaceRecord(at: anyRecordIndex,
+                          forWorkoutAt: anyWorkoutIndex,
+                          dateAt: anyDateIndex,
+                          with: otherRecord)
 
         // then
         XCTAssertEqual(sut.recordCount(forWorkoutAt: anyWorkoutIndex, dateAt: anyDateIndex), 1)
@@ -262,7 +262,7 @@ class InMemoryWorkoutStoreTests: XCTestCase {
         XCTAssertEqual(record, anyRecord)
     }
 
-    func testSutWithOneRecordInsertedAndOtherAppended_mostRecentRecord_returnExpectedRecord() {
+    func testSutWithOneRecordReplacedAndOtherAppended_mostRecentRecord_returnExpectedRecord() {
         // given
         fillSut()
 
@@ -272,10 +272,10 @@ class InMemoryWorkoutStoreTests: XCTestCase {
         let newestDate = anyRecord.date.addingTimeInterval(minuteInterval + minuteInterval)
         let newestRecord = WorkoutRecord(heartRate: HeartRateRecord(date: newestDate, bpm: anyBPM),
                                          workingOut: .unknown)
-        sut.insertRecord(newestRecord,
-                         intoWorkoutAt: anyWorkoutIndex,
-                         dateAt: anyDateIndex,
-                         recordAt: anyRecordIndex)
+        sut.replaceRecord(at: anyRecordIndex,
+                          forWorkoutAt: anyWorkoutIndex,
+                          dateAt: anyDateIndex,
+                          with: newestRecord)
 
         let newerDate = anyRecord.date.addingTimeInterval(minuteInterval)
         let newerRecord = WorkoutRecord(heartRate: HeartRateRecord(date: newerDate, bpm: anyBPM),

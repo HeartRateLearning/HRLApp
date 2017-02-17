@@ -107,8 +107,8 @@ final class SaveWorkingOutsInteractorTests: XCTestCase {
         // then
         let trueRecord = makeWorkoutRecord(with: .true)
 
-        XCTAssertEqual(workoutStore.insertRecordCount, 1)
-        XCTAssertEqual(workoutStore.lastInsertedRecord!, trueRecord)
+        XCTAssertEqual(workoutStore.replaceRecordCount, 1)
+        XCTAssertEqual(workoutStore.lastReplacedRecord!, trueRecord)
         XCTAssertEqual(factory.makeTrainableCount, 1)
         XCTAssertEqual(trainee.fitCount, 1)
         XCTAssertEqual(output.didSaveCount, 1)
@@ -129,7 +129,7 @@ final class SaveWorkingOutsInteractorTests: XCTestCase {
                     workingOuts: workingOuts)
 
         // then
-        XCTAssertEqual(workoutStore.insertRecordCount, workingOuts.count)
+        XCTAssertEqual(workoutStore.replaceRecordCount, workingOuts.count)
         XCTAssertEqual(factory.makeTrainableCount, 1)
         XCTAssertEqual(trainee.fitCount, 1)
         XCTAssertEqual(output.didSaveCount, 1)
@@ -152,8 +152,8 @@ final class SaveWorkingOutsInteractorTests: XCTestCase {
         // then
         let falseRecord = makeWorkoutRecord(with: .false)
 
-        XCTAssertEqual(workoutStore.insertRecordCount, 1)
-        XCTAssertEqual(workoutStore.lastInsertedRecord!, falseRecord)
+        XCTAssertEqual(workoutStore.replaceRecordCount, 1)
+        XCTAssertEqual(workoutStore.lastReplacedRecord!, falseRecord)
         XCTAssertEqual(factory.makeTrainableCount, 1)
         XCTAssertEqual(trainee.fitCount, 1)
         XCTAssertEqual(output.didSaveCount, 1)
@@ -176,8 +176,8 @@ final class SaveWorkingOutsInteractorTests: XCTestCase {
         // then
         let falseRecord = makeWorkoutRecord(with: .false)
 
-        XCTAssertEqual(workoutStore.insertRecordCount, 1)
-        XCTAssertEqual(workoutStore.lastInsertedRecord!, falseRecord)
+        XCTAssertEqual(workoutStore.replaceRecordCount, 1)
+        XCTAssertEqual(workoutStore.lastReplacedRecord!, falseRecord)
         XCTAssertEqual(factory.makeTrainableCount, 1)
         XCTAssertEqual(trainee.fitCount, 1)
         XCTAssertEqual(output.didSaveCount, 1)
@@ -200,8 +200,8 @@ final class SaveWorkingOutsInteractorTests: XCTestCase {
         // then
         let trueRecord = makeWorkoutRecord(with: .true)
 
-        XCTAssertEqual(workoutStore.insertRecordCount, 1)
-        XCTAssertEqual(workoutStore.lastInsertedRecord!, trueRecord)
+        XCTAssertEqual(workoutStore.replaceRecordCount, 1)
+        XCTAssertEqual(workoutStore.lastReplacedRecord!, trueRecord)
         XCTAssertEqual(factory.makeTrainableCount, 1)
         XCTAssertEqual(trainee.fitCount, 1)
         XCTAssertEqual(output.didSaveCount, 1)
@@ -222,7 +222,7 @@ final class SaveWorkingOutsInteractorTests: XCTestCase {
                     workingOuts: workingOuts)
 
         // then
-        XCTAssertEqual(workoutStore.insertRecordCount, 0)
+        XCTAssertEqual(workoutStore.replaceRecordCount, 0)
         XCTAssertEqual(factory.makeTrainableCount, 0)
         XCTAssertEqual(trainee.fitCount, 0)
         XCTAssertEqual(output.didSaveCount, 1)

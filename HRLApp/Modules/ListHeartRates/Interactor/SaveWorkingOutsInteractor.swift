@@ -57,10 +57,10 @@ extension SaveWorkingOutsInteractor: SaveWorkingOutsInteractorInput {
 
                 let updatedRecord = WorkoutRecord(heartRate: heartRate,
                                                   workingOut: WorkingOut(workingOut))
-                workoutStore.insertRecord(updatedRecord,
-                                          intoWorkoutAt: workoutIndex,
-                                          dateAt: dateIndex,
-                                          recordAt: index)
+                workoutStore.replaceRecord(at: index,
+                                           forWorkoutAt: workoutIndex,
+                                           dateAt: dateIndex,
+                                           with: updatedRecord)
             }
         }
 

@@ -86,14 +86,11 @@ extension CoreDataWorkoutStoreSingleton: PersistableWorkoutStore {
         store.appendRecord(record, toWorkoutAt: workoutIndex, dateAt: dateIndex)
     }
 
-    func insertRecord(_ record: WorkoutRecord,
-                      intoWorkoutAt workoutIndex: Int,
-                      dateAt dateIndex: Int,
-                      recordAt recordIndex: Int) {
-        store.insertRecord(record,
-                           intoWorkoutAt: workoutIndex,
-                           dateAt: dateIndex,
-                           recordAt: recordIndex)
+    func replaceRecord(at index: Int,
+                       forWorkoutAt workoutIndex: Int,
+                       dateAt dateIndex: Int,
+                       with record: WorkoutRecord) {
+        store.replaceRecord(at: index, forWorkoutAt: workoutIndex, dateAt: dateIndex, with: record)
     }
 
     func mostRecentRecord(forWorkoutAt workoutIndex: Int, dateAt dateIndex: Int) -> WorkoutRecord? {

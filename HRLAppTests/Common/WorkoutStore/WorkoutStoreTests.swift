@@ -148,15 +148,15 @@ final class WorkoutStoreTests: XCTestCase {
         XCTAssertEqual(store.appendRecordCount, 1)
     }
 
-    func testAnyRecordAndIndexPath_insertRecord_forwardToPersistableStore() {
+    func testAnyRecordAndIndexPath_replaceRecord_forwardToPersistableStore() {
         // when
-        sut.insertRecord(anyRecord,
-                         intoWorkoutAt: anyWorkoutIndex,
-                         dateAt: anyDateIndex,
-                         recordAt: anyRecordIndex)
+        sut.replaceRecord(at: anyRecordIndex,
+                          forWorkoutAt: anyWorkoutIndex,
+                          dateAt: anyDateIndex,
+                          with: anyRecord)
 
         // then
-        XCTAssertEqual(store.insertRecordCount, 1)
+        XCTAssertEqual(store.replaceRecordCount, 1)
     }
 
     func testAnyIndexPath_mostRecentRecord_forwardToPersistableStore() {

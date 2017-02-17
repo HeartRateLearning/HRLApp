@@ -125,7 +125,12 @@ extension CoreDataWorkoutStore: PersistableWorkoutStore {
     func persistedRecord(at index: Int,
                          forWorkoutAt workoutIndex: Int,
                          dateAt dateIndex: Int) -> WorkoutRecord? {
-        return coreDataRecord(at: index, forWorkoutAt: workoutIndex, dateAt: dateIndex)
+        let auxRecord = coreDataRecord(at: index, forWorkoutAt: workoutIndex, dateAt: dateIndex)
+        guard let coreRecord = auxRecord else {
+            return nil
+        }
+
+        return makeRecord(with: coreRecord)
     }
 
     func appendRecord(_ record: WorkoutRecord,
@@ -145,26 +150,18 @@ extension CoreDataWorkoutStore: PersistableWorkoutStore {
         CoreDataWorkoutStore.saveContext(context)
     }
 
-    func insertRecord(_ record: WorkoutRecord,
-                      intoWorkoutAt workoutIndex: Int,
-                      dateAt dateIndex: Int,
-                      recordAt recordIndex: Int) {
-        guard let coreDataDate = coreDataDate(at: dateIndex, forWorkoutAt: workoutIndex) else {
+    func replaceRecord(at index: Int,
+                       forWorkoutAt workoutIndex: Int,
+                       dateAt dateIndex: Int,
+                       with record: WorkoutRecord) {
+        let auxRecord = coreDataRecord(at: index, forWorkoutAt: workoutIndex, dateAt: dateIndex)
+        guard let coreRecord = auxRecord else {
             return
         }
 
-        guard recordIndex < coreDataDate.records!.count else {
-            return
-        }
+        updateCoreDataRecord(coreRecord, with: record)
 
-        let context = coreDataDate.managedObjectContext!
-
-        let coreDataRecord = CoreDataRecord(context: context)
-        updateCoreDataRecord(coreDataRecord, with: record)
-
-        coreDataDate.insertIntoRecords(coreDataRecord, at: recordIndex)
-
-        CoreDataWorkoutStore.saveContext(context)
+        CoreDataWorkoutStore.saveContext(coreRecord.managedObjectContext!)
     }
 
     func mostRecentRecord(forWorkoutAt workoutIndex: Int, dateAt dateIndex: Int) -> WorkoutRecord? {
@@ -253,7 +250,7 @@ private extension CoreDataWorkoutStore {
 
     func coreDataRecord(at index: Int,
                         forWorkoutAt workoutIndex: Int,
-                        dateAt dateIndex: Int) -> WorkoutRecord? {
+                        dateAt dateIndex: Int) -> CoreDataRecord? {
         guard let records = coreDataDate(at: dateIndex, forWorkoutAt: workoutIndex)?.records else {
             return nil
         }
@@ -262,7 +259,7 @@ private extension CoreDataWorkoutStore {
             return nil
         }
 
-        return makeRecord(with: records[index] as! CoreDataRecord)
+        return records[index] as? CoreDataRecord
     }
 
     // MARK: - Private class methods

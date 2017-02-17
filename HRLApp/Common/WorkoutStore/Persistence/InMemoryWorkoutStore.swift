@@ -120,19 +120,19 @@ extension InMemoryWorkoutStore: PersistableWorkoutStore {
         date.records.append(record)
     }
 
-    func insertRecord(_ record: WorkoutRecord,
-                      intoWorkoutAt workoutIndex: Int,
-                      dateAt dateIndex: Int,
-                      recordAt recordIndex: Int) {
+    func replaceRecord(at index: Int,
+                       forWorkoutAt workoutIndex: Int,
+                       dateAt dateIndex: Int,
+                       with record: WorkoutRecord) {
         guard let date = inMemoryDate(at: dateIndex, forWorkoutAt: workoutIndex) else {
             return
         }
 
-        guard recordIndex < date.records.count else {
+        guard index < date.records.count else {
             return
         }
 
-        date.records[recordIndex] = record
+        date.records[index] = record
     }
 
     func mostRecentRecord(forWorkoutAt workoutIndex: Int, dateAt dateIndex: Int) -> WorkoutRecord? {

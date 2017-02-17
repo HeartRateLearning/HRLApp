@@ -27,10 +27,10 @@ protocol WorkoutStoreProtocol: class {
     func appendRecord(_ record: WorkoutRecord,
                       toWorkoutAt workoutIndex: Int,
                       dateAt dateIndex: Int)
-    func insertRecord(_ record: WorkoutRecord,
-                      intoWorkoutAt workoutIndex: Int,
-                      dateAt dateIndex: Int,
-                      recordAt recordIndex: Int)
+    func replaceRecord(at index: Int,
+                       forWorkoutAt workoutIndex: Int,
+                       dateAt dateIndex: Int,
+                       with record: WorkoutRecord)
 
     func mostRecentRecord(forWorkoutAt workoutIndex: Int, dateAt dateIndex: Int) -> WorkoutRecord?
 }
