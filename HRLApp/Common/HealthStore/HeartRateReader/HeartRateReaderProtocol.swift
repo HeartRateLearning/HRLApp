@@ -1,5 +1,5 @@
 //
-//  HeartRateStoreProtocol.swift
+//  HeartRateReaderProtocol.swift
 //  HRLApp
 //
 //  Created by Enrique de la Torre (dev) on 01/02/2017.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol HeartRateStoreProtocol {
+protocol HeartRateReaderProtocol {
 
     // MARK: - Type definitions
 

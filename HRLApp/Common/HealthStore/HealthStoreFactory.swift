@@ -31,12 +31,12 @@ extension HealthStoreFactory: HealthStoreFactoryProtocol {
         requestAuthorization()
     }
 
-    func makeHeartRateStore() -> HeartRateStoreProtocol? {
+    func makeHeartRateReader() -> HeartRateReaderProtocol? {
         guard let currentStore = currentHealthStore() else {
             return nil
         }
 
-        return HeartRateStore(store: currentStore)
+        return HeartRateReader(store: currentStore)
     }
 }
 
@@ -60,7 +60,7 @@ private extension HealthStoreFactory {
 
     enum Constants {
         static let typesToShare = nil as Set<HKSampleType>?
-        static let typesToRead = Set(arrayLiteral: HeartRateStore.heartRateType)
+        static let typesToRead = Set(arrayLiteral: HeartRateReader.heartRateType)
     }
 
     // MARK: - Private methods

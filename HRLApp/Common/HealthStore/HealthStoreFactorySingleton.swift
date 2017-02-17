@@ -34,7 +34,7 @@ extension HealthStoreFactorySingleton: HealthStoreFactoryProtocol {
         store.setup()
     }
 
-    func makeHeartRateStore() -> HeartRateStoreProtocol? {
-        return store.makeHeartRateStore()
+    func makeHeartRateReader() -> HeartRateReaderProtocol? {
+        return store.makeHeartRateReader()
     }
 }

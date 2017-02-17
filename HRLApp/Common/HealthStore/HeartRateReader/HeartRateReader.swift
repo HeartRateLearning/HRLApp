@@ -1,5 +1,5 @@
 //
-//  HeartRateStore.swift
+//  HeartRateReader.swift
 //  HRLApp
 //
 //  Created by Enrique de la Torre (dev) on 01/02/2017.
@@ -11,7 +11,7 @@ import HealthKit
 
 // MARK: - Main body
 
-final class HeartRateStore {
+final class HeartRateReader {
 
     // MARK: - Public class properties
 
@@ -28,12 +28,12 @@ final class HeartRateStore {
     }
 }
 
-// MARK: - HeartRateStoreProtocol methods
+// MARK: - HeartRateReaderProtocol methods
 
-extension HeartRateStore: HeartRateStoreProtocol {
+extension HeartRateReader: HeartRateReaderProtocol {
     func queryRecords(after startDate: Date,
                       before endDate: Date,
-                      resultsHandler: @escaping HeartRateStoreProtocol.ResultsHandler) {
+                      resultsHandler: @escaping HeartRateReaderProtocol.ResultsHandler) {
         let predicate = NSPredicate(format: "%K > %@ AND %K < %@",
                                     HKPredicateKeyPathStartDate, startDate as CVarArg,
                                     HKPredicateKeyPathStartDate, endDate as CVarArg)
@@ -43,7 +43,7 @@ extension HeartRateStore: HeartRateStoreProtocol {
 
     func queryRecords(afterOrEqualTo startDate: Date,
                       before endDate: Date,
-                      resultsHandler: @escaping HeartRateStoreProtocol.ResultsHandler) {
+                      resultsHandler: @escaping HeartRateReaderProtocol.ResultsHandler) {
         let predicate = NSPredicate(format: "%K >= %@ AND %K < %@",
                                     HKPredicateKeyPathStartDate, startDate as CVarArg,
                                     HKPredicateKeyPathStartDate, endDate as CVarArg)
@@ -54,7 +54,7 @@ extension HeartRateStore: HeartRateStoreProtocol {
 
 // MARK: - Private body
 
-private extension HeartRateStore {
+private extension HeartRateReader {
 
     // MARK: - Constants
 
@@ -65,12 +65,12 @@ private extension HeartRateStore {
     // MARK: - Private methods
 
     func queryRecords(with predicate: NSPredicate,
-                      resultsHandler: @escaping HeartRateStoreProtocol.ResultsHandler) {
+                      resultsHandler: @escaping HeartRateReaderProtocol.ResultsHandler) {
         let queryHandler = { (_: HKSampleQuery, queryResults: [HKSample]?, queryError: Error?) in
             var results = [] as [HeartRateRecord]
 
             if queryResults != nil {
-                results = HeartRateStore.recordArray(with: queryResults as! [HKQuantitySample])
+                results = HeartRateReader.recordArray(with: queryResults as! [HKQuantitySample])
             }
 
             DispatchQueue.main.async {
@@ -78,7 +78,7 @@ private extension HeartRateStore {
             }
         }
 
-        let query = HKSampleQuery(sampleType: HeartRateStore.heartRateType,
+        let query = HKSampleQuery(sampleType: HeartRateReader.heartRateType,
                                   predicate: predicate,
                                   limit: HKObjectQueryNoLimit,
                                   sortDescriptors: nil,

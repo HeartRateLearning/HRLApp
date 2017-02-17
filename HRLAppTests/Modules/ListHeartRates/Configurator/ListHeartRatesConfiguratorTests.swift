@@ -18,7 +18,7 @@ final class ListHeartRatesModuleConfiguratorTests: XCTestCase {
 
     let factory = HealthStoreFactoryTestDouble()
     let workoutStore = WorkoutStoreTestDouble()
-    let heartRateStore = HeartRateStoreTestDouble()
+    let heartRateReader = HeartRateReaderTestDouble()
     let moduleInput = ListHeartRatesModuleInputTestDouble()
     let viewController = ListHeartRatesViewController()
 
@@ -29,7 +29,7 @@ final class ListHeartRatesModuleConfiguratorTests: XCTestCase {
     override func setUp() {
         super.setUp()
 
-        factory.makeHeartRateStoreResult = heartRateStore
+        factory.makeHeartRateReaderResult = heartRateReader
     }
 
     // MARK: - Tests
@@ -48,7 +48,7 @@ final class ListHeartRatesModuleConfiguratorTests: XCTestCase {
 
         let getHeartRates = presenter.getHeartRates as! GetHeartRatesInteractor
         XCTAssertNotNil(getHeartRates.workoutStore)
-        XCTAssertNotNil(getHeartRates.heartRateStore)
+        XCTAssertNotNil(getHeartRates.heartRateReader)
         XCTAssertNotNil(getHeartRates.factory)
         XCTAssertTrue(getHeartRates.output === presenter)
 

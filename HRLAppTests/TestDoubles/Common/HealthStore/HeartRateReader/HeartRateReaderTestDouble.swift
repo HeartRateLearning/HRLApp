@@ -1,5 +1,5 @@
 //
-//  HeartRateStoreTestDouble.swift
+//  HeartRateReaderTestDouble.swift
 //  HRLApp
 //
 //  Created by Enrique de la Torre (dev) on 03/02/2017.
@@ -12,7 +12,7 @@ import Foundation
 
 // MARK: - Main body
 
-final class HeartRateStoreTestDouble {
+final class HeartRateReaderTestDouble {
 
     // MARK: - Public properties
 
@@ -28,12 +28,12 @@ final class HeartRateStoreTestDouble {
     var queryRecordsAfterOrEqualResult: [HeartRateRecord]?
 }
 
-// MARK: - HeartRateStoreProtocol methods
+// MARK: - HeartRateReaderProtocol methods
 
-extension HeartRateStoreTestDouble: HeartRateStoreProtocol {
+extension HeartRateReaderTestDouble: HeartRateReaderProtocol {
     func queryRecords(after startDate: Date,
                       before endDate: Date,
-                      resultsHandler: @escaping HeartRateStoreProtocol.ResultsHandler) {
+                      resultsHandler: @escaping HeartRateReaderProtocol.ResultsHandler) {
         queryRecordsAfterCount += 1
 
         lastQueryRecordsAfterStartDate = startDate
@@ -48,7 +48,7 @@ extension HeartRateStoreTestDouble: HeartRateStoreProtocol {
 
     func queryRecords(afterOrEqualTo startDate: Date,
                       before endDate: Date,
-                      resultsHandler: @escaping HeartRateStoreProtocol.ResultsHandler) {
+                      resultsHandler: @escaping HeartRateReaderProtocol.ResultsHandler) {
         queryRecordsAfterOrEqualCount += 1
 
         lastQueryRecordsAfterOrEqualStartDate = startDate

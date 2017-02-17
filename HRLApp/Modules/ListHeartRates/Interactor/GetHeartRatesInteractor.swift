@@ -18,7 +18,7 @@ final class GetHeartRatesInteractor {
 
     var factory: PredictorFactory!
     var workoutStore: WorkoutStoreProtocol!
-    var heartRateStore: HeartRateStoreProtocol!
+    var heartRateReader: HeartRateReaderProtocol!
 }
 
 // MARK: - GetHeartRatesInteractorInput methods
@@ -37,7 +37,7 @@ extension GetHeartRatesInteractor: GetHeartRatesInteractorInput {
             return
         }
 
-        let handler: HeartRateStoreProtocol.ResultsHandler = { [weak self] (records) in
+        let handler: HeartRateReaderProtocol.ResultsHandler = { [weak self] (records) in
             guard let strongSelf = self else {
                 return
             }
@@ -54,14 +54,14 @@ extension GetHeartRatesInteractor: GetHeartRatesInteractorInput {
         let mostRecentRecord = workoutStore.mostRecentRecord(forWorkoutAt: workoutIndex,
                                                              dateAt: dateIndex)
         if let startDate = mostRecentRecord?.date {
-            heartRateStore.queryRecords(after: startDate,
-                                        before: startOfNextDay(for: date),
-                                        resultsHandler: handler)
+            heartRateReader.queryRecords(after: startDate,
+                                         before: startOfNextDay(for: date),
+                                         resultsHandler: handler)
         }
         else {
-            heartRateStore.queryRecords(afterOrEqualTo: startOfDay(for: date),
-                                        before: startOfNextDay(for: date),
-                                        resultsHandler: handler)
+            heartRateReader.queryRecords(afterOrEqualTo: startOfDay(for: date),
+                                         before: startOfNextDay(for: date),
+                                         resultsHandler: handler)
         }
     }
 }

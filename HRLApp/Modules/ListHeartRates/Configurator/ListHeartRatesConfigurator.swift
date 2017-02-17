@@ -44,7 +44,7 @@ private extension ListHeartRatesModuleConfigurator {
     func configureDependencies(for viewController: ListHeartRatesViewController,
                                withStore store: WorkoutStoreProtocol,
                                factory: HealthStoreFactoryProtocol) {
-        let heartRateStore = factory.makeHeartRateStore()!
+        let heartRateReader = factory.makeHeartRateReader()!
         let classifierFactory = ClassifierFactory()
 
         let presenter = ListHeartRatesPresenter()
@@ -55,7 +55,7 @@ private extension ListHeartRatesModuleConfigurator {
         getHeartRates.output = presenter
         getHeartRates.factory = classifierFactory
         getHeartRates.workoutStore = store
-        getHeartRates.heartRateStore = heartRateStore
+        getHeartRates.heartRateReader = heartRateReader
 
         let saveWorkingOuts = SaveWorkingOutsInteractor()
         saveWorkingOuts.output = presenter

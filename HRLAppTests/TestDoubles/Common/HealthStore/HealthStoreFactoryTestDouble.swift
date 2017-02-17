@@ -17,9 +17,9 @@ final class HealthStoreFactoryTestDouble {
     // MARK: - Public properties
 
     fileprivate (set) var setupCount = 0
-    fileprivate (set) var makeHeartRateStoreCount = 0
+    fileprivate (set) var makeHeartRateReaderCount = 0
 
-    var makeHeartRateStoreResult: HeartRateStoreProtocol?
+    var makeHeartRateReaderResult: HeartRateReaderProtocol?
 }
 
 // MARK: - HealthStoreFactoryProtocol methods
@@ -29,9 +29,9 @@ extension HealthStoreFactoryTestDouble: HealthStoreFactoryProtocol {
         setupCount += 1
     }
 
-    func makeHeartRateStore() -> HeartRateStoreProtocol? {
-        makeHeartRateStoreCount += 1
+    func makeHeartRateReader() -> HeartRateReaderProtocol? {
+        makeHeartRateReaderCount += 1
 
-        return makeHeartRateStoreResult
+        return makeHeartRateReaderResult
     }
 }

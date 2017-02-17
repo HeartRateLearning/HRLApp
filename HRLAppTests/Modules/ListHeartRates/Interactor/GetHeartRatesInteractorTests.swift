@@ -26,7 +26,7 @@ final class GetHeartRatesInteractorTests: XCTestCase {
     let factory = PredictorFactoryTestDouble()
     let predictor = PredictorTestDouble()
     let workoutStore = WorkoutStoreTestDouble()
-    let heartRateStore = HeartRateStoreTestDouble()
+    let heartRateReader = HeartRateReaderTestDouble()
 
     var sut = GetHeartRatesInteractor()
 
@@ -40,7 +40,7 @@ final class GetHeartRatesInteractorTests: XCTestCase {
         sut.output = output
         sut.factory = factory
         sut.workoutStore = workoutStore
-        sut.heartRateStore = heartRateStore
+        sut.heartRateReader = heartRateReader
 
         workoutStore.workoutAtIndexResult = anyWorkout
         workoutStore.dateAtIndexResult = anyDate
@@ -60,8 +60,8 @@ final class GetHeartRatesInteractorTests: XCTestCase {
         XCTAssertEqual(workoutStore.workoutAtIndexCount, 1)
         XCTAssertEqual(workoutStore.dateAtIndexCount, 0)
         XCTAssertEqual(workoutStore.mostRecentRecordCount, 0)
-        XCTAssertEqual(heartRateStore.queryRecordsAfterCount, 0)
-        XCTAssertEqual(heartRateStore.queryRecordsAfterOrEqualCount, 0)
+        XCTAssertEqual(heartRateReader.queryRecordsAfterCount, 0)
+        XCTAssertEqual(heartRateReader.queryRecordsAfterOrEqualCount, 0)
         XCTAssertEqual(output.didFindHeartRatesCount, 1)
         XCTAssertEqual(output.lastFoundRecords!, [])
     }
@@ -77,8 +77,8 @@ final class GetHeartRatesInteractorTests: XCTestCase {
         XCTAssertEqual(workoutStore.workoutAtIndexCount, 1)
         XCTAssertEqual(workoutStore.dateAtIndexCount, 1)
         XCTAssertEqual(workoutStore.mostRecentRecordCount, 0)
-        XCTAssertEqual(heartRateStore.queryRecordsAfterCount, 0)
-        XCTAssertEqual(heartRateStore.queryRecordsAfterOrEqualCount, 0)
+        XCTAssertEqual(heartRateReader.queryRecordsAfterCount, 0)
+        XCTAssertEqual(heartRateReader.queryRecordsAfterOrEqualCount, 0)
         XCTAssertEqual(output.didFindHeartRatesCount, 1)
         XCTAssertEqual(output.lastFoundRecords!, [])
     }
@@ -93,8 +93,8 @@ final class GetHeartRatesInteractorTests: XCTestCase {
         // then
         XCTAssertEqual(workoutStore.dateAtIndexCount, 1)
         XCTAssertEqual(workoutStore.mostRecentRecordCount, 1)
-        XCTAssertEqual(heartRateStore.queryRecordsAfterCount, 1)
-        XCTAssertEqual(heartRateStore.queryRecordsAfterOrEqualCount, 0)
+        XCTAssertEqual(heartRateReader.queryRecordsAfterCount, 1)
+        XCTAssertEqual(heartRateReader.queryRecordsAfterOrEqualCount, 0)
     }
 
     func testDateForGivenIndexesNoMostRecentRecord_execute_queryRecordsAfterOrEqualDate() {
@@ -104,13 +104,13 @@ final class GetHeartRatesInteractorTests: XCTestCase {
         // then
         XCTAssertEqual(workoutStore.dateAtIndexCount, 1)
         XCTAssertEqual(workoutStore.mostRecentRecordCount, 1)
-        XCTAssertEqual(heartRateStore.queryRecordsAfterCount, 0)
-        XCTAssertEqual(heartRateStore.queryRecordsAfterOrEqualCount, 1)
+        XCTAssertEqual(heartRateReader.queryRecordsAfterCount, 0)
+        XCTAssertEqual(heartRateReader.queryRecordsAfterOrEqualCount, 1)
     }
 
-    func testHeartRateStoreWithRecords_execute_factoryMakesPredictor() {
+    func testHeartRateReaderWithRecords_execute_factoryMakesPredictor() {
         // given
-        heartRateStore.queryRecordsAfterOrEqualResult = makeHeartRateRecords(with: .unknown)
+        heartRateReader.queryRecordsAfterOrEqualResult = makeHeartRateRecords(with: .unknown)
 
         // when
         sut.execute(withWorkoutIndex: anyWorkoutIndex, dateIndex: anyDateIndex)
@@ -119,28 +119,28 @@ final class GetHeartRatesInteractorTests: XCTestCase {
         XCTAssertEqual(factory.makePredictorCount, 1)
     }
 
-    func testHeartRateStoreWithRecords_execute_classifierPredictsWorkingOut() {
+    func testHeartRateReaderWithRecords_execute_classifierPredictsWorkingOut() {
         // given
-        heartRateStore.queryRecordsAfterOrEqualResult = makeHeartRateRecords(with: .unknown)
+        heartRateReader.queryRecordsAfterOrEqualResult = makeHeartRateRecords(with: .unknown)
 
         // when
         sut.execute(withWorkoutIndex: anyWorkoutIndex, dateIndex: anyDateIndex)
 
         // then
         XCTAssertEqual(predictor.predictedCount,
-                       heartRateStore.queryRecordsAfterOrEqualResult!.count)
+                       heartRateReader.queryRecordsAfterOrEqualResult!.count)
     }
 
-    func testHeartRateStoreWithRecords_execute_appendRecordsToWorkoutStore() {
+    func testHeartRateReaderWithRecords_execute_appendRecordsToWorkoutStore() {
         // given
-        heartRateStore.queryRecordsAfterOrEqualResult = makeHeartRateRecords(with: .unknown)
+        heartRateReader.queryRecordsAfterOrEqualResult = makeHeartRateRecords(with: .unknown)
 
         // when
         sut.execute(withWorkoutIndex: anyWorkoutIndex, dateIndex: anyDateIndex)
 
         // then
         XCTAssertEqual(workoutStore.appendRecordCount,
-                       heartRateStore.queryRecordsAfterOrEqualResult!.count)
+                       heartRateReader.queryRecordsAfterOrEqualResult!.count)
     }
 
     func testWorkoutStoreWithUnknownWorkingOut_execute_outputExpectedRecords() {
@@ -153,7 +153,7 @@ final class GetHeartRatesInteractorTests: XCTestCase {
                                                          heartRateWorkingOut: heartRateWorkingOut)
         let workoutRecord = makeWorkoutRecord(with: recordWorkingOut)
 
-        heartRateStore.queryRecordsAfterOrEqualResult = records
+        heartRateReader.queryRecordsAfterOrEqualResult = records
         workoutStore.recordCountResult = heartRateRecords.count
         workoutStore.recordAtIndexResult = workoutRecord
 
@@ -175,7 +175,7 @@ final class GetHeartRatesInteractorTests: XCTestCase {
                                                          heartRateWorkingOut: heartRateWorkingOut)
         let workoutRecord = makeWorkoutRecord(with: recordWorkingOut)
 
-        heartRateStore.queryRecordsAfterOrEqualResult = records
+        heartRateReader.queryRecordsAfterOrEqualResult = records
         workoutStore.recordCountResult = heartRateRecords.count
         workoutStore.recordAtIndexResult = workoutRecord
 
@@ -197,7 +197,7 @@ final class GetHeartRatesInteractorTests: XCTestCase {
                                                          heartRateWorkingOut: heartRateWorkingOut)
         let workoutRecord = makeWorkoutRecord(with: recordWorkingOut)
 
-        heartRateStore.queryRecordsAfterOrEqualResult = records
+        heartRateReader.queryRecordsAfterOrEqualResult = records
         workoutStore.recordCountResult = heartRateRecords.count
         workoutStore.recordAtIndexResult = workoutRecord
 
