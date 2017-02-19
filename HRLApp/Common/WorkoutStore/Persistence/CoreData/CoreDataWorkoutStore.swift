@@ -225,11 +225,7 @@ private extension CoreDataWorkoutStore {
     }
 
     func coreDataWorkout(at index: Int) -> CoreDataWorkout? {
-        guard let workouts = root?.workouts else {
-            return nil
-        }
-
-        guard index < workouts.count else {
+        guard let workouts = root?.workouts, index < workouts.count else {
             return nil
         }
 
@@ -237,11 +233,7 @@ private extension CoreDataWorkoutStore {
     }
 
     func coreDataDate(at index: Int, forWorkoutAt workoutIndex: Int) -> CoreDataDate? {
-        guard let days = coreDataWorkout(at: workoutIndex)?.days else {
-            return nil
-        }
-
-        guard index < days.count else {
+        guard let days = coreDataWorkout(at: workoutIndex)?.days, index < days.count else {
             return nil
         }
 
@@ -251,12 +243,11 @@ private extension CoreDataWorkoutStore {
     func coreDataRecord(at index: Int,
                         forWorkoutAt workoutIndex: Int,
                         dateAt dateIndex: Int) -> CoreDataRecord? {
-        guard let records = coreDataDate(at: dateIndex, forWorkoutAt: workoutIndex)?.records else {
-            return nil
-        }
-
-        guard index < records.count else {
-            return nil
+        guard
+            let records = coreDataDate(at: dateIndex, forWorkoutAt: workoutIndex)?.records,
+            index < records.count
+            else {
+                return nil
         }
 
         return records[index] as? CoreDataRecord

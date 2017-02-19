@@ -60,8 +60,7 @@ final class WorkoutStoreTestDouble {
     var workoutAtIndexResult: Workout?
     var dateCountResult: Int?
     var dateAtIndexResult: Date?
-    var recordCountResult: Int?
-    var recordAtIndexResult: WorkoutRecord?
+    var records: [WorkoutRecord]?
     var mostRecentRecordResult: WorkoutRecord?
 }
 
@@ -118,7 +117,7 @@ extension WorkoutStoreTestDouble: WorkoutStoreProtocol {
         lastRecordCountWorkoutIndex = workoutIndex
         lastRecordCountDateIndex = dateIndex
 
-        return recordCountResult
+        return records?.count
     }
 
     func record(at index: Int,
@@ -130,7 +129,7 @@ extension WorkoutStoreTestDouble: WorkoutStoreProtocol {
         lastRecordWorkoutIndex = workoutIndex
         lastRecordDateIndex = dateIndex
 
-        return recordAtIndexResult
+        return records?[index]
     }
 
     func appendRecord(_ record: WorkoutRecord,

@@ -154,6 +154,7 @@
 		FFCB066F1E46339D0065CEA3 /* GetHeartRatesInteractorInputTestDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCB066E1E46339D0065CEA3 /* GetHeartRatesInteractorInputTestDouble.swift */; };
 		FFCB06711E4654BE0065CEA3 /* WorkoutRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCB06701E4654BE0065CEA3 /* WorkoutRecord.swift */; };
 		FFE41CAD1E2EE74C00BC7B72 /* WorkoutStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE41CAC1E2EE74C00BC7B72 /* WorkoutStore.swift */; };
+		FFE9936E1E59EE03009C86C2 /* WorkoutWriterTestDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE9936D1E59EE03009C86C2 /* WorkoutWriterTestDouble.swift */; };
 		FFECF00A1E50DF150098098A /* InMemoryWorkoutStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFECF0091E50DF150098098A /* InMemoryWorkoutStore.swift */; };
 		FFECF0101E50FA1E0098098A /* PersistableWorkoutStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFECF00F1E50FA1E0098098A /* PersistableWorkoutStore.swift */; };
 		FFECF0181E5119B80098098A /* WorkoutStore.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FFECF0161E5119B80098098A /* WorkoutStore.xcdatamodeld */; };
@@ -352,6 +353,7 @@
 		FFCB06701E4654BE0065CEA3 /* WorkoutRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutRecord.swift; sourceTree = "<group>"; };
 		FFDD19CE464BE417BED98735 /* SetupInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SetupInteractor.swift; sourceTree = "<group>"; };
 		FFE41CAC1E2EE74C00BC7B72 /* WorkoutStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutStore.swift; sourceTree = "<group>"; };
+		FFE9936D1E59EE03009C86C2 /* WorkoutWriterTestDouble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutWriterTestDouble.swift; sourceTree = "<group>"; };
 		FFECF0091E50DF150098098A /* InMemoryWorkoutStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InMemoryWorkoutStore.swift; sourceTree = "<group>"; };
 		FFECF00F1E50FA1E0098098A /* PersistableWorkoutStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistableWorkoutStore.swift; sourceTree = "<group>"; };
 		FFECF0171E5119B80098098A /* WorkoutStore.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WorkoutStore.xcdatamodel; sourceTree = "<group>"; };
@@ -1268,6 +1270,7 @@
 			isa = PBXGroup;
 			children = (
 				FF1C80251E57A9D10025C23B /* HeartRateReader */,
+				FFE9936C1E59EDC2009C86C2 /* WorkoutWriter */,
 				FFA8CDAF1E4521CB00E4305B /* HealthStoreFactoryTestDouble.swift */,
 			);
 			path = HealthStore;
@@ -1357,6 +1360,14 @@
 				FF372EB01E54EE460023704C /* WorkoutStoreSingleton.swift */,
 			);
 			path = WorkoutStore;
+			sourceTree = "<group>";
+		};
+		FFE9936C1E59EDC2009C86C2 /* WorkoutWriter */ = {
+			isa = PBXGroup;
+			children = (
+				FFE9936D1E59EE03009C86C2 /* WorkoutWriterTestDouble.swift */,
+			);
+			path = WorkoutWriter;
 			sourceTree = "<group>";
 		};
 		FFECF0081E50CD700098098A /* Persistence */ = {
@@ -1820,6 +1831,7 @@
 				4F9D0775D01F45AB46C7E698 /* ListWorkoutsViewTests.swift in Sources */,
 				FFF51FF11E3B67DA00914740 /* StoreWorkoutInteractorInputTestDouble.swift in Sources */,
 				FF9B8CE41E2FEA0C00A7EB47 /* WorkoutStoreTestDouble.swift in Sources */,
+				FFE9936E1E59EE03009C86C2 /* WorkoutWriterTestDouble.swift in Sources */,
 				FF50A07D1E547C5400B0EDAC /* InMemoryWorkoutStoreTests.swift in Sources */,
 				FF50A08C1E54BBB000B0EDAC /* SetupInteractorInputTestDouble.swift in Sources */,
 				FFF51FF71E3B67E600914740 /* AddWorkoutViewInputTestDouble.swift in Sources */,

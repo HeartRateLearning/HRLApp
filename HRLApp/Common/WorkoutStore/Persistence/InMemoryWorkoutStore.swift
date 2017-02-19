@@ -124,12 +124,11 @@ extension InMemoryWorkoutStore: PersistableWorkoutStore {
                        forWorkoutAt workoutIndex: Int,
                        dateAt dateIndex: Int,
                        with record: WorkoutRecord) {
-        guard let date = inMemoryDate(at: dateIndex, forWorkoutAt: workoutIndex) else {
-            return
-        }
-
-        guard index < date.records.count else {
-            return
+        guard
+            let date = inMemoryDate(at: dateIndex, forWorkoutAt: workoutIndex),
+            index < date.records.count
+            else {
+                return
         }
 
         date.records[index] = record
@@ -165,11 +164,7 @@ private extension InMemoryWorkoutStore {
     }
 
     func inMemoryDate(at index: Int, forWorkoutAt workoutIndex: Int) -> InMemoryDate? {
-        guard let dates = inMemoryWorkout(at: workoutIndex)?.dates else {
-            return nil
-        }
-
-        guard index < dates.count else {
+        guard let dates = inMemoryWorkout(at: workoutIndex)?.dates, index < dates.count else {
             return nil
         }
 
@@ -179,12 +174,11 @@ private extension InMemoryWorkoutStore {
     func inMemoryRecord(at index: Int,
                         forWorkoutAt workoutIndex: Int,
                         dateAt dateIndex: Int) -> WorkoutRecord? {
-        guard let records = inMemoryDate(at: dateIndex, forWorkoutAt: workoutIndex)?.records else {
-            return nil
-        }
-
-        guard index < records.count else {
-            return nil
+        guard
+            let records = inMemoryDate(at: dateIndex, forWorkoutAt: workoutIndex)?.records,
+            index < records.count
+            else {
+                return nil
         }
 
         return records[index]

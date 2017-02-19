@@ -25,16 +25,13 @@ final class GetHeartRatesInteractor {
 
 extension GetHeartRatesInteractor: GetHeartRatesInteractorInput {
     func execute(withWorkoutIndex workoutIndex: Int, dateIndex: Int) {
-        guard let workout = workoutStore.workout(at: workoutIndex) else {
-            output.interactor(self, didFindHeartRates: [])
+        guard
+            let workout = workoutStore.workout(at: workoutIndex),
+            let date = workoutStore.date(at: dateIndex, forWorkoutAt: workoutIndex)
+            else {
+                output.interactor(self, didFindHeartRates: [])
 
-            return
-        }
-
-        guard let date = workoutStore.date(at: dateIndex, forWorkoutAt: workoutIndex) else {
-            output.interactor(self, didFindHeartRates: [])
-
-            return
+                return
         }
 
         let handler: HeartRateReaderProtocol.ResultsHandler = { [weak self] (records) in

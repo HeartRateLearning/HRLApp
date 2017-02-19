@@ -20,12 +20,12 @@ final class SaveWorkingOutsInteractorTests: XCTestCase {
     let anyWorkout = Workout.other
     let anyWorkoutIndex = 0
     let anyWorkingOuts = [true]
-    let anyHeartRate = HeartRateRecord(date: Date(), bpm: Float(60))
 
     let output = SaveWorkingOutsInteractorOutputTestDouble()
     let factory = TrainableFactoryTestDouble()
     let trainee = TrainableTestDouble()
     let workoutStore = WorkoutStoreTestDouble()
+    let workoutWriter = WorkoutWriterTestDouble()
 
     var sut = SaveWorkingOutsInteractor()
 
@@ -39,6 +39,7 @@ final class SaveWorkingOutsInteractorTests: XCTestCase {
         sut.output = output
         sut.factory = factory
         sut.workoutStore = workoutStore
+        sut.workoutWriter = workoutWriter
     }
 
     // MARK: - Tests
@@ -61,7 +62,7 @@ final class SaveWorkingOutsInteractorTests: XCTestCase {
     func testWorkoutStoreWithRecordCountEqualToNil_execute_outputFail() {
         // given
         workoutStore.workoutAtIndexResult = anyWorkout
-        workoutStore.recordCountResult = nil
+        workoutStore.records = nil
 
         // when
         sut.execute(withWorkoutIndex: anyWorkoutIndex,
@@ -77,7 +78,8 @@ final class SaveWorkingOutsInteractorTests: XCTestCase {
     func testWorkoutStoreWithDifferentRecordCountThanWorkingOuts_execute_outputFail() {
         // given
         workoutStore.workoutAtIndexResult = anyWorkout
-        workoutStore.recordCountResult = anyWorkingOuts.count + 1
+        workoutStore.records = makeWorkoutRecords(with: (Date(), .unknown),
+                                                  count: anyWorkingOuts.count + 1)
 
         // when
         sut.execute(withWorkoutIndex: anyWorkoutIndex,
@@ -92,12 +94,11 @@ final class SaveWorkingOutsInteractorTests: XCTestCase {
 
     func testRecordWithWorkingOutToUnkwnonAndInputWorkingOutToTrue_execute_insertNewRecordWithWorkingOutToTrue() {
         // given
+        let date = Date()
         let workingOuts = [true]
-        let unknownRecord = makeWorkoutRecord(with: .unknown)
 
         workoutStore.workoutAtIndexResult = anyWorkout
-        workoutStore.recordCountResult = workingOuts.count
-        workoutStore.recordAtIndexResult = unknownRecord
+        workoutStore.records = makeWorkoutRecords(with: (date, .unknown), count: workingOuts.count)
 
         // when
         sut.execute(withWorkoutIndex: anyWorkoutIndex,
@@ -105,10 +106,10 @@ final class SaveWorkingOutsInteractorTests: XCTestCase {
                     workingOuts: workingOuts)
 
         // then
-        let trueRecord = makeWorkoutRecord(with: .true)
+        let trueRecords = makeWorkoutRecords(with: (date, .true), count: workingOuts.count)
 
         XCTAssertEqual(workoutStore.replaceRecordCount, 1)
-        XCTAssertEqual(workoutStore.lastReplacedRecord!, trueRecord)
+        XCTAssertEqual(workoutStore.lastReplacedRecord!, trueRecords.last!)
         XCTAssertEqual(factory.makeTrainableCount, 1)
         XCTAssertEqual(trainee.fitCount, 1)
         XCTAssertEqual(output.didSaveCount, 1)
@@ -116,12 +117,11 @@ final class SaveWorkingOutsInteractorTests: XCTestCase {
 
     func testMultipleRecordsWithWorkingOutToUnkwnonAndInputWorkingOutsToTrue_execute_trainerFitDataOnlyOnce() {
         // given
-        let workingOuts = [true, true, true]
-        let unknownRecord = makeWorkoutRecord(with: .unknown)
+        let workingOuts = Array(repeating: true, count: 3)
 
         workoutStore.workoutAtIndexResult = anyWorkout
-        workoutStore.recordCountResult = workingOuts.count
-        workoutStore.recordAtIndexResult = unknownRecord
+        workoutStore.records = makeWorkoutRecords(with: (Date(), .unknown),
+                                                  count: workingOuts.count)
 
         // when
         sut.execute(withWorkoutIndex: anyWorkoutIndex,
@@ -137,12 +137,11 @@ final class SaveWorkingOutsInteractorTests: XCTestCase {
 
     func testRecordWithWorkingOutToUnkwnonAndInputWorkingOutToFalse_execute_insertNewRecordWithWorkingOutToFalse() {
         // given
+        let date = Date()
         let workingOuts = [false]
-        let unknownRecord = makeWorkoutRecord(with: .unknown)
 
         workoutStore.workoutAtIndexResult = anyWorkout
-        workoutStore.recordCountResult = workingOuts.count
-        workoutStore.recordAtIndexResult = unknownRecord
+        workoutStore.records = makeWorkoutRecords(with: (date, .unknown), count: workingOuts.count)
 
         // when
         sut.execute(withWorkoutIndex: anyWorkoutIndex,
@@ -150,10 +149,10 @@ final class SaveWorkingOutsInteractorTests: XCTestCase {
                     workingOuts: workingOuts)
 
         // then
-        let falseRecord = makeWorkoutRecord(with: .false)
+        let falseRecords = makeWorkoutRecords(with: (date, .false), count: workingOuts.count)
 
         XCTAssertEqual(workoutStore.replaceRecordCount, 1)
-        XCTAssertEqual(workoutStore.lastReplacedRecord!, falseRecord)
+        XCTAssertEqual(workoutStore.lastReplacedRecord!, falseRecords.last!)
         XCTAssertEqual(factory.makeTrainableCount, 1)
         XCTAssertEqual(trainee.fitCount, 1)
         XCTAssertEqual(output.didSaveCount, 1)
@@ -161,12 +160,11 @@ final class SaveWorkingOutsInteractorTests: XCTestCase {
 
     func testRecordWithWorkingOutToTrueAndInputWorkingOutToFalse_execute_insertNewRecordWithWorkingOutToFalse() {
         // given
+        let date = Date()
         let workingOuts = [false]
-        let trueRecord = makeWorkoutRecord(with: .true)
 
         workoutStore.workoutAtIndexResult = anyWorkout
-        workoutStore.recordCountResult = workingOuts.count
-        workoutStore.recordAtIndexResult = trueRecord
+        workoutStore.records = makeWorkoutRecords(with: (date, .true), count: workingOuts.count)
 
         // when
         sut.execute(withWorkoutIndex: anyWorkoutIndex,
@@ -174,10 +172,10 @@ final class SaveWorkingOutsInteractorTests: XCTestCase {
                     workingOuts: workingOuts)
 
         // then
-        let falseRecord = makeWorkoutRecord(with: .false)
+        let falseRecords = makeWorkoutRecords(with: (date, .false), count: workingOuts.count)
 
         XCTAssertEqual(workoutStore.replaceRecordCount, 1)
-        XCTAssertEqual(workoutStore.lastReplacedRecord!, falseRecord)
+        XCTAssertEqual(workoutStore.lastReplacedRecord!, falseRecords.last!)
         XCTAssertEqual(factory.makeTrainableCount, 1)
         XCTAssertEqual(trainee.fitCount, 1)
         XCTAssertEqual(output.didSaveCount, 1)
@@ -185,12 +183,11 @@ final class SaveWorkingOutsInteractorTests: XCTestCase {
 
     func testRecordWithWorkingOutToFalseAndInputWorkingOutToTrue_execute_insertNewRecordWithWorkingOutToTrue() {
         // given
+        let date = Date()
         let workingOuts = [true]
-        let falseRecord = makeWorkoutRecord(with: .false)
 
         workoutStore.workoutAtIndexResult = anyWorkout
-        workoutStore.recordCountResult = workingOuts.count
-        workoutStore.recordAtIndexResult = falseRecord
+        workoutStore.records = makeWorkoutRecords(with: (date, .false), count: workingOuts.count)
 
         // when
         sut.execute(withWorkoutIndex: anyWorkoutIndex,
@@ -198,10 +195,10 @@ final class SaveWorkingOutsInteractorTests: XCTestCase {
                     workingOuts: workingOuts)
 
         // then
-        let trueRecord = makeWorkoutRecord(with: .true)
+        let trueRecords = makeWorkoutRecords(with: (date, .true), count: workingOuts.count)
 
         XCTAssertEqual(workoutStore.replaceRecordCount, 1)
-        XCTAssertEqual(workoutStore.lastReplacedRecord!, trueRecord)
+        XCTAssertEqual(workoutStore.lastReplacedRecord!, trueRecords.last!)
         XCTAssertEqual(factory.makeTrainableCount, 1)
         XCTAssertEqual(trainee.fitCount, 1)
         XCTAssertEqual(output.didSaveCount, 1)
@@ -210,11 +207,9 @@ final class SaveWorkingOutsInteractorTests: XCTestCase {
     func testRecordWithWorkingOutToFalseAndInputWorkingOutToFalse_execute_doNotInsertNewRecordDoNotTrainButOuputSuccess() {
         // given
         let workingOuts = [false]
-        let falseRecord = makeWorkoutRecord(with: .false)
 
         workoutStore.workoutAtIndexResult = anyWorkout
-        workoutStore.recordCountResult = workingOuts.count
-        workoutStore.recordAtIndexResult = falseRecord
+        workoutStore.records = makeWorkoutRecords(with: (Date(), .false), count: workingOuts.count)
 
         // when
         sut.execute(withWorkoutIndex: anyWorkoutIndex,
@@ -227,12 +222,129 @@ final class SaveWorkingOutsInteractorTests: XCTestCase {
         XCTAssertEqual(trainee.fitCount, 0)
         XCTAssertEqual(output.didSaveCount, 1)
     }
+
+    func testInputWorkingOutsEqualToFalse_execute_doNotSaveAnyWorkout() {
+        // given
+        let workingOuts = Array(repeating: false, count: 6)
+
+        workoutStore.workoutAtIndexResult = anyWorkout
+        workoutStore.records = makeWorkoutRecords(with: (Date(), .false), count: workingOuts.count)
+
+        // when
+        sut.execute(withWorkoutIndex: anyWorkoutIndex,
+                    dateIndex: anyDateIndex,
+                    workingOuts: workingOuts)
+
+        // then
+        XCTAssertEqual(workoutWriter.saveWorkoutCount, 0)
+        XCTAssertEqual(output.didSaveCount, 1)
+    }
+
+    func testInputWorkingOutsEqualToTrue_execute_saveOneWorkoutBetweenExpectedDates() {
+        // given
+        let workingOuts = Array(repeating: true, count: 6)
+        let records = makeWorkoutRecords(with: (Date(), .false), count: workingOuts.count)
+
+        let startDate = records.first!.date
+        let endDate = records.last!.date
+
+        workoutStore.workoutAtIndexResult = anyWorkout
+        workoutStore.records = records.reversed()
+
+        // when
+        sut.execute(withWorkoutIndex: anyWorkoutIndex,
+                    dateIndex: anyDateIndex,
+                    workingOuts: workingOuts)
+
+        // then
+        XCTAssertEqual(workoutWriter.saveWorkoutCount, 1)
+        XCTAssertEqual(workoutWriter.lastSaveWorkoutWorkout, anyWorkout)
+        XCTAssertEqual(workoutWriter.lastSaveWorkoutStartDate, startDate)
+        XCTAssertEqual(workoutWriter.lastSaveWorkoutEndDate, endDate)
+        XCTAssertEqual(output.didSaveCount, 1)
+    }
+
+    func testMixedInputWorkingOuts_execute_doNotSaveAnyWorkout() {
+        // given
+        let workingOuts = [true, false, true, false, true, false]
+
+        workoutStore.workoutAtIndexResult = anyWorkout
+        workoutStore.records = makeWorkoutRecords(with: (Date(), .false), count: workingOuts.count)
+
+        // when
+        sut.execute(withWorkoutIndex: anyWorkoutIndex,
+                    dateIndex: anyDateIndex,
+                    workingOuts: workingOuts)
+
+        // then
+        XCTAssertEqual(workoutWriter.saveWorkoutCount, 0)
+        XCTAssertEqual(output.didSaveCount, 1)
+    }
+
+    func testTwoConsecutiveWorkingOutsEqualToTrue_execute_saveOnlyOneWorkoutBetweenExpectedDates() {
+        // given
+        let workingOuts = [false, false, true, true, false, false]
+        let records = makeWorkoutRecords(with: (Date(), .false), count: workingOuts.count)
+
+        let startDate = records[2].date
+        let endDate = records[3].date
+
+        workoutStore.workoutAtIndexResult = anyWorkout
+        workoutStore.records = records
+
+        // when
+        sut.execute(withWorkoutIndex: anyWorkoutIndex,
+                    dateIndex: anyDateIndex,
+                    workingOuts: workingOuts)
+
+        // then
+        XCTAssertEqual(workoutWriter.saveWorkoutCount, 1)
+        XCTAssertEqual(workoutWriter.lastSaveWorkoutWorkout, anyWorkout)
+        XCTAssertEqual(workoutWriter.lastSaveWorkoutStartDate, startDate)
+        XCTAssertEqual(workoutWriter.lastSaveWorkoutEndDate, endDate)
+        XCTAssertEqual(output.didSaveCount, 1)
+    }
+
+    func testConsecutiveWorkingOutsEqualToTrueAtTheBeginningAndTheEnd_execute_saveTwoWorkouts() {
+        // given
+        let workingOuts = [true, true, false, false, true, true]
+        let records = makeWorkoutRecords(with: (Date(), .false), count: workingOuts.count)
+
+        workoutStore.workoutAtIndexResult = anyWorkout
+        workoutStore.records = records
+
+        // when
+        sut.execute(withWorkoutIndex: anyWorkoutIndex,
+                    dateIndex: anyDateIndex,
+                    workingOuts: workingOuts)
+
+        // then
+        XCTAssertEqual(workoutWriter.saveWorkoutCount, 2)
+        XCTAssertEqual(output.didSaveCount, 1)
+    }
 }
 
 // MARK: - Private body
 
 private extension SaveWorkingOutsInteractorTests {
-    func makeWorkoutRecord(with workingOut: WorkingOut) -> WorkoutRecord {
-        return WorkoutRecord(heartRate: anyHeartRate, workingOut: workingOut)
+
+    // MARK: - Private methods
+
+    func makeWorkoutRecord(with tuple: (Date, WorkingOut)) -> WorkoutRecord {
+        let anyHeartRate = HeartRateRecord(date: tuple.0, bpm: Float(60))
+
+        return WorkoutRecord(heartRate: anyHeartRate, workingOut: tuple.1)
+    }
+
+    func makeWorkoutRecords(with tuple: (Date, WorkingOut), count: Int) -> [WorkoutRecord] {
+        var records = [] as [WorkoutRecord]
+
+        for increment in 0..<count {
+            let nextTuple = (tuple.0.addingTimeInterval(TimeInterval(increment)), tuple.1)
+
+            records.append(makeWorkoutRecord(with: nextTuple))
+        }
+
+        return records
     }
 }
