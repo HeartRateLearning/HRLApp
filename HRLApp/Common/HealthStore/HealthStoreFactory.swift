@@ -38,6 +38,14 @@ extension HealthStoreFactory: HealthStoreFactoryProtocol {
 
         return HeartRateReader(store: currentStore)
     }
+
+    func makeWorkoutWriter() -> WorkoutWriterProtocol? {
+        guard let currentStore = currentHealthStore() else {
+            return nil
+        }
+
+        return WorkoutWriter(store: currentStore)
+    }
 }
 
 // MARK: - Private body
@@ -59,7 +67,7 @@ private extension HealthStoreFactory {
     // MARK: - Constants
 
     enum Constants {
-        static let typesToShare = nil as Set<HKSampleType>?
+        static let typesToShare = Set(arrayLiteral: WorkoutWriter.workoutType)
         static let typesToRead = Set(arrayLiteral: HeartRateReader.heartRateType)
     }
 

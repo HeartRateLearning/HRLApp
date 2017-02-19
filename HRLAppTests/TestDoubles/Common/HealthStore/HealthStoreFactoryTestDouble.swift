@@ -18,8 +18,10 @@ final class HealthStoreFactoryTestDouble {
 
     fileprivate (set) var setupCount = 0
     fileprivate (set) var makeHeartRateReaderCount = 0
+    fileprivate (set) var makeWorkoutWriterCount = 0
 
     var makeHeartRateReaderResult: HeartRateReaderProtocol?
+    var makeWorkoutWriterResult: WorkoutWriterProtocol?
 }
 
 // MARK: - HealthStoreFactoryProtocol methods
@@ -33,5 +35,11 @@ extension HealthStoreFactoryTestDouble: HealthStoreFactoryProtocol {
         makeHeartRateReaderCount += 1
 
         return makeHeartRateReaderResult
+    }
+
+    func makeWorkoutWriter() -> WorkoutWriterProtocol? {
+        makeWorkoutWriterCount += 1
+
+        return makeWorkoutWriterResult
     }
 }

@@ -12,4 +12,5 @@ protocol HealthStoreFactoryProtocol {
     func setup()
 
     func makeHeartRateReader() -> HeartRateReaderProtocol?
+    func makeWorkoutWriter() -> WorkoutWriterProtocol?
 }
