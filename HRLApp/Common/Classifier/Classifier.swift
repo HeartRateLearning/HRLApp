@@ -34,7 +34,7 @@ final class Classifier {
 extension Classifier: Trainable {
     func fit(trainingData: [Trainable.TrainingTuple]) {
         let updatedDataFrame = updatePersistedDataFrame(with: trainingData)
-        let classifier = makeClassifier(with: updatedDataFrame)
+        let classifier = makeClassifier(dataFrame: updatedDataFrame)
 
         updateState(with: classifier)
     }
@@ -89,7 +89,7 @@ private extension Classifier {
         case .made(let madeClassifier):
             classifier = madeClassifier
         case .pending:
-            classifier = makeClassifier(with: dataFrameStore.read())
+            classifier = makeClassifier(dataFrame: dataFrameStore.read())
 
             updateState(with: classifier)
         }
@@ -97,8 +97,8 @@ private extension Classifier {
         return classifier
     }
 
-    func makeClassifier(with dataFrame: DataFrame) -> HRLClassifier.ClassifierProtocol? {
-        return try? factory.makeClassifier(with: dataFrame)
+    func makeClassifier(dataFrame: DataFrame) -> HRLClassifier.ClassifierProtocol? {
+        return try? factory.makeClassifier(dataFrame: dataFrame)
     }
 
     func updateState(with classifier: HRLClassifier.ClassifierProtocol?) {

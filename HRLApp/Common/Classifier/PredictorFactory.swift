@@ -9,5 +9,5 @@
 import Foundation
 
 protocol PredictorFactory {
-    func makePredictor(for workout: Workout) -> Predictor
+    func makePredictor(workout: Workout) -> Predictor
 }

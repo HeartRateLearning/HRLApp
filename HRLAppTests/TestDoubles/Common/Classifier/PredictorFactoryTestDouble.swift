@@ -24,7 +24,7 @@ final class PredictorFactoryTestDouble {
 // MARK: - PredictorFactory methods
 
 extension PredictorFactoryTestDouble: PredictorFactory {
-    func makePredictor(for workout: Workout) -> Predictor {
+    func makePredictor(workout: Workout) -> Predictor {
         makePredictorCount += 1
 
         return makePredictorResult

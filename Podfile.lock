@@ -1,15 +1,15 @@
 PODS:
   - HRLAlgorithms (1.0.1)
-  - HRLClassifier (2.1.0):
+  - HRLClassifier (3.0.1):
     - HRLAlgorithms (~> 1.0)
 
 DEPENDENCIES:
-  - HRLClassifier (~> 2.1)
+  - HRLClassifier (~> 3.0)
 
 SPEC CHECKSUMS:
   HRLAlgorithms: 4b768da558f2ce4c0edb561fed1bd9e20d9134dc
-  HRLClassifier: 6d34748478dc53c6b0ba3a7e583e97c56a6c6206
+  HRLClassifier: 44e85923f9a8c944d0296dd9871df0cfd98f5913
 
-PODFILE CHECKSUM: 2cc4a44ff099485bfd694b635aa5f8aa6ae3bd94
+PODFILE CHECKSUM: 4f04a1756723331a23fd752f486848fa72948bae
 
 COCOAPODS: 1.1.1

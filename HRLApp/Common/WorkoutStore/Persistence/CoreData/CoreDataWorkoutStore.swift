@@ -130,7 +130,7 @@ extension CoreDataWorkoutStore: PersistableWorkoutStore {
             return nil
         }
 
-        return makeRecord(with: coreRecord)
+        return makeRecord(coreDataRecord: coreRecord)
     }
 
     func appendRecord(_ record: WorkoutRecord,
@@ -171,13 +171,13 @@ extension CoreDataWorkoutStore: PersistableWorkoutStore {
 
         return records.reduce(nil, { (current, next) -> WorkoutRecord? in
             guard let currentRecord = current else {
-                return makeRecord(with: next as! CoreDataRecord)
+                return makeRecord(coreDataRecord: next as! CoreDataRecord)
             }
 
             let nextRecord = next as! CoreDataRecord
             let nextDate = nextRecord.date as! Date
 
-            return currentRecord.date < nextDate ? makeRecord(with: nextRecord) : current
+            return currentRecord.date < nextDate ? makeRecord(coreDataRecord: nextRecord) : current
         })
     }
 }
@@ -211,7 +211,7 @@ private extension CoreDataWorkoutStore {
         coreDataDate.date = date as NSDate
     }
 
-    func makeRecord(with coreDataRecord: CoreDataRecord) -> WorkoutRecord {
+    func makeRecord(coreDataRecord: CoreDataRecord) -> WorkoutRecord {
         let heartRate = HeartRateRecord(date: coreDataRecord.date as! Date, bpm: coreDataRecord.bpm)
         let workingOut = WorkingOut(rawValue: Int(coreDataRecord.workingOut))!
 

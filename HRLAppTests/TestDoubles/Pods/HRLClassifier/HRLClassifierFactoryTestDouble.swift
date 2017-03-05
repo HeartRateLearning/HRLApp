@@ -25,7 +25,7 @@ final class HRLClassifierFactoryTestDouble {
 // MARK: - HRLClassifier.ClassifierFactoryProtocol methods
 
 extension HRLClassifierFactoryTestDouble: HRLClassifier.ClassifierFactoryProtocol {
-    func makeClassifier(with dataFrame: HRLClassifier.DataFrame) throws -> HRLClassifier.ClassifierProtocol {
+    func makeClassifier(dataFrame: HRLClassifier.DataFrame) throws -> HRLClassifier.ClassifierProtocol {
         makeClassifierCount += 1
 
         lastMakeClassifierDataFrame = dataFrame

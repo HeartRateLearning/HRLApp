@@ -85,7 +85,7 @@ final class GetHeartRatesInteractorTests: XCTestCase {
 
     func testMostRecentRecordAndDateForGivenIndexes_execute_queryRecordsAfterDate() {
         // given
-        workoutStore.mostRecentRecordResult = makeWorkoutRecord(with: .unknown)
+        workoutStore.mostRecentRecordResult = makeWorkoutRecord(workingOut: .unknown)
 
         // when
         sut.execute(withWorkoutIndex: anyWorkoutIndex, dateIndex: anyDateIndex)
@@ -110,7 +110,7 @@ final class GetHeartRatesInteractorTests: XCTestCase {
 
     func testHeartRateReaderWithRecords_execute_factoryMakesPredictor() {
         // given
-        heartRateReader.queryRecordsAfterOrEqualResult = makeHeartRateRecords(with: .unknown)
+        heartRateReader.queryRecordsAfterOrEqualResult = makeHeartRateRecords(workingOut: .unknown)
 
         // when
         sut.execute(withWorkoutIndex: anyWorkoutIndex, dateIndex: anyDateIndex)
@@ -121,7 +121,7 @@ final class GetHeartRatesInteractorTests: XCTestCase {
 
     func testHeartRateReaderWithRecords_execute_classifierPredictsWorkingOut() {
         // given
-        heartRateReader.queryRecordsAfterOrEqualResult = makeHeartRateRecords(with: .unknown)
+        heartRateReader.queryRecordsAfterOrEqualResult = makeHeartRateRecords(workingOut: .unknown)
 
         // when
         sut.execute(withWorkoutIndex: anyWorkoutIndex, dateIndex: anyDateIndex)
@@ -133,7 +133,7 @@ final class GetHeartRatesInteractorTests: XCTestCase {
 
     func testHeartRateReaderWithRecords_execute_appendRecordsToWorkoutStore() {
         // given
-        heartRateReader.queryRecordsAfterOrEqualResult = makeHeartRateRecords(with: .unknown)
+        heartRateReader.queryRecordsAfterOrEqualResult = makeHeartRateRecords(workingOut: .unknown)
 
         // when
         sut.execute(withWorkoutIndex: anyWorkoutIndex, dateIndex: anyDateIndex)
@@ -148,10 +148,10 @@ final class GetHeartRatesInteractorTests: XCTestCase {
         let recordWorkingOut = WorkingOut.unknown
         let heartRateWorkingOut = false
 
-        let records = makeHeartRateRecords(with: recordWorkingOut)
-        let heartRateRecords = makeFoundHeartRateRecords(with: recordWorkingOut,
+        let records = makeHeartRateRecords(workingOut: recordWorkingOut)
+        let heartRateRecords = makeFoundHeartRateRecords(workingOut: recordWorkingOut,
                                                          heartRateWorkingOut: heartRateWorkingOut)
-        let workoutRecords = makeWorkoutRecords(with: recordWorkingOut,
+        let workoutRecords = makeWorkoutRecords(workingOut: recordWorkingOut,
                                                 count: heartRateRecords.count)
 
         heartRateReader.queryRecordsAfterOrEqualResult = records
@@ -170,10 +170,10 @@ final class GetHeartRatesInteractorTests: XCTestCase {
         let recordWorkingOut = WorkingOut.false
         let heartRateWorkingOut = false
 
-        let records = makeHeartRateRecords(with: recordWorkingOut)
-        let heartRateRecords = makeFoundHeartRateRecords(with: recordWorkingOut,
+        let records = makeHeartRateRecords(workingOut: recordWorkingOut)
+        let heartRateRecords = makeFoundHeartRateRecords(workingOut: recordWorkingOut,
                                                          heartRateWorkingOut: heartRateWorkingOut)
-        let workoutRecords = makeWorkoutRecords(with: recordWorkingOut,
+        let workoutRecords = makeWorkoutRecords(workingOut: recordWorkingOut,
                                                 count: heartRateRecords.count)
 
         heartRateReader.queryRecordsAfterOrEqualResult = records
@@ -192,10 +192,10 @@ final class GetHeartRatesInteractorTests: XCTestCase {
         let recordWorkingOut = WorkingOut.true
         let heartRateWorkingOut = true
 
-        let records = makeHeartRateRecords(with: recordWorkingOut)
-        let heartRateRecords = makeFoundHeartRateRecords(with: recordWorkingOut,
+        let records = makeHeartRateRecords(workingOut: recordWorkingOut)
+        let heartRateRecords = makeFoundHeartRateRecords(workingOut: recordWorkingOut,
                                                          heartRateWorkingOut: heartRateWorkingOut)
-        let workoutRecords = makeWorkoutRecords(with: recordWorkingOut,
+        let workoutRecords = makeWorkoutRecords(workingOut: recordWorkingOut,
                                                 count: heartRateRecords.count)
 
         heartRateReader.queryRecordsAfterOrEqualResult = records
@@ -213,32 +213,32 @@ final class GetHeartRatesInteractorTests: XCTestCase {
 // MARK: - Private body
 
 private extension GetHeartRatesInteractorTests {
-    func makeWorkoutRecord(with workingOut: WorkingOut) -> WorkoutRecord {
+    func makeWorkoutRecord(workingOut: WorkingOut) -> WorkoutRecord {
         let heartRateRecord = HeartRateRecord(date: anyDate, bpm: anyBPM)
 
         return WorkoutRecord(heartRate: heartRateRecord, workingOut: workingOut)
     }
 
-    func makeWorkoutRecords(with workingOut: WorkingOut, count: Int) -> [WorkoutRecord] {
+    func makeWorkoutRecords(workingOut: WorkingOut, count: Int) -> [WorkoutRecord] {
         var records = [] as [WorkoutRecord]
 
         for _ in 0..<count {
-            records.append(makeWorkoutRecord(with: workingOut))
+            records.append(makeWorkoutRecord(workingOut: workingOut))
         }
 
         return records
     }
 
-    func makeHeartRateRecords(with workingOut: WorkingOut) -> [HeartRateRecord] {
-        let workoutRecord = makeWorkoutRecord(with: workingOut)
+    func makeHeartRateRecords(workingOut: WorkingOut) -> [HeartRateRecord] {
+        let workoutRecord = makeWorkoutRecord(workingOut: workingOut)
         let heartRateRecord = HeartRateRecord(date: workoutRecord.date, bpm: workoutRecord.bpm)
 
         return [heartRateRecord, heartRateRecord]
     }
 
-    func makeFoundHeartRateRecords(with workingOut: WorkingOut,
+    func makeFoundHeartRateRecords(workingOut: WorkingOut,
                                    heartRateWorkingOut: Bool) -> [FoundHeartRateRecord] {
-        let heartRateRecords = makeHeartRateRecords(with: workingOut)
+        let heartRateRecords = makeHeartRateRecords(workingOut: workingOut)
 
         return heartRateRecords.map { (record) -> FoundHeartRateRecord in
             return FoundHeartRateRecord(date: record.date,

@@ -16,16 +16,16 @@ final class ClassifierFactory {}
 // MARK: - PredictorFactory methods
 
 extension ClassifierFactory: PredictorFactory {
-    func makePredictor(for workout: Workout) -> Predictor {
-        return makeClassifier(for: workout)
+    func makePredictor(workout: Workout) -> Predictor {
+        return makeClassifier(workout: workout)
     }
 }
 
 // MARK: - TrainableFactory methods
 
 extension ClassifierFactory: TrainableFactory {
-    func makeTrainable(for workout: Workout) -> Trainable {
-        return makeClassifier(for: workout)
+    func makeTrainable(workout: Workout) -> Trainable {
+        return makeClassifier(workout: workout)
     }
 }
 
@@ -35,7 +35,7 @@ private extension ClassifierFactory {
 
     // MARK: - Private methods
 
-    func makeClassifier(for workout: Workout) -> Classifier {
+    func makeClassifier(workout: Workout) -> Classifier {
         let factory = HRLClassifier.ClassifierFactory()
         let dataFrameStore = DataFramePersistentStore(workout: workout)
 

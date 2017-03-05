@@ -39,7 +39,7 @@ extension GetHeartRatesInteractor: GetHeartRatesInteractorInput {
                 return
             }
 
-            let predictor = strongSelf.factory.makePredictor(for: workout)
+            let predictor = strongSelf.factory.makePredictor(workout: workout)
             strongSelf.appendRecords(records,
                                      toWorkoutAt: workoutIndex,
                                      dateAt: dateIndex,

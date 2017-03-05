@@ -106,7 +106,7 @@ private extension SaveWorkingOutsInteractor {
     }
 
     func trainClassifier(for workout: Workout, with trainingData: [Trainable.TrainingTuple]) {
-        let trainee = factory.makeTrainable(for: workout)
+        let trainee = factory.makeTrainable(workout: workout)
 
         trainee.fit(trainingData: trainingData)
     }

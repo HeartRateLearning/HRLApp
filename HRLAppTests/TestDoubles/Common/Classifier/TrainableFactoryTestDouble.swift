@@ -24,7 +24,7 @@ final class TrainableFactoryTestDouble {
 // MARK: - TrainableFactory methods
 
 extension TrainableFactoryTestDouble: TrainableFactory {
-    func makeTrainable(for workout: Workout) -> Trainable {
+    func makeTrainable(workout: Workout) -> Trainable {
         makeTrainableCount += 1
 
         return makeTrainableResult

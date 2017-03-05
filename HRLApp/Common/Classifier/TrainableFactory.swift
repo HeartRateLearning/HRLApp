@@ -9,5 +9,5 @@
 import Foundation
 
 protocol TrainableFactory {
-    func makeTrainable(for workout: Workout) -> Trainable
+    func makeTrainable(workout: Workout) -> Trainable
 }
